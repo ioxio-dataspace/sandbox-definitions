@@ -1,0 +1,175 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "BLE Beacons",
+    "description": "Data Product for indoor location based on BLE beacons",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/test/Indoor/BLEBeacons": {
+      "post": {
+        "summary": "test/Indoor/BLEBeacons",
+        "description": "Indoor location based on BLE beacons",
+        "operationId": "request_test_Indoor_BLEBeacons",
+        "parameters": [
+          {
+            "description": "Optional consent token",
+            "required": false,
+            "schema": {
+              "title": "X-Consent-Token",
+              "type": "string",
+              "description": "Optional consent token"
+            },
+            "name": "x-consent-token",
+            "in": "header"
+          },
+          {
+            "description": "The login token. Value should be \"Bearer [token]\"",
+            "required": false,
+            "schema": {
+              "title": "Authorization",
+              "type": "string",
+              "description": "The login token. Value should be \"Bearer [token]\""
+            },
+            "name": "authorization",
+            "in": "header"
+          },
+          {
+            "description": "The bare domain of the system that provided the token.",
+            "required": false,
+            "schema": {
+              "title": "X-Authorization-Provider",
+              "type": "string",
+              "description": "The bare domain of the system that provided the token."
+            },
+            "name": "x-authorization-provider",
+            "in": "header"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BLEBeaconsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BLEBeaconsResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BLEBeaconsRequest": {
+        "title": "BLEBeaconsRequest",
+        "required": ["beacons"],
+        "type": "object",
+        "properties": {
+          "beacons": {
+            "title": "Beacons",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Beacon"
+            }
+          }
+        }
+      },
+      "BLEBeaconsResponse": {
+        "title": "BLEBeaconsResponse",
+        "required": ["locationId", "locationName"],
+        "type": "object",
+        "properties": {
+          "locationId": {
+            "title": "Location ID",
+            "type": "string",
+            "description": "Location ID",
+            "example": "849cc493-efb7-483f-b634-7a44849270f9"
+          },
+          "locationName": {
+            "title": "Location name",
+            "type": "string",
+            "description": "Location name",
+            "example": "Deck #3"
+          }
+        }
+      },
+      "Beacon": {
+        "title": "Beacon",
+        "required": ["beaconId", "rssi"],
+        "type": "object",
+        "properties": {
+          "beaconId": {
+            "title": "Beacon ID",
+            "type": "string",
+            "description": "Beacon ID",
+            "example": "0d9b38d3-f8a0-4efe-ad62-f781fea62b86"
+          },
+          "rssi": {
+            "title": "RSSI",
+            "type": "number",
+            "description": "Received Signal Strength Indication, in dBm",
+            "example": -55
+          }
+        }
+      },
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          }
+        }
+      },
+      "ValidationError": {
+        "title": "ValidationError",
+        "required": ["loc", "msg", "type"],
+        "type": "object",
+        "properties": {
+          "loc": {
+            "title": "Location",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
