@@ -6,7 +6,7 @@ on:
 
 jobs:
   Notify:
-    name: Convert definitions
+    name: Send Slack notification
     runs-on: ubuntu-latest
     steps:
       - name: Send notification
