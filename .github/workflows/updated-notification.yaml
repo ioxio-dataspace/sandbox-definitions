@@ -1,0 +1,25 @@
+name: Notify definitions were updated
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  trigger-webhook:
+    name: Trigger webhook
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger webhook using curl
+        run: |
+          curl --request POST \
+            --url "$WEBHOOK_URL" \
+            --user "$WEBHOOK_USERNAME:$WEBHOOK_PASSWORD" \
+            --header 'Content-Type: application/json' \
+            --data '{"action": "definitionsChanged"}' \
+            --no-progress-meter
+        if: env.WEBHOOK_URL
+        env:
+          WEBHOOK_USERNAME: ${{ secrets.WEBHOOK_USERNAME }}
+          WEBHOOK_PASSWORD: ${{ secrets.WEBHOOK_PASSWORD }}
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
