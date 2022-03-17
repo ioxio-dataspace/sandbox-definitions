@@ -1,16 +1,16 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Packing List",
-    "description": "Data Product for Packing List",
+    "title": "Export Instructions",
+    "description": "Data Product for Export Instructions",
     "version": "1.0.0"
   },
   "paths": {
-    "/draft/Shipment/PackingList": {
+    "/test/LetterOfCredit/ExportInstructions": {
       "post": {
-        "summary": "draft/Shipment/PackingList",
-        "description": "Packing List",
-        "operationId": "request_draft_Shipment_PackingList",
+        "summary": "test/LetterOfCredit/ExportInstructions",
+        "description": "Export Instructions",
+        "operationId": "request_test_LetterOfCredit_ExportInstructions",
         "parameters": [
           {
             "description": "Optional consent token",
@@ -50,7 +50,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PackingListRequest"
+                "$ref": "#/components/schemas/ExportInstructionsRequest"
               }
             }
           },
@@ -62,7 +62,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PackingListResponse"
+                  "$ref": "#/components/schemas/ExportInstructionsResponse"
                 }
               }
             }
@@ -83,6 +83,129 @@
   },
   "components": {
     "schemas": {
+      "ExportInstructionsRequest": {
+        "title": "ExportInstructionsRequest",
+        "required": ["letterOfCreditNumber"],
+        "type": "object",
+        "properties": {
+          "letterOfCreditNumber": {
+            "title": "Letter of credit number",
+            "type": "string",
+            "example": "123"
+          }
+        }
+      },
+      "ExportInstructionsResponse": {
+        "title": "ExportInstructionsResponse",
+        "required": [
+          "advisingBankBic",
+          "advisingBankName",
+          "advisingBankReference",
+          "applicantAddress",
+          "applicantName",
+          "beneficiaryAddress",
+          "beneficiaryName",
+          "confirmationInstructions",
+          "contractReference",
+          "creditAvailability",
+          "currencyCode",
+          "dateOfExpiry",
+          "descriptionOfGoods",
+          "incoterm",
+          "incotermPlace",
+          "issueDate",
+          "issuingBankBic",
+          "issuingBankName",
+          "latestDateOfShipment",
+          "letterOfCreditValue"
+        ],
+        "type": "object",
+        "properties": {
+          "advisingBankBic": {
+            "title": "Advising bank BIC",
+            "type": "string"
+          },
+          "advisingBankName": {
+            "title": "Advising bank name",
+            "type": "string"
+          },
+          "advisingBankReference": {
+            "title": "Advising bank reference",
+            "type": "string"
+          },
+          "applicantAddress": {
+            "title": "Applicant address",
+            "type": "string"
+          },
+          "applicantName": {
+            "title": "Applicant name",
+            "type": "string"
+          },
+          "beneficiaryAddress": {
+            "title": "Beneficiary address",
+            "type": "string"
+          },
+          "beneficiaryName": {
+            "title": "Beneficiary name",
+            "type": "string"
+          },
+          "confirmationInstructions": {
+            "title": "Confirmation instructions",
+            "type": "string"
+          },
+          "contractReference": {
+            "title": "Contract reference",
+            "type": "string"
+          },
+          "creditAvailability": {
+            "title": "Credit availability",
+            "type": "string"
+          },
+          "currencyCode": {
+            "title": "Currency code",
+            "type": "string"
+          },
+          "dateOfExpiry": {
+            "title": "Date of expiry",
+            "type": "string",
+            "format": "date-time"
+          },
+          "descriptionOfGoods": {
+            "title": "Description of goods",
+            "type": "string"
+          },
+          "incoterm": {
+            "title": "Incoterm",
+            "type": "string"
+          },
+          "incotermPlace": {
+            "title": "Incoterm place",
+            "type": "string"
+          },
+          "issueDate": {
+            "title": "Issue date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "issuingBankBic": {
+            "title": "Issuing bank BIC",
+            "type": "string"
+          },
+          "issuingBankName": {
+            "title": "Issuing bank name",
+            "type": "string"
+          },
+          "latestDateOfShipment": {
+            "title": "Latest date of shipment",
+            "type": "string",
+            "format": "date-time"
+          },
+          "letterOfCreditValue": {
+            "title": "Letter of credit value",
+            "type": "integer"
+          }
+        }
+      },
       "HTTPValidationError": {
         "title": "HTTPValidationError",
         "type": "object",
@@ -93,114 +216,6 @@
             "items": {
               "$ref": "#/components/schemas/ValidationError"
             }
-          }
-        }
-      },
-      "PackingListRequest": {
-        "title": "PackingListRequest",
-        "required": ["shipmentId"],
-        "type": "object",
-        "properties": {
-          "shipmentId": {
-            "title": "Shipment ID",
-            "type": "string"
-          }
-        }
-      },
-      "PackingListResponse": {
-        "title": "PackingListResponse",
-        "required": [
-          "contractReference",
-          "descriptionOfGoods",
-          "finalDestination",
-          "handlingUnits",
-          "incoterm",
-          "incotermPlace",
-          "lcNumber",
-          "packingDescription",
-          "packingReference",
-          "placeOfReceipt",
-          "productItems",
-          "totalGrossWeight",
-          "totalNetWeight",
-          "totalVolume"
-        ],
-        "type": "object",
-        "properties": {
-          "contractReference": {
-            "title": "Contract reference",
-            "type": "string"
-          },
-          "descriptionOfGoods": {
-            "title": "Description of goods",
-            "type": "string"
-          },
-          "finalDestination": {
-            "title": "Final destination",
-            "type": "string"
-          },
-          "handlingUnits": {
-            "title": "Handling units",
-            "type": "integer"
-          },
-          "incoterm": {
-            "title": "Incoterm",
-            "type": "string"
-          },
-          "incotermPlace": {
-            "title": "Incoterm place",
-            "type": "string"
-          },
-          "lcNumber": {
-            "title": "LC number",
-            "type": "string"
-          },
-          "packingDescription": {
-            "title": "Packing description",
-            "type": "string"
-          },
-          "packingReference": {
-            "title": "Packing reference",
-            "type": "string"
-          },
-          "placeOfReceipt": {
-            "title": "Place of receipt",
-            "type": "string"
-          },
-          "productItems": {
-            "title": "Product items",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProductItem"
-            },
-            "description": "List of product items"
-          },
-          "totalGrossWeight": {
-            "title": "Total gross weight",
-            "type": "number"
-          },
-          "totalNetWeight": {
-            "title": "Total net weight",
-            "type": "number"
-          },
-          "totalVolume": {
-            "title": "Total volume",
-            "type": "number"
-          }
-        }
-      },
-      "ProductItem": {
-        "title": "ProductItem",
-        "required": ["productCode", "productCount"],
-        "type": "object",
-        "properties": {
-          "productCode": {
-            "title": "Product code",
-            "type": "string"
-          },
-          "productCount": {
-            "title": "Product count",
-            "type": "integer"
           }
         }
       },

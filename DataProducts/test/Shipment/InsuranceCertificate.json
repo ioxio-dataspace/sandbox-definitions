@@ -1,16 +1,16 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Invoice",
-    "description": "Data Product for Invoice",
+    "title": "Insurance Certificate",
+    "description": "Data Product for Insurance Certificate",
     "version": "1.0.0"
   },
   "paths": {
-    "/draft/Transaction/Invoice": {
+    "/test/Shipment/InsuranceCertificate": {
       "post": {
-        "summary": "draft/Transaction/Invoice",
-        "description": "Invoice",
-        "operationId": "request_draft_Transaction_Invoice",
+        "summary": "test/Shipment/InsuranceCertificate",
+        "description": "Insurance Certificate",
+        "operationId": "request_test_Shipment_InsuranceCertificate",
         "parameters": [
           {
             "description": "Optional consent token",
@@ -50,7 +50,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/InvoiceRequest"
+                "$ref": "#/components/schemas/InsuranceCertificateRequest"
               }
             }
           },
@@ -62,7 +62,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/InvoiceResponse"
+                  "$ref": "#/components/schemas/InsuranceCertificateResponse"
                 }
               }
             }
@@ -96,8 +96,8 @@
           }
         }
       },
-      "InvoiceRequest": {
-        "title": "InvoiceRequest",
+      "InsuranceCertificateRequest": {
+        "title": "InsuranceCertificateRequest",
         "required": ["shipmentId"],
         "type": "object",
         "properties": {
@@ -107,78 +107,24 @@
           }
         }
       },
-      "InvoiceResponse": {
-        "title": "InvoiceResponse",
+      "InsuranceCertificateResponse": {
+        "title": "InsuranceCertificateResponse",
         "required": [
-          "amountToBePaid",
-          "bankContactBic",
-          "bankContactIban",
-          "bankContactName",
-          "buyerContactPersonName",
-          "buyerName",
-          "buyerVatNumber",
-          "contractReference",
-          "countryOfOrigin",
           "currencyCode",
           "descriptionOfGoods",
+          "finalDestination",
           "handlingUnits",
-          "incoterm",
-          "incotermPlace",
-          "invoiceNote",
-          "invoiceReference",
-          "issueDate",
-          "lcNumber",
-          "letterOfCreditValue",
+          "instituteClauses",
+          "insuranceValue",
+          "insuranceValuePercentage",
+          "insurerAddress",
+          "insurerName",
           "modeOfDelivery",
-          "orderReference",
-          "projectReference",
-          "sellerContactPersonName",
-          "sellerName",
-          "sellerVatNumber",
-          "taxRate",
-          "totalGrossWeight",
-          "totalNetWeight",
-          "totalVolume",
-          "valueOfShipment"
+          "placeOfReceipt",
+          "totalGrossWeight"
         ],
         "type": "object",
         "properties": {
-          "amountToBePaid": {
-            "title": "Amount to be paid",
-            "type": "number"
-          },
-          "bankContactBic": {
-            "title": "Bank contact BIC",
-            "type": "string"
-          },
-          "bankContactIban": {
-            "title": "Bank contact IBAN",
-            "type": "string"
-          },
-          "bankContactName": {
-            "title": "Bank contact name",
-            "type": "string"
-          },
-          "buyerContactPersonName": {
-            "title": "Buyer contact person name",
-            "type": "string"
-          },
-          "buyerName": {
-            "title": "Buyer name",
-            "type": "string"
-          },
-          "buyerVatNumber": {
-            "title": "Buyer VAT number",
-            "type": "string"
-          },
-          "contractReference": {
-            "title": "Contract reference",
-            "type": "string"
-          },
-          "countryOfOrigin": {
-            "title": "Country of origin",
-            "type": "string"
-          },
           "currencyCode": {
             "title": "Currency code",
             "type": "string"
@@ -187,81 +133,44 @@
             "title": "Description of goods",
             "type": "string"
           },
+          "finalDestination": {
+            "title": "Final destination",
+            "type": "string"
+          },
           "handlingUnits": {
             "title": "Handling units",
             "type": "integer"
           },
-          "incoterm": {
-            "title": "Incoterm",
+          "instituteClauses": {
+            "title": "Institute clauses",
             "type": "string"
           },
-          "incotermPlace": {
-            "title": "Incoterm place",
-            "type": "string"
-          },
-          "invoiceNote": {
-            "title": "Invoice note",
-            "type": "string"
-          },
-          "invoiceReference": {
-            "title": "Invoice reference",
-            "type": "string"
-          },
-          "issueDate": {
-            "title": "Issue date",
-            "type": "string",
-            "format": "date-time"
-          },
-          "lcNumber": {
-            "title": "LC number",
-            "type": "string"
-          },
-          "letterOfCreditValue": {
-            "title": "Letter of credit value",
+          "insuranceValue": {
+            "title": "Insurance value",
             "type": "integer"
+          },
+          "insuranceValuePercentage": {
+            "title": "Insurance value percentage",
+            "type": "number"
+          },
+          "insurerAddress": {
+            "title": "Insurer address",
+            "type": "string"
+          },
+          "insurerName": {
+            "title": "Insurer name",
+            "type": "string"
           },
           "modeOfDelivery": {
             "title": "Mode of delivery",
             "type": "string"
           },
-          "orderReference": {
-            "title": "Order reference",
+          "placeOfReceipt": {
+            "title": "Place of receipt",
             "type": "string"
-          },
-          "projectReference": {
-            "title": "Project reference",
-            "type": "string"
-          },
-          "sellerContactPersonName": {
-            "title": "Seller contact person name",
-            "type": "string"
-          },
-          "sellerName": {
-            "title": "Seller name",
-            "type": "string"
-          },
-          "sellerVatNumber": {
-            "title": "Seller VAT number",
-            "type": "string"
-          },
-          "taxRate": {
-            "title": "Tax rate",
-            "type": "integer"
           },
           "totalGrossWeight": {
             "title": "Total gross weight",
-            "type": "number"
-          },
-          "totalNetWeight": {
-            "title": "Total net weight",
-            "type": "number"
-          },
-          "totalVolume": {
-            "title": "Total volume",
-            "type": "number"
-          },
-          "valueOfShipment": {
-            "title": "Value of shipment",
             "type": "number"
           }
         }

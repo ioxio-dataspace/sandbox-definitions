@@ -1,16 +1,16 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Export Instructions",
-    "description": "Data Product for Export Instructions",
+    "title": "Invoice",
+    "description": "Data Product for Invoice",
     "version": "1.0.0"
   },
   "paths": {
-    "/draft/LetterOfCredit/ExportInstructions": {
+    "/test/Transaction/Invoice": {
       "post": {
-        "summary": "draft/LetterOfCredit/ExportInstructions",
-        "description": "Export Instructions",
-        "operationId": "request_draft_LetterOfCredit_ExportInstructions",
+        "summary": "test/Transaction/Invoice",
+        "description": "Invoice",
+        "operationId": "request_test_Transaction_Invoice",
         "parameters": [
           {
             "description": "Optional consent token",
@@ -50,7 +50,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ExportInstructionsRequest"
+                "$ref": "#/components/schemas/InvoiceRequest"
               }
             }
           },
@@ -62,7 +62,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ExportInstructionsResponse"
+                  "$ref": "#/components/schemas/InvoiceResponse"
                 }
               }
             }
@@ -83,129 +83,6 @@
   },
   "components": {
     "schemas": {
-      "ExportInstructionsRequest": {
-        "title": "ExportInstructionsRequest",
-        "required": ["letterOfCreditNumber"],
-        "type": "object",
-        "properties": {
-          "letterOfCreditNumber": {
-            "title": "Letter of credit number",
-            "type": "string",
-            "example": "123"
-          }
-        }
-      },
-      "ExportInstructionsResponse": {
-        "title": "ExportInstructionsResponse",
-        "required": [
-          "advisingBankBic",
-          "advisingBankName",
-          "advisingBankReference",
-          "applicantAddress",
-          "applicantName",
-          "beneficiaryAddress",
-          "beneficiaryName",
-          "confirmationInstructions",
-          "contractReference",
-          "creditAvailability",
-          "currencyCode",
-          "dateOfExpiry",
-          "descriptionOfGoods",
-          "incoterm",
-          "incotermPlace",
-          "issueDate",
-          "issuingBankBic",
-          "issuingBankName",
-          "latestDateOfShipment",
-          "letterOfCreditValue"
-        ],
-        "type": "object",
-        "properties": {
-          "advisingBankBic": {
-            "title": "Advising bank BIC",
-            "type": "string"
-          },
-          "advisingBankName": {
-            "title": "Advising bank name",
-            "type": "string"
-          },
-          "advisingBankReference": {
-            "title": "Advising bank reference",
-            "type": "string"
-          },
-          "applicantAddress": {
-            "title": "Applicant address",
-            "type": "string"
-          },
-          "applicantName": {
-            "title": "Applicant name",
-            "type": "string"
-          },
-          "beneficiaryAddress": {
-            "title": "Beneficiary address",
-            "type": "string"
-          },
-          "beneficiaryName": {
-            "title": "Beneficiary name",
-            "type": "string"
-          },
-          "confirmationInstructions": {
-            "title": "Confirmation instructions",
-            "type": "string"
-          },
-          "contractReference": {
-            "title": "Contract reference",
-            "type": "string"
-          },
-          "creditAvailability": {
-            "title": "Credit availability",
-            "type": "string"
-          },
-          "currencyCode": {
-            "title": "Currency code",
-            "type": "string"
-          },
-          "dateOfExpiry": {
-            "title": "Date of expiry",
-            "type": "string",
-            "format": "date-time"
-          },
-          "descriptionOfGoods": {
-            "title": "Description of goods",
-            "type": "string"
-          },
-          "incoterm": {
-            "title": "Incoterm",
-            "type": "string"
-          },
-          "incotermPlace": {
-            "title": "Incoterm place",
-            "type": "string"
-          },
-          "issueDate": {
-            "title": "Issue date",
-            "type": "string",
-            "format": "date-time"
-          },
-          "issuingBankBic": {
-            "title": "Issuing bank BIC",
-            "type": "string"
-          },
-          "issuingBankName": {
-            "title": "Issuing bank name",
-            "type": "string"
-          },
-          "latestDateOfShipment": {
-            "title": "Latest date of shipment",
-            "type": "string",
-            "format": "date-time"
-          },
-          "letterOfCreditValue": {
-            "title": "Letter of credit value",
-            "type": "integer"
-          }
-        }
-      },
       "HTTPValidationError": {
         "title": "HTTPValidationError",
         "type": "object",
@@ -216,6 +93,176 @@
             "items": {
               "$ref": "#/components/schemas/ValidationError"
             }
+          }
+        }
+      },
+      "InvoiceRequest": {
+        "title": "InvoiceRequest",
+        "required": ["shipmentId"],
+        "type": "object",
+        "properties": {
+          "shipmentId": {
+            "title": "Shipment ID",
+            "type": "string"
+          }
+        }
+      },
+      "InvoiceResponse": {
+        "title": "InvoiceResponse",
+        "required": [
+          "amountToBePaid",
+          "bankContactBic",
+          "bankContactIban",
+          "bankContactName",
+          "buyerContactPersonName",
+          "buyerName",
+          "buyerVatNumber",
+          "contractReference",
+          "countryOfOrigin",
+          "currencyCode",
+          "descriptionOfGoods",
+          "handlingUnits",
+          "incoterm",
+          "incotermPlace",
+          "invoiceNote",
+          "invoiceReference",
+          "issueDate",
+          "lcNumber",
+          "letterOfCreditValue",
+          "modeOfDelivery",
+          "orderReference",
+          "projectReference",
+          "sellerContactPersonName",
+          "sellerName",
+          "sellerVatNumber",
+          "taxRate",
+          "totalGrossWeight",
+          "totalNetWeight",
+          "totalVolume",
+          "valueOfShipment"
+        ],
+        "type": "object",
+        "properties": {
+          "amountToBePaid": {
+            "title": "Amount to be paid",
+            "type": "number"
+          },
+          "bankContactBic": {
+            "title": "Bank contact BIC",
+            "type": "string"
+          },
+          "bankContactIban": {
+            "title": "Bank contact IBAN",
+            "type": "string"
+          },
+          "bankContactName": {
+            "title": "Bank contact name",
+            "type": "string"
+          },
+          "buyerContactPersonName": {
+            "title": "Buyer contact person name",
+            "type": "string"
+          },
+          "buyerName": {
+            "title": "Buyer name",
+            "type": "string"
+          },
+          "buyerVatNumber": {
+            "title": "Buyer VAT number",
+            "type": "string"
+          },
+          "contractReference": {
+            "title": "Contract reference",
+            "type": "string"
+          },
+          "countryOfOrigin": {
+            "title": "Country of origin",
+            "type": "string"
+          },
+          "currencyCode": {
+            "title": "Currency code",
+            "type": "string"
+          },
+          "descriptionOfGoods": {
+            "title": "Description of goods",
+            "type": "string"
+          },
+          "handlingUnits": {
+            "title": "Handling units",
+            "type": "integer"
+          },
+          "incoterm": {
+            "title": "Incoterm",
+            "type": "string"
+          },
+          "incotermPlace": {
+            "title": "Incoterm place",
+            "type": "string"
+          },
+          "invoiceNote": {
+            "title": "Invoice note",
+            "type": "string"
+          },
+          "invoiceReference": {
+            "title": "Invoice reference",
+            "type": "string"
+          },
+          "issueDate": {
+            "title": "Issue date",
+            "type": "string",
+            "format": "date-time"
+          },
+          "lcNumber": {
+            "title": "LC number",
+            "type": "string"
+          },
+          "letterOfCreditValue": {
+            "title": "Letter of credit value",
+            "type": "integer"
+          },
+          "modeOfDelivery": {
+            "title": "Mode of delivery",
+            "type": "string"
+          },
+          "orderReference": {
+            "title": "Order reference",
+            "type": "string"
+          },
+          "projectReference": {
+            "title": "Project reference",
+            "type": "string"
+          },
+          "sellerContactPersonName": {
+            "title": "Seller contact person name",
+            "type": "string"
+          },
+          "sellerName": {
+            "title": "Seller name",
+            "type": "string"
+          },
+          "sellerVatNumber": {
+            "title": "Seller VAT number",
+            "type": "string"
+          },
+          "taxRate": {
+            "title": "Tax rate",
+            "type": "integer"
+          },
+          "totalGrossWeight": {
+            "title": "Total gross weight",
+            "type": "number"
+          },
+          "totalNetWeight": {
+            "title": "Total net weight",
+            "type": "number"
+          },
+          "totalVolume": {
+            "title": "Total volume",
+            "type": "number"
+          },
+          "valueOfShipment": {
+            "title": "Value of shipment",
+            "type": "number"
           }
         }
       },

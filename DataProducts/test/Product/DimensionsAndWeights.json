@@ -1,16 +1,16 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Cargo Receipt",
-    "description": "Data Product for Cargo Receipt",
+    "title": "Dimensions And Weights",
+    "description": "Data Product for Dimensions And Weights",
     "version": "1.0.0"
   },
   "paths": {
-    "/draft/Shipment/ForwardersCargoReceipt": {
+    "/test/Product/DimensionsAndWeights": {
       "post": {
-        "summary": "draft/Shipment/ForwardersCargoReceipt",
-        "description": "Cargo Receipt",
-        "operationId": "request_draft_Shipment_ForwardersCargoReceipt",
+        "summary": "test/Product/DimensionsAndWeights",
+        "description": "Dimensions And Weights",
+        "operationId": "request_test_Product_DimensionsAndWeights",
         "parameters": [
           {
             "description": "Optional consent token",
@@ -50,7 +50,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ForwardersCargoReceiptRequest"
+                "$ref": "#/components/schemas/DimensionsAndWeightsRequest"
               }
             }
           },
@@ -62,7 +62,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ForwardersCargoReceiptResponse"
+                  "$ref": "#/components/schemas/DimensionsAndWeightsResponse"
                 }
               }
             }
@@ -83,117 +83,61 @@
   },
   "components": {
     "schemas": {
-      "ForwardersCargoReceiptRequest": {
-        "title": "ForwardersCargoReceiptRequest",
-        "required": ["shipmentId"],
+      "DimensionsAndWeightsRequest": {
+        "title": "DimensionsAndWeightsRequest",
+        "required": ["productCode"],
         "type": "object",
         "properties": {
-          "shipmentId": {
-            "title": "Shipment ID",
+          "productCode": {
+            "title": "Product code",
             "type": "string"
           }
         }
       },
-      "ForwardersCargoReceiptResponse": {
-        "title": "ForwardersCargoReceiptResponse",
+      "DimensionsAndWeightsResponse": {
+        "title": "DimensionsAndWeightsResponse",
         "required": [
-          "carrierName",
-          "exporterName",
-          "finalDestination",
-          "finalDestinationAddress",
-          "forwarderContactPersonName",
-          "forwarderContactPersonPhone",
-          "forwarderName",
-          "handlingUnits",
-          "importerName",
-          "issueDate",
-          "lcNumber",
-          "modeOfDelivery",
-          "placeOfDischarge",
-          "placeOfLoading",
-          "placeOfReceipt",
-          "statement",
-          "totalGrossWeight",
-          "totalNetWeight",
-          "totalVolume"
+          "grossWeight",
+          "height",
+          "length",
+          "netWeight",
+          "productDescription",
+          "productName",
+          "volume",
+          "width"
         ],
         "type": "object",
         "properties": {
-          "carrierName": {
-            "title": "Carrier name",
+          "grossWeight": {
+            "title": "Gross weight",
             "type": "string"
           },
-          "exporterName": {
-            "title": "Exporter name",
-            "type": "string"
-          },
-          "finalDestination": {
-            "title": "Final destination",
-            "type": "string"
-          },
-          "finalDestinationAddress": {
-            "title": "Final destination address",
-            "type": "string"
-          },
-          "forwarderContactPersonName": {
-            "title": "Forwarder contact person name",
-            "type": "string"
-          },
-          "forwarderContactPersonPhone": {
-            "title": "Forwarder contact person phone",
-            "type": "string"
-          },
-          "forwarderName": {
-            "title": "Forwarder name",
-            "type": "string"
-          },
-          "handlingUnits": {
-            "title": "Handling units",
-            "type": "integer"
-          },
-          "importerName": {
-            "title": "Importer name",
-            "type": "string"
-          },
-          "issueDate": {
-            "title": "Issue date",
-            "type": "string",
-            "format": "date-time"
-          },
-          "lcNumber": {
-            "title": "LC number",
-            "type": "string"
-          },
-          "modeOfDelivery": {
-            "title": "Mode of delivery",
-            "type": "string"
-          },
-          "placeOfDischarge": {
-            "title": "Place of discharge",
-            "type": "string"
-          },
-          "placeOfLoading": {
-            "title": "Place of loading",
-            "type": "string"
-          },
-          "placeOfReceipt": {
-            "title": "Place of receipt",
-            "type": "string"
-          },
-          "statement": {
-            "title": "Statement",
-            "type": "string"
-          },
-          "totalGrossWeight": {
-            "title": "Total gross weight",
+          "height": {
+            "title": "Height",
             "type": "number"
           },
-          "totalNetWeight": {
-            "title": "Total net weight",
+          "length": {
+            "title": "Length",
             "type": "number"
           },
-          "totalVolume": {
-            "title": "Total volume",
+          "netWeight": {
+            "title": "Net weight",
+            "type": "number"
+          },
+          "productDescription": {
+            "title": "Product description",
+            "type": "string"
+          },
+          "productName": {
+            "title": "Product name",
+            "type": "string"
+          },
+          "volume": {
+            "title": "Volume",
+            "type": "number"
+          },
+          "width": {
+            "title": "Width",
             "type": "number"
           }
         }

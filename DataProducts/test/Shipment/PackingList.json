@@ -1,16 +1,16 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Insurance Certificate",
-    "description": "Data Product for Insurance Certificate",
+    "title": "Packing List",
+    "description": "Data Product for Packing List",
     "version": "1.0.0"
   },
   "paths": {
-    "/draft/Shipment/InsuranceCertificate": {
+    "/test/Shipment/PackingList": {
       "post": {
-        "summary": "draft/Shipment/InsuranceCertificate",
-        "description": "Insurance Certificate",
-        "operationId": "request_draft_Shipment_InsuranceCertificate",
+        "summary": "test/Shipment/PackingList",
+        "description": "Packing List",
+        "operationId": "request_test_Shipment_PackingList",
         "parameters": [
           {
             "description": "Optional consent token",
@@ -50,7 +50,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/InsuranceCertificateRequest"
+                "$ref": "#/components/schemas/PackingListRequest"
               }
             }
           },
@@ -62,7 +62,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/InsuranceCertificateResponse"
+                  "$ref": "#/components/schemas/PackingListResponse"
                 }
               }
             }
@@ -96,8 +96,8 @@
           }
         }
       },
-      "InsuranceCertificateRequest": {
-        "title": "InsuranceCertificateRequest",
+      "PackingListRequest": {
+        "title": "PackingListRequest",
         "required": ["shipmentId"],
         "type": "object",
         "properties": {
@@ -107,26 +107,28 @@
           }
         }
       },
-      "InsuranceCertificateResponse": {
-        "title": "InsuranceCertificateResponse",
+      "PackingListResponse": {
+        "title": "PackingListResponse",
         "required": [
-          "currencyCode",
+          "contractReference",
           "descriptionOfGoods",
           "finalDestination",
           "handlingUnits",
-          "instituteClauses",
-          "insuranceValue",
-          "insuranceValuePercentage",
-          "insurerAddress",
-          "insurerName",
-          "modeOfDelivery",
+          "incoterm",
+          "incotermPlace",
+          "lcNumber",
+          "packingDescription",
+          "packingReference",
           "placeOfReceipt",
-          "totalGrossWeight"
+          "productItems",
+          "totalGrossWeight",
+          "totalNetWeight",
+          "totalVolume"
         ],
         "type": "object",
         "properties": {
-          "currencyCode": {
-            "title": "Currency code",
+          "contractReference": {
+            "title": "Contract reference",
             "type": "string"
           },
           "descriptionOfGoods": {
@@ -141,37 +143,64 @@
             "title": "Handling units",
             "type": "integer"
           },
-          "instituteClauses": {
-            "title": "Institute clauses",
+          "incoterm": {
+            "title": "Incoterm",
             "type": "string"
           },
-          "insuranceValue": {
-            "title": "Insurance value",
-            "type": "integer"
-          },
-          "insuranceValuePercentage": {
-            "title": "Insurance value percentage",
-            "type": "number"
-          },
-          "insurerAddress": {
-            "title": "Insurer address",
+          "incotermPlace": {
+            "title": "Incoterm place",
             "type": "string"
           },
-          "insurerName": {
-            "title": "Insurer name",
+          "lcNumber": {
+            "title": "LC number",
             "type": "string"
           },
-          "modeOfDelivery": {
-            "title": "Mode of delivery",
+          "packingDescription": {
+            "title": "Packing description",
+            "type": "string"
+          },
+          "packingReference": {
+            "title": "Packing reference",
             "type": "string"
           },
           "placeOfReceipt": {
             "title": "Place of receipt",
             "type": "string"
           },
+          "productItems": {
+            "title": "Product items",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductItem"
+            },
+            "description": "List of product items"
+          },
           "totalGrossWeight": {
             "title": "Total gross weight",
             "type": "number"
+          },
+          "totalNetWeight": {
+            "title": "Total net weight",
+            "type": "number"
+          },
+          "totalVolume": {
+            "title": "Total volume",
+            "type": "number"
+          }
+        }
+      },
+      "ProductItem": {
+        "title": "ProductItem",
+        "required": ["productCode", "productCount"],
+        "type": "object",
+        "properties": {
+          "productCode": {
+            "title": "Product code",
+            "type": "string"
+          },
+          "productCount": {
+            "title": "Product count",
+            "type": "integer"
           }
         }
       },
