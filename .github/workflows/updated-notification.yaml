@@ -3,7 +3,7 @@ name: Notify definitions were updated
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   trigger-webhook:

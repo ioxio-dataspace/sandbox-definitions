@@ -43,7 +43,7 @@ There are two ways of contribution:
 
    1. By running `pre-commit install` after cloning the repo. Then definitions will be
       converted automatically before each commit
-   2. By creating a PR to the `master` branch. CI workflow will run the automation and
+   2. By creating a PR to the `main` branch. CI workflow will run the automation and
       push updated/generated files if needed.
 
 ## Test version of definitions
