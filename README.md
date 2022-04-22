@@ -1,6 +1,6 @@
-# IOXIO Sandbox Nexus Definitions
+# IOXIO Dataspace Sandbox Definitions
 
-This repository contains Data Product definitions for the IOXIO Sandbox nexus.
+This repository contains Data Product definitions for the IOXIO Dataspace Sandbox.
 
 Specification for describing data product definitions can be found in
 [./DataProducts/README.md](./DataProducts/README.md).
@@ -49,7 +49,7 @@ There are two ways of contribution:
 ## Test version of definitions
 
 Everyone can submit to this repo whatever definitions they seem appropriate. It will
-allow to create data products using these definitions in IOXIO Sandbox Nexus and
+allow to create data products using these definitions in IOXIO Dataspace Sandbox and
 experiment with the system. In order to do this:
 
 1. Fork this repository
@@ -57,7 +57,7 @@ experiment with the system. In order to do this:
    with Python approach, or directly under `DataProducts/test/<your_github_username>` if
    you know what you're doing
 3. Submit a PR and wait for CI Workflow to run and validate the changes
-4. Once PR is merged, it's possible to use the definitions in IOXIO Sandbox Nexus
+4. Once PR is merged, it's possible to use the definitions in IOXIO Dataspace Sandbox
 
 ## Python sources
 
