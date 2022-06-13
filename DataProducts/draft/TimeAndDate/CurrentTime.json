@@ -6,11 +6,11 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/test/lietu/TimeAndDate/CurrentTime": {
+    "/draft/TimeAndDate/CurrentTime": {
       "post": {
-        "summary": "test/lietu/TimeAndDate/CurrentTime",
+        "summary": "draft/TimeAndDate/CurrentTime",
         "description": "Get the current time in a given country",
-        "operationId": "request_test_lietu_TimeAndDate_CurrentTime",
+        "operationId": "request_draft_TimeAndDate_CurrentTime",
         "parameters": [
           {
             "description": "Optional consent token",
