@@ -1,0 +1,172 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Delete key assignment",
+    "description": "Delete key assignment",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/draft/Key/DeleteAssignment": {
+      "post": {
+        "summary": "draft/Key/DeleteAssignment",
+        "description": "Delete assignment",
+        "operationId": "request_draft_Key_DeleteAssignment",
+        "parameters": [
+          {
+            "description": "Optional consent token",
+            "required": false,
+            "schema": {
+              "title": "X-Consent-Token",
+              "type": "string",
+              "description": "Optional consent token"
+            },
+            "name": "x-consent-token",
+            "in": "header"
+          },
+          {
+            "description": "The login token. Value should be \"Bearer [token]\"",
+            "required": false,
+            "schema": {
+              "title": "Authorization",
+              "type": "string",
+              "description": "The login token. Value should be \"Bearer [token]\""
+            },
+            "name": "authorization",
+            "in": "header"
+          },
+          {
+            "description": "The bare domain of the system that provided the token.",
+            "required": false,
+            "schema": {
+              "title": "X-Authorization-Provider",
+              "type": "string",
+              "description": "The bare domain of the system that provided the token."
+            },
+            "name": "x-authorization-provider",
+            "in": "header"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteAssignmentRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteAssignmentResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DeleteAssignmentRequest": {
+        "title": "DeleteAssignmentRequest",
+        "required": ["keyId", "lockId", "sharedSecret"],
+        "type": "object",
+        "properties": {
+          "keyId": {
+            "title": "Key ID",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]+$",
+            "type": "string",
+            "description": "UID of a key as a hex encoded string without delimiters",
+            "example": "a1b2c3d4e5f6890"
+          },
+          "lockId": {
+            "title": "Lock ID",
+            "minLength": 1,
+            "type": "string",
+            "description": "Vendor specific ID for a lock",
+            "example": "12345678"
+          },
+          "sharedSecret": {
+            "title": "Shared Secret",
+            "type": "string",
+            "description": "Shared secret between the productizer and the system using it"
+          }
+        }
+      },
+      "DeleteAssignmentResponse": {
+        "title": "DeleteAssignmentResponse",
+        "required": ["keyId", "lockId"],
+        "type": "object",
+        "properties": {
+          "keyId": {
+            "title": "Key ID",
+            "minLength": 1,
+            "pattern": "^[0-9a-f]+$",
+            "type": "string",
+            "description": "UID of a key as a hex encoded string without delimiters",
+            "example": "a1b2c3d4e5f6890"
+          },
+          "lockId": {
+            "title": "Lock ID",
+            "minLength": 1,
+            "type": "string",
+            "description": "Vendor specific ID for a lock",
+            "example": "12345678"
+          }
+        }
+      },
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          }
+        }
+      },
+      "ValidationError": {
+        "title": "ValidationError",
+        "required": ["loc", "msg", "type"],
+        "type": "object",
+        "properties": {
+          "loc": {
+            "title": "Location",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
