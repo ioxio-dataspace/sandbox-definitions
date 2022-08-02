@@ -18,7 +18,8 @@ class DimensionsAndWeightsRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    generic_description="Dimensions And Weights",
+    description="Data Product for Dimensions And Weights",
     request=DimensionsAndWeightsRequest,
     response=DimensionsAndWeightsResponse,
+    summary="Dimensions And Weights",
 )

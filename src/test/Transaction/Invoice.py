@@ -42,7 +42,8 @@ class InvoiceRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    generic_description="Invoice",
+    description="Data Product for Invoice",
     request=InvoiceRequest,
     response=InvoiceResponse,
+    summary="Invoice",
 )

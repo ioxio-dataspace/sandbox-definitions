@@ -29,7 +29,6 @@ class CreateAssignmentRequest(CreateAssignmentResponse):
 
 
 DEFINITION = DataProductDefinition(
-    description="Create key assignment",
     request=CreateAssignmentRequest,
     response=CreateAssignmentResponse,
     route_description="Create assignment",

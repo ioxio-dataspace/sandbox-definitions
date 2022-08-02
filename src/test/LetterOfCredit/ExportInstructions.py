@@ -37,7 +37,8 @@ class ExportInstructionsRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    generic_description="Export Instructions",
+    description="Data Product for Export Instructions",
     request=ExportInstructionsRequest,
     response=ExportInstructionsResponse,
+    summary="Export Instructions",
 )

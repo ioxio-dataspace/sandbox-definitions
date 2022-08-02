@@ -33,7 +33,8 @@ class PackingListRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    generic_description="Packing List",
+    description="Data Product for Packing List",
     request=PackingListRequest,
     response=PackingListResponse,
+    summary="Packing List",
 )

@@ -22,7 +22,8 @@ class InsuranceCertificateRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    generic_description="Insurance Certificate",
+    description="Data Product for Insurance Certificate",
     request=InsuranceCertificateRequest,
     response=InsuranceCertificateResponse,
+    summary="Insurance Certificate",
 )
