@@ -197,3 +197,14 @@ DEFINITION = DataProductDefinition(
     summary="Current Weather (Metric)",
 )
 ```
+
+## Guides and help
+
+[Written guide for how to create data definitions](https://ioxio.com/guides/how-to-create-data-definitions)
+
+You can also check out our YouTube tutorial:
+
+[![Defining Data Products for the IOXIO® Dataspace technology
+](https://img.youtube.com/vi/yPzN04ICsbw/0.jpg)](http://www.youtube.com/watch?v=yPzN04ICsbw)
+
+Also join our [IOXIO Community Slack](https://slack.ioxio.com/)
