@@ -1,0 +1,425 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Product Data Sheet for batteries",
+    "description": "Product Data Sheet for batteries",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/draft/Energy/Battery/ProductDataSheet": {
+      "post": {
+        "summary": "draft/Energy/Battery/ProductDataSheet",
+        "description": "Product Data Sheet for batteries",
+        "operationId": "request_draft_Energy_Battery_ProductDataSheet",
+        "parameters": [
+          {
+            "description": "Optional consent token",
+            "required": false,
+            "schema": {
+              "title": "X-Consent-Token",
+              "type": "string",
+              "description": "Optional consent token"
+            },
+            "name": "x-consent-token",
+            "in": "header"
+          },
+          {
+            "description": "The login token. Value should be \"Bearer [token]\"",
+            "required": false,
+            "schema": {
+              "title": "Authorization",
+              "type": "string",
+              "description": "The login token. Value should be \"Bearer [token]\""
+            },
+            "name": "authorization",
+            "in": "header"
+          },
+          {
+            "description": "The bare domain of the system that provided the token.",
+            "required": false,
+            "schema": {
+              "title": "X-Authorization-Provider",
+              "type": "string",
+              "description": "The bare domain of the system that provided the token."
+            },
+            "name": "x-authorization-provider",
+            "in": "header"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatteryDataRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatteryDataResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BatteryDataRequest": {
+        "title": "BatteryDataRequest",
+        "required": ["productCode"],
+        "type": "object",
+        "properties": {
+          "productCode": {
+            "title": "Product Code",
+            "type": "string",
+            "description": "The product code used by the manufacturer",
+            "example": "MPP48V"
+          }
+        }
+      },
+      "BatteryDataResponse": {
+        "title": "BatteryDataResponse",
+        "required": [
+          "manufacturer",
+          "productCode",
+          "name",
+          "cellType",
+          "capacity",
+          "energy",
+          "voltage",
+          "peakDischargingPower",
+          "peakChargingPower",
+          "continuousPower",
+          "standbyConsumption",
+          "cycleLife",
+          "dimensions",
+          "weight",
+          "operatingTemperature",
+          "ipRating",
+          "maxCoolantPressure",
+          "standardsCompliance"
+        ],
+        "type": "object",
+        "properties": {
+          "manufacturer": {
+            "title": "Manufacturer",
+            "type": "string",
+            "description": "The manufacturer of the battery",
+            "example": "Valmet Automotive"
+          },
+          "productCode": {
+            "title": "Product Code",
+            "type": "string",
+            "description": "The product code used by the manufacturer",
+            "example": "MPP48V"
+          },
+          "name": {
+            "title": "Product Name",
+            "type": "string",
+            "example": "Modular Power Pack, 48 V"
+          },
+          "cellType": {
+            "title": "Cell Type",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CellType"
+              }
+            ],
+            "example": "lithium-titanate"
+          },
+          "capacity": {
+            "title": "Capacity",
+            "type": "number",
+            "description": "Battery capacity in kWh",
+            "example": 2.2
+          },
+          "energy": {
+            "title": "Energy (Ah)",
+            "type": "number",
+            "description": "Energy, Ah [1C @ 25°C]",
+            "example": 46.0
+          },
+          "voltage": {
+            "title": "Voltage",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Voltage"
+              }
+            ],
+            "description": "Information about the voltage of the battery"
+          },
+          "peakDischargingPower": {
+            "title": "Peak Discharging Power [kW]",
+            "type": "number",
+            "example": 20.0
+          },
+          "peakChargingPower": {
+            "title": "Peak Charging Power [kW]",
+            "type": "number",
+            "example": 20.0
+          },
+          "continuousPower": {
+            "title": "Continuous Power [kW]",
+            "type": "number",
+            "example": 10.0
+          },
+          "standbyConsumption": {
+            "title": "Standby Power Consumption [W]",
+            "type": "number",
+            "example": 1.0
+          },
+          "cycleLife": {
+            "title": "Cycle Life",
+            "type": "integer",
+            "description": "Minimum number of cycles the battery can be recharged to at least 80% of initial capacity",
+            "example": 20000
+          },
+          "dimensions": {
+            "title": "Dimensions",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Dimensions"
+              }
+            ],
+            "description": "Physical dimensions of the battery"
+          },
+          "weight": {
+            "title": "Weight [kg]",
+            "type": "number",
+            "description": "Total dry weight [kg]",
+            "example": 41.0
+          },
+          "operatingTemperature": {
+            "title": "Operating Temperature [°C]",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OperatingTemperature"
+              }
+            ]
+          },
+          "ipRating": {
+            "title": "IP Rating",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/IPCode"
+              }
+            ],
+            "example": "IP6K9K"
+          },
+          "maxCoolantPressure": {
+            "title": "Max Coolant Pressure [bar]",
+            "type": "number",
+            "example": 3.5
+          },
+          "standardsCompliance": {
+            "title": "Standards Compliance",
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "IEC 62061 SIL 2",
+              "ECE R100",
+              "UN 38.3",
+              "ECE R10",
+              "ISO 13849 PL C",
+              "ISO 16750",
+              "IEC 61508 SIL 2"
+            ]
+          }
+        }
+      },
+      "CellType": {
+        "title": "CellType",
+        "enum": ["lithium-titanate", "lithium-ion polymer"],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "Dimensions": {
+        "title": "Dimensions",
+        "required": ["length", "width", "height"],
+        "type": "object",
+        "properties": {
+          "length": {
+            "title": "Length [mm]",
+            "type": "integer",
+            "example": 483
+          },
+          "width": {
+            "title": "Width [mm]",
+            "type": "integer",
+            "example": 380
+          },
+          "height": {
+            "title": "Height [mm]",
+            "type": "integer",
+            "example": 160
+          }
+        }
+      },
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          }
+        }
+      },
+      "IPCode": {
+        "title": "IPCode",
+        "enum": [
+          "IP5X",
+          "IP50",
+          "IP51",
+          "IP52",
+          "IP53",
+          "IP54",
+          "IP54K",
+          "IP55",
+          "IP56",
+          "IP56K",
+          "IP57",
+          "IP58",
+          "IP59K",
+          "IP5KX",
+          "IP5K0",
+          "IP5K1",
+          "IP5K2",
+          "IP5K3",
+          "IP5K4",
+          "IP5K4K",
+          "IP5K5",
+          "IP5K6",
+          "IP5K6K",
+          "IP5K7",
+          "IP5K8",
+          "IP5K9K",
+          "IP6X",
+          "IP60",
+          "IP61",
+          "IP62",
+          "IP63",
+          "IP64",
+          "IP64K",
+          "IP65",
+          "IP66",
+          "IP66K",
+          "IP67",
+          "IP68",
+          "IP69K",
+          "IP6KX",
+          "IP6K0",
+          "IP6K1",
+          "IP6K2",
+          "IP6K3",
+          "IP6K4",
+          "IP6K4K",
+          "IP6K5",
+          "IP6K6",
+          "IP6K6K",
+          "IP6K7",
+          "IP6K8",
+          "IP6K9K"
+        ],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "OperatingTemperature": {
+        "title": "OperatingTemperature",
+        "required": ["min", "max", "recommendedMin", "recommendedMax"],
+        "type": "object",
+        "properties": {
+          "min": {
+            "title": "Minimum operating temperature [°C]",
+            "type": "number",
+            "example": -30.0
+          },
+          "max": {
+            "title": "Maximum operating temperature [°C]",
+            "type": "number",
+            "example": 55.0
+          },
+          "recommendedMin": {
+            "title": "Minimum recommended operating temperature [°C]",
+            "type": "number",
+            "example": 5.0
+          },
+          "recommendedMax": {
+            "title": "Maximum recommended operating temperature [°C]",
+            "type": "number",
+            "example": 35
+          }
+        }
+      },
+      "ValidationError": {
+        "title": "ValidationError",
+        "required": ["loc", "msg", "type"],
+        "type": "object",
+        "properties": {
+          "loc": {
+            "title": "Location",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        }
+      },
+      "Voltage": {
+        "title": "Voltage",
+        "required": ["min", "max", "nominal"],
+        "type": "object",
+        "properties": {
+          "min": {
+            "title": "Minimum voltage",
+            "type": "number",
+            "example": 38.0
+          },
+          "max": {
+            "title": "Maximum voltage",
+            "type": "number",
+            "example": 56.0
+          },
+          "nominal": {
+            "title": "Nominal voltage",
+            "type": "number",
+            "example": 48.3
+          }
+        }
+      }
+    }
+  }
+}

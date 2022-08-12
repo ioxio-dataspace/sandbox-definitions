@@ -1,0 +1,155 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Environmental Footprint information for a product",
+    "description": "Environmental Footprint information for a product",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/draft/Product/Manufacturing/EnvironmentalFootprint": {
+      "post": {
+        "summary": "draft/Product/Manufacturing/EnvironmentalFootprint",
+        "description": "Environmental Footprint information for a product",
+        "operationId": "request_draft_Product_Manufacturing_EnvironmentalFootprint",
+        "parameters": [
+          {
+            "description": "Optional consent token",
+            "required": false,
+            "schema": {
+              "title": "X-Consent-Token",
+              "type": "string",
+              "description": "Optional consent token"
+            },
+            "name": "x-consent-token",
+            "in": "header"
+          },
+          {
+            "description": "The login token. Value should be \"Bearer [token]\"",
+            "required": false,
+            "schema": {
+              "title": "Authorization",
+              "type": "string",
+              "description": "The login token. Value should be \"Bearer [token]\""
+            },
+            "name": "authorization",
+            "in": "header"
+          },
+          {
+            "description": "The bare domain of the system that provided the token.",
+            "required": false,
+            "schema": {
+              "title": "X-Authorization-Provider",
+              "type": "string",
+              "description": "The bare domain of the system that provided the token."
+            },
+            "name": "x-authorization-provider",
+            "in": "header"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnvironmentalFootprintRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnvironmentalFootprintResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EnvironmentalFootprintRequest": {
+        "title": "EnvironmentalFootprintRequest",
+        "required": ["productId"],
+        "type": "object",
+        "properties": {
+          "productId": {
+            "title": "Product ID",
+            "type": "string",
+            "description": "The product ID given by the manufacturer",
+            "example": "MPP48V-296cde7f"
+          }
+        }
+      },
+      "EnvironmentalFootprintResponse": {
+        "title": "EnvironmentalFootprintResponse",
+        "required": ["carbonEquivalent", "materialWaste"],
+        "type": "object",
+        "properties": {
+          "carbonEquivalent": {
+            "title": "Carbon Equivalent (CO2e) [kg]",
+            "type": "number",
+            "description": "Includes all GHG emissions converted to CO2 emission equivalents",
+            "example": 500.0
+          },
+          "materialWaste": {
+            "title": "Material Waste [kg]",
+            "type": "number",
+            "description": "The amount of material waste produced during the product manufacturing",
+            "example": 20.0
+          }
+        }
+      },
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          }
+        }
+      },
+      "ValidationError": {
+        "title": "ValidationError",
+        "required": ["loc", "msg", "type"],
+        "type": "object",
+        "properties": {
+          "loc": {
+            "title": "Location",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
