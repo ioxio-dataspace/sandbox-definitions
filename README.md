@@ -1,6 +1,10 @@
-# IOXIO Dataspace Sandbox Definitions
+# IOXIO® Dataspace Sandbox Definitions
 
-This repository contains Data Product definitions for the IOXIO Dataspace Sandbox.
+This repository contains Data Product definitions for the
+[IOXIO® Dataspace Sandbox](https://sandbox.ioxio-dataspace.com/) and contains plenty of
+example definitions. When setting up definitions for a new dataspace you should rather
+use the [definitions-template](https://github.com/ioxio-dataspace/definitions-template)
+than fork this repository.
 
 Specification for describing data product definitions can be found in
 [./DataProducts/README.md](./DataProducts/README.md).
@@ -24,7 +28,7 @@ format in this repository, you can check these resources:
 
 # Getting started
 
-## Adding new Data Product Definition
+## Adding new Data Product Definitions
 
 There are two ways of contribution:
 
@@ -38,9 +42,8 @@ There are two ways of contribution:
 
 2. **Submit definition as python file**
 
-   If you're familiar with python and
-   [pydantic](https://github.com/samuelcolvin/pydantic) library, you may find it easier
-   to create the definition as a set of pydantic models.
+   If you're familiar with python and [pydantic](https://pydantic-docs.helpmanual.io/)
+   library, you may find it easier to create the definition as a set of pydantic models.
 
    For example, to add a definition for `Foo/Bar`:
 
@@ -116,7 +119,8 @@ DataProductDefinition is a structure consisting of:
 
 - `description`
 
-  Data product description, used in top of OpenAPI spec
+  Data product description, used in top of OpenAPI spec (defaults to the summary if not
+  provided)
 
 - `request`
 
@@ -132,14 +136,15 @@ DataProductDefinition is a structure consisting of:
 
 - `route_description`
 
-  Description for the POST route
+  Description for the POST route (defaults to the summary if not provided)
 
-- `generic_description`
+- `requires_authorization`
 
-  You may omit providing `summary`, `description`, `route_summary` and
-  `route_description` if you define this field. Others will be generated automatically
-  based on it. Use something brief and meaningful, like "Company Recommendations" or
-  "Cargo receipt".
+  Marks the Authorization header as required
+
+- `requires_consent`
+
+  Marks the X-Consent-Token header as required
 
 ### Example
 
