@@ -238,13 +238,13 @@
               "type": "string"
             },
             "example": [
-              "IEC 62061 SIL 2",
-              "ECE R100",
               "UN 38.3",
-              "ECE R10",
-              "ISO 13849 PL C",
               "ISO 16750",
-              "IEC 61508 SIL 2"
+              "IEC 61508 SIL 2",
+              "IEC 62061 SIL 2",
+              "ECE R10",
+              "ECE R100",
+              "ISO 13849 PL C"
             ]
           }
         }
@@ -385,7 +385,14 @@
             "title": "Location",
             "type": "array",
             "items": {
-              "type": "string"
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
             }
           },
           "msg": {
