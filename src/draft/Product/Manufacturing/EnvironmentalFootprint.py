@@ -15,13 +15,13 @@ class EnvironmentalFootprintResponse(CamelCaseModel):
     carbon_equivalent: float = Field(
         ...,
         title="Carbon Equivalent (CO2e) [kg]",
-        description="Includes all GHG emissions converted to CO2 emission equivalents",
+        description="The amount of emissions from all greenhouse gases converted to CO2 emission equivalents in the product manufacturing phase",
         example=500.0,
     )
     material_waste: float = Field(
         ...,
         title="Material Waste [kg]",
-        description="The amount of material waste produced during the product manufacturing",
+        description="The amount of material waste produced in the product manufacturing phase",
         example=20.0,
     )
 
