@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Dict, Optional
+from typing import Dict, List, Optional
 
 from converter import CamelCaseModel, DataProductDefinition
 from pydantic import Field
@@ -40,6 +40,12 @@ class ChargingHistoryRequest(CamelCaseModel):
 
 
 class ChargingHistoryEntry(CamelCaseModel):
+    time: datetime = Field(
+        ...,
+        title="Time",
+        description="Time of the charging history event",
+        example=datetime.fromisoformat("2022-09-10 00:00:00"),
+    )
     operating_hours: float = Field(
         ...,
         title="Operating Hours [h]",
@@ -61,7 +67,7 @@ class ChargingHistoryEntry(CamelCaseModel):
 
 
 class ChargingHistoryResponse(CamelCaseModel):
-    battery_charging_history: Dict[datetime, ChargingHistoryEntry] = Field(
+    battery_charging_history: List[ChargingHistoryEntry] = Field(
         ...,
         title="Battery Charging History",
     )

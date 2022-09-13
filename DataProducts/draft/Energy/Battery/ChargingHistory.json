@@ -85,9 +85,16 @@
     "schemas": {
       "ChargingHistoryEntry": {
         "title": "ChargingHistoryEntry",
-        "required": ["operatingHours", "cycleCount", "maxCapacity"],
+        "required": ["time", "operatingHours", "cycleCount", "maxCapacity"],
         "type": "object",
         "properties": {
+          "time": {
+            "title": "Time",
+            "type": "string",
+            "description": "Time of the charging history event",
+            "format": "date-time",
+            "example": "2022-09-10T00:00:00"
+          },
           "operatingHours": {
             "title": "Operating Hours [h]",
             "type": "number",
@@ -157,8 +164,8 @@
         "properties": {
           "batteryChargingHistory": {
             "title": "Battery Charging History",
-            "type": "object",
-            "additionalProperties": {
+            "type": "array",
+            "items": {
               "$ref": "#/components/schemas/ChargingHistoryEntry"
             }
           },
