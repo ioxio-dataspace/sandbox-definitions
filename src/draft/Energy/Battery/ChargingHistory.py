@@ -35,7 +35,7 @@ class ChargingHistoryRequest(CamelCaseModel):
         0,
         ge=0,
         title="Offset",
-        description="Offset for history records to return",
+        description="Offset of history records to return",
     )
 
 
@@ -43,13 +43,13 @@ class ChargingHistoryEntry(CamelCaseModel):
     operating_hours: float = Field(
         ...,
         title="Operating Hours [h]",
-        description="The cumulative operating hours for the battery",
+        description="The cumulative operating hours of the battery",
         example=428.7,
     )
     cycle_count: int = Field(
         ...,
         title="Cycle Count",
-        description="The cycle count for the battery",
+        description="The cycle count of the battery",
         example=15,
     )
     max_capacity: float = Field(
@@ -76,5 +76,5 @@ class ChargingHistoryResponse(CamelCaseModel):
 DEFINITION = DataProductDefinition(
     request=ChargingHistoryRequest,
     response=ChargingHistoryResponse,
-    summary="Charging history for a battery",
+    summary="Charging history of a battery",
 )

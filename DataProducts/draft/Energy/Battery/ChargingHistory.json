@@ -1,15 +1,15 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Charging history for a battery",
-    "description": "Charging history for a battery",
+    "title": "Charging history of a battery",
+    "description": "Charging history of a battery",
     "version": "1.0.0"
   },
   "paths": {
     "/draft/Energy/Battery/ChargingHistory": {
       "post": {
         "summary": "draft/Energy/Battery/ChargingHistory",
-        "description": "Charging history for a battery",
+        "description": "Charging history of a battery",
         "operationId": "request_draft_Energy_Battery_ChargingHistory",
         "parameters": [
           {
@@ -91,13 +91,13 @@
           "operatingHours": {
             "title": "Operating Hours [h]",
             "type": "number",
-            "description": "The cumulative operating hours for the battery",
+            "description": "The cumulative operating hours of the battery",
             "example": 428.7
           },
           "cycleCount": {
             "title": "Cycle Count",
             "type": "integer",
-            "description": "The cycle count for the battery",
+            "description": "The cycle count of the battery",
             "example": 15
           },
           "maxCapacity": {
@@ -145,7 +145,7 @@
             "title": "Offset",
             "minimum": 0.0,
             "type": "integer",
-            "description": "Offset for history records to return",
+            "description": "Offset of history records to return",
             "default": 0
           }
         }
