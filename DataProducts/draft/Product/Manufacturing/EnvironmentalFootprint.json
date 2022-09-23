@@ -85,13 +85,13 @@
     "schemas": {
       "EnvironmentalFootprintRequest": {
         "title": "EnvironmentalFootprintRequest",
-        "required": ["productId"],
+        "required": ["serialNumber"],
         "type": "object",
         "properties": {
-          "productId": {
-            "title": "Product ID",
+          "serialNumber": {
+            "title": "Serial Number",
             "type": "string",
-            "description": "The product ID given by the manufacturer",
+            "description": "The serial number given by the manufacturer",
             "example": "MPP48V-296cde7f"
           }
         }

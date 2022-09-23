@@ -10,7 +10,7 @@ class ChargingHistoryRequest(CamelCaseModel):
         ...,
         title="Serial Number",
         description="The serial number of the battery",
-        example="A080721",
+        example="MPP48V-296cde7f",
     )
     start: Optional[datetime] = Field(
         None,

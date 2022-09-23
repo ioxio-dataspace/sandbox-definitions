@@ -124,7 +124,7 @@
             "title": "Serial Number",
             "type": "string",
             "description": "The serial number of the battery",
-            "example": "A080721"
+            "example": "MPP48V-296cde7f"
           },
           "start": {
             "title": "Start Time",

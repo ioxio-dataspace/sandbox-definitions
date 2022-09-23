@@ -3,10 +3,10 @@ from pydantic import Field
 
 
 class EnvironmentalFootprintRequest(CamelCaseModel):
-    product_id: str = Field(
+    serial_number: str = Field(
         ...,
-        title="Product ID",
-        description="The product ID given by the manufacturer",
+        title="Serial Number",
+        description="The serial number given by the manufacturer",
         example="MPP48V-296cde7f",
     )
 
