@@ -269,7 +269,7 @@ class SignatoryRights(CamelCaseModel):
         example=Role.CHAIRPERSON,
         description="The role of the person that has a signing right in the company",
     )
-    personalId: Optional[str] = Field(
+    personal_id: Optional[str] = Field(
         None,
         title="Personal ID",
         description="The ID of a person if exists, e.g. social security number or "
