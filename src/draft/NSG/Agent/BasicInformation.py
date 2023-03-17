@@ -493,13 +493,13 @@ class RegisteredAddress(CamelCaseModel):
         min_length=1,
         max_length=10,
     )
-    admin_unit_level_1: ISO_3166_1_Alpha_2 = Field(
-        ...,
+    admin_unit_level_1: Optional[ISO_3166_1_Alpha_2] = Field(
+        None,
         alias="adminUnitLevel1",
         title="Admin unit level 1",
         description="The name of the uppermost level of the address, almost always a "
         "country. ISO 3166 two character (Alpha 2) format",
-        example="US",
+        example=ISO_3166_1_Alpha_2.US,
     )
     admin_unit_level_2: Optional[str] = Field(
         None,
