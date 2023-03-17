@@ -495,6 +495,7 @@ class RegisteredAddress(CamelCaseModel):
     )
     admin_unit_level_1: ISO_3166_1_Alpha_2 = Field(
         ...,
+        alias="adminUnitLevel1",
         title="Admin unit level 1",
         description="The name of the uppermost level of the address, almost always a "
         "country. ISO 3166 two character (Alpha 2) format",
@@ -502,6 +503,7 @@ class RegisteredAddress(CamelCaseModel):
     )
     admin_unit_level_2: Optional[str] = Field(
         None,
+        alias="adminUnitLevel2",
         title="Admin unit level 2",
         description="The name of a secondary level/region of the address, usually a "
         "county, state or other such area that typically encompasses several "

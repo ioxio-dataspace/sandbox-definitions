@@ -564,7 +564,7 @@
       },
       "RegisteredAddress": {
         "title": "RegisteredAddress",
-        "required": ["adminUnitLevel_1"],
+        "required": ["adminUnitLevel1"],
         "type": "object",
         "properties": {
           "fullAddress": {
@@ -631,7 +631,7 @@
             "description": "A location designator for a postal delivery point at a post office, usually a number.",
             "example": "9383"
           },
-          "adminUnitLevel_1": {
+          "adminUnitLevel1": {
             "title": "Admin unit level 1",
             "allOf": [
               {
@@ -641,7 +641,7 @@
             "description": "The name of the uppermost level of the address, almost always a country. ISO 3166 two character (Alpha 2) format",
             "example": "US"
           },
-          "adminUnitLevel_2": {
+          "adminUnitLevel2": {
             "title": "Admin unit level 2",
             "maxLength": 40,
             "minLength": 1,
