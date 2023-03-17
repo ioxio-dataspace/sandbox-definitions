@@ -61,8 +61,8 @@ class BeneficialOwnersRequest(CamelCaseModel):
     national_identifier: str = Field(
         ...,
         title="National identifier",
-        description="The national identifier of the non-listed company issued by the trade register in any Nordic "
-        "country.",
+        description="The national identifier of the non-listed company issued by the "
+        "trade register in any Nordic country.",
         example="FIN: 2464491-9 / SWE: 5560125791 / NOR:  923609016",
         max_length=40,
     )
@@ -82,7 +82,8 @@ class BeneficialOwnersResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    description="The list of beneficial owners of a non-listed company. The shareholders exceeding 25 % ownership.",
+    description="The list of beneficial owners of a non-listed company. The "
+    "shareholders exceeding 25 % ownership.",
     request=BeneficialOwnersRequest,
     response=BeneficialOwnersResponse,
     summary="Non-listed Company Beneficial Owners",

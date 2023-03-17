@@ -3,7 +3,7 @@ from enum import Enum
 from typing import List, Optional
 
 from converter import CamelCaseModel, DataProductDefinition
-from pydantic import EmailStr, Field, HttpUrl
+from pydantic import EmailStr, Field
 
 
 class IndustrySector(str, Enum):
@@ -1291,8 +1291,8 @@ class CompanyDetails(CamelCaseModel):
     alternative_name: Optional[str] = Field(
         None,
         title="Alternative name",
-        description="The second alternative for the desired name to be registered for the company if the primary name "
-        "is not available",
+        description="The second alternative for the desired name to be registered for "
+        "the company if the primary name is not available",
         max_length=250,
         example="Digital company Y",
     )
@@ -1305,8 +1305,9 @@ class CompanyDetails(CamelCaseModel):
     industry_sector: IndustrySector = Field(
         ...,
         title="Industry sector",
-        description="The industry fields where the company will run its business. The codes are based on the "
-        "Statistical classification of economic activities in the European Community, abbreviated as NACE.",
+        description="The industry fields where the company will run its business. The "
+        "codes are based on the Statistical classification of economic activities in "
+        "the European Community, abbreviated as NACE.",
         example=IndustrySector.NACE_62_01,
     )
     share_capital: float = Field(
@@ -1382,9 +1383,9 @@ class CompanyAddress(CamelCaseModel):
     full_address: Optional[str] = Field(
         None,
         title="Full address",
-        description="The complete address written as a string. Use of this property is recommended as it will not "
-        "suffer any misunderstandings that might arise through the breaking up of an address into its "
-        "component parts.",
+        description="The complete address written as a string. Use of this property is "
+        "recommended as it will not suffer any misunderstandings that might arise "
+        "through the breaking up of an address into its component parts.",
         example="Tietotie 4 A 7, 00100 Helsinki, Finland",
         max_length=250,
     )
@@ -1392,26 +1393,29 @@ class CompanyAddress(CamelCaseModel):
     thoroughfare: Optional[str] = Field(
         None,
         title="Thoroughfare",
-        description="The name of a passage or way through from one location to another. A thoroughfare is usually a "
-        "street, but it might be a waterway or some other feature.",
+        description="The name of a passage or way through from one location to "
+        "another. A thoroughfare is usually a street, but it might be a waterway or "
+        "some other feature.",
         example="Avenue des Champs-Élysées",
         max_length=40,
     )
     locator_designator: Optional[str] = Field(
         None,
         title="Locator designator",
-        description="A number or sequence of characters that uniquely identifies the locator within the relevant "
-        "scope. In simpler terms, this is the building number, apartment number, etc.",
+        description="A number or sequence of characters that uniquely identifies the "
+        "locator within the relevant scope. In simpler terms, this is the building "
+        "number, apartment number, etc.",
         example="Flat 3, 17 or 3 A 4",
         max_length=10,
     )
     locator_name: Optional[str] = Field(
         None,
         title="Locator name",
-        description="Proper noun(s) applied to the real world entity identified by the locator. The locator name "
-        "could be the name of the property or complex, of the building or part of the building, "
-        "or it could be the name of a room inside a building. The key difference between a locator "
-        "designator and a locator name is that the latter is a proper name and is unlikely to include "
+        description="Proper noun(s) applied to the real world entity identified by the "
+        "locator. The locator name could be the name of the property or complex, of "
+        "the building or part of the building, or it could be the name of a room "
+        "inside a building. The key difference between a locator designator and a "
+        "locator name is that the latter is a proper name and is unlikely to include "
         "digits.",
         example="Shumann, Berlaymont building",
         max_length=40,
@@ -1419,47 +1423,49 @@ class CompanyAddress(CamelCaseModel):
     address_area: Optional[str] = Field(
         None,
         title="Address area",
-        description="The name of a geographic area that groups Addresses. This would typically be part of a city, "
-        "a neighbourhood or village. Address area is not an administrative unit.",
+        description="The name of a geographic area that groups Addresses. This would "
+        "typically be part of a city, a neighbourhood or village. Address area is not "
+        "an administrative unit.",
         example="Montmartre (in Paris)",
         max_length=40,
     )
     post_code: Optional[str] = Field(
         None,
         title="Post code",
-        description="The code created and maintained for postal purposes to identify a subdivision of addresses and "
-        "postal delivery points.",
+        description="The code created and maintained for postal purposes to identify a "
+        "subdivision of addresses and postal delivery points.",
         example="75000",
         max_length=10,
     )
     post_name: Optional[str] = Field(
         None,
         title="Post name",
-        description="A name created and maintained for postal purposes to identify a subdivision of addresses and "
-        "postal delivery points. Usually a city.",
+        description="A name created and maintained for postal purposes to identify a "
+        "subdivision of addresses and postal delivery points. Usually a city.",
         example="Paris",
         max_length=40,
     )
     po_box: Optional[str] = Field(
         None,
         title="PO box",
-        description="A location designator for a postal delivery point at a post office, usually a number.",
+        description="A location designator for a postal delivery point at a post "
+        "office, usually a number.",
         example="9383",
         max_length=10,
     )
     admin_unit_level_1: Optional[ISO_3166_1_Alpha_3] = Field(
         None,
         title="Admin unit level 1",
-        description="The name of the uppermost level of the address, almost always a country. ISO 3166 three "
-        "character (Alpha 3) format.",
+        description="The name of the uppermost level of the address, almost always a "
+        "country. ISO 3166 three character (Alpha 3) format.",
         example=ISO_3166_1_Alpha_3.USA,
     )
     admin_unit_level_2: Optional[str] = Field(
         None,
         title="Admin unit level 2",
-        description="The name of a secondary level/region of the address, usually a county, state or other such area "
-        "that typically encompasses several localities. Values could be a region or province, "
-        "more granular than level 1.",
+        description="The name of a secondary level/region of the address, usually a "
+        "county, state or other such area that typically encompasses several "
+        "localities. Values could be a region or province, more granular than level 1.",
         example="Lapland",
         max_length=40,
     )
@@ -1560,7 +1566,8 @@ class AuditorDetails(CamelCaseModel):
     national_identifier: Optional[str] = Field(
         None,
         title="National identifier",
-        description="The national identifier of the auditor company issued by the trade register",
+        description="The national identifier of the auditor company issued by the "
+        "trade register",
         example="2464491-9",
         max_length=40,
     )
