@@ -99,7 +99,7 @@
       },
       "BeneficialOwnersResponse": {
         "title": "BeneficialOwnersResponse",
-        "required": ["shareSeries", "shareholder"],
+        "required": ["shareSeries", "shareholders"],
         "type": "object",
         "properties": {
           "shareSeries": {
@@ -110,7 +110,7 @@
             },
             "description": "The details of the share series classes of the company"
           },
-          "shareholder": {
+          "shareholders": {
             "title": "Shareholder",
             "type": "array",
             "items": {

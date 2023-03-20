@@ -74,7 +74,7 @@ class BeneficialOwnersResponse(CamelCaseModel):
         title="Share series",
         description="The details of the share series classes of the company",
     )
-    shareholder: List[Shareholder] = Field(
+    shareholders: List[Shareholder] = Field(
         ...,
         title="Shareholder",
         description="The list of beneficial owners of the company",
