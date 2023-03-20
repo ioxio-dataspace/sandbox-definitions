@@ -518,11 +518,11 @@
       },
       "SignatoryRightsResponse": {
         "title": "SignatoryRightsResponse",
-        "required": ["signingRights"],
+        "required": ["signatoryRights"],
         "type": "object",
         "properties": {
-          "signingRights": {
-            "title": "Signing rights",
+          "signatoryRights": {
+            "title": "Signatory rights",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SignatoryRights"

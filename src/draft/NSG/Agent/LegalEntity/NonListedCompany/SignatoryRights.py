@@ -416,9 +416,9 @@ class SignatoryRightsRequest(CamelCaseModel):
 
 
 class SignatoryRightsResponse(CamelCaseModel):
-    signing_rights: List[SignatoryRights] = Field(
+    signatory_rights: List[SignatoryRights] = Field(
         ...,
-        title="Signing rights",
+        title="Signatory rights",
         description="The list of representatives that have signing rights for the "
         "company",
     )
