@@ -72,7 +72,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseFor401"
+                  "$ref": "#/components/schemas/Unauthorized"
                 }
               }
             }
@@ -82,7 +82,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConsentRequired"
+                  "$ref": "#/components/schemas/Forbidden"
                 }
               }
             }
@@ -92,7 +92,27 @@
             "content": {
               "application/json": {
                 "schema": {
+                  "$ref": "#/components/schemas/NotFound"
+                }
+              }
+            }
+          },
+          "444": {
+            "description": "Additional Response",
+            "content": {
+              "application/json": {
+                "schema": {
                   "$ref": "#/components/schemas/DataSourceNotFound"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceError"
                 }
               }
             }
@@ -102,7 +122,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseFor502"
+                  "$ref": "#/components/schemas/BadGateway"
                 }
               }
             }
@@ -112,7 +132,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DataSourceUnavailable"
+                  "$ref": "#/components/schemas/ServiceUnavailable"
                 }
               }
             }
@@ -122,7 +142,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DataSourceTimeout"
+                  "$ref": "#/components/schemas/GatewayTimeout"
+                }
+              }
+            }
+          },
+          "550": {
+            "description": "Additional Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoesNotConformToDefinition"
                 }
               }
             }
@@ -143,58 +173,26 @@
   },
   "components": {
     "schemas": {
-      "AuthorizationRequired": {
-        "title": "AuthorizationRequired",
+      "BadGateway": {
+        "title": "BadGateway",
         "type": "object",
-        "properties": {
-          "message": {
-            "title": "Message",
-            "type": "string",
-            "default": "Authorization is required to access this data source"
-          }
-        }
-      },
-      "AuthorizationRequiredForUnpublished": {
-        "title": "AuthorizationRequiredForUnpublished",
-        "type": "object",
-        "properties": {
-          "message": {
-            "title": "Message",
-            "type": "string",
-            "default": "Unpublished data sources require preview token"
-          }
-        }
-      },
-      "ConsentRequired": {
-        "title": "ConsentRequired",
-        "type": "object",
-        "properties": {
-          "message": {
-            "title": "Message",
-            "type": "string",
-            "default": "Consent is required to access this data source"
-          }
-        }
+        "properties": {},
+        "description": "This response is reserved by Product Gateway."
       },
       "DataSourceError": {
         "title": "DataSourceError",
-        "required": ["status", "error"],
+        "required": ["type", "message"],
         "type": "object",
         "properties": {
-          "message": {
-            "title": "Message",
+          "type": {
+            "title": "Error type",
             "type": "string",
-            "default": "Data source returned an error"
+            "description": "Error identifier"
           },
-          "status": {
-            "title": "Status code",
-            "minimum": 400.0,
-            "type": "integer",
-            "description": "Status code from the data source"
-          },
-          "error": {
-            "title": "Original error",
-            "description": "Raw error from the data source"
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
           }
         }
       },
@@ -203,44 +201,60 @@
         "type": "object",
         "properties": {
           "message": {
-            "title": "Message",
+            "title": "Error message",
             "type": "string",
-            "default": "Requested data source is not found"
+            "description": "Error description",
+            "default": "Data source not found"
           }
-        }
-      },
-      "DataSourceTimeout": {
-        "title": "DataSourceTimeout",
-        "type": "object",
-        "properties": {
-          "message": {
-            "title": "Message",
-            "type": "string",
-            "default": "Timeout reached while communicating with the data source"
-          }
-        }
-      },
-      "DataSourceUnavailable": {
-        "title": "DataSourceUnavailable",
-        "type": "object",
-        "properties": {
-          "message": {
-            "title": "Message",
-            "type": "string",
-            "default": "Error while communicating with the data source"
-          }
-        }
+        },
+        "description": "This response is reserved by Product Gateway."
       },
       "DoesNotConformToDefinition": {
         "title": "DoesNotConformToDefinition",
+        "required": ["data_source_status_code"],
         "type": "object",
         "properties": {
           "message": {
             "title": "Message",
             "type": "string",
-            "default": "Response from the data source does not conform to definition"
+            "default": "Response from data source does not conform to definition"
+          },
+          "data_source_status_code": {
+            "title": "Data source status code",
+            "type": "integer",
+            "description": "HTTP status code returned from the data source"
+          }
+        },
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Forbidden": {
+        "title": "Forbidden",
+        "required": ["type", "message"],
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Error type",
+            "type": "string",
+            "description": "Error identifier"
+          },
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
           }
         }
+      },
+      "GatewayTimeout": {
+        "title": "GatewayTimeout",
+        "type": "object",
+        "properties": {
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        },
+        "description": "This response is reserved by Product Gateway."
       },
       "HTTPValidationError": {
         "title": "HTTPValidationError",
@@ -252,6 +266,23 @@
             "items": {
               "$ref": "#/components/schemas/ValidationError"
             }
+          }
+        }
+      },
+      "NotFound": {
+        "title": "NotFound",
+        "required": ["type", "message"],
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Error type",
+            "type": "string",
+            "description": "Error identifier"
+          },
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
           }
         }
       },
@@ -295,27 +326,17 @@
           }
         }
       },
-      "ResponseFor401": {
-        "title": "ResponseFor401",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/AuthorizationRequired"
-          },
-          {
-            "$ref": "#/components/schemas/AuthorizationRequiredForUnpublished"
+      "ServiceUnavailable": {
+        "title": "ServiceUnavailable",
+        "type": "object",
+        "properties": {
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
           }
-        ]
-      },
-      "ResponseFor502": {
-        "title": "ResponseFor502",
-        "anyOf": [
-          {
-            "$ref": "#/components/schemas/DoesNotConformToDefinition"
-          },
-          {
-            "$ref": "#/components/schemas/DataSourceError"
-          }
-        ]
+        },
+        "description": "This response is reserved by Product Gateway."
       },
       "ShareSeries": {
         "title": "ShareSeries",
@@ -375,6 +396,23 @@
               "$ref": "#/components/schemas/Owners"
             },
             "description": "List of owners"
+          }
+        }
+      },
+      "Unauthorized": {
+        "title": "Unauthorized",
+        "required": ["type", "message"],
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Error type",
+            "type": "string",
+            "description": "Error identifier"
+          },
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
           }
         }
       },

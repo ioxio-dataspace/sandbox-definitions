@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import Set
 
-from converter import CamelCaseModel, DataProductDefinition
+from definition_tooling.converter import CamelCaseModel, DataProductDefinition
 from pydantic import Field
 
 

@@ -1,7 +1,7 @@
 from datetime import datetime
 from enum import Enum
 
-from converter import CamelCaseModel, DataProductDefinition
+from definition_tooling.converter import CamelCaseModel, DataProductDefinition
 from pydantic import Field
 
 

@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Dict, List, Optional
 
-from converter import CamelCaseModel, DataProductDefinition
+from definition_tooling.converter import CamelCaseModel, DataProductDefinition
 from pydantic import Field
 
 

@@ -1,4 +1,4 @@
-from converter import CamelCaseModel, DataProductDefinition
+from definition_tooling.converter import CamelCaseModel, DataProductDefinition
 from pydantic import Field
 
 
