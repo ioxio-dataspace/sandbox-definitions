@@ -257,3 +257,14 @@ _Rules below are applied for each definition._
 ```
 
 _Note: Same rule applies to all description fields._
+
+### Spec file should list all the mandatory error responses
+
+The following responses are required and must be defined:
+
+- 401, 403, 404, 422, 444, 500, 502, 503, 504, 550
+
+An
+[example of a spec with all the error codes](https://github.com/ioxio-dataspace/ioxio-data-product-definition-tooling/blob/main/definition_tooling/converter/tests/__snapshots__/test_converter/test_air_quality.json)
+can be found in the
+[definition tooling repo](https://github.com/ioxio-dataspace/ioxio-data-product-definition-tooling/).

@@ -1,11 +1,11 @@
-name: Test definitions
+name: Validate definitions
 
 on:
   workflow_call:
 
 jobs:
   Validate:
-    name: Test definitions
+    name: Validate definitions
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,8 +15,8 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Install openapi-to-fastapi
-        run: pip install openapi-to-fastapi
+      - name: Install definition tooling
+        run: pip install ioxio-data-product-definition-tooling
 
-      - name: Run tests
-        run: openapi-validator --path ./DataProducts -v IhanStandardsValidator
+      - name: Run validation
+        run: validate-definitions ./DataProducts

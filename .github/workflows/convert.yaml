@@ -19,10 +19,10 @@ jobs:
           python-version: 3.9
 
       - name: Install python dependencies
-        run: pip install pre-commit data-product-definition-tooling
+        run: pip install pre-commit ioxio-data-product-definition-tooling
 
       - name: Generate definitions
-        run: converter src DataProducts
+        run: convert-definitions src DataProducts
 
       - name: Commit and push
         run: |

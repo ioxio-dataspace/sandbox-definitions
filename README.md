@@ -57,7 +57,7 @@ structure:
 ```python
 from pydantic import Field
 
-from converter import CamelCaseModel, DataProductDefinition, ErrorResponse
+from definition_tooling.converter import CamelCaseModel, DataProductDefinition, ErrorResponse
 
 
 class Request(CamelCaseModel):
@@ -148,7 +148,7 @@ There's an example of Data Product Definition for current weather:
 ```python
 from pydantic import Field
 
-from converter import CamelCaseModel, DataProductDefinition
+from definition_tooling.converter import CamelCaseModel, DataProductDefinition
 
 
 class CurrentWeatherMetricRequest(CamelCaseModel):
