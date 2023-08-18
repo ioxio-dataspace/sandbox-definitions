@@ -1,14 +1,14 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Signatory rights of a non-listed Company",
+    "title": "Signatory rights of a non-listed company",
     "description": "The list of representation rights of a legal entity",
     "version": "1.0.0"
   },
   "paths": {
     "/draft/NSG/Agent/LegalEntity/NonListedCompany/SignatoryRights": {
       "post": {
-        "summary": "Signatory rights of a non-listed Company",
+        "summary": "Signatory rights of a non-listed company",
         "description": "The list of representation rights of a legal entity",
         "operationId": "request_draft_NSG_Agent_LegalEntity_NonListedCompany_SignatoryRights",
         "parameters": [

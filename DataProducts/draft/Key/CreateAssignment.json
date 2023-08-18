@@ -2,14 +2,14 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Create key assignment",
-    "description": "Create assignment",
+    "description": "Assign a key to have access to a specific lock",
     "version": "1.0.0"
   },
   "paths": {
     "/draft/Key/CreateAssignment": {
       "post": {
         "summary": "Create key assignment",
-        "description": "Create assignment",
+        "description": "Assign a key to have access to a specific lock",
         "operationId": "request_draft_Key_CreateAssignment",
         "parameters": [
           {

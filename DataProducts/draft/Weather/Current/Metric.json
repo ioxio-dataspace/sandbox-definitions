@@ -2,14 +2,14 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Current weather in a given location",
-    "description": "Current weather with metric units in a given location",
+    "description": "Common data points about the current weather with metric units in a given location. Simplified for example use, and not following industry standards.",
     "version": "1.0.0"
   },
   "paths": {
     "/draft/Weather/Current/Metric": {
       "post": {
         "summary": "Current weather in a given location",
-        "description": "Current weather with metric units in a given location",
+        "description": "Common data points about the current weather with metric units in a given location. Simplified for example use, and not following industry standards.",
         "operationId": "request_draft_Weather_Current_Metric",
         "parameters": [
           {

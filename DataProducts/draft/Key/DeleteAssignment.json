@@ -2,14 +2,14 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Delete key assignment",
-    "description": "Delete assignment",
+    "description": "Remove a key from having access to a specific lock",
     "version": "1.0.0"
   },
   "paths": {
     "/draft/Key/DeleteAssignment": {
       "post": {
         "summary": "Delete key assignment",
-        "description": "Delete assignment",
+        "description": "Remove a key from having access to a specific lock",
         "operationId": "request_draft_Key_DeleteAssignment",
         "parameters": [
           {

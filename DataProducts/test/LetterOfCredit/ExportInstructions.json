@@ -2,14 +2,14 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Export Instructions",
-    "description": "Export Instructions",
+    "description": "Get instructions necessary in the export context, based on a Letter of Credit number.",
     "version": "1.0.0"
   },
   "paths": {
     "/test/LetterOfCredit/ExportInstructions": {
       "post": {
         "summary": "Export Instructions",
-        "description": "Export Instructions",
+        "description": "Get instructions necessary in the export context, based on a Letter of Credit number.",
         "operationId": "request_test_LetterOfCredit_ExportInstructions",
         "parameters": [
           {

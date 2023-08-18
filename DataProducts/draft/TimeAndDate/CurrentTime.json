@@ -2,14 +2,14 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Current time in a given country",
-    "description": "Current time in a given country",
+    "description": "Get the current time in a given country based on the ISO 3166-1 alpha-2 country code, formatted in RFC 3339 format",
     "version": "1.0.0"
   },
   "paths": {
     "/draft/TimeAndDate/CurrentTime": {
       "post": {
         "summary": "Current time in a given country",
-        "description": "Current time in a given country",
+        "description": "Get the current time in a given country based on the ISO 3166-1 alpha-2 country code, formatted in RFC 3339 format",
         "operationId": "request_draft_TimeAndDate_CurrentTime",
         "parameters": [
           {

@@ -250,7 +250,7 @@ class BatteryDataResponse(CamelCaseModel):
 
 DEFINITION = DataProductDefinition(
     title="Battery product data sheet",
-    description="Technical description of a battery such as capacity and voltage.",
+    description="Technical details of a battery such as capacity and voltage",
     request=BatteryDataRequest,
     response=BatteryDataResponse,
 )

@@ -2,14 +2,14 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Battery product data sheet",
-    "description": "Technical description of a battery such as capacity and voltage.",
+    "description": "Technical details of a battery such as capacity and voltage",
     "version": "1.0.0"
   },
   "paths": {
     "/DPP/Energy/Battery/ProductDataSheet": {
       "post": {
         "summary": "Battery product data sheet",
-        "description": "Technical description of a battery such as capacity and voltage.",
+        "description": "Technical details of a battery such as capacity and voltage",
         "operationId": "request_DPP_Energy_Battery_ProductDataSheet",
         "parameters": [
           {
@@ -347,13 +347,13 @@
               "type": "string"
             },
             "example": [
-              "ECE R10",
-              "ISO 16750",
-              "ISO 13849 PL C",
-              "IEC 62061 SIL 2",
-              "UN 38.3",
               "ECE R100",
-              "IEC 61508 SIL 2"
+              "IEC 61508 SIL 2",
+              "ISO 13849 PL C",
+              "ECE R10",
+              "IEC 62061 SIL 2",
+              "ISO 16750",
+              "UN 38.3"
             ]
           }
         }
