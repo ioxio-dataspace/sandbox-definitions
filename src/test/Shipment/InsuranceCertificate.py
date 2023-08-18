@@ -22,8 +22,8 @@ class InsuranceCertificateRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    title="Insurance Certificate",
-    description="Insurance Certificate",
+    title="Insurance certificate for a shipment",
+    description="Get all the details necessary about the insurance certificate for a specific shipment based on the shipment ID.",
     request=InsuranceCertificateRequest,
     response=InsuranceCertificateResponse,
 )

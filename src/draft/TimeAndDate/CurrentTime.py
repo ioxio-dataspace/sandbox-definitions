@@ -269,7 +269,7 @@ class CurrentTimeResponse(CamelCaseModel):
 
 DEFINITION = DataProductDefinition(
     title="Current time in a given country",
-    description="Current time in a given country",
+    description="Get the current time in a given country based on the ISO 3166-1 alpha-2 country code, formatted in RFC 3339 format",
     request=CurrentTimeRequest,
     response=CurrentTimeResponse,
 )
