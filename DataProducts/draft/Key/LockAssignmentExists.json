@@ -2,14 +2,14 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Check if lock assignment exists",
-    "description": "Check if lock assignment exists",
+    "description": "Check if a key has access to a specific lock",
     "version": "1.0.0"
   },
   "paths": {
     "/draft/Key/LockAssignmentExists": {
       "post": {
         "summary": "Check if lock assignment exists",
-        "description": "Check if lock assignment exists",
+        "description": "Check if a key has access to a specific lock",
         "operationId": "request_draft_Key_LockAssignmentExists",
         "parameters": [
           {
