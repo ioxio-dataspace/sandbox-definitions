@@ -23,7 +23,7 @@ repos:
     hooks:
       - id: shellcheck
   - repo: https://github.com/ioxio-dataspace/ioxio-data-product-definition-tooling
-    rev: 0.1.1
+    rev: 6f46939f0d0d132a35ac1026ca8f922dd6421163
     hooks:
       - id: data-product-definition-converter
         # TODO: convert only the file that was changed

@@ -1,15 +1,15 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Air Quality Index",
-    "description": "Data Product for current air quality index",
+    "title": "Current air quality in a given location",
+    "description": "Current Air Quality Index (AQI) in a given location with attribution of the sources",
     "version": "1.0.0"
   },
   "paths": {
     "/draft/AirQuality/Current": {
       "post": {
-        "summary": "Air Quality Index",
-        "description": "Current air quality",
+        "summary": "Current air quality in a given location",
+        "description": "Current Air Quality Index (AQI) in a given location with attribution of the sources",
         "operationId": "request_draft_AirQuality_Current",
         "parameters": [
           {

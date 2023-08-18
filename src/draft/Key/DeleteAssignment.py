@@ -29,8 +29,8 @@ class DeleteAssignmentRequest(DeleteAssignmentResponse):
 
 
 DEFINITION = DataProductDefinition(
+    title="Delete key assignment",
+    description="Delete assignment",
     request=DeleteAssignmentRequest,
     response=DeleteAssignmentResponse,
-    route_description="Delete assignment",
-    summary="Delete key assignment",
 )

@@ -63,9 +63,8 @@ class ShareholdersInfoResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    description="Data Product for Shareholders info",
+    title="Information about the shareholders of a company",
+    description="Information about the shareholders of a company such as owners and shares quantity.",
     request=ShareholdersInfoRequest,
     response=ShareholdersInfoResponse,
-    route_description="Information about the shareholders of the company",
-    summary="Shareholders Info",
 )

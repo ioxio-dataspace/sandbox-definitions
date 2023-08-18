@@ -75,9 +75,8 @@ class BasicCountryInfoResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    description="Data Product for basic country info",
+    title="Information about a country",
+    description="Information about a country",
     request=BasicCountryInfoRequest,
     response=BasicCountryInfoResponse,
-    route_description="Information about the country",
-    summary="Basic Country Info",
 )

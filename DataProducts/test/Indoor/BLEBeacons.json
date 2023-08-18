@@ -1,14 +1,14 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "BLE Beacons",
-    "description": "Data Product for indoor location based on BLE beacons",
+    "title": "Indoor location based on BLE beacons",
+    "description": "Indoor location based on BLE beacons",
     "version": "1.0.0"
   },
   "paths": {
     "/test/Indoor/BLEBeacons": {
       "post": {
-        "summary": "BLE Beacons",
+        "summary": "Indoor location based on BLE beacons",
         "description": "Indoor location based on BLE beacons",
         "operationId": "request_test_Indoor_BLEBeacons",
         "parameters": [

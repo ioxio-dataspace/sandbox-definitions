@@ -1,15 +1,15 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Shareholders Info",
-    "description": "Data Product for Shareholders info",
+    "title": "Information about the shareholders of a company",
+    "description": "Information about the shareholders of a company such as owners and shares quantity.",
     "version": "1.0.0"
   },
   "paths": {
     "/draft/Company/Shareholders": {
       "post": {
-        "summary": "Shareholders Info",
-        "description": "Information about the shareholders of the company",
+        "summary": "Information about the shareholders of a company",
+        "description": "Information about the shareholders of a company such as owners and shares quantity.",
         "operationId": "request_draft_Company_Shareholders",
         "parameters": [
           {

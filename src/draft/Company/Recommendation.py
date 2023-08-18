@@ -35,9 +35,8 @@ class RecommendationResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
+    title="Company recommendations based on keywords",
+    description="Recommendation of companies based on provided keywords. Each result has a score.",
     request=RecommendationRequest,
     response=RecommendationResponse,
-    route_description="Data Product for company recommendations score",
-    description="Data Product for company recommendations score",
-    summary="Company Recommendations Scores",
 )

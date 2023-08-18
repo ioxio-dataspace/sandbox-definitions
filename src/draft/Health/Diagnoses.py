@@ -15,9 +15,8 @@ class HealthDiagnosesResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    description="Data Product for user's diagnoses with ICD10 codes",
+    title="Persons health diagnoses",
+    description="Diagnoses of a user with ICD10 codes",
     request=HealthDiagnosesRequest,
     response=HealthDiagnosesResponse,
-    route_description="Health diagnoses in ICD codes",
-    summary="Persons Diagnoses",
 )

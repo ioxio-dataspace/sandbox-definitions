@@ -2,14 +2,14 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Person details",
-    "description": "Person details",
+    "description": "Details about a person such as home address",
     "version": "1.0.0"
   },
   "paths": {
     "/draft/Person/Details": {
       "post": {
         "summary": "Person details",
-        "description": "Person details",
+        "description": "Details about a person such as home address",
         "operationId": "request_draft_Person_Details",
         "parameters": [
           {

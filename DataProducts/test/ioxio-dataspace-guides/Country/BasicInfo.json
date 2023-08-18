@@ -1,15 +1,15 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Basic Country Info",
-    "description": "Data Product for basic country info",
+    "title": "Information about a country",
+    "description": "Information about a country",
     "version": "1.0.0"
   },
   "paths": {
     "/test/ioxio-dataspace-guides/Country/BasicInfo": {
       "post": {
-        "summary": "Basic Country Info",
-        "description": "Information about the country",
+        "summary": "Information about a country",
+        "description": "Information about a country",
         "operationId": "request_test_ioxio_dataspace_guides_Country_BasicInfo",
         "parameters": [
           {

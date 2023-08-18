@@ -1,15 +1,15 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Company Recommendations Scores",
-    "description": "Data Product for company recommendations score",
+    "title": "Company recommendations based on keywords",
+    "description": "Recommendation of companies based on provided keywords. Each result has a score.",
     "version": "1.0.0"
   },
   "paths": {
     "/draft/Company/Recommendation": {
       "post": {
-        "summary": "Company Recommendations Scores",
-        "description": "Data Product for company recommendations score",
+        "summary": "Company recommendations based on keywords",
+        "description": "Recommendation of companies based on provided keywords. Each result has a score.",
         "operationId": "request_draft_Company_Recommendation",
         "parameters": [
           {

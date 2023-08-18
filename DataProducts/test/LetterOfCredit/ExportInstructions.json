@@ -2,7 +2,7 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Export Instructions",
-    "description": "Data Product for Export Instructions",
+    "description": "Export Instructions",
     "version": "1.0.0"
   },
   "paths": {

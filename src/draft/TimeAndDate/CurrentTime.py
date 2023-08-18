@@ -268,7 +268,8 @@ class CurrentTimeResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
+    title="Current time in a given country",
+    description="Current time in a given country",
     request=CurrentTimeRequest,
     response=CurrentTimeResponse,
-    summary="Get the current time in a given country",
 )

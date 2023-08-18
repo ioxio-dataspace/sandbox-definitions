@@ -18,8 +18,8 @@ class DimensionsAndWeightsRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    description="Data Product for Dimensions And Weights",
+    title="Dimensions And Weights",
+    description="Dimensions And Weights",
     request=DimensionsAndWeightsRequest,
     response=DimensionsAndWeightsResponse,
-    summary="Dimensions And Weights",
 )

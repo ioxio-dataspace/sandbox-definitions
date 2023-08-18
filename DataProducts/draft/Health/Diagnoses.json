@@ -1,15 +1,15 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Persons Diagnoses",
-    "description": "Data Product for user's diagnoses with ICD10 codes",
+    "title": "Persons health diagnoses",
+    "description": "Diagnoses of a user with ICD10 codes",
     "version": "1.0.0"
   },
   "paths": {
     "/draft/Health/Diagnoses": {
       "post": {
-        "summary": "Persons Diagnoses",
-        "description": "Health diagnoses in ICD codes",
+        "summary": "Persons health diagnoses",
+        "description": "Diagnoses of a user with ICD10 codes",
         "operationId": "request_draft_Health_Diagnoses",
         "parameters": [
           {

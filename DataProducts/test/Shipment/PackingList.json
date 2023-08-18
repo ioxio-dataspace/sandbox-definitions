@@ -2,7 +2,7 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Packing List",
-    "description": "Data Product for Packing List",
+    "description": "Packing List",
     "version": "1.0.0"
   },
   "paths": {

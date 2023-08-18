@@ -25,9 +25,8 @@ class BasicCompanyInfoResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    description="Data Product for basic company info",
+    title="Information about a company",
+    description="Legal information about a company such as company registration date",
     request=BasicCompanyInfoRequest,
     response=BasicCompanyInfoResponse,
-    route_description="Information about the company",
-    summary="Basic Company Info",
 )

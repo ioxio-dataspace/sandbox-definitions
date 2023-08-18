@@ -2,7 +2,7 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Cargo Receipt",
-    "description": "Data Product for Cargo Receipt",
+    "description": "Cargo Receipt",
     "version": "1.0.0"
   },
   "paths": {

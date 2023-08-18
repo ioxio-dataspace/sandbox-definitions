@@ -2,7 +2,7 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Delete key assignment",
-    "description": "Delete key assignment",
+    "description": "Delete assignment",
     "version": "1.0.0"
   },
   "paths": {

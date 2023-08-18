@@ -1,15 +1,15 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Non-listed Company Beneficial Owners",
+    "title": "Beneficial owners of a non-listed company ",
     "description": "The list of beneficial owners of a non-listed company. The shareholders exceeding 25 % ownership.",
     "version": "1.0.0"
   },
   "paths": {
     "/draft/NSG/Agent/LegalEntity/NonListedCompany/BeneficialOwners": {
       "post": {
-        "summary": "Non-listed Company Beneficial Owners",
-        "description": "Non-listed Company Beneficial Owners",
+        "summary": "Beneficial owners of a non-listed company ",
+        "description": "The list of beneficial owners of a non-listed company. The shareholders exceeding 25 % ownership.",
         "operationId": "request_draft_NSG_Agent_LegalEntity_NonListedCompany_BeneficialOwners",
         "parameters": [
           {

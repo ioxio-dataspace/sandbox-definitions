@@ -2,7 +2,7 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Invoice",
-    "description": "Data Product for Invoice",
+    "description": "Invoice",
     "version": "1.0.0"
   },
   "paths": {

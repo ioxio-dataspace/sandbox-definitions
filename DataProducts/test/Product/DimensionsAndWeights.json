@@ -2,7 +2,7 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Dimensions And Weights",
-    "description": "Data Product for Dimensions And Weights",
+    "description": "Dimensions And Weights",
     "version": "1.0.0"
   },
   "paths": {

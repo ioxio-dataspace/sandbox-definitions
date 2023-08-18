@@ -35,7 +35,8 @@ class LockAssignmentExistsResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
+    title="Check if lock assignment exists",
+    description="Check if lock assignment exists",
     request=LockAssignmentExistsRequest,
     response=LockAssignmentExistsResponse,
-    summary="Check if lock assignment exists",
 )

@@ -1,15 +1,15 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Non-listed Company Establishment",
+    "title": "Non-listed company establishment",
     "description": "Create the initial set of data to establish a non-listed company",
     "version": "1.0.0"
   },
   "paths": {
     "/draft/NSG/Agent/LegalEntity/NonListedCompany/Establishment/Write": {
       "post": {
-        "summary": "Non-listed Company Establishment",
-        "description": "Non-listed Company Establishment",
+        "summary": "Non-listed company establishment",
+        "description": "Create the initial set of data to establish a non-listed company",
         "operationId": "request_draft_NSG_Agent_LegalEntity_NonListedCompany_Establishment_Write",
         "parameters": [
           {

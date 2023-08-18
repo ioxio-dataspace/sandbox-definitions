@@ -80,7 +80,8 @@ class ChargingHistoryResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
+    title="Charging history of a battery",
+    description="Charging history of a battery",
     request=ChargingHistoryRequest,
     response=ChargingHistoryResponse,
-    summary="Charging history of a battery",
 )

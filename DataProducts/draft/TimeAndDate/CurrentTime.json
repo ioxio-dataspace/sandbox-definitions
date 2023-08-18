@@ -1,15 +1,15 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Get the current time in a given country",
-    "description": "Get the current time in a given country",
+    "title": "Current time in a given country",
+    "description": "Current time in a given country",
     "version": "1.0.0"
   },
   "paths": {
     "/draft/TimeAndDate/CurrentTime": {
       "post": {
-        "summary": "Get the current time in a given country",
-        "description": "Get the current time in a given country",
+        "summary": "Current time in a given country",
+        "description": "Current time in a given country",
         "operationId": "request_draft_TimeAndDate_CurrentTime",
         "parameters": [
           {

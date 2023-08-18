@@ -1627,10 +1627,10 @@ class EstablishmentRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
+    title="Non-listed company establishment",
     description="Create the initial set of data to establish a non-listed company",
     request=EstablishmentRequest,
     response=EstablishmentRequest,
-    summary="Non-listed Company Establishment",
     requires_authorization=True,
     requires_consent=False,
 )

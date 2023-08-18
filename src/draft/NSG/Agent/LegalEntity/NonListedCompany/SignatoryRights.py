@@ -425,10 +425,10 @@ class SignatoryRightsResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
+    title="Signatory rights of a non-listed Company",
     description="The list of representation rights of a legal entity",
     request=SignatoryRightsRequest,
     response=SignatoryRightsResponse,
-    summary="Non-listed Company Signatory Rights",
     requires_authorization=True,
     requires_consent=True,
 )
