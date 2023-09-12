@@ -6,11 +6,11 @@
     "version": "1.0.0"
   },
   "paths": {
-    "/DPP/Energy/Battery/ProductDataSheet": {
+    "/DPP/Energy/Battery/ProductDataSheet_v0.1": {
       "post": {
         "summary": "Battery product data sheet",
         "description": "Technical details of a battery such as capacity and voltage",
-        "operationId": "request_DPP_Energy_Battery_ProductDataSheet",
+        "operationId": "request_DPP_Energy_Battery_ProductDataSheet_v0_1",
         "parameters": [
           {
             "description": "Optional consent token",
