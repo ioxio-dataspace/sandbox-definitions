@@ -1,0 +1,450 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "List of the shareholders of a company",
+    "description": "Information about the shareholders of a company such as owners and shares quantity.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/Company/Shareholders_v1.0": {
+      "post": {
+        "summary": "List of the shareholders of a company",
+        "description": "Information about the shareholders of a company such as owners and shares quantity.",
+        "operationId": "request_Company_Shareholders_v1_0",
+        "parameters": [
+          {
+            "description": "Optional consent token",
+            "required": false,
+            "schema": {
+              "title": "X-Consent-Token",
+              "type": "string",
+              "description": "Optional consent token"
+            },
+            "name": "x-consent-token",
+            "in": "header"
+          },
+          {
+            "description": "The login token. Value should be \"Bearer [token]\"",
+            "required": false,
+            "schema": {
+              "title": "Authorization",
+              "type": "string",
+              "description": "The login token. Value should be \"Bearer [token]\""
+            },
+            "name": "authorization",
+            "in": "header"
+          },
+          {
+            "description": "The bare domain of the system that provided the token.",
+            "required": false,
+            "schema": {
+              "title": "X-Authorization-Provider",
+              "type": "string",
+              "description": "The bare domain of the system that provided the token."
+            },
+            "name": "x-authorization-provider",
+            "in": "header"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShareholdersInfoRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShareholdersInfoResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFound"
+                }
+              }
+            }
+          },
+          "444": {
+            "description": "Additional Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceNotFound"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadGateway"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceUnavailable"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayTimeout"
+                }
+              }
+            }
+          },
+          "550": {
+            "description": "Additional Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoesNotConformToDefinition"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BadGateway": {
+        "title": "BadGateway",
+        "type": "object",
+        "properties": {},
+        "description": "This response is reserved by Product Gateway."
+      },
+      "DataSourceError": {
+        "title": "DataSourceError",
+        "required": ["type", "message"],
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Error type",
+            "type": "string",
+            "description": "Error identifier"
+          },
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        }
+      },
+      "DataSourceNotFound": {
+        "title": "DataSourceNotFound",
+        "type": "object",
+        "properties": {
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description",
+            "default": "Data source not found"
+          }
+        },
+        "description": "This response is reserved by Product Gateway."
+      },
+      "DoesNotConformToDefinition": {
+        "title": "DoesNotConformToDefinition",
+        "required": ["data_source_status_code"],
+        "type": "object",
+        "properties": {
+          "message": {
+            "title": "Message",
+            "type": "string",
+            "default": "Response from data source does not conform to definition"
+          },
+          "data_source_status_code": {
+            "title": "Data source status code",
+            "type": "integer",
+            "description": "HTTP status code returned from the data source"
+          }
+        },
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Forbidden": {
+        "title": "Forbidden",
+        "required": ["type", "message"],
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Error type",
+            "type": "string",
+            "description": "Error identifier"
+          },
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        }
+      },
+      "GatewayTimeout": {
+        "title": "GatewayTimeout",
+        "type": "object",
+        "properties": {
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        },
+        "description": "This response is reserved by Product Gateway."
+      },
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "title": "NotFound",
+        "required": ["type", "message"],
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Error type",
+            "type": "string",
+            "description": "Error identifier"
+          },
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        }
+      },
+      "Owners": {
+        "title": "Owners",
+        "required": ["name", "ownerships"],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name of the Shareholder",
+            "type": "string",
+            "description": "Name of the shareholder",
+            "example": "Matti Meikäläinen | Oy Company Ltd"
+          },
+          "ownerships": {
+            "title": "Ownerships",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Ownerships"
+            },
+            "description": "List of Ownerships"
+          }
+        }
+      },
+      "Ownerships": {
+        "title": "Ownerships",
+        "required": ["seriesName", "quantity"],
+        "type": "object",
+        "properties": {
+          "seriesName": {
+            "title": "Series Name",
+            "type": "string",
+            "description": "Name of the share series",
+            "example": "A"
+          },
+          "quantity": {
+            "title": "Number of Shares",
+            "type": "integer",
+            "description": "Number of shares held by the owner",
+            "example": 100
+          }
+        }
+      },
+      "ServiceUnavailable": {
+        "title": "ServiceUnavailable",
+        "type": "object",
+        "properties": {
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        },
+        "description": "This response is reserved by Product Gateway."
+      },
+      "ShareSeries": {
+        "title": "ShareSeries",
+        "required": ["seriesName", "votesPerShare", "totalShares"],
+        "type": "object",
+        "properties": {
+          "seriesName": {
+            "title": "Series Name",
+            "type": "string",
+            "description": "Classification of the share",
+            "example": "A"
+          },
+          "votesPerShare": {
+            "title": "Votes per share",
+            "type": "integer",
+            "description": "Number of votes per share in the share series",
+            "example": 1
+          },
+          "totalShares": {
+            "title": "Total Shares",
+            "type": "integer",
+            "description": "Total number of shares in the share series",
+            "example": 1000
+          }
+        }
+      },
+      "ShareholdersInfoRequest": {
+        "title": "ShareholdersInfoRequest",
+        "required": ["companyId"],
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "title": "Company ID",
+            "type": "string",
+            "description": "The ID of the company, only supports Finnish business ID's",
+            "example": "2464491-9"
+          }
+        }
+      },
+      "ShareholdersInfoResponse": {
+        "title": "ShareholdersInfoResponse",
+        "required": ["shareSeries", "owners"],
+        "type": "object",
+        "properties": {
+          "shareSeries": {
+            "title": "Share series",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ShareSeries"
+            },
+            "description": "List of share series"
+          },
+          "owners": {
+            "title": "Owners",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Owners"
+            },
+            "description": "List of owners"
+          }
+        }
+      },
+      "Unauthorized": {
+        "title": "Unauthorized",
+        "required": ["type", "message"],
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Error type",
+            "type": "string",
+            "description": "Error identifier"
+          },
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        }
+      },
+      "ValidationError": {
+        "title": "ValidationError",
+        "required": ["loc", "msg", "type"],
+        "type": "object",
+        "properties": {
+          "loc": {
+            "title": "Location",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            }
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

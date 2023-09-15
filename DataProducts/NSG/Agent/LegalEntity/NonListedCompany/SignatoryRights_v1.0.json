@@ -1,0 +1,784 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Signatory rights of a non-listed company",
+    "description": "The list of representation rights of a legal entity",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/NSG/Agent/LegalEntity/NonListedCompany/SignatoryRights_v1.0": {
+      "post": {
+        "summary": "Signatory rights of a non-listed company",
+        "description": "The list of representation rights of a legal entity",
+        "operationId": "request_NSG_Agent_LegalEntity_NonListedCompany_SignatoryRights_v1_0",
+        "parameters": [
+          {
+            "description": "Consent token",
+            "required": true,
+            "schema": {
+              "title": "X-Consent-Token",
+              "type": "string",
+              "description": "Consent token"
+            },
+            "name": "x-consent-token",
+            "in": "header"
+          },
+          {
+            "description": "The login token. Value should be \"Bearer [token]\"",
+            "required": true,
+            "schema": {
+              "title": "Authorization",
+              "type": "string",
+              "description": "The login token. Value should be \"Bearer [token]\""
+            },
+            "name": "authorization",
+            "in": "header"
+          },
+          {
+            "description": "The bare domain of the system that provided the token.",
+            "required": false,
+            "schema": {
+              "title": "X-Authorization-Provider",
+              "type": "string",
+              "description": "The bare domain of the system that provided the token."
+            },
+            "name": "x-authorization-provider",
+            "in": "header"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignatoryRightsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SignatoryRightsResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFound"
+                }
+              }
+            }
+          },
+          "444": {
+            "description": "Additional Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceNotFound"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadGateway"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceUnavailable"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayTimeout"
+                }
+              }
+            }
+          },
+          "550": {
+            "description": "Additional Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoesNotConformToDefinition"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BadGateway": {
+        "title": "BadGateway",
+        "type": "object",
+        "properties": {},
+        "description": "This response is reserved by Product Gateway."
+      },
+      "DataSourceError": {
+        "title": "DataSourceError",
+        "required": ["type", "message"],
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Error type",
+            "type": "string",
+            "description": "Error identifier"
+          },
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        }
+      },
+      "DataSourceNotFound": {
+        "title": "DataSourceNotFound",
+        "type": "object",
+        "properties": {
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description",
+            "default": "Data source not found"
+          }
+        },
+        "description": "This response is reserved by Product Gateway."
+      },
+      "DoesNotConformToDefinition": {
+        "title": "DoesNotConformToDefinition",
+        "required": ["data_source_status_code"],
+        "type": "object",
+        "properties": {
+          "message": {
+            "title": "Message",
+            "type": "string",
+            "default": "Response from data source does not conform to definition"
+          },
+          "data_source_status_code": {
+            "title": "Data source status code",
+            "type": "integer",
+            "description": "HTTP status code returned from the data source"
+          }
+        },
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Forbidden": {
+        "title": "Forbidden",
+        "required": ["type", "message"],
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Error type",
+            "type": "string",
+            "description": "Error identifier"
+          },
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        }
+      },
+      "GatewayTimeout": {
+        "title": "GatewayTimeout",
+        "type": "object",
+        "properties": {
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        },
+        "description": "This response is reserved by Product Gateway."
+      },
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          }
+        }
+      },
+      "ISO_3166_1_Alpha_3": {
+        "title": "ISO_3166_1_Alpha_3",
+        "enum": [
+          "AFG",
+          "ALB",
+          "DZA",
+          "ASM",
+          "AND",
+          "AGO",
+          "AIA",
+          "ATA",
+          "ATG",
+          "ARG",
+          "ARM",
+          "ABW",
+          "AUS",
+          "AUT",
+          "AZE",
+          "BHS",
+          "BHR",
+          "BGD",
+          "BRB",
+          "BLR",
+          "BEL",
+          "BLZ",
+          "BEN",
+          "BMU",
+          "BTN",
+          "BOL",
+          "BIH",
+          "BWA",
+          "BVT",
+          "BRA",
+          "IOT",
+          "BRN",
+          "BGR",
+          "BFA",
+          "BDI",
+          "KHM",
+          "CMR",
+          "CAN",
+          "CPV",
+          "CYM",
+          "CAF",
+          "TCD",
+          "CHL",
+          "CHN",
+          "CXR",
+          "CCK",
+          "COL",
+          "COM",
+          "COG",
+          "COD",
+          "COK",
+          "CRI",
+          "CIV",
+          "HRV",
+          "CUB",
+          "CYP",
+          "CZE",
+          "DNK",
+          "DJI",
+          "DMA",
+          "DOM",
+          "ECU",
+          "EGY",
+          "SLV",
+          "GNQ",
+          "ERI",
+          "EST",
+          "ETH",
+          "FLK",
+          "FRO",
+          "FJI",
+          "FIN",
+          "FRA",
+          "GUF",
+          "PYF",
+          "ATF",
+          "GAB",
+          "GMB",
+          "GEO",
+          "DEU",
+          "GHA",
+          "GIB",
+          "GRC",
+          "GRL",
+          "GRD",
+          "GLP",
+          "GUM",
+          "GTM",
+          "GGY",
+          "GIN",
+          "GNB",
+          "GUY",
+          "HTI",
+          "HMD",
+          "VAT",
+          "HND",
+          "HKG",
+          "HUN",
+          "ISL",
+          "IND",
+          "IDN",
+          "IRN",
+          "IRQ",
+          "IRL",
+          "IMN",
+          "ISR",
+          "ITA",
+          "JAM",
+          "JPN",
+          "JEY",
+          "JOR",
+          "KAZ",
+          "KEN",
+          "KIR",
+          "PRK",
+          "KOR",
+          "KWT",
+          "KGZ",
+          "LAO",
+          "LVA",
+          "LBN",
+          "LSO",
+          "LBR",
+          "LBY",
+          "LIE",
+          "LTU",
+          "LUX",
+          "MAC",
+          "MKD",
+          "MDG",
+          "MWI",
+          "MYS",
+          "MDV",
+          "MLI",
+          "MLT",
+          "MHL",
+          "MTQ",
+          "MRT",
+          "MUS",
+          "MYT",
+          "MEX",
+          "FSM",
+          "MDA",
+          "MCO",
+          "MNG",
+          "MNE",
+          "MSR",
+          "MAR",
+          "MOZ",
+          "MMR",
+          "NAM",
+          "NRU",
+          "NPL",
+          "NLD",
+          "ANT",
+          "NCL",
+          "NZL",
+          "NIC",
+          "NER",
+          "NGA",
+          "NIU",
+          "NFK",
+          "MNP",
+          "NOR",
+          "OMN",
+          "PAK",
+          "PLW",
+          "PSE",
+          "PAN",
+          "PNG",
+          "PRY",
+          "PER",
+          "PHL",
+          "PCN",
+          "POL",
+          "PRT",
+          "PRI",
+          "QAT",
+          "REU",
+          "ROU",
+          "RUS",
+          "RWA",
+          "SHN",
+          "KNA",
+          "LCA",
+          "SPM",
+          "VCT",
+          "WSM",
+          "SMR",
+          "STP",
+          "SAU",
+          "SEN",
+          "SRB",
+          "SYC",
+          "SLE",
+          "SGP",
+          "SVK",
+          "SVN",
+          "SLB",
+          "SOM",
+          "ZAF",
+          "SGS",
+          "SSD",
+          "ESP",
+          "LKA",
+          "SDN",
+          "SUR",
+          "SJM",
+          "SWZ",
+          "SWE",
+          "CHE",
+          "SYR",
+          "TWN",
+          "TJK",
+          "TZA",
+          "THA",
+          "TLS",
+          "TGO",
+          "TKL",
+          "TON",
+          "TTO",
+          "TUN",
+          "TUR",
+          "TKM",
+          "TCA",
+          "TUV",
+          "UGA",
+          "UKR",
+          "ARE",
+          "GBR",
+          "USA",
+          "UMI",
+          "URY",
+          "UZB",
+          "VUT",
+          "VEN",
+          "VNM",
+          "VGB",
+          "VIR",
+          "WLF",
+          "ESH",
+          "YEM",
+          "ZMB",
+          "ZWE"
+        ],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "NotFound": {
+        "title": "NotFound",
+        "required": ["type", "message"],
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Error type",
+            "type": "string",
+            "description": "Error identifier"
+          },
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        }
+      },
+      "Role": {
+        "title": "Role",
+        "enum": [
+          "director",
+          "deputy director",
+          "chairperson",
+          "board member",
+          "deputy board member",
+          "other"
+        ],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "ServiceUnavailable": {
+        "title": "ServiceUnavailable",
+        "type": "object",
+        "properties": {
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        },
+        "description": "This response is reserved by Product Gateway."
+      },
+      "SignatoryRights": {
+        "title": "SignatoryRights",
+        "required": [
+          "role",
+          "givenName",
+          "middleNames",
+          "lastName",
+          "dateOfBirth",
+          "nationality"
+        ],
+        "type": "object",
+        "properties": {
+          "role": {
+            "title": "Role",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Role"
+              }
+            ],
+            "description": "The role of the person that has a signing right in the company",
+            "example": "chairperson"
+          },
+          "personalId": {
+            "title": "Personal ID",
+            "maxLength": 40,
+            "type": "string",
+            "description": "The ID of a person if exists, e.g. social security number or similar",
+            "example": "1129955131"
+          },
+          "givenName": {
+            "title": "Given name",
+            "maxLength": 250,
+            "type": "string",
+            "description": "The first name that the person is being called by",
+            "example": "Mary"
+          },
+          "middleNames": {
+            "title": "Middle names",
+            "maxLength": 250,
+            "type": "string",
+            "description": "All the middle names of the person",
+            "example": "Juliet Olive"
+          },
+          "lastName": {
+            "title": "Last name",
+            "maxLength": 250,
+            "type": "string",
+            "description": "The person's current family name",
+            "example": "Deo"
+          },
+          "dateOfBirth": {
+            "title": "Date of birth",
+            "type": "string",
+            "description": "The birth day of a person",
+            "format": "date",
+            "example": "1976-04-16"
+          },
+          "nationality": {
+            "title": "Nationality",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ISO_3166_1_Alpha_3"
+              }
+            ],
+            "description": "The nationality of a person",
+            "example": "USA"
+          },
+          "fullAddress": {
+            "title": "Full address",
+            "maxLength": 250,
+            "type": "string",
+            "description": "The complete address written as a string. Use of this property is recommended as it will not suffer any misunderstandings that might arise through the breaking up of an address into its component parts.",
+            "example": "Tietotie 4 A 7, 00100 Helsinki, Finland"
+          },
+          "thoroughfare": {
+            "title": "Thoroughfare",
+            "maxLength": 40,
+            "type": "string",
+            "description": "The name of a passage or way through from one location to another. A thoroughfare is usually a street, but it might be a waterway or some other feature.",
+            "example": "Avenue des Champs-Élysées"
+          },
+          "locatorDesignator": {
+            "title": "Locator designator",
+            "maxLength": 10,
+            "type": "string",
+            "description": "A number or sequence of characters that uniquely identifies the locator within the relevant scope. In simpler terms, this is the building number, apartment number, etc.",
+            "example": "Flat 3, 17 or 3 A 4"
+          },
+          "locatorName": {
+            "title": "Locator name",
+            "maxLength": 40,
+            "type": "string",
+            "description": "Proper noun(s) applied to the real world entity identified by the locator. The locator name could be the name of the property or complex, of the building or part of the building, or it could be the name of a room inside a building. The key difference between a locator designator and a locator name is that the latter is a proper name and is unlikely to include digits.",
+            "example": "Shumann, Berlaymont building"
+          },
+          "addressArea": {
+            "title": "Address area",
+            "maxLength": 40,
+            "type": "string",
+            "description": "The name of a geographic area that groups Addresses. This would typically be part of a city, a neighbourhood or village. Address area is not an administrative unit.",
+            "example": "Montmartre (in Paris)"
+          },
+          "postCode": {
+            "title": "Post code",
+            "maxLength": 10,
+            "type": "string",
+            "description": "The code created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points.",
+            "example": "75000"
+          },
+          "postName": {
+            "title": "Post name",
+            "maxLength": 40,
+            "type": "string",
+            "description": "A name created and maintained for postal purposes to identify a subdivision of addresses and postal delivery points. Usually a city.",
+            "example": "Paris"
+          },
+          "poBox": {
+            "title": "PO box",
+            "maxLength": 10,
+            "type": "string",
+            "description": "A location designator for a postal delivery point at a post office, usually a number.",
+            "example": "9383"
+          },
+          "adminUnitLevel1": {
+            "title": "Admin unit level 1",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ISO_3166_1_Alpha_3"
+              }
+            ],
+            "description": "The name of the uppermost level of the address, almost always a country. ISO 3166 three character (Alpha 3) format.",
+            "example": "USA"
+          },
+          "adminUnitLevel2": {
+            "title": "Admin unit level 2",
+            "maxLength": 40,
+            "type": "string",
+            "description": "The name of a secondary level/region of the address, usually a county, state or other such area that typically encompasses several localities. Values could be a region or province, more granular than level 1.",
+            "example": "Lapland"
+          }
+        }
+      },
+      "SignatoryRightsRequest": {
+        "title": "SignatoryRightsRequest",
+        "required": ["nationalIdentifier"],
+        "type": "object",
+        "properties": {
+          "nationalIdentifier": {
+            "title": "National identifier",
+            "maxLength": 40,
+            "type": "string",
+            "description": "The national identifier of the non-listed company issued by the trade register",
+            "example": "FIN: 2464491-9 / SWE: 5560125791 / NOR: 923609016"
+          }
+        }
+      },
+      "SignatoryRightsResponse": {
+        "title": "SignatoryRightsResponse",
+        "required": ["signatoryRights"],
+        "type": "object",
+        "properties": {
+          "signatoryRights": {
+            "title": "Signatory rights",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SignatoryRights"
+            },
+            "description": "The list of representatives that have signing rights for the company"
+          }
+        }
+      },
+      "Unauthorized": {
+        "title": "Unauthorized",
+        "required": ["type", "message"],
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Error type",
+            "type": "string",
+            "description": "Error identifier"
+          },
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        }
+      },
+      "ValidationError": {
+        "title": "ValidationError",
+        "required": ["loc", "msg", "type"],
+        "type": "object",
+        "properties": {
+          "loc": {
+            "title": "Location",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            }
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

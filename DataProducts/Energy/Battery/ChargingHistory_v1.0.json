@@ -1,0 +1,443 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Charging history of a battery",
+    "description": "Charging history of a battery",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/Energy/Battery/ChargingHistory_v1.0": {
+      "post": {
+        "summary": "Charging history of a battery",
+        "description": "Charging history of a battery",
+        "operationId": "request_Energy_Battery_ChargingHistory_v1_0",
+        "parameters": [
+          {
+            "description": "Optional consent token",
+            "required": false,
+            "schema": {
+              "title": "X-Consent-Token",
+              "type": "string",
+              "description": "Optional consent token"
+            },
+            "name": "x-consent-token",
+            "in": "header"
+          },
+          {
+            "description": "The login token. Value should be \"Bearer [token]\"",
+            "required": false,
+            "schema": {
+              "title": "Authorization",
+              "type": "string",
+              "description": "The login token. Value should be \"Bearer [token]\""
+            },
+            "name": "authorization",
+            "in": "header"
+          },
+          {
+            "description": "The bare domain of the system that provided the token.",
+            "required": false,
+            "schema": {
+              "title": "X-Authorization-Provider",
+              "type": "string",
+              "description": "The bare domain of the system that provided the token."
+            },
+            "name": "x-authorization-provider",
+            "in": "header"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChargingHistoryRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChargingHistoryResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFound"
+                }
+              }
+            }
+          },
+          "444": {
+            "description": "Additional Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceNotFound"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceError"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadGateway"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceUnavailable"
+                }
+              }
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayTimeout"
+                }
+              }
+            }
+          },
+          "550": {
+            "description": "Additional Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoesNotConformToDefinition"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BadGateway": {
+        "title": "BadGateway",
+        "type": "object",
+        "properties": {},
+        "description": "This response is reserved by Product Gateway."
+      },
+      "ChargingHistoryEntry": {
+        "title": "ChargingHistoryEntry",
+        "required": ["time", "operatingHours", "cycleCount", "maxCapacity"],
+        "type": "object",
+        "properties": {
+          "time": {
+            "title": "Time",
+            "type": "string",
+            "description": "Time of the charging history event",
+            "format": "date-time",
+            "example": "2022-09-10T00:00:00"
+          },
+          "operatingHours": {
+            "title": "Operating Hours [h]",
+            "type": "number",
+            "description": "The cumulative operating hours of the battery",
+            "example": 428.7
+          },
+          "cycleCount": {
+            "title": "Cycle Count",
+            "type": "integer",
+            "description": "The cycle count of the battery",
+            "example": 15
+          },
+          "maxCapacity": {
+            "title": "Maximum Capacity [Ah]",
+            "type": "number",
+            "description": "The maximum capacity of the battery",
+            "example": 46.0
+          }
+        }
+      },
+      "ChargingHistoryRequest": {
+        "title": "ChargingHistoryRequest",
+        "required": ["serialNumber"],
+        "type": "object",
+        "properties": {
+          "serialNumber": {
+            "title": "Serial Number",
+            "type": "string",
+            "description": "The serial number of the battery",
+            "example": "MPP48V-296cde7f"
+          },
+          "start": {
+            "title": "Start Time",
+            "type": "string",
+            "description": "Include history entries starting from this time (inclusive)",
+            "format": "date-time",
+            "example": "2022-09-09T00:00:00"
+          },
+          "end": {
+            "title": "End Time",
+            "type": "string",
+            "description": "Include history entries until this time (exclusive)",
+            "format": "date-time",
+            "example": "2022-09-10T00:00:00"
+          },
+          "limit": {
+            "title": "Limit",
+            "maximum": 100.0,
+            "minimum": 1.0,
+            "type": "integer",
+            "description": "Limit number of history entries to return",
+            "default": 100
+          },
+          "offset": {
+            "title": "Offset",
+            "minimum": 0.0,
+            "type": "integer",
+            "description": "Offset of history records to return",
+            "default": 0
+          }
+        }
+      },
+      "ChargingHistoryResponse": {
+        "title": "ChargingHistoryResponse",
+        "required": ["batteryChargingHistory", "totalCount"],
+        "type": "object",
+        "properties": {
+          "batteryChargingHistory": {
+            "title": "Battery Charging History",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ChargingHistoryEntry"
+            }
+          },
+          "totalCount": {
+            "title": "Total Count",
+            "type": "integer",
+            "description": "Total count of history entries",
+            "example": 1
+          }
+        }
+      },
+      "DataSourceError": {
+        "title": "DataSourceError",
+        "required": ["type", "message"],
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Error type",
+            "type": "string",
+            "description": "Error identifier"
+          },
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        }
+      },
+      "DataSourceNotFound": {
+        "title": "DataSourceNotFound",
+        "type": "object",
+        "properties": {
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description",
+            "default": "Data source not found"
+          }
+        },
+        "description": "This response is reserved by Product Gateway."
+      },
+      "DoesNotConformToDefinition": {
+        "title": "DoesNotConformToDefinition",
+        "required": ["data_source_status_code"],
+        "type": "object",
+        "properties": {
+          "message": {
+            "title": "Message",
+            "type": "string",
+            "default": "Response from data source does not conform to definition"
+          },
+          "data_source_status_code": {
+            "title": "Data source status code",
+            "type": "integer",
+            "description": "HTTP status code returned from the data source"
+          }
+        },
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Forbidden": {
+        "title": "Forbidden",
+        "required": ["type", "message"],
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Error type",
+            "type": "string",
+            "description": "Error identifier"
+          },
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        }
+      },
+      "GatewayTimeout": {
+        "title": "GatewayTimeout",
+        "type": "object",
+        "properties": {
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        },
+        "description": "This response is reserved by Product Gateway."
+      },
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "title": "NotFound",
+        "required": ["type", "message"],
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Error type",
+            "type": "string",
+            "description": "Error identifier"
+          },
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        }
+      },
+      "ServiceUnavailable": {
+        "title": "ServiceUnavailable",
+        "type": "object",
+        "properties": {
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        },
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Unauthorized": {
+        "title": "Unauthorized",
+        "required": ["type", "message"],
+        "type": "object",
+        "properties": {
+          "type": {
+            "title": "Error type",
+            "type": "string",
+            "description": "Error identifier"
+          },
+          "message": {
+            "title": "Error message",
+            "type": "string",
+            "description": "Error description"
+          }
+        }
+      },
+      "ValidationError": {
+        "title": "ValidationError",
+        "required": ["loc", "msg", "type"],
+        "type": "object",
+        "properties": {
+          "loc": {
+            "title": "Location",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            }
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
