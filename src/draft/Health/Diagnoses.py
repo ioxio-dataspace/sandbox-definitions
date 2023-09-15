@@ -16,6 +16,7 @@ class HealthDiagnosesResponse(CamelCaseModel):
 
 DEFINITION = DataProductDefinition(
     version="0.0.1",
+    deprecated=True,
     title="Persons health diagnoses",
     description="Diagnoses of a user with ICD10 codes",
     request=HealthDiagnosesRequest,

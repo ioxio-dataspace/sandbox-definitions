@@ -26,6 +26,7 @@ class BasicCompanyInfoResponse(CamelCaseModel):
 
 DEFINITION = DataProductDefinition(
     version="0.0.1",
+    deprecated=True,
     title="Basic information about a company",
     description="Legal information about a company such as company registration date",
     request=BasicCompanyInfoRequest,

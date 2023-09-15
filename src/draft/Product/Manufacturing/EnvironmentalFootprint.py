@@ -28,6 +28,7 @@ class EnvironmentalFootprintResponse(CamelCaseModel):
 
 DEFINITION = DataProductDefinition(
     version="0.0.1",
+    deprecated=True,
     title="Environmental footprint information for a product",
     description="Information about environmental footprint of a product in the manufacturing phase",
     request=EnvironmentalFootprintRequest,
