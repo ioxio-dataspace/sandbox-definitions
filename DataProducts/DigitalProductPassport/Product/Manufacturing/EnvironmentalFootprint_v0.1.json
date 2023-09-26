@@ -1,16 +1,16 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Last Charge Entry",
-    "description": "Information about latest charge cycle of a battery",
+    "title": "Environmental footprint information for a product",
+    "description": "Information about environmental footprint of a product in the manufacturing phase",
     "version": "0.1.0"
   },
   "paths": {
-    "/DPP/Energy/Battery/LastChargeEntry_v0.1": {
+    "/DigitalProductPassport/Product/Manufacturing/EnvironmentalFootprint_v0.1": {
       "post": {
-        "summary": "Last Charge Entry",
-        "description": "Information about latest charge cycle of a battery",
-        "operationId": "request_DPP_Energy_Battery_LastChargeEntry_v0_1",
+        "summary": "Environmental footprint information for a product",
+        "description": "Information about environmental footprint of a product in the manufacturing phase",
+        "operationId": "request_DigitalProductPassport_Product_Manufacturing_EnvironmentalFootprint_v0_1",
         "parameters": [
           {
             "description": "Optional consent token",
@@ -50,7 +50,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LatestChargingEntryRequest"
+                "$ref": "#/components/schemas/EnvironmentalFootprintRequest"
               }
             }
           },
@@ -62,7 +62,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LatestChargingEntryResponse"
+                  "$ref": "#/components/schemas/EnvironmentalFootprintResponse"
                 }
               }
             }
@@ -227,6 +227,44 @@
         },
         "description": "This response is reserved by Product Gateway."
       },
+      "EnvironmentalFootprintRequest": {
+        "title": "EnvironmentalFootprintRequest",
+        "required": ["product", "id"],
+        "type": "object",
+        "properties": {
+          "product": {
+            "title": "Product identifier",
+            "type": "string",
+            "description": "Technical product identifier used by the manufacturer",
+            "example": "battery-100wh-s"
+          },
+          "id": {
+            "title": "Identifier",
+            "type": "string",
+            "description": "Unique identifier of the product",
+            "example": "177389-09633"
+          }
+        }
+      },
+      "EnvironmentalFootprintResponse": {
+        "title": "EnvironmentalFootprintResponse",
+        "required": ["carbonEquivalent", "materialWaste"],
+        "type": "object",
+        "properties": {
+          "carbonEquivalent": {
+            "title": "Carbon Equivalent (CO2e) [kg]",
+            "type": "number",
+            "description": "The amount of emissions from all greenhouse gases converted to CO2 emission equivalents in the product manufacturing phase",
+            "example": 200.0
+          },
+          "materialWaste": {
+            "title": "Material Waste [kg]",
+            "type": "number",
+            "description": "The amount of material waste produced in the product manufacturing phase",
+            "example": 8.0
+          }
+        }
+      },
       "Forbidden": {
         "title": "Forbidden",
         "required": ["type", "message"],
@@ -266,57 +304,6 @@
             "items": {
               "$ref": "#/components/schemas/ValidationError"
             }
-          }
-        }
-      },
-      "LatestChargingEntryRequest": {
-        "title": "LatestChargingEntryRequest",
-        "required": ["product", "id"],
-        "type": "object",
-        "properties": {
-          "product": {
-            "title": "Product identifier",
-            "type": "string",
-            "description": "Technical product identifier used by the manufacturer",
-            "example": "battery-100wh-s"
-          },
-          "id": {
-            "title": "Identifier",
-            "type": "string",
-            "description": "Unique identifier of the product",
-            "example": "177389-09633"
-          }
-        }
-      },
-      "LatestChargingEntryResponse": {
-        "title": "LatestChargingEntryResponse",
-        "required": ["time", "operatingHours", "cycleCount", "maxCapacity"],
-        "type": "object",
-        "properties": {
-          "time": {
-            "title": "Time",
-            "type": "string",
-            "description": "Time of the charging history event",
-            "format": "date-time",
-            "example": "2022-09-10T00:00:00"
-          },
-          "operatingHours": {
-            "title": "Operating Hours [h]",
-            "type": "number",
-            "description": "The cumulative operating hours of the battery",
-            "example": 428.7
-          },
-          "cycleCount": {
-            "title": "Cycle Count",
-            "type": "integer",
-            "description": "The cycle count of the battery",
-            "example": 15
-          },
-          "maxCapacity": {
-            "title": "Maximum Capacity [Ah]",
-            "type": "number",
-            "description": "The maximum capacity of the battery",
-            "example": 46.0
           }
         }
       },
