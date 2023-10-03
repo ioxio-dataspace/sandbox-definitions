@@ -1,16 +1,16 @@
 {
   "openapi": "3.0.2",
   "info": {
-    "title": "Battery product data sheet",
-    "description": "Technical details of a battery such as capacity and voltage",
+    "title": "Last Charge Entry",
+    "description": "Information about latest charge cycle of a battery",
     "version": "0.1.0"
   },
   "paths": {
-    "/DigitalProductPassport/Energy/Battery/ProductDataSheet_v0.1": {
+    "/DigitalProductPassport/Battery/LastChargeEntry_v0.1": {
       "post": {
-        "summary": "Battery product data sheet",
-        "description": "Technical details of a battery such as capacity and voltage",
-        "operationId": "request_DigitalProductPassport_Energy_Battery_ProductDataSheet_v0_1",
+        "summary": "Last Charge Entry",
+        "description": "Information about latest charge cycle of a battery",
+        "operationId": "request_DigitalProductPassport_Battery_LastChargeEntry_v0_1",
         "parameters": [
           {
             "description": "Optional consent token",
@@ -50,7 +50,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BatteryDataRequest"
+                "$ref": "#/components/schemas/LatestChargingEntryRequest"
               }
             }
           },
@@ -62,7 +62,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BatteryDataResponse"
+                  "$ref": "#/components/schemas/LatestChargingEntryResponse"
                 }
               }
             }
@@ -179,191 +179,6 @@
         "properties": {},
         "description": "This response is reserved by Product Gateway."
       },
-      "BatteryDataRequest": {
-        "title": "BatteryDataRequest",
-        "required": ["product", "id"],
-        "type": "object",
-        "properties": {
-          "product": {
-            "title": "Product identifier",
-            "type": "string",
-            "description": "Technical product identifier used by the manufacturer",
-            "example": "battery-100wh-s"
-          },
-          "id": {
-            "title": "Identifier",
-            "type": "string",
-            "description": "Unique identifier of the product",
-            "example": "177389-09633"
-          }
-        }
-      },
-      "BatteryDataResponse": {
-        "title": "BatteryDataResponse",
-        "required": [
-          "manufacturer",
-          "product",
-          "id",
-          "name",
-          "cellType",
-          "capacity",
-          "energy",
-          "voltage",
-          "peakDischargingPower",
-          "peakChargingPower",
-          "continuousPower",
-          "standbyConsumption",
-          "cycleLife",
-          "dimensions",
-          "weight",
-          "operatingTemperature",
-          "ipRating",
-          "maxCoolantPressure",
-          "standardsCompliance"
-        ],
-        "type": "object",
-        "properties": {
-          "manufacturer": {
-            "title": "Manufacturer",
-            "type": "string",
-            "description": "The manufacturer of the battery",
-            "example": "Valmet Automotive"
-          },
-          "product": {
-            "title": "Product identifier",
-            "type": "string",
-            "description": "Technical product identifier used by the manufacturer",
-            "example": "battery-100wh-s"
-          },
-          "id": {
-            "title": "Identifier",
-            "type": "string",
-            "description": "Unique identifier of the product",
-            "example": "177389-09633"
-          },
-          "name": {
-            "title": "Product Name",
-            "type": "string",
-            "example": "Modular Power Pack, 48 V"
-          },
-          "cellType": {
-            "title": "Cell Type",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/CellType"
-              }
-            ],
-            "example": "lithium-titanate"
-          },
-          "capacity": {
-            "title": "Capacity",
-            "type": "number",
-            "description": "Battery capacity in kWh",
-            "example": 2.2
-          },
-          "energy": {
-            "title": "Energy (Ah)",
-            "type": "number",
-            "description": "Energy, Ah [1C @ 25°C]",
-            "example": 46.0
-          },
-          "voltage": {
-            "title": "Voltage",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Voltage"
-              }
-            ],
-            "description": "Information about the voltage of the battery"
-          },
-          "peakDischargingPower": {
-            "title": "Peak Discharging Power [kW]",
-            "type": "number",
-            "example": 20.0
-          },
-          "peakChargingPower": {
-            "title": "Peak Charging Power [kW]",
-            "type": "number",
-            "example": 20.0
-          },
-          "continuousPower": {
-            "title": "Continuous Power [kW]",
-            "type": "number",
-            "example": 10.0
-          },
-          "standbyConsumption": {
-            "title": "Standby Power Consumption [W]",
-            "type": "number",
-            "example": 1.0
-          },
-          "cycleLife": {
-            "title": "Cycle Life",
-            "type": "integer",
-            "description": "Minimum number of cycles the battery can be recharged to at least 80% of initial capacity",
-            "example": 20000
-          },
-          "dimensions": {
-            "title": "Dimensions",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Dimensions"
-              }
-            ],
-            "description": "Physical dimensions of the battery"
-          },
-          "weight": {
-            "title": "Weight [kg]",
-            "type": "number",
-            "description": "Total dry weight [kg]",
-            "example": 41.0
-          },
-          "operatingTemperature": {
-            "title": "Operating Temperature [°C]",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/OperatingTemperature"
-              }
-            ]
-          },
-          "ipRating": {
-            "title": "IP Rating",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/IPCode"
-              }
-            ],
-            "example": "IP6K9K"
-          },
-          "maxCoolantPressure": {
-            "title": "Max Coolant Pressure [bar]",
-            "type": "number",
-            "example": 3.5
-          },
-          "standardsCompliance": {
-            "title": "Standards Compliance",
-            "uniqueItems": true,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "example": [
-              "IEC 61508 SIL 2",
-              "IEC 62061 SIL 2",
-              "ECE R100",
-              "ISO 13849 PL C",
-              "ECE R10",
-              "ISO 16750",
-              "UN 38.3"
-            ]
-          }
-        }
-      },
-      "CellType": {
-        "title": "CellType",
-        "enum": ["lithium-titanate", "lithium-ion polymer"],
-        "type": "string",
-        "description": "An enumeration."
-      },
       "DataSourceError": {
         "title": "DataSourceError",
         "required": ["type", "message"],
@@ -393,28 +208,6 @@
           }
         },
         "description": "This response is reserved by Product Gateway."
-      },
-      "Dimensions": {
-        "title": "Dimensions",
-        "required": ["length", "width", "height"],
-        "type": "object",
-        "properties": {
-          "length": {
-            "title": "Length [mm]",
-            "type": "integer",
-            "example": 483
-          },
-          "width": {
-            "title": "Width [mm]",
-            "type": "integer",
-            "example": 380
-          },
-          "height": {
-            "title": "Height [mm]",
-            "type": "integer",
-            "example": 160
-          }
-        }
       },
       "DoesNotConformToDefinition": {
         "title": "DoesNotConformToDefinition",
@@ -476,64 +269,56 @@
           }
         }
       },
-      "IPCode": {
-        "title": "IPCode",
-        "enum": [
-          "IP5X",
-          "IP50",
-          "IP51",
-          "IP52",
-          "IP53",
-          "IP54",
-          "IP54K",
-          "IP55",
-          "IP56",
-          "IP56K",
-          "IP57",
-          "IP58",
-          "IP59K",
-          "IP5KX",
-          "IP5K0",
-          "IP5K1",
-          "IP5K2",
-          "IP5K3",
-          "IP5K4",
-          "IP5K4K",
-          "IP5K5",
-          "IP5K6",
-          "IP5K6K",
-          "IP5K7",
-          "IP5K8",
-          "IP5K9K",
-          "IP6X",
-          "IP60",
-          "IP61",
-          "IP62",
-          "IP63",
-          "IP64",
-          "IP64K",
-          "IP65",
-          "IP66",
-          "IP66K",
-          "IP67",
-          "IP68",
-          "IP69K",
-          "IP6KX",
-          "IP6K0",
-          "IP6K1",
-          "IP6K2",
-          "IP6K3",
-          "IP6K4",
-          "IP6K4K",
-          "IP6K5",
-          "IP6K6",
-          "IP6K6K",
-          "IP6K7",
-          "IP6K8",
-          "IP6K9K"
-        ],
-        "type": "string",
-        "description": "An enumeration."
+      "LatestChargingEntryRequest": {
+        "title": "LatestChargingEntryRequest",
+        "required": ["product", "id"],
+        "type": "object",
+        "properties": {
+          "product": {
+            "title": "Product identifier",
+            "type": "string",
+            "description": "Technical product identifier used by the manufacturer",
+            "example": "battery-100wh-s"
+          },
+          "id": {
+            "title": "Identifier",
+            "type": "string",
+            "description": "Unique identifier of the product",
+            "example": "177389-09633"
+          }
+        }
+      },
+      "LatestChargingEntryResponse": {
+        "title": "LatestChargingEntryResponse",
+        "required": ["time", "operatingHours", "cycleCount", "maxCapacity"],
+        "type": "object",
+        "properties": {
+          "time": {
+            "title": "Time",
+            "type": "string",
+            "description": "Time of the charging history event",
+            "format": "date-time",
+            "example": "2022-09-10T00:00:00"
+          },
+          "operatingHours": {
+            "title": "Operating Hours [h]",
+            "type": "number",
+            "description": "The cumulative operating hours of the battery",
+            "example": 428.7
+          },
+          "cycleCount": {
+            "title": "Cycle Count",
+            "type": "integer",
+            "description": "The cycle count of the battery",
+            "example": 15
+          },
+          "maxCapacity": {
+            "title": "Maximum Capacity [Ah]",
+            "type": "number",
+            "description": "The maximum capacity of the battery",
+            "example": 46.0
+          }
+        }
       },
       "NotFound": {
         "title": "NotFound",
@@ -549,33 +334,6 @@
             "title": "Error message",
             "type": "string",
             "description": "Error description"
-          }
-        }
-      },
-      "OperatingTemperature": {
-        "title": "OperatingTemperature",
-        "required": ["min", "max", "recommendedMin", "recommendedMax"],
-        "type": "object",
-        "properties": {
-          "min": {
-            "title": "Minimum operating temperature [°C]",
-            "type": "number",
-            "example": -30.0
-          },
-          "max": {
-            "title": "Maximum operating temperature [°C]",
-            "type": "number",
-            "example": 55.0
-          },
-          "recommendedMin": {
-            "title": "Minimum recommended operating temperature [°C]",
-            "type": "number",
-            "example": 5.0
-          },
-          "recommendedMax": {
-            "title": "Maximum recommended operating temperature [°C]",
-            "type": "number",
-            "example": 35
           }
         }
       },
@@ -634,28 +392,6 @@
           "type": {
             "title": "Error Type",
             "type": "string"
-          }
-        }
-      },
-      "Voltage": {
-        "title": "Voltage",
-        "required": ["min", "max", "nominal"],
-        "type": "object",
-        "properties": {
-          "min": {
-            "title": "Minimum voltage",
-            "type": "number",
-            "example": 38.0
-          },
-          "max": {
-            "title": "Maximum voltage",
-            "type": "number",
-            "example": 56.0
-          },
-          "nominal": {
-            "title": "Nominal voltage",
-            "type": "number",
-            "example": 48.3
           }
         }
       }
