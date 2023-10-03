@@ -47,9 +47,9 @@ class LatestChargingEntryResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.0",
+    version="1.0.0",
     title="Last Charge Entry",
-    description="Information about latest charge cycle of a battery",
+    description="Information about the use of the battery",
     request=LatestChargingEntryRequest,
     response=LatestChargingEntryResponse,
 )
