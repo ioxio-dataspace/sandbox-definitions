@@ -1,0 +1,642 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Battery Carbon Footprint",
+    "description": "Carbon footprint of a battery as required by the European Commission's Battery Act (2023/1542)",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/DigitalProductPassport/Battery/CarbonFootprint_v0.1": {
+      "post": {
+        "summary": "Battery Carbon Footprint",
+        "description": "Carbon footprint of a battery as required by the European Commission's Battery Act (2023/1542)",
+        "operationId": "request_DigitalProductPassport_Battery_CarbonFootprint_v0_1",
+        "parameters": [
+          {
+            "name": "x-consent-token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Optional consent token",
+              "default": "",
+              "title": "X-Consent-Token"
+            },
+            "description": "Optional consent token"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "The login token. Value should be \"Bearer [token]\"",
+              "default": "",
+              "title": "Authorization"
+            },
+            "description": "The login token. Value should be \"Bearer [token]\""
+          },
+          {
+            "name": "x-authorization-provider",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The bare domain of the system that provided the token.",
+              "title": "X-Authorization-Provider"
+            },
+            "description": "The bare domain of the system that provided the token."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarbonFootprintRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CarbonFootprintResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFound"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "444": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceNotFound"
+                }
+              }
+            },
+            "description": "Additional Response"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceError"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "502": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadGateway"
+                }
+              }
+            },
+            "description": "Bad Gateway"
+          },
+          "503": {
+            "content": {
+              "text/plain": {},
+              "text/html": {},
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceUnavailable"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          },
+          "504": {
+            "content": {
+              "text/plain": {},
+              "text/html": {},
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayTimeout"
+                }
+              }
+            },
+            "description": "Gateway Timeout"
+          },
+          "550": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoesNotConformToDefinition"
+                }
+              }
+            },
+            "description": "Additional Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BadGateway": {
+        "properties": {},
+        "type": "object",
+        "title": "BadGateway",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "CarbonFootprint": {
+        "properties": {
+          "preProductionFootprint": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Pre Production Footprint",
+            "description": "The carbon footprint of the raw material acquisition and pre-processing phase of the battery calculated as kilograms (kg) of CO2e per one kilowatt-hour (kWh) using preferably PEF and PEFCR methods",
+            "examples": [2345.7]
+          },
+          "mainProductionFootprint": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Main Production Footprint",
+            "description": "The carbon footprint of the battery main production phase calculated as kilograms (kg) of CO2e per one kilowatt-hour (kWh) using preferably PEF and PEFCR methods",
+            "examples": [3504.4]
+          },
+          "referenceMaterial": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2083,
+                "pattern": "^https://"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Material",
+            "description": "The web link giving access to a public version of the study supporting the carbon footprint values",
+            "examples": ["https://example.com/CarbonFootprint"]
+          }
+        },
+        "type": "object",
+        "title": "CarbonFootprint"
+      },
+      "CarbonFootprintRequest": {
+        "properties": {
+          "product": {
+            "type": "string",
+            "maxLength": 150,
+            "title": "Product",
+            "description": "The product code used for identifying the product type",
+            "examples": ["sodium-ion-75kWh"]
+          },
+          "id": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Id",
+            "description": "The unique identifier of the product",
+            "examples": ["660e8400-e29b-41d4-a716-446655440000"]
+          }
+        },
+        "type": "object",
+        "required": ["product", "id"],
+        "title": "CarbonFootprintRequest"
+      },
+      "CarbonFootprintResponse": {
+        "properties": {
+          "manufacturerInformation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ManufacturerInformation"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Manufacturer Information",
+            "description": "The details of the battery manufacturer"
+          },
+          "batteryModel": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 40
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Battery Model",
+            "description": "The model of the battery",
+            "examples": ["Z37-310-76"]
+          },
+          "conformityDeclaration": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2083,
+                "pattern": "^https://"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Conformity Declaration",
+            "description": "The link to the EU declaration of conformity documentation",
+            "examples": ["https://example.com/EUdeclaration"]
+          },
+          "manufacturingLocation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ManufacturingLocation"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Manufacturing Location",
+            "description": "The details of the location of the battery manufacturing plant"
+          },
+          "carbonFootprint": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CarbonFootprint"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Carbon Footprint",
+            "description": "The details of the carbon footprint for the battery production phases"
+          }
+        },
+        "type": "object",
+        "title": "CarbonFootprintResponse"
+      },
+      "DataSourceError": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "DataSourceError"
+      },
+      "DataSourceNotFound": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": "Data source not found"
+          }
+        },
+        "type": "object",
+        "title": "DataSourceNotFound",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "DoesNotConformToDefinition": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "default": "Response from data source does not conform to definition"
+          },
+          "data_source_status_code": {
+            "type": "integer",
+            "title": "Data source status code",
+            "description": "HTTP status code returned from the data source"
+          }
+        },
+        "type": "object",
+        "required": ["data_source_status_code"],
+        "title": "DoesNotConformToDefinition",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Forbidden": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "Forbidden"
+      },
+      "GatewayTimeout": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "GatewayTimeout",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ManufacturerInformation": {
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 250
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name",
+            "description": "The registered trade name of the manufacturer company",
+            "examples": ["Battery Manufacturer A"]
+          },
+          "streetName": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 40
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Street Name",
+            "description": "The street address of the manufacturer's headquarters",
+            "examples": ["Example Street 100"]
+          },
+          "postalCode": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 10
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Postal Code",
+            "description": "The postal code of the manufacturer's headquarters",
+            "examples": ["75034"]
+          },
+          "city": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 40
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "City",
+            "description": "The city of the manufacturer's headquarters",
+            "examples": ["Seattle"]
+          },
+          "country": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[A-Z]{3}$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Country",
+            "description": "The country code of the manufacturer's headquarters location in Alpha-3 format",
+            "examples": ["USA"]
+          },
+          "website": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2083,
+                "pattern": "^https://"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Website",
+            "description": "The website of the manufacturer",
+            "examples": ["https://example.com/"]
+          },
+          "email": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "email"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email",
+            "description": "The email address of the manufacturer",
+            "examples": ["info@example.com"]
+          }
+        },
+        "type": "object",
+        "title": "ManufacturerInformation"
+      },
+      "ManufacturingLocation": {
+        "properties": {
+          "country": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[A-Z]{3}$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Country",
+            "description": "The country code of the battery manufacturing location in Alpha-3 format",
+            "examples": ["GER"]
+          },
+          "city": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 40
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "City",
+            "description": "The city of the battery manufacturing location",
+            "examples": ["Hamburg"]
+          }
+        },
+        "type": "object",
+        "title": "ManufacturingLocation"
+      },
+      "NotFound": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "NotFound"
+      },
+      "ServiceUnavailable": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "ServiceUnavailable",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Unauthorized": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "Unauthorized"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": ["loc", "msg", "type"],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
