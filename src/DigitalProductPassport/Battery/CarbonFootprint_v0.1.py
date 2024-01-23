@@ -9,7 +9,8 @@ class ManufacturingLocation(CamelCaseModel):
         None,
         title="Country",
         pattern=r"^[A-Z]{3}$",
-        description="The country code of the battery manufacturing location in Alpha-3 format",
+        description="The country code of the battery manufacturing location in Alpha-3 "
+        "format",
         examples=["GER"],
     )
     city: Optional[str] = Field(
@@ -54,7 +55,8 @@ class ManufacturerInformation(CamelCaseModel):
         None,
         title="Country",
         pattern=r"^[A-Z]{3}$",
-        description="The country code of the manufacturer's headquarters location in Alpha-3 format",
+        description="The country code of the manufacturer's headquarters location in "
+        "Alpha-3 format",
         examples=["USA"],
     )
     website: Optional[str] = Field(
@@ -77,13 +79,17 @@ class CarbonFootprint(CamelCaseModel):
     pre_production_footprint: Optional[float] = Field(
         None,
         title="Pre Production Footprint",
-        description="The carbon footprint of the raw material acquisition and pre-processing phase of the battery calculated as kilograms (kg) of CO2e per one kilowatt-hour (kWh) using preferably PEF and PEFCR methods",
+        description="The carbon footprint of the raw material acquisition and "
+        "pre-processing phase of the battery calculated as kilograms (kg) of CO2e per "
+        "one kilowatt-hour (kWh) using preferably PEF and PEFCR methods",
         examples=[2345.7],
     )
     main_production_footprint: Optional[float] = Field(
         None,
         title="Main Production Footprint",
-        description="The carbon footprint of the battery main production phase calculated as kilograms (kg) of CO2e per one kilowatt-hour (kWh) using preferably PEF and PEFCR methods",
+        description="The carbon footprint of the battery main production phase "
+        "calculated as kilograms (kg) of CO2e per one kilowatt-hour (kWh) using "
+        "preferably PEF and PEFCR methods",
         examples=[3504.4],
     )
     reference_material: Optional[str] = Field(
@@ -91,7 +97,8 @@ class CarbonFootprint(CamelCaseModel):
         pattern=r"^https://",
         max_length=2083,
         title="Reference Material",
-        description="The web link giving access to a public version of the study supporting the carbon footprint values",
+        description="The web link giving access to a public version of the study "
+        "supporting the carbon footprint values",
         examples=["https://example.com/CarbonFootprint"],
     )
 
@@ -125,7 +132,8 @@ class CarbonFootprintResponse(CamelCaseModel):
     carbon_footprint: Optional[CarbonFootprint] = Field(
         None,
         title="Carbon Footprint",
-        description="The details of the carbon footprint for the battery production phases",
+        description="The details of the carbon footprint for the battery production "
+        "phases",
     )
 
 
@@ -149,7 +157,8 @@ class CarbonFootprintRequest(CamelCaseModel):
 DEFINITION = DataProductDefinition(
     version="0.1.0",
     title="Battery Carbon Footprint",
-    description="Carbon footprint of a battery as required by the European Commission's Battery Act (2023/1542)",
+    description="Carbon footprint of a battery as required by the European "
+    "Commission's Battery Act (2023/1542)",
     request=CarbonFootprintRequest,
     response=CarbonFootprintResponse,
 )

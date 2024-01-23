@@ -37,13 +37,15 @@ class OriginalPerformance(CamelCaseModel):
         None,
         title="Cycle Life",
         ge=0,
-        description="The expected cycle life of the battery that exceed 80% of the capacity under the reference conditions for which it has been designed",
+        description="The expected cycle life of the battery that exceed 80% of the "
+        "capacity under the reference conditions for which it has been designed",
         examples=[5000.0],
     )
     years: Optional[int] = Field(
         None,
         title="Years",
-        description="The expected lifetime of the battery in years under the reference conditions for which it has been designed",
+        description="The expected lifetime of the battery in years under the reference "
+        "conditions for which it has been designed",
         examples=[10],
     )
 
@@ -79,19 +81,22 @@ class HealthState(CamelCaseModel):
     capacity_fade: Optional[float] = Field(
         None,
         title="Capacity Fade",
-        description="The capacity fade of the battery compared to the original capacity in percentage (%)",
+        description="The capacity fade of the battery compared to the original "
+        "capacity in percentage (%)",
         examples=[20.0],
     )
     power_fade: Optional[float] = Field(
         None,
         title="Power Fade",
-        description="The power fade of the battery compared to the original power in percentage (%)",
+        description="The power fade of the battery compared to the original power in "
+        "percentage (%)",
         examples=[15.0],
     )
     resistance_increase: Optional[float] = Field(
         None,
         title="Resistance Increase",
-        description="The value of resistance increase since the battery was first commissioned in percentage (%)",
+        description="The value of resistance increase since the battery was first "
+        "commissioned in percentage (%)",
         examples=[10.0],
     )
     operation_details: List[OperationDetail] = Field(
@@ -112,7 +117,8 @@ class HarmfulEvent(CamelCaseModel):
         None,
         title="Event Description",
         max_length=250,
-        description="The description of the harmful incident that has happened to the battery",
+        description="The description of the harmful incident that has happened to the "
+        "battery",
         examples=["30 minutes spent in extreme temperature -50 celsius"],
     )
 
@@ -151,7 +157,8 @@ class HealthDataResponse(CamelCaseModel):
     harmful_events: List[HarmfulEvent] = Field(
         ...,
         title="Harmful Events",
-        description="The harmful events or incidents that have occurred for the battery",
+        description="The harmful events or incidents that have occurred for the "
+        "battery",
     )
 
 
@@ -175,7 +182,8 @@ class HealthDataRequest(CamelCaseModel):
 DEFINITION = DataProductDefinition(
     version="0.1.0",
     title="Battery Health Data",
-    description="The health and status data of a battery as required by Battery Passport specification of the European Commission's Battery Act (2023/1542)",
+    description="The health and status data of a battery as required by Battery "
+    "Passport specification of the European Commission's Battery Act (2023/1542)",
     request=HealthDataRequest,
     response=HealthDataResponse,
 )
