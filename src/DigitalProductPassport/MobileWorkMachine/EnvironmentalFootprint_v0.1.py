@@ -8,13 +8,15 @@ class CarbonFootprint(CamelCaseModel):
     pre_production_footprint: Optional[float] = Field(
         None,
         title="Pre Production Footprint",
-        description="The carbon footprint of the pre-manufacture phase of the machine calculated as kg of CO2e per one kWh using preferably PEF and PEFCR methods",
+        description="The carbon footprint of the pre-manufacture phase of the machine "
+        "calculated as kg of CO2e per one kWh using preferably PEF and PEFCR methods",
         examples=[2345.7],
     )
     main_production_footprint: Optional[float] = Field(
         None,
         title="Main Production Footprint",
-        description="The carbon footprint of the machine main production phase calculated as kg of CO2e per one kWh using preferably PEF and PEFCR methods",
+        description="The carbon footprint of the machine main production phase "
+        "calculated as kg of CO2e per one kWh using preferably PEF and PEFCR methods",
         examples=[3504.4],
     )
     reference_material: Optional[str] = Field(
@@ -22,7 +24,8 @@ class CarbonFootprint(CamelCaseModel):
         pattern=r"^https://",
         max_length=2083,
         title="Reference Material",
-        description="The link giving access to a public version of the study supporting the carbon footprint values",
+        description="The link giving access to a public version of the study "
+        "supporting the carbon footprint values",
         examples=["https://example.com/CarbonFootprint"],
     )
 
@@ -31,7 +34,8 @@ class MaterialWaste(CamelCaseModel):
     amount: Optional[float] = Field(
         None,
         title="Amount",
-        description="The amount of material waste in kilograms (kg) generated during the machine production",
+        description="The amount of material waste in kilograms (kg) generated during "
+        "the machine production",
         examples=[500.0],
     )
     reference_material: Optional[str] = Field(
@@ -39,7 +43,8 @@ class MaterialWaste(CamelCaseModel):
         pattern=r"^https://",
         max_length=2083,
         title="Reference Material",
-        description="The link giving access to a public version of the study supporting the material waste values",
+        description="The link giving access to a public version of the study "
+        "supporting the material waste values",
         examples=["https://example.com/CarbonFootprint"],
     )
 
@@ -48,7 +53,8 @@ class DataSheetResponse(CamelCaseModel):
     carbon_footprint: CarbonFootprint = Field(
         ...,
         title="Carbon Footprint",
-        description="The details of the carbon footprint for the machine production phases",
+        description="The details of the carbon footprint for the machine production "
+        "phases",
     )
     material_waste: Optional[MaterialWaste] = Field(
         None,

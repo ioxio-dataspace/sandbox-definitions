@@ -37,7 +37,8 @@ class ManufacturerInformation(CamelCaseModel):
         None,
         title="Country",
         pattern=r"^[A-Z]{3}$",
-        description="The country code of the manufacturer's headquarters location in Alpha-3 format",
+        description="The country code of the manufacturer's headquarters location in "
+        "Alpha-3 format",
         examples=["SWE"],
     )
     website: Optional[str] = Field(
@@ -72,13 +73,15 @@ class ManufacturingDataSheetResponse(CamelCaseModel):
     boom_coverage: Optional[float] = Field(
         None,
         title="Boom Coverage",
-        description="The largest distance to which the drill boom can reach from the machine in meters (m)",
+        description="The largest distance to which the drill boom can reach from the "
+        "machine in meters (m)",
         examples=[3.0],
     )
     tramming_distance: Optional[float] = Field(
         None,
         title="Tramming Distance",
-        description="The maximum tramming distance of the drill movement in kilometers (km)",
+        description="The maximum tramming distance of the drill movement in kilometers "
+        "(km)",
         examples=[3.0],
     )
     maximum_hole_length: Optional[float] = Field(
@@ -90,13 +93,15 @@ class ManufacturingDataSheetResponse(CamelCaseModel):
     minimum_hole_diameter: Optional[float] = Field(
         None,
         title="Minimum Hole Diameter",
-        description="The minimum diameter measure of the drilling hole in millimeters (mm)",
+        description="The minimum diameter measure of the drilling hole in millimeters "
+        "(mm)",
         examples=[76.0],
     )
     maximum_hole_diameter: Optional[float] = Field(
         None,
         title="Maximum Hole Diameter",
-        description="The maximum diameter measure of the drilling hole in millimeters (mm)",
+        description="The maximum diameter measure of the drilling hole in millimeters "
+        "(mm)",
         examples=[127.0],
     )
     drilling_power: Optional[float] = Field(

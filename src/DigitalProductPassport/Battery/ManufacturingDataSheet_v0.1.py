@@ -10,7 +10,8 @@ class ManufacturingLocation(CamelCaseModel):
         None,
         title="Country",
         pattern=r"^[A-Z]{3}$",
-        description="The country code of the battery manufacturing location in Alpha-3 format",
+        description="The country code of the battery manufacturing location in Alpha-3 "
+        "format",
         examples=["GER"],
     )
     city: Optional[str] = Field(
@@ -55,7 +56,8 @@ class ManufacturerInformation(CamelCaseModel):
         None,
         title="Country",
         pattern=r"^[A-Z]{3}$",
-        description="The country code of the manufacturer's headquarters location in Alpha-3 format",
+        description="The country code of the manufacturer's headquarters location in "
+        "Alpha-3 format",
         examples=["USA"],
     )
     website: Optional[str] = Field(
@@ -85,13 +87,15 @@ class RoundTripEfficiency(CamelCaseModel):
     initial_energy_efficiency: Optional[float] = Field(
         None,
         title="Initial Energy Efficiency",
-        description="The initial round trip energy efficiency of a battery in percentage (%)",
+        description="The initial round trip energy efficiency of a battery in "
+        "percentage (%)",
         examples=[75.0],
     )
     degraded_energy_efficiency: Optional[float] = Field(
         None,
         title="Degraded Energy Efficiency",
-        description="The round trip energy efficiency of an energy storage battery in percentage (%) at 50% of expected cycle life",
+        description="The round trip energy efficiency of an energy storage battery in "
+        "percentage (%) at 50% of expected cycle life",
         examples=[60.0],
     )
 
@@ -121,7 +125,8 @@ class TemperatureRange(CamelCaseModel):
     minimum_temperature: Optional[float] = Field(
         None,
         title="Minimum Temperature",
-        description="The minimum environment temperature the battery can withstand in Celsius degrees",
+        description="The minimum environment temperature the battery can withstand in "
+        "Celsius degrees",
         examples=[-40.0],
         le=100,
         ge=-100,
@@ -129,7 +134,8 @@ class TemperatureRange(CamelCaseModel):
     maximum_temperature: Optional[float] = Field(
         None,
         title="Maximum Temperature",
-        description="The maximum environment temperature the battery can withstand in Celsius degrees",
+        description="The maximum environment temperature the battery can withstand in "
+        "Celsius degrees",
         examples=[50.0],
         le=100,
         ge=-100,
@@ -141,14 +147,16 @@ class ExpectedLifetime(CamelCaseModel):
         None,
         title="Cycle Life",
         ge=0,
-        description="Minimum number of cycles the battery can be recharged to at least 80% of initial capacity",
+        description="Minimum number of cycles the battery can be recharged to at least "
+        "80% of initial capacity",
         examples=[5000],
     )
     reference_test: Optional[str] = Field(
         None,
         title="Reference Test",
         max_length=250,
-        description="The details of the reference test used for defining the expected lifetime",
+        description="The details of the reference test used for defining the expected "
+        "lifetime",
         examples=["Accelerated cycle life testing"],
     )
     cycle_rate: Optional[str] = Field(
@@ -175,7 +183,8 @@ class MaterialComposition(CamelCaseModel):
     critical_raw_materials: List[str] = Field(
         ...,
         title="Critical Raw Materials",
-        description="The critical raw materials present in the battery in a concentration of more than 0.1% weight by weight",
+        description="The critical raw materials present in the battery in a "
+        "concentration of more than 0.1% weight by weight",
         examples=[["Cobalt"]],
     )
 
@@ -191,7 +200,8 @@ class RecycledContent(CamelCaseModel):
     recycling_rate: Optional[float] = Field(
         None,
         title="Recycling Rate",
-        description="The amount of recycled content in the substance in percentage (%) by weight",
+        description="The amount of recycled content in the substance in percentage (%) "
+        "by weight",
         examples=[8.5],
     )
 
@@ -207,7 +217,8 @@ class RenewableContent(CamelCaseModel):
     proportion: Optional[float] = Field(
         None,
         title="Proportion",
-        description="The share of the renewable content present in the battery in percentage (%) by weight",
+        description="The share of the renewable content present in the battery in "
+        "percentage (%) by weight",
         examples=[2.0],
     )
 
@@ -216,13 +227,15 @@ class LegalConformity(CamelCaseModel):
     battery_act_compliance: Optional[bool] = Field(
         None,
         title="Battery Act Compliance",
-        description="The indicator if the battery complies with the requirements of the battery act or not",
+        description="The indicator if the battery complies with the requirements of "
+        "the battery act or not",
         examples=[True],
     )
     requirement_conformity: List[str] = Field(
         ...,
         title="Requirement Conformity",
-        description="The compliance of the battery with other legal and standard requirements",
+        description="The compliance of the battery with other legal and standard "
+        "requirements",
         examples=[["ROHS", "CE HSE", "IEC62619"]],
     )
     conformity_declaration: Optional[str] = Field(
@@ -281,7 +294,8 @@ class ManufacturingDataSheetResponse(CamelCaseModel):
     capacity: Optional[float] = Field(
         None,
         title="Capacity",
-        description="The total number of ampere-hours (Ah) that can be withdrawn from a fully charged battery under reference conditions",
+        description="The total number of ampere-hours (Ah) that can be withdrawn from "
+        "a fully charged battery under reference conditions",
         examples=[100.0],
     )
     power: Optional[float] = Field(
@@ -306,7 +320,8 @@ class ManufacturingDataSheetResponse(CamelCaseModel):
     round_trip_efficiency: Optional[RoundTripEfficiency] = Field(
         None,
         title="Round Trip Efficiency",
-        description="The details of the round trip energy efficiency in energy storages",
+        description="The details of the round trip energy efficiency in energy "
+        "storages",
     )
     voltage_levels: Optional[VoltageLevels] = Field(
         None,
@@ -316,7 +331,8 @@ class ManufacturingDataSheetResponse(CamelCaseModel):
     temperature_range: Optional[TemperatureRange] = Field(
         None,
         title="Temperature Range",
-        description="The details of the acceptable environment temperature values for the battery",
+        description="The details of the acceptable environment temperature values for "
+        "the battery",
     )
     expected_lifetime: Optional[ExpectedLifetime] = Field(
         None,
@@ -341,13 +357,15 @@ class ManufacturingDataSheetResponse(CamelCaseModel):
     extinguishing_agents: List[str] = Field(
         ...,
         title="Extinguishing Agents",
-        description="The type of the fire extinguishing agents that can be used for the battery",
+        description="The type of the fire extinguishing agents that can be used for "
+        "the battery",
         examples=[["foam", "carbon dioxide"]],
     )
     legal_conformity: Optional[LegalConformity] = Field(
         None,
         title="Legal Conformity",
-        description="The details of the conformity of the battery with the legal and harmonized standards",
+        description="The details of the conformity of the battery with the legal and "
+        "harmonized standards",
     )
     warranty: Optional[str] = Field(
         None,
@@ -378,7 +396,8 @@ class ManufacturingDataSheetRequest(CamelCaseModel):
 DEFINITION = DataProductDefinition(
     version="0.1.0",
     title="Battery Manufacturing Data Sheet",
-    description="Manufacturing data sheet as required by Battery Passport specification of the European Commission's Battery Act (2023/1542)",
+    description="Manufacturing data sheet as required by Battery Passport "
+    "specification of the European Commission's Battery Act (2023/1542)",
     request=ManufacturingDataSheetRequest,
     response=ManufacturingDataSheetResponse,
 )
