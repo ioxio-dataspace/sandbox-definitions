@@ -39,7 +39,7 @@ class OriginalPerformance(CamelCaseModel):
         ge=0,
         description="The expected cycle life of the battery that exceed 80% of the "
         "capacity under the reference conditions for which it has been designed",
-        examples=[5000.0],
+        examples=[5000],
     )
     years: Optional[int] = Field(
         None,
@@ -180,7 +180,7 @@ class HealthDataRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.0",
+    version="0.1.1",
     title="Battery Health Data",
     description="The health and status data of a battery as required by Battery "
     "Passport specification of the European Commission's Battery Act (2023/1542)",
