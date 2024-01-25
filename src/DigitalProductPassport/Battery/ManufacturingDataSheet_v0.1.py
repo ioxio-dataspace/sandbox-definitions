@@ -314,7 +314,7 @@ class ManufacturingDataSheetResponse(CamelCaseModel):
     resistance: Optional[float] = Field(
         None,
         title="Resistance",
-        description="The internal resistance of the battery pack",
+        description="The internal resistance of the battery pack in ohms (Ω)",
         examples=[0],
     )
     round_trip_efficiency: Optional[RoundTripEfficiency] = Field(
@@ -394,7 +394,7 @@ class ManufacturingDataSheetRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.0",
+    version="0.1.1",
     title="Battery Manufacturing Data Sheet",
     description="Manufacturing data sheet as required by Battery Passport "
     "specification of the European Commission's Battery Act (2023/1542)",
