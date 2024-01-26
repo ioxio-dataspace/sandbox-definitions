@@ -3,15 +3,14 @@
   "info": {
     "title": "Drill Manufacturing Data Sheet",
     "description": "Manufacturing data sheet of a Mobile Drill Machine",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "paths": {
-    "/DigitalProductPassport/MobileWorkMachine/Drill/ManufacturingDataSheet_v0.1": {
+    "/DigitalProductPassport/MobileWorkMachine/Drill/ManufacturingDataSheet_v0.2": {
       "post": {
         "summary": "Drill Manufacturing Data Sheet",
         "description": "Manufacturing data sheet of a Mobile Drill Machine",
-        "operationId": "request_DigitalProductPassport_MobileWorkMachine_Drill_ManufacturingDataSheet_v0_1",
-        "deprecated": true,
+        "operationId": "request_DigitalProductPassport_MobileWorkMachine_Drill_ManufacturingDataSheet_v0_2",
         "parameters": [
           {
             "name": "x-consent-token",
@@ -438,6 +437,18 @@
             "title": "Manufacturer Information",
             "description": "The details of the drill manufacturer"
           },
+          "powerSystem": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PowerSystem"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Power System",
+            "description": "The details of the drill power system"
+          },
           "boomCoverage": {
             "anyOf": [
               {
@@ -566,6 +577,83 @@
         "type": "object",
         "required": ["type", "message"],
         "title": "NotFound"
+      },
+      "PowerSystem": {
+        "properties": {
+          "type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PowerSystemType"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Type",
+            "description": "The type of the machine power system",
+            "examples": ["hybrid"]
+          },
+          "electricMotors": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Electric Motors",
+            "description": "The list of the electric motors in the machine",
+            "examples": ["2 x induction motor"]
+          },
+          "combustionEngines": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Combustion Engines",
+            "description": "The list of the combustion engines in the machine",
+            "examples": ["1 x diesel fueled combustion"]
+          },
+          "energyStorage": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Energy Storage",
+            "description": "The list of batteries in the machine",
+            "examples": ["2 x 75 kW batteries"]
+          },
+          "chargingSystem": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 250
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Charging System",
+            "description": "The type of the charging system of the machine",
+            "examples": ["CCS charging"]
+          }
+        },
+        "type": "object",
+        "title": "PowerSystem"
+      },
+      "PowerSystemType": {
+        "type": "string",
+        "enum": ["fully electric", "hybrid", "fuel powered"],
+        "title": "PowerSystemType"
       },
       "ServiceUnavailable": {
         "properties": {

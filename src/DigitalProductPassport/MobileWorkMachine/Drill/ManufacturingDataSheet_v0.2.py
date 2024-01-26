@@ -1,7 +1,14 @@
+from enum import Enum
 from typing import Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
 from pydantic import EmailStr, Field
+
+
+class PowerSystemType(str, Enum):
+    FULLY_ELECTRIC = "fully electric"
+    HYBRID = "hybrid"
+    FUEL_POWERED = "fuel powered"
 
 
 class ManufacturerInformation(CamelCaseModel):
@@ -57,6 +64,40 @@ class ManufacturerInformation(CamelCaseModel):
     )
 
 
+class PowerSystem(CamelCaseModel):
+    type: Optional[PowerSystemType] = Field(
+        None,
+        title="Type",
+        description="The type of the machine power system",
+        examples=[PowerSystemType.HYBRID],
+    )
+    electric_motors: Optional[str] = Field(
+        None,
+        title="Electric Motors",
+        description="The list of the electric motors in the machine",
+        examples=["2 x induction motor"],
+    )
+    combustion_engines: Optional[str] = Field(
+        None,
+        title="Combustion Engines",
+        description="The list of the combustion engines in the machine",
+        examples=["1 x diesel fueled combustion"],
+    )
+    energy_storage: Optional[str] = Field(
+        None,
+        title="Energy Storage",
+        description="The list of batteries in the machine",
+        examples=["2 x 75 kW batteries"],
+    )
+    charging_system: Optional[str] = Field(
+        None,
+        max_length=250,
+        title="Charging System",
+        description="The type of the charging system of the machine",
+        examples=["CCS charging"],
+    )
+
+
 class ManufacturingDataSheetResponse(CamelCaseModel):
     product_name: Optional[str] = Field(
         None,
@@ -69,6 +110,11 @@ class ManufacturingDataSheetResponse(CamelCaseModel):
         None,
         title="Manufacturer Information",
         description="The details of the drill manufacturer",
+    )
+    power_system: Optional[PowerSystem] = Field(
+        None,
+        title="Power System",
+        description="The details of the drill power system",
     )
     boom_coverage: Optional[float] = Field(
         None,
@@ -146,8 +192,7 @@ class ManufacturingDataSheetRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.0",
-    deprecated=True,
+    version="0.2.0",
     title="Drill Manufacturing Data Sheet",
     description="Manufacturing data sheet of a Mobile Drill Machine",
     request=ManufacturingDataSheetRequest,
