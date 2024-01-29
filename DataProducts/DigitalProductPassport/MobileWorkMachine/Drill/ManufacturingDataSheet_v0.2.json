@@ -3,15 +3,14 @@
   "info": {
     "title": "Drill Manufacturing Data Sheet",
     "description": "Manufacturing data sheet of a Mobile Drill Machine",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "paths": {
-    "/DigitalProductPassport/MobileWorkMachine/Drill/ManufacturingDataSheet_v0.1": {
+    "/DigitalProductPassport/MobileWorkMachine/Drill/ManufacturingDataSheet_v0.2": {
       "post": {
         "summary": "Drill Manufacturing Data Sheet",
         "description": "Manufacturing data sheet of a Mobile Drill Machine",
-        "operationId": "request_DigitalProductPassport_MobileWorkMachine_Drill_ManufacturingDataSheet_v0_1",
-        "deprecated": true,
+        "operationId": "request_DigitalProductPassport_MobileWorkMachine_Drill_ManufacturingDataSheet_v0_2",
         "parameters": [
           {
             "name": "x-consent-token",
@@ -193,6 +192,54 @@
         "title": "BadGateway",
         "description": "This response is reserved by Product Gateway."
       },
+      "Batteries": {
+        "properties": {
+          "power": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Power",
+            "description": "The power of the battery in use the machine in kilowatts (kW)",
+            "examples": [75.0]
+          },
+          "cellType": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 250
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cell Type",
+            "description": "The type of cells used in the battery pack",
+            "examples": ["sodium-ion"]
+          },
+          "count": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Count",
+            "description": "The number of corresponding batteries in use in the machine",
+            "examples": [2]
+          }
+        },
+        "type": "object",
+        "title": "Batteries"
+      },
       "DataSourceError": {
         "properties": {
           "type": {
@@ -240,6 +287,40 @@
         "required": ["data_source_status_code"],
         "title": "DoesNotConformToDefinition",
         "description": "This response is reserved by Product Gateway."
+      },
+      "ElectricMotors": {
+        "properties": {
+          "motorType": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Motor Type",
+            "description": "The type of the electric motor in use in the machine",
+            "examples": ["induction motor"]
+          },
+          "count": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Count",
+            "description": "The number of corresponding motors in use in the machine",
+            "examples": [2]
+          }
+        },
+        "type": "object",
+        "title": "ElectricMotors"
       },
       "Forbidden": {
         "properties": {
@@ -438,6 +519,18 @@
             "title": "Manufacturer Information",
             "description": "The details of the drill manufacturer"
           },
+          "powerSystem": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PowerSystem"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Power System",
+            "description": "The details of the drill power system"
+          },
           "boomCoverage": {
             "anyOf": [
               {
@@ -566,6 +659,47 @@
         "type": "object",
         "required": ["type", "message"],
         "title": "NotFound"
+      },
+      "PowerSystem": {
+        "properties": {
+          "type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PowerSystemType"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Type",
+            "description": "The type of the machine power system",
+            "examples": ["hybrid"]
+          },
+          "electricMotors": {
+            "items": {
+              "$ref": "#/components/schemas/ElectricMotors"
+            },
+            "type": "array",
+            "title": "Electric Motors",
+            "description": "The list of the electric motors in the machine"
+          },
+          "batteries": {
+            "items": {
+              "$ref": "#/components/schemas/Batteries"
+            },
+            "type": "array",
+            "title": "Batteries",
+            "description": "The list of batteries in the machine"
+          }
+        },
+        "type": "object",
+        "required": ["electricMotors"],
+        "title": "PowerSystem"
+      },
+      "PowerSystemType": {
+        "type": "string",
+        "enum": ["fully electric", "hybrid", "fuel powered"],
+        "title": "PowerSystemType"
       },
       "ServiceUnavailable": {
         "properties": {

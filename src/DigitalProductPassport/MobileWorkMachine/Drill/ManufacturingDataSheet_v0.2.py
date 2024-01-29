@@ -1,7 +1,14 @@
-from typing import Optional
+from enum import Enum
+from typing import List, Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
 from pydantic import EmailStr, Field
+
+
+class PowerSystemType(str, Enum):
+    FULLY_ELECTRIC = "fully electric"
+    HYBRID = "hybrid"
+    FUEL_POWERED = "fuel powered"
 
 
 class ManufacturerInformation(CamelCaseModel):
@@ -57,6 +64,66 @@ class ManufacturerInformation(CamelCaseModel):
     )
 
 
+class ElectricMotors(CamelCaseModel):
+    motor_type: Optional[str] = Field(
+        None,
+        title="Motor Type",
+        description="The type of the electric motor in use in the machine",
+        max_length=100,
+        examples=["induction motor"],
+    )
+    count: Optional[int] = Field(
+        None,
+        title="Count",
+        description="The number of corresponding motors in use in the machine",
+        ge=0,
+        examples=[2],
+    )
+
+
+class Batteries(CamelCaseModel):
+    power: Optional[float] = Field(
+        None,
+        title="Power",
+        description="The power of the battery in use the machine in kilowatts (kW)",
+        ge=0,
+        examples=[75.0],
+    )
+    cell_type: Optional[str] = Field(
+        None,
+        title="Cell Type",
+        description="The type of cells used in the battery pack",
+        max_length=250,
+        examples=["sodium-ion"],
+    )
+    count: Optional[int] = Field(
+        None,
+        title="Count",
+        description="The number of corresponding batteries in use in the machine",
+        ge=0,
+        examples=[2],
+    )
+
+
+class PowerSystem(CamelCaseModel):
+    type: Optional[PowerSystemType] = Field(
+        None,
+        title="Type",
+        description="The type of the machine power system",
+        examples=[PowerSystemType.HYBRID],
+    )
+    electric_motors: List[ElectricMotors] = Field(
+        ...,
+        title="Electric Motors",
+        description="The list of the electric motors in the machine",
+    )
+    batteries: List[Batteries] = Field(
+        None,
+        title="Batteries",
+        description="The list of batteries in the machine",
+    )
+
+
 class ManufacturingDataSheetResponse(CamelCaseModel):
     product_name: Optional[str] = Field(
         None,
@@ -69,6 +136,11 @@ class ManufacturingDataSheetResponse(CamelCaseModel):
         None,
         title="Manufacturer Information",
         description="The details of the drill manufacturer",
+    )
+    power_system: Optional[PowerSystem] = Field(
+        None,
+        title="Power System",
+        description="The details of the drill power system",
     )
     boom_coverage: Optional[float] = Field(
         None,
@@ -146,8 +218,7 @@ class ManufacturingDataSheetRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.0",
-    deprecated=True,
+    version="0.2.0",
     title="Drill Manufacturing Data Sheet",
     description="Manufacturing data sheet of a Mobile Drill Machine",
     request=ManufacturingDataSheetRequest,
