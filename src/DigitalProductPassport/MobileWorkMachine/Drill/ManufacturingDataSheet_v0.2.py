@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Optional
+from typing import List, Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
 from pydantic import EmailStr, Field
@@ -64,6 +64,47 @@ class ManufacturerInformation(CamelCaseModel):
     )
 
 
+class ElectricMotors(CamelCaseModel):
+    motor_type: Optional[str] = Field(
+        None,
+        title="Motor Type",
+        description="The type of the electric motor in use in the machine",
+        max_length=100,
+        examples=["induction motor"],
+    )
+    count: Optional[int] = Field(
+        None,
+        title="Count",
+        description="The number of corresponding motors in use in the machine",
+        ge=0,
+        examples=[2],
+    )
+
+
+class Batteries(CamelCaseModel):
+    power: Optional[float] = Field(
+        None,
+        title="Power",
+        description="The power of the battery in use the machine in kilowatts (kW)",
+        ge=0,
+        examples=[75.0],
+    )
+    cell_type: Optional[str] = Field(
+        None,
+        title="Cell Type",
+        description="The type of cells used in the battery pack",
+        max_length=250,
+        examples=["sodium-ion"],
+    )
+    count: Optional[int] = Field(
+        None,
+        title="Count",
+        description="The number of corresponding batteries in use in the machine",
+        ge=0,
+        examples=[2],
+    )
+
+
 class PowerSystem(CamelCaseModel):
     type: Optional[PowerSystemType] = Field(
         None,
@@ -71,30 +112,15 @@ class PowerSystem(CamelCaseModel):
         description="The type of the machine power system",
         examples=[PowerSystemType.HYBRID],
     )
-    electric_motors: Optional[str] = Field(
-        None,
+    electric_motors: List[ElectricMotors] = Field(
+        ...,
         title="Electric Motors",
         description="The list of the electric motors in the machine",
-        examples=["2 x induction motor"],
     )
-    combustion_engines: Optional[str] = Field(
+    batteries: List[Batteries] = Field(
         None,
-        title="Combustion Engines",
-        description="The list of the combustion engines in the machine",
-        examples=["1 x diesel fueled combustion"],
-    )
-    energy_storage: Optional[str] = Field(
-        None,
-        title="Energy Storage",
+        title="Batteries",
         description="The list of batteries in the machine",
-        examples=["2 x 75 kW batteries"],
-    )
-    charging_system: Optional[str] = Field(
-        None,
-        max_length=250,
-        title="Charging System",
-        description="The type of the charging system of the machine",
-        examples=["CCS charging"],
     )
 
 

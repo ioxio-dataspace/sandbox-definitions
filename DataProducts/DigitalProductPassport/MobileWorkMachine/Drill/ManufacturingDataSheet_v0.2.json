@@ -192,6 +192,54 @@
         "title": "BadGateway",
         "description": "This response is reserved by Product Gateway."
       },
+      "Batteries": {
+        "properties": {
+          "power": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Power",
+            "description": "The power of the battery in use the machine in kilowatts (kW)",
+            "examples": [75.0]
+          },
+          "cellType": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 250
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cell Type",
+            "description": "The type of cells used in the battery pack",
+            "examples": ["sodium-ion"]
+          },
+          "count": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Count",
+            "description": "The number of corresponding batteries in use in the machine",
+            "examples": [2]
+          }
+        },
+        "type": "object",
+        "title": "Batteries"
+      },
       "DataSourceError": {
         "properties": {
           "type": {
@@ -239,6 +287,40 @@
         "required": ["data_source_status_code"],
         "title": "DoesNotConformToDefinition",
         "description": "This response is reserved by Product Gateway."
+      },
+      "ElectricMotors": {
+        "properties": {
+          "motorType": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 100
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Motor Type",
+            "description": "The type of the electric motor in use in the machine",
+            "examples": ["induction motor"]
+          },
+          "count": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Count",
+            "description": "The number of corresponding motors in use in the machine",
+            "examples": [2]
+          }
+        },
+        "type": "object",
+        "title": "ElectricMotors"
       },
       "Forbidden": {
         "properties": {
@@ -594,60 +676,24 @@
             "examples": ["hybrid"]
           },
           "electricMotors": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
+            "items": {
+              "$ref": "#/components/schemas/ElectricMotors"
+            },
+            "type": "array",
             "title": "Electric Motors",
-            "description": "The list of the electric motors in the machine",
-            "examples": ["2 x induction motor"]
+            "description": "The list of the electric motors in the machine"
           },
-          "combustionEngines": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Combustion Engines",
-            "description": "The list of the combustion engines in the machine",
-            "examples": ["1 x diesel fueled combustion"]
-          },
-          "energyStorage": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Energy Storage",
-            "description": "The list of batteries in the machine",
-            "examples": ["2 x 75 kW batteries"]
-          },
-          "chargingSystem": {
-            "anyOf": [
-              {
-                "type": "string",
-                "maxLength": 250
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Charging System",
-            "description": "The type of the charging system of the machine",
-            "examples": ["CCS charging"]
+          "batteries": {
+            "items": {
+              "$ref": "#/components/schemas/Batteries"
+            },
+            "type": "array",
+            "title": "Batteries",
+            "description": "The list of batteries in the machine"
           }
         },
         "type": "object",
+        "required": ["electricMotors"],
         "title": "PowerSystem"
       },
       "PowerSystemType": {
