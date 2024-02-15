@@ -11,7 +11,7 @@ class ManufacturingLocation(CamelCaseModel):
         pattern=r"^[A-Z]{3}$",
         description="The country code of the battery manufacturing location in Alpha-3 "
         "format",
-        examples=["GER"],
+        examples=["DEU"],
     )
     city: Optional[str] = Field(
         None,
@@ -155,7 +155,7 @@ class CarbonFootprintRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.0",
+    version="0.1.1",
     title="Battery Carbon Footprint",
     description="Carbon footprint of a battery as required by the European "
     "Commission's Battery Act (2023/1542)",
