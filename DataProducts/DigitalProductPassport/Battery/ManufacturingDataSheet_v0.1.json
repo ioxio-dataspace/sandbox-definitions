@@ -3,7 +3,7 @@
   "info": {
     "title": "Battery Manufacturing Data Sheet",
     "description": "Manufacturing data sheet as required by Battery Passport specification of the European Commission's Battery Act (2023/1542)",
-    "version": "0.1.1"
+    "version": "0.1.2"
   },
   "paths": {
     "/DigitalProductPassport/Battery/ManufacturingDataSheet_v0.1": {
@@ -786,7 +786,7 @@
             ],
             "title": "Country",
             "description": "The country code of the battery manufacturing location in Alpha-3 format",
-            "examples": ["GER"]
+            "examples": ["DEU"]
           },
           "city": {
             "anyOf": [

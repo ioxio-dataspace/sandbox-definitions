@@ -3,7 +3,7 @@
   "info": {
     "title": "Battery Carbon Footprint",
     "description": "Carbon footprint of a battery as required by the European Commission's Battery Act (2023/1542)",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/Battery/CarbonFootprint_v0.1": {
@@ -541,7 +541,7 @@
             ],
             "title": "Country",
             "description": "The country code of the battery manufacturing location in Alpha-3 format",
-            "examples": ["GER"]
+            "examples": ["DEU"]
           },
           "city": {
             "anyOf": [

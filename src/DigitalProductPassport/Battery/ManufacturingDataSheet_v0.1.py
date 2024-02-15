@@ -12,7 +12,7 @@ class ManufacturingLocation(CamelCaseModel):
         pattern=r"^[A-Z]{3}$",
         description="The country code of the battery manufacturing location in Alpha-3 "
         "format",
-        examples=["GER"],
+        examples=["DEU"],
     )
     city: Optional[str] = Field(
         None,
@@ -394,7 +394,7 @@ class ManufacturingDataSheetRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.1",
+    version="0.1.2",
     title="Battery Manufacturing Data Sheet",
     description="Manufacturing data sheet as required by Battery Passport "
     "specification of the European Commission's Battery Act (2023/1542)",

@@ -119,7 +119,7 @@ class HarmfulEvent(CamelCaseModel):
         max_length=250,
         description="The description of the harmful incident that has happened to the "
         "battery",
-        examples=["30 minutes spent in extreme temperature -50 celsius"],
+        examples=["30 minutes spent in extreme temperature -50 Celsius"],
     )
 
 
@@ -180,7 +180,7 @@ class HealthDataRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.1",
+    version="0.1.2",
     title="Battery Health Data",
     description="The health and status data of a battery as required by Battery "
     "Passport specification of the European Commission's Battery Act (2023/1542)",
