@@ -1,14 +1,14 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Straddle Carrier Operations Data",
+    "title": "Straddle carrier operations data",
     "description": "Operations data of a straddle carrier to retrieve fuel use, electricity use and distance driven",
     "version": "0.1.0"
   },
   "paths": {
     "/DigitalProductPassport/MobileWorkMachine/StraddleCarrier/OperationsData_v0.1": {
       "post": {
-        "summary": "Straddle Carrier Operations Data",
+        "summary": "Straddle carrier operations data",
         "description": "Operations data of a straddle carrier to retrieve fuel use, electricity use and distance driven",
         "operationId": "request_DigitalProductPassport_MobileWorkMachine_StraddleCarrier_OperationsData_v0_1",
         "parameters": [

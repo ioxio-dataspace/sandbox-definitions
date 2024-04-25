@@ -42,7 +42,7 @@ class OperationsDataRequest(CamelCaseModel):
 
 DEFINITION = DataProductDefinition(
     version="0.1.0",
-    title="Straddle Carrier Operations Data",
+    title="Straddle carrier operations data",
     description="Operations data of a straddle carrier to retrieve fuel use, "
     "electricity use and distance driven",
     request=OperationsDataRequest,
