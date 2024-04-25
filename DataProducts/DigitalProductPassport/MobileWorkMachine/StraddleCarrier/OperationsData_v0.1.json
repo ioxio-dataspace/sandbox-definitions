@@ -2,14 +2,14 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Straddle Carrier Operations Data",
-    "description": "Operations data of a Straddle Carrier",
+    "description": "Operations data of a straddle carrier to retrieve fuel use, electricity use and distance driven",
     "version": "0.1.0"
   },
   "paths": {
     "/DigitalProductPassport/MobileWorkMachine/StraddleCarrier/OperationsData_v0.1": {
       "post": {
         "summary": "Straddle Carrier Operations Data",
-        "description": "Operations data of a Straddle Carrier",
+        "description": "Operations data of a straddle carrier to retrieve fuel use, electricity use and distance driven",
         "operationId": "request_DigitalProductPassport_MobileWorkMachine_StraddleCarrier_OperationsData_v0_1",
         "parameters": [
           {
@@ -323,27 +323,27 @@
       },
       "OperationsDataResponse": {
         "properties": {
-          "cumulativeFuelUse": {
+          "fuelUse": {
             "type": "number",
-            "title": "Cumulative Fuel Use",
-            "description": "The cumulative fuel consumption up until requested date in liters (l)",
+            "title": "Fuel use",
+            "description": "The total fuel consumption logged in liters (l)",
             "examples": [286.5]
           },
-          "cumulativeElectricityUse": {
+          "electricityUse": {
             "type": "number",
-            "title": "Cumulative Electricity Use",
-            "description": "The cumulative electricity consumption up until requested date in kilowatt-hours (kWh)",
+            "title": "Electricity use",
+            "description": "The total electricity consumption logged in kilowatt-hours (kWh)",
             "examples": [158.9]
           },
-          "totalDistance": {
+          "distance": {
             "type": "number",
-            "title": "Total Distance",
-            "description": "The cumulative distance driven with the machine in kilometers (km)",
+            "title": "Distance",
+            "description": "The total distance driven with the machine in kilometers (km)",
             "examples": [350.0]
           }
         },
         "type": "object",
-        "required": ["cumulativeFuelUse", "cumulativeElectricityUse", "totalDistance"],
+        "required": ["fuelUse", "electricityUse", "distance"],
         "title": "OperationsDataResponse"
       },
       "ServiceUnavailable": {

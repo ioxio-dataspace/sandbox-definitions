@@ -3,25 +3,22 @@ from pydantic import Field
 
 
 class OperationsDataResponse(CamelCaseModel):
-    cumulative_fuel_use: float = Field(
+    fuel_use: float = Field(
         ...,
-        title="Cumulative Fuel Use",
-        description="The cumulative fuel consumption up until requested date in liters "
-        "(l)",
+        title="Fuel use",
+        description="The total fuel consumption logged in liters (l)",
         examples=[286.5],
     )
-    cumulative_electricity_use: float = Field(
+    electricity_use: float = Field(
         ...,
-        title="Cumulative Electricity Use",
-        description="The cumulative electricity consumption up until requested date in "
-        "kilowatt-hours (kWh)",
+        title="Electricity use",
+        description="The total electricity consumption logged in kilowatt-hours (kWh)",
         examples=[158.9],
     )
-    total_distance: float = Field(
+    distance: float = Field(
         ...,
-        title="Total Distance",
-        description="The cumulative distance driven with the machine in kilometers "
-        "(km)",
+        title="Distance",
+        description="The total distance driven with the machine in kilometers (km)",
         examples=[350.0],
     )
 
@@ -46,7 +43,8 @@ class OperationsDataRequest(CamelCaseModel):
 DEFINITION = DataProductDefinition(
     version="0.1.0",
     title="Straddle Carrier Operations Data",
-    description="Operations data of a Straddle Carrier",
+    description="Operations data of a straddle carrier to retrieve fuel use, "
+    "electricity use and distance driven",
     request=OperationsDataRequest,
     response=OperationsDataResponse,
 )
