@@ -62,13 +62,13 @@ class BasicCountryInfoResponse(CamelCaseModel):
         description="The area of the country in km^2",
         examples=[338455],
     )
-    languages: List[
-        Annotated[str, StringConstraints(min_length=2, max_length=2)]
-    ] = Field(
-        ...,
-        title="Official languages",
-        description="ISO 639-1 language codes for the official languages",
-        examples=[["fi", "sv"]],
+    languages: List[Annotated[str, StringConstraints(min_length=2, max_length=2)]] = (
+        Field(
+            ...,
+            title="Official languages",
+            description="ISO 639-1 language codes for the official languages",
+            examples=[["fi", "sv"]],
+        )
     )
     capital: Optional[Capital] = Field(
         None,
