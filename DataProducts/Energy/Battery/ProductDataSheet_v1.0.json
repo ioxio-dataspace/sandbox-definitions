@@ -53,6 +53,24 @@
               "title": "X-Authorization-Provider"
             },
             "description": "The bare domain of the system that provided the token."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-API-Key",
+              "description": "API key or token"
+            },
+            "description": "API key or token"
           }
         ],
         "requestBody": {
@@ -334,13 +352,13 @@
             "title": "Standards Compliance",
             "examples": [
               [
-                "ECE R10",
-                "ECE R100",
+                "ISO 13849 PL C",
                 "UN 38.3",
                 "IEC 62061 SIL 2",
-                "ISO 16750",
                 "IEC 61508 SIL 2",
-                "ISO 13849 PL C"
+                "ECE R100",
+                "ECE R10",
+                "ISO 16750"
               ]
             ]
           }
