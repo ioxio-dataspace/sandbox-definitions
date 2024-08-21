@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Product environmental footprint",
-    "description": "Carbon footprint of a product",
+    "description": "The environmental impact of the product manufacturing",
     "version": "0.1.0"
   },
   "paths": {
@@ -17,7 +17,7 @@
           "Product environmental footprint"
         ],
         "summary": "Product environmental footprint",
-        "description": "Carbon footprint of a product",
+        "description": "The environmental impact of the product manufacturing",
         "operationId": "request_DigitalProductPassport_EnvironmentalFootprint_v0_1",
         "parameters": [
           {
@@ -240,7 +240,7 @@
               }
             ],
             "title": "Raw material footprint (kg of CO2e)",
-            "description": "The carbon footprint of the raw material acquisition of the product calculated as kg of CO2e using PEF and PEFCR methods",
+            "description": "The carbon footprint of the raw material acquisition of the product calculated as kg of CO2e using PEF and PEFCR methods.",
             "examples": [1546.3]
           },
           "componentProductionFootprint": {
@@ -253,7 +253,7 @@
               }
             ],
             "title": "Component production footprint (kg of CO2e)",
-            "description": "The carbon footprint of the component production phase of the product calculated as kg of CO2e using PEF and PEFCR methods",
+            "description": "The carbon footprint of the component production phase of the product calculated as kg of CO2e using PEF and PEFCR methods.",
             "examples": [2345.7]
           },
           "mainProductionFootprint": {
@@ -266,7 +266,7 @@
               }
             ],
             "title": "Main production footprint (kg of CO2e)",
-            "description": "The carbon footprint of the main production or assembly of the product calculated as kg of CO2e using PEF and PEFCR methods",
+            "description": "The carbon footprint of the main production or assembly of the product calculated as kg of CO2e using PEF and PEFCR methods.",
             "examples": [3504.4]
           },
           "transportationFootprint": {
@@ -279,7 +279,7 @@
               }
             ],
             "title": "Transportation footprint (kg of CO2e)",
-            "description": "The carbon footprint of the component transportation calculated as kg of CO2e using PEF and PEFCR methods",
+            "description": "The carbon footprint of the component transportation calculated as kg of CO2e using PEF and PEFCR methods.",
             "examples": [2780.3]
           },
           "referenceMaterial": {
@@ -294,7 +294,7 @@
               }
             ],
             "title": "Reference material",
-            "description": "The link to the study supporting the carbon footprint values",
+            "description": "The link to the study supporting the carbon footprint values.",
             "examples": ["https://example.com/CarbonFootprint"]
           }
         },
@@ -404,7 +404,7 @@
               }
             ],
             "title": "Amount (kg)",
-            "description": "The amount of material waste in kilograms generated during the production",
+            "description": "The amount of material waste in kilograms generated during the production.",
             "examples": [500]
           },
           "referenceMaterial": {
@@ -419,7 +419,7 @@
               }
             ],
             "title": "Reference material",
-            "description": "The link to the study supporting the material waste values",
+            "description": "The link to the study supporting the material waste values.",
             "examples": ["https://example.com/materialWaste"]
           }
         },
@@ -449,14 +449,14 @@
             "type": "string",
             "maxLength": 150,
             "title": "Product",
-            "description": "The product code used for identifying the product type",
+            "description": "The product code used for identifying the product type.",
             "examples": ["product-modelX-1234"]
           },
           "id": {
             "type": "string",
             "maxLength": 40,
             "title": "ID",
-            "description": "The unique identifier of the product",
+            "description": "The unique identifier of the product.",
             "examples": ["71b51878-8a00-11ee-b9d1-0242ac120002"]
           }
         },
@@ -473,7 +473,7 @@
               }
             ],
             "title": "Carbon footprint",
-            "description": "The details of the carbon footprint during production"
+            "description": "The details of the carbon footprint during production."
           },
           "materialWaste": {
             "anyOf": [
@@ -485,7 +485,7 @@
               }
             ],
             "title": "Material waste",
-            "description": "The details of the material waste generated during production"
+            "description": "The details of the material waste generated during production."
           }
         },
         "type": "object",
