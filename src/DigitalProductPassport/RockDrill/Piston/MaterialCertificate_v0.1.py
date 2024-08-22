@@ -66,7 +66,7 @@ class MaterialCertificateResponse(CamelCaseModel):
     )
     inspection_conformity: List[InspectionConformity] = Field(
         ...,
-        title="Inspection Conformity",
+        title="Inspection conformity",
         description="The details of the conformity with the legal and standard requirements.",
     )
 
