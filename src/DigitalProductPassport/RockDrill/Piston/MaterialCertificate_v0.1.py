@@ -19,9 +19,9 @@ class InspectionConformity(CamelCaseModel):
         description="The description of the inspection conducted.",
         examples=["A tension test measures a material's resistance to pulling forces."],
     )
-    standard_compliancy: List[str] = Field(
+    standards_compliance: List[str] = Field(
         ...,
-        title="Standard compliancy",
+        title="Standards compliance",
         description="The standard(s) defining the test requirements.",
         examples=[["EN 11223", "ISO 1234-5"]],
     )
