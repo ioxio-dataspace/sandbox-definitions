@@ -62,7 +62,7 @@ class MaterialCertificateResponse(CamelCaseModel):
     cast_analysis: List[CastAnalysis] = Field(
         ...,
         title="Cast analysis",
-        description="The material compostion of the cast.",
+        description="The material composition of the cast.",
     )
     inspection_conformity: List[InspectionConformity] = Field(
         ...,

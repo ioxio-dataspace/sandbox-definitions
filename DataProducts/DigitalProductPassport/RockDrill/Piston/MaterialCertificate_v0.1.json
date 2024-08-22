@@ -415,7 +415,7 @@
             },
             "type": "array",
             "title": "Cast analysis",
-            "description": "The material compostion of the cast."
+            "description": "The material composition of the cast."
           },
           "inspectionConformity": {
             "items": {
