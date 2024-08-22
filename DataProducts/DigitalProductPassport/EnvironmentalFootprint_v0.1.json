@@ -3,7 +3,7 @@
   "info": {
     "title": "Product environmental footprint",
     "description": "The environmental impact of the product manufacturing",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/EnvironmentalFootprint_v0.1": {
@@ -280,7 +280,7 @@
             ],
             "title": "Transportation footprint (kg of CO2e)",
             "description": "The carbon footprint of the component transportation calculated as kg of CO2e using PEF and PEFCR methods.",
-            "examples": [2780.3]
+            "examples": [421.3]
           },
           "referenceMaterial": {
             "anyOf": [
