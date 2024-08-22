@@ -31,7 +31,7 @@ class CarbonFootprint(CamelCaseModel):
         title="Transportation footprint (kg of CO2e)",
         description="The carbon footprint of the component transportation calculated "
         "as kg of CO2e using PEF and PEFCR methods.",
-        examples=[2780.3],
+        examples=[421.3],
     )
     reference_material: Optional[str] = Field(
         None,
@@ -91,7 +91,7 @@ class ProductEnvironmentalFootprintRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.0",
+    version="0.1.1",
     title="Product environmental footprint",
     description="The environmental impact of the product manufacturing",
     request=ProductEnvironmentalFootprintRequest,
