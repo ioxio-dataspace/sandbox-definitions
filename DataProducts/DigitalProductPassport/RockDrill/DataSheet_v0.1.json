@@ -3,7 +3,7 @@
   "info": {
     "title": "Rock drill manufacturing data",
     "description": "General as-built data of a rock drill",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/RockDrill/DataSheet_v0.1": {
@@ -268,7 +268,7 @@
               }
             ],
             "title": "Manufacturer information",
-            "description": "The details of manufacturer."
+            "description": "The details of the manufacturer."
           },
           "manufacturingLocation": {
             "anyOf": [
@@ -280,7 +280,7 @@
               }
             ],
             "title": "Manufacturing location",
-            "description": "The details of the location of the manufacturing plant."
+            "description": "Location where this drill was manufactured."
           },
           "minimumHoleDiameter": {
             "anyOf": [

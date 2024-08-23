@@ -85,12 +85,12 @@ class DataSheetResponse(CamelCaseModel):
     manufacturer_information: Optional[ManufacturerInformation] = Field(
         None,
         title="Manufacturer information",
-        description="The details of manufacturer.",
+        description="The details of the manufacturer.",
     )
     manufacturing_location: Optional[ManufacturingLocation] = Field(
         None,
         title="Manufacturing location",
-        description="The details of the location of the manufacturing plant.",
+        description="Location where this drill was manufactured.",
     )
     minimum_hole_diameter: Optional[float] = Field(
         None,
@@ -166,7 +166,7 @@ class DataSheetRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.0",
+    version="0.1.1",
     title="Rock drill manufacturing data",
     description="General as-built data of a rock drill",
     request=DataSheetRequest,
