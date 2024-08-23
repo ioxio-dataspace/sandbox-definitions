@@ -1,15 +1,15 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Rock drill material certificate",
+    "title": "Piston material certificate",
     "description": "Material certificate on the elements and tests",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/RockDrill/Piston/MaterialCertificate_v0.1": {
       "post": {
         "tags": ["Mining", "Rock drill"],
-        "summary": "Rock drill material certificate",
+        "summary": "Piston material certificate",
         "description": "Material certificate on the elements and tests",
         "operationId": "request_DigitalProductPassport_RockDrill_Piston_MaterialCertificate_v0_1",
         "parameters": [
