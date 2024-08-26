@@ -396,9 +396,16 @@
             "examples": ["8976543"]
           },
           "castAnalysis": {
-            "type": "string",
-            "maxLength": 2083,
-            "pattern": "^https://",
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2083,
+                "pattern": "^https://"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Cast analysis",
             "description": "The link to the detailed cast analysis.",
             "examples": ["https://example.com/castAnalysis"]
@@ -413,12 +420,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "castNumber",
-          "orderNumber",
-          "castAnalysis",
-          "inspectionConformity"
-        ],
+        "required": ["castNumber", "orderNumber", "inspectionConformity"],
         "title": "MaterialCertificateResponse"
       },
       "NotFound": {

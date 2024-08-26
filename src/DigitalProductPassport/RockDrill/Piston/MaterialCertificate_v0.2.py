@@ -49,8 +49,8 @@ class MaterialCertificateResponse(CamelCaseModel):
         max_length=20,
         examples=["8976543"],
     )
-    cast_analysis: str = Field(
-        ...,
+    cast_analysis: Optional[str] = Field(
+        None,
         title="Cast analysis",
         description="The link to the detailed cast analysis.",
         pattern=r"^https://",
