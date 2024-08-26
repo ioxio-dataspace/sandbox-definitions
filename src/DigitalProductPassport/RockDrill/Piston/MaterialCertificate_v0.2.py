@@ -27,24 +27,6 @@ class InspectionConformity(CamelCaseModel):
     )
 
 
-class CastAnalysis(CamelCaseModel):
-    element: str = Field(
-        ...,
-        pattern=r"^[A-Z][a-z]?$",
-        title="Element",
-        description="The symbol of the material element in the cast.",
-        examples=["Si"],
-    )
-    composition: float = Field(
-        ...,
-        gt=0,
-        le=100,
-        title="Composition (%)",
-        description="The material element composition in the cast.",
-        examples=[0.25],
-    )
-
-
 class MaterialCertificateResponse(CamelCaseModel):
     product_name: Optional[str] = Field(
         None,
@@ -57,12 +39,23 @@ class MaterialCertificateResponse(CamelCaseModel):
         ...,
         title="Cast number",
         description="The number of the cast.",
+        max_length=20,
         examples=["0123456"],
     )
-    cast_analysis: List[CastAnalysis] = Field(
+    order_number: str = Field(
+        ...,
+        title="Order number",
+        description="The order number associated with the cast.",
+        max_length=20,
+        examples=["8976543"],
+    )
+    cast_analysis: str = Field(
         ...,
         title="Cast analysis",
-        description="The material composition of the cast.",
+        description="The link to the detailed cast analysis.",
+        pattern=r"^https://",
+        max_length=2083,
+        examples=["https://example.com/castAnalysis"],
     )
     inspection_conformity: List[InspectionConformity] = Field(
         ...,
@@ -89,8 +82,7 @@ class MaterialCertificateRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.1",
-    deprecated=True,
+    version="0.2.0",
     title="Piston material certificate",
     description="Material certificate on the elements and tests",
     request=MaterialCertificateRequest,

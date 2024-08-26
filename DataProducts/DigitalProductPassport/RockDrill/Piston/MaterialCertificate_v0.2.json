@@ -3,16 +3,15 @@
   "info": {
     "title": "Piston material certificate",
     "description": "Material certificate on the elements and tests",
-    "version": "0.1.1"
+    "version": "0.2.0"
   },
   "paths": {
-    "/DigitalProductPassport/RockDrill/Piston/MaterialCertificate_v0.1": {
+    "/DigitalProductPassport/RockDrill/Piston/MaterialCertificate_v0.2": {
       "post": {
         "tags": ["Mining", "Rock drill"],
         "summary": "Piston material certificate",
         "description": "Material certificate on the elements and tests",
-        "operationId": "request_DigitalProductPassport_RockDrill_Piston_MaterialCertificate_v0_1",
-        "deprecated": true,
+        "operationId": "request_DigitalProductPassport_RockDrill_Piston_MaterialCertificate_v0_2",
         "parameters": [
           {
             "name": "x-consent-token",
@@ -222,28 +221,6 @@
         "title": "BadGateway",
         "description": "This response is reserved by Product Gateway."
       },
-      "CastAnalysis": {
-        "properties": {
-          "element": {
-            "type": "string",
-            "pattern": "^[A-Z][a-z]?$",
-            "title": "Element",
-            "description": "The symbol of the material element in the cast.",
-            "examples": ["Si"]
-          },
-          "composition": {
-            "type": "number",
-            "maximum": 100.0,
-            "exclusiveMinimum": 0.0,
-            "title": "Composition (%)",
-            "description": "The material element composition in the cast.",
-            "examples": [0.25]
-          }
-        },
-        "type": "object",
-        "required": ["element", "composition"],
-        "title": "CastAnalysis"
-      },
       "DataSourceError": {
         "properties": {
           "type": {
@@ -406,17 +383,25 @@
           },
           "castNumber": {
             "type": "string",
+            "maxLength": 20,
             "title": "Cast number",
             "description": "The number of the cast.",
             "examples": ["0123456"]
           },
+          "orderNumber": {
+            "type": "string",
+            "maxLength": 20,
+            "title": "Order number",
+            "description": "The order number associated with the cast.",
+            "examples": ["8976543"]
+          },
           "castAnalysis": {
-            "items": {
-              "$ref": "#/components/schemas/CastAnalysis"
-            },
-            "type": "array",
+            "type": "string",
+            "maxLength": 2083,
+            "pattern": "^https://",
             "title": "Cast analysis",
-            "description": "The material composition of the cast."
+            "description": "The link to the detailed cast analysis.",
+            "examples": ["https://example.com/castAnalysis"]
           },
           "inspectionConformity": {
             "items": {
@@ -428,7 +413,12 @@
           }
         },
         "type": "object",
-        "required": ["castNumber", "castAnalysis", "inspectionConformity"],
+        "required": [
+          "castNumber",
+          "orderNumber",
+          "castAnalysis",
+          "inspectionConformity"
+        ],
         "title": "MaterialCertificateResponse"
       },
       "NotFound": {
