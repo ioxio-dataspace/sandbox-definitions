@@ -1,14 +1,14 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Battery Carbon Footprint",
+    "title": "Battery carbon footprint",
     "description": "Carbon footprint of a battery as required by the European Commission's Battery Act (2023/1542).",
     "version": "0.1.2"
   },
   "paths": {
     "/DigitalProductPassport/Battery/CarbonFootprint_v0.1": {
       "post": {
-        "summary": "Battery Carbon Footprint",
+        "summary": "Battery carbon footprint",
         "description": "Carbon footprint of a battery as required by the European Commission's Battery Act (2023/1542).",
         "operationId": "request_DigitalProductPassport_Battery_CarbonFootprint_v0_1",
         "parameters": [
@@ -231,7 +231,7 @@
                 "type": "null"
               }
             ],
-            "title": "Pre Production Footprint",
+            "title": "Pre production footprint",
             "description": "The carbon footprint of the raw material acquisition and pre-processing phase of the battery calculated as kilograms (kg) of CO2e per one kilowatt-hour (kWh) using preferably PEF and PEFCR methods.",
             "examples": [2345.7]
           },
@@ -244,7 +244,7 @@
                 "type": "null"
               }
             ],
-            "title": "Main Production Footprint",
+            "title": "Main production footprint",
             "description": "The carbon footprint of the battery main production phase calculated as kilograms (kg) of CO2e per one kilowatt-hour (kWh) using preferably PEF and PEFCR methods.",
             "examples": [3504.4]
           },
@@ -259,7 +259,7 @@
                 "type": "null"
               }
             ],
-            "title": "Reference Material",
+            "title": "Reference material",
             "description": "The web link giving access to a public version of the study supporting the carbon footprint values.",
             "examples": ["https://example.com/CarbonFootprint"]
           }
@@ -299,7 +299,7 @@
                 "type": "null"
               }
             ],
-            "title": "Manufacturer Information",
+            "title": "Manufacturer information",
             "description": "The details of the battery manufacturer."
           },
           "batteryModel": {
@@ -312,7 +312,7 @@
                 "type": "null"
               }
             ],
-            "title": "Battery Model",
+            "title": "Battery model",
             "description": "The model of the battery.",
             "examples": ["Z37-310-76"]
           },
@@ -327,7 +327,7 @@
                 "type": "null"
               }
             ],
-            "title": "Conformity Declaration",
+            "title": "Conformity declaration",
             "description": "The link to the EU declaration of conformity documentation.",
             "examples": ["https://example.com/EUdeclaration"]
           },
@@ -340,7 +340,7 @@
                 "type": "null"
               }
             ],
-            "title": "Manufacturing Location",
+            "title": "Manufacturing location",
             "description": "The details of the location of the battery manufacturing plant."
           },
           "carbonFootprint": {
@@ -352,7 +352,7 @@
                 "type": "null"
               }
             ],
-            "title": "Carbon Footprint",
+            "title": "Carbon footprint",
             "description": "The details of the carbon footprint for the battery production phases."
           }
         },
@@ -476,7 +476,7 @@
                 "type": "null"
               }
             ],
-            "title": "Street Name",
+            "title": "Street name",
             "description": "The street address of the manufacturer's headquarters.",
             "examples": ["Example Street 100"]
           },
@@ -490,7 +490,7 @@
                 "type": "null"
               }
             ],
-            "title": "Postal Code",
+            "title": "Postal code",
             "description": "The postal code of the manufacturer's headquarters.",
             "examples": ["75034"]
           },
