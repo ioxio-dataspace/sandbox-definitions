@@ -180,7 +180,8 @@ class HealthDataRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.2",
+    version="0.1.3",
+    deprecated=True,
     title="Battery Health Data",
     description="The health and status data of a battery as required by Battery "
     "Passport specification of the European Commission's Battery Act (2023/1542)",
