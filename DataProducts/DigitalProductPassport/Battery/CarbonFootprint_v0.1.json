@@ -1,15 +1,15 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Battery Carbon Footprint",
-    "description": "Carbon footprint of a battery as required by the European Commission's Battery Act (2023/1542)",
-    "version": "0.1.1"
+    "title": "Battery carbon footprint",
+    "description": "Carbon footprint of a battery as required by the European Commission's Battery Act (2023/1542).",
+    "version": "0.1.2"
   },
   "paths": {
     "/DigitalProductPassport/Battery/CarbonFootprint_v0.1": {
       "post": {
-        "summary": "Battery Carbon Footprint",
-        "description": "Carbon footprint of a battery as required by the European Commission's Battery Act (2023/1542)",
+        "summary": "Battery carbon footprint",
+        "description": "Carbon footprint of a battery as required by the European Commission's Battery Act (2023/1542).",
         "operationId": "request_DigitalProductPassport_Battery_CarbonFootprint_v0_1",
         "parameters": [
           {
@@ -231,8 +231,8 @@
                 "type": "null"
               }
             ],
-            "title": "Pre Production Footprint",
-            "description": "The carbon footprint of the raw material acquisition and pre-processing phase of the battery calculated as kilograms (kg) of CO2e per one kilowatt-hour (kWh) using preferably PEF and PEFCR methods",
+            "title": "Pre production footprint",
+            "description": "The carbon footprint of the raw material acquisition and pre-processing phase of the battery calculated as kilograms (kg) of CO2e per one kilowatt-hour (kWh) using preferably PEF and PEFCR methods.",
             "examples": [2345.7]
           },
           "mainProductionFootprint": {
@@ -244,8 +244,8 @@
                 "type": "null"
               }
             ],
-            "title": "Main Production Footprint",
-            "description": "The carbon footprint of the battery main production phase calculated as kilograms (kg) of CO2e per one kilowatt-hour (kWh) using preferably PEF and PEFCR methods",
+            "title": "Main production footprint",
+            "description": "The carbon footprint of the battery main production phase calculated as kilograms (kg) of CO2e per one kilowatt-hour (kWh) using preferably PEF and PEFCR methods.",
             "examples": [3504.4]
           },
           "referenceMaterial": {
@@ -259,8 +259,8 @@
                 "type": "null"
               }
             ],
-            "title": "Reference Material",
-            "description": "The web link giving access to a public version of the study supporting the carbon footprint values",
+            "title": "Reference material",
+            "description": "The web link giving access to a public version of the study supporting the carbon footprint values.",
             "examples": ["https://example.com/CarbonFootprint"]
           }
         },
@@ -273,14 +273,14 @@
             "type": "string",
             "maxLength": 150,
             "title": "Product",
-            "description": "The product code used for identifying the product type",
+            "description": "The product code used for identifying the product type.",
             "examples": ["sodium-ion-75kWh"]
           },
           "id": {
             "type": "string",
             "maxLength": 40,
             "title": "Id",
-            "description": "The unique identifier of the product",
+            "description": "The unique identifier of the product.",
             "examples": ["660e8400-e29b-41d4-a716-446655440000"]
           }
         },
@@ -299,8 +299,8 @@
                 "type": "null"
               }
             ],
-            "title": "Manufacturer Information",
-            "description": "The details of the battery manufacturer"
+            "title": "Manufacturer information",
+            "description": "The details of the battery manufacturer."
           },
           "batteryModel": {
             "anyOf": [
@@ -312,8 +312,8 @@
                 "type": "null"
               }
             ],
-            "title": "Battery Model",
-            "description": "The model of the battery",
+            "title": "Battery model",
+            "description": "The model of the battery.",
             "examples": ["Z37-310-76"]
           },
           "conformityDeclaration": {
@@ -327,8 +327,8 @@
                 "type": "null"
               }
             ],
-            "title": "Conformity Declaration",
-            "description": "The link to the EU declaration of conformity documentation",
+            "title": "Conformity declaration",
+            "description": "The link to the EU declaration of conformity documentation.",
             "examples": ["https://example.com/EUdeclaration"]
           },
           "manufacturingLocation": {
@@ -340,8 +340,8 @@
                 "type": "null"
               }
             ],
-            "title": "Manufacturing Location",
-            "description": "The details of the location of the battery manufacturing plant"
+            "title": "Manufacturing location",
+            "description": "The details of the location of the battery manufacturing plant."
           },
           "carbonFootprint": {
             "anyOf": [
@@ -352,8 +352,8 @@
                 "type": "null"
               }
             ],
-            "title": "Carbon Footprint",
-            "description": "The details of the carbon footprint for the battery production phases"
+            "title": "Carbon footprint",
+            "description": "The details of the carbon footprint for the battery production phases."
           }
         },
         "type": "object",
@@ -463,7 +463,7 @@
               }
             ],
             "title": "Name",
-            "description": "The registered trade name of the manufacturer company",
+            "description": "The registered trade name of the manufacturer company.",
             "examples": ["Battery Manufacturer A"]
           },
           "streetName": {
@@ -476,8 +476,8 @@
                 "type": "null"
               }
             ],
-            "title": "Street Name",
-            "description": "The street address of the manufacturer's headquarters",
+            "title": "Street name",
+            "description": "The street address of the manufacturer's headquarters.",
             "examples": ["Example Street 100"]
           },
           "postalCode": {
@@ -490,8 +490,8 @@
                 "type": "null"
               }
             ],
-            "title": "Postal Code",
-            "description": "The postal code of the manufacturer's headquarters",
+            "title": "Postal code",
+            "description": "The postal code of the manufacturer's headquarters.",
             "examples": ["75034"]
           },
           "city": {
@@ -505,7 +505,7 @@
               }
             ],
             "title": "City",
-            "description": "The city of the manufacturer's headquarters",
+            "description": "The city of the manufacturer's headquarters.",
             "examples": ["Seattle"]
           },
           "country": {
@@ -519,7 +519,7 @@
               }
             ],
             "title": "Country",
-            "description": "The country code of the manufacturer's headquarters location in Alpha-3 format",
+            "description": "The country code of the manufacturer's headquarters location in Alpha-3 format.",
             "examples": ["USA"]
           },
           "website": {
@@ -534,7 +534,7 @@
               }
             ],
             "title": "Website",
-            "description": "The website of the manufacturer",
+            "description": "The website of the manufacturer.",
             "examples": ["https://example.com/"]
           },
           "email": {
@@ -548,7 +548,7 @@
               }
             ],
             "title": "Email",
-            "description": "The email address of the manufacturer",
+            "description": "The email address of the manufacturer.",
             "examples": ["info@example.com"]
           }
         },
@@ -568,7 +568,7 @@
               }
             ],
             "title": "Country",
-            "description": "The country code of the battery manufacturing location in Alpha-3 format",
+            "description": "The country code of the battery manufacturing location in Alpha-3 format.",
             "examples": ["DEU"]
           },
           "city": {
@@ -582,7 +582,7 @@
               }
             ],
             "title": "City",
-            "description": "The city of the battery manufacturing location",
+            "description": "The city of the battery manufacturing location.",
             "examples": ["Hamburg"]
           }
         },
