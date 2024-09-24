@@ -1,15 +1,15 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Rock drill manufacturing data",
+    "title": "Rock drill data sheet",
     "description": "General as-built data of a rock drill",
-    "version": "0.1.1"
+    "version": "0.1.2"
   },
   "paths": {
     "/DigitalProductPassport/RockDrill/DataSheet_v0.1": {
       "post": {
         "tags": ["Mining", "Rock drill"],
-        "summary": "Rock drill manufacturing data",
+        "summary": "Rock drill data sheet",
         "description": "General as-built data of a rock drill",
         "operationId": "request_DigitalProductPassport_RockDrill_DataSheet_v0_1",
         "parameters": [
