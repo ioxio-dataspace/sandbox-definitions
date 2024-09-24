@@ -34,6 +34,13 @@ class Metric(CamelCaseModel):
         description="Serial number of the component.",
         examples=["123456"],
     )
+    name: str = Field(
+        ...,
+        title="Name",
+        max_length=150,
+        description="Name of the component.",
+        examples=["Battery"],
+    )
     measurements: List[Measurement] = Field(
         ...,
         title="Measurements",

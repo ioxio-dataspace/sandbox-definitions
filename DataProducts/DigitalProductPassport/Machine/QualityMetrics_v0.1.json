@@ -346,6 +346,13 @@
             "description": "Serial number of the component.",
             "examples": ["123456"]
           },
+          "name": {
+            "type": "string",
+            "maxLength": 150,
+            "title": "Name",
+            "description": "Name of the component.",
+            "examples": ["Battery"]
+          },
           "measurements": {
             "items": {
               "$ref": "#/components/schemas/Measurement"
@@ -356,7 +363,7 @@
           }
         },
         "type": "object",
-        "required": ["serial", "measurements"],
+        "required": ["serial", "name", "measurements"],
         "title": "Metric"
       },
       "NotFound": {
