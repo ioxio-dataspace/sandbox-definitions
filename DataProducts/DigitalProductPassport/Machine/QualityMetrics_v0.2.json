@@ -3,15 +3,14 @@
   "info": {
     "title": "Measured quality metrics of a machine",
     "description": "Quality monitoring data for machines, including product serial number and quality performance measures.",
-    "version": "0.1.1"
+    "version": "0.2.0"
   },
   "paths": {
-    "/DigitalProductPassport/Machine/QualityMetrics_v0.1": {
+    "/DigitalProductPassport/Machine/QualityMetrics_v0.2": {
       "post": {
         "summary": "Measured quality metrics of a machine",
         "description": "Quality monitoring data for machines, including product serial number and quality performance measures.",
-        "operationId": "request_DigitalProductPassport_Machine_QualityMetrics_v0_1",
-        "deprecated": true,
+        "operationId": "request_DigitalProductPassport_Machine_QualityMetrics_v0_2",
         "parameters": [
           {
             "name": "x-consent-token",
@@ -319,27 +318,59 @@
             "maxLength": 150,
             "title": "Name",
             "description": "Name of the measurement.",
-            "examples": ["Charge level"]
+            "examples": ["Diameter"]
           },
           "ok": {
             "type": "boolean",
             "title": "OK",
-            "description": "Whether the measurement is considered to be in an OK state or not.",
+            "description": "Whether the measurement is considered to be in a good state or not.",
             "examples": [true]
           },
-          "value": {
+          "targetDeviation": {
+            "type": "string",
+            "maxLength": 150,
+            "title": "Target vs actual deviation",
+            "description": "Actual deviation from target value.",
+            "examples": ["0.004 mm"]
+          },
+          "cp": {
             "type": "number",
-            "title": "Value",
-            "description": "Value of the measurement.",
-            "examples": [100.0]
+            "title": "Process capability",
+            "description": "Process capability (Cp) of the manufacturing process.",
+            "examples": [1.33]
+          },
+          "cpk": {
+            "type": "number",
+            "title": "Process capability index",
+            "description": "Process capability index (Cpk) which measures how centered the process is.",
+            "examples": [1.2]
+          },
+          "pp": {
+            "type": "number",
+            "title": "Process performance",
+            "description": "Process performance (Pp) of the manufacturing process.",
+            "examples": [1.5]
+          },
+          "ppk": {
+            "type": "number",
+            "title": "Process performance index",
+            "description": "Process performance index (Ppk) which measures how centered the performance is.",
+            "examples": [1.45]
           }
         },
         "type": "object",
-        "required": ["name", "ok", "value"],
+        "required": ["name", "ok", "targetDeviation", "cp", "cpk", "pp", "ppk"],
         "title": "Measurement"
       },
       "Metric": {
         "properties": {
+          "identification": {
+            "type": "string",
+            "maxLength": 150,
+            "title": "Identification number",
+            "description": "Identification number of the component.",
+            "examples": ["ID9876"]
+          },
           "serial": {
             "type": "string",
             "maxLength": 150,
@@ -352,7 +383,7 @@
             "maxLength": 150,
             "title": "Name",
             "description": "Name of the component.",
-            "examples": ["Battery"]
+            "examples": ["Cylinder"]
           },
           "measurements": {
             "items": {
@@ -364,7 +395,7 @@
           }
         },
         "type": "object",
-        "required": ["serial", "name", "measurements"],
+        "required": ["identification", "serial", "name", "measurements"],
         "title": "Metric"
       },
       "NotFound": {
