@@ -15,7 +15,7 @@ class Measurement(CamelCaseModel):
     ok: bool = Field(
         ...,
         title="OK",
-        description="Whether the measurement is considered to be in an OK state or not.",
+        description="Whether the measurement is considered to be in a good state or not.",
         examples=[True],
     )
     target_deviation: str = Field(
