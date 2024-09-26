@@ -318,7 +318,7 @@
             "maxLength": 150,
             "title": "Name",
             "description": "Name of the measurement.",
-            "examples": ["Charge level"]
+            "examples": ["Diameter"]
           },
           "ok": {
             "type": "boolean",
@@ -383,7 +383,7 @@
             "maxLength": 150,
             "title": "Name",
             "description": "Name of the component.",
-            "examples": ["Battery"]
+            "examples": ["Cylinder"]
           },
           "measurements": {
             "items": {

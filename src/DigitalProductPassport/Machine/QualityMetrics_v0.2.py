@@ -10,7 +10,7 @@ class Measurement(CamelCaseModel):
         title="Name",
         max_length=150,
         description="Name of the measurement.",
-        examples=["Charge level"],
+        examples=["Diameter"],
     )
     ok: bool = Field(
         ...,
@@ -71,7 +71,7 @@ class Metric(CamelCaseModel):
         title="Name",
         max_length=150,
         description="Name of the component.",
-        examples=["Battery"],
+        examples=["Cylinder"],
     )
     measurements: List[Measurement] = Field(
         ...,
