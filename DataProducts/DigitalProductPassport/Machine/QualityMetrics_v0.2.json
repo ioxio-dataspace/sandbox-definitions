@@ -323,14 +323,14 @@
           "ok": {
             "type": "boolean",
             "title": "OK",
-            "description": "Whether the measurement is considered to be in an OK state or not.",
+            "description": "Whether the measurement is considered to be in a good state or not.",
             "examples": [true]
           },
           "targetDeviation": {
             "type": "string",
             "maxLength": 150,
             "title": "Target vs actual deviation",
-            "description": "Comparison of the target and actual deviations.",
+            "description": "Actual deviation from target value.",
             "examples": ["0.004 mm"]
           },
           "cp": {
