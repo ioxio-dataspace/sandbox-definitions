@@ -21,7 +21,7 @@ class Measurement(CamelCaseModel):
     target_deviation: str = Field(
         ...,
         title="Target vs actual deviation",
-        description="Comparison of the target and actual deviations.",
+        description="Actual deviation from target value.",
         max_length=150,
         examples=["0.004 mm"],
     )
