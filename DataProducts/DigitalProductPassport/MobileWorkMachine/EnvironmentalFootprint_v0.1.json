@@ -291,11 +291,7 @@
       "DataSheetResponse": {
         "properties": {
           "carbonFootprint": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/CarbonFootprint"
-              }
-            ],
+            "$ref": "#/components/schemas/CarbonFootprint",
             "title": "Carbon Footprint",
             "description": "The details of the carbon footprint for the machine production phases"
           },

@@ -284,11 +284,7 @@
       "BoardMember": {
         "properties": {
           "role": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BoardMemberRole"
-              }
-            ],
+            "$ref": "#/components/schemas/BoardMemberRole",
             "title": "Role",
             "description": "The role of the person in the board",
             "examples": ["member"]
@@ -322,11 +318,7 @@
             "examples": ["1976-04-16"]
           },
           "nationality": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ISO_3166_1_Alpha_3"
-              }
-            ],
+            "$ref": "#/components/schemas/ISO_3166_1_Alpha_3",
             "title": "Nationality",
             "description": "The nationality of the person",
             "examples": ["USA"]
@@ -524,11 +516,7 @@
             "examples": ["2022-01-01"]
           },
           "industrySector": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/IndustrySector"
-              }
-            ],
+            "$ref": "#/components/schemas/IndustrySector",
             "title": "Industry sector",
             "description": "The industry fields where the company will run its business. The codes are based on the Statistical classification of economic activities in the European Community, abbreviated as NACE.",
             "examples": ["62.01"]
@@ -540,11 +528,7 @@
             "examples": [1000.0]
           },
           "capitalCurrency": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ISO_4217_CurrencyCode"
-              }
-            ],
+            "$ref": "#/components/schemas/ISO_4217_CurrencyCode",
             "title": "Capital currency",
             "description": "The currency used for the share capital in ISO 4217 format",
             "examples": ["EUR"]
@@ -664,19 +648,11 @@
       "EstablishmentRequest": {
         "properties": {
           "registrant": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Registrant"
-              }
-            ],
+            "$ref": "#/components/schemas/Registrant",
             "description": "The personal details of the person registering the company"
           },
           "companyDetails": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/CompanyDetails"
-              }
-            ],
+            "$ref": "#/components/schemas/CompanyDetails",
             "title": "Company details",
             "description": "The details of the company being established"
           },
@@ -689,11 +665,7 @@
             "description": "The details of the share series of the company"
           },
           "companyAddress": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/CompanyAddress"
-              }
-            ],
+            "$ref": "#/components/schemas/CompanyAddress",
             "title": "Company address",
             "description": "The official address of the company"
           },
@@ -712,11 +684,7 @@
             "title": "Board members"
           },
           "auditorDetails": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/AuditorDetails"
-              }
-            ],
+            "$ref": "#/components/schemas/AuditorDetails",
             "title": "Auditor details",
             "description": "The details of the company and person auditing the company"
           }
@@ -736,19 +704,11 @@
       "EstablishmentResponse": {
         "properties": {
           "registrant": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Registrant"
-              }
-            ],
+            "$ref": "#/components/schemas/Registrant",
             "description": "The personal details of the person registering the company"
           },
           "companyDetails": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/CompanyDetails"
-              }
-            ],
+            "$ref": "#/components/schemas/CompanyDetails",
             "title": "Company details",
             "description": "The details of the company being established"
           },
@@ -761,11 +721,7 @@
             "description": "The details of the share series of the company"
           },
           "companyAddress": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/CompanyAddress"
-              }
-            ],
+            "$ref": "#/components/schemas/CompanyAddress",
             "title": "Company address",
             "description": "The official address of the company"
           },
@@ -784,11 +740,7 @@
             "title": "Board members"
           },
           "auditorDetails": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/AuditorDetails"
-              }
-            ],
+            "$ref": "#/components/schemas/AuditorDetails",
             "title": "Auditor details",
             "description": "The details of the company and person auditing the company"
           }
@@ -2087,11 +2039,7 @@
       "ManagingDirector": {
         "properties": {
           "role": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ManagingDirectorRole"
-              }
-            ],
+            "$ref": "#/components/schemas/ManagingDirectorRole",
             "title": "Role",
             "description": "The role of the director",
             "examples": ["director"]
@@ -2125,11 +2073,7 @@
             "examples": ["1976-04-16"]
           },
           "nationality": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ISO_3166_1_Alpha_3"
-              }
-            ],
+            "$ref": "#/components/schemas/ISO_3166_1_Alpha_3",
             "title": "Nationality",
             "description": "The nationality of the person",
             "examples": ["USA"]
@@ -2251,11 +2195,7 @@
             "examples": [10]
           },
           "shareValueCurrency": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ISO_4217_CurrencyCode"
-              }
-            ],
+            "$ref": "#/components/schemas/ISO_4217_CurrencyCode",
             "title": "Share value currency",
             "description": "The currency used for the share value in ISO 4217 format",
             "examples": ["EUR"]

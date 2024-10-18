@@ -478,11 +478,7 @@
       "CurrentTimeRequest": {
         "properties": {
           "countryCode": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Country"
-              }
-            ],
+            "$ref": "#/components/schemas/Country",
             "title": "ISO 3166-1 alpha-2 country code"
           }
         },

@@ -265,11 +265,7 @@
             "examples": ["Modular Power Pack, 48 V"]
           },
           "cellType": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/CellType"
-              }
-            ],
+            "$ref": "#/components/schemas/CellType",
             "title": "Cell Type",
             "examples": ["lithium-titanate"]
           },
@@ -286,11 +282,7 @@
             "examples": [46.0]
           },
           "voltage": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Voltage"
-              }
-            ],
+            "$ref": "#/components/schemas/Voltage",
             "description": "Information about the voltage of the battery"
           },
           "peakDischargingPower": {
@@ -320,11 +312,7 @@
             "examples": [20000]
           },
           "dimensions": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/Dimensions"
-              }
-            ],
+            "$ref": "#/components/schemas/Dimensions",
             "description": "Physical dimensions of the battery"
           },
           "weight": {
@@ -334,19 +322,11 @@
             "examples": [41.0]
           },
           "operatingTemperature": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/OperatingTemperature"
-              }
-            ],
+            "$ref": "#/components/schemas/OperatingTemperature",
             "title": "Operating Temperature [°C]"
           },
           "ipRating": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/IPCode"
-              }
-            ],
+            "$ref": "#/components/schemas/IPCode",
             "title": "IP Rating",
             "examples": ["IP6K9K"]
           },
