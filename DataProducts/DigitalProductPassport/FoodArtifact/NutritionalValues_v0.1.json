@@ -388,20 +388,12 @@
       "NutritionalValuesResponse": {
         "properties": {
           "energyContent": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/EnergyContent"
-              }
-            ],
+            "$ref": "#/components/schemas/EnergyContent",
             "title": "Energy Content",
             "description": "The details of the energy content of the food artifact"
           },
           "fatContent": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/FatContent"
-              }
-            ],
+            "$ref": "#/components/schemas/FatContent",
             "title": "Fat Content",
             "description": "The details of the fat content of the food artifact"
           },

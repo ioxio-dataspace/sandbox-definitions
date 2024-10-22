@@ -467,11 +467,7 @@
       "ProductEnvironmentalFootprintResponse": {
         "properties": {
           "carbonFootprint": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/CarbonFootprint"
-              }
-            ],
+            "$ref": "#/components/schemas/CarbonFootprint",
             "title": "Carbon footprint",
             "description": "The details of the carbon footprint during production."
           },

@@ -242,21 +242,13 @@
             "examples": ["Oy Example Ab"]
           },
           "legalForm": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/NordicLegalForm"
-              }
-            ],
+            "$ref": "#/components/schemas/NordicLegalForm",
             "title": "Legal form",
             "description": "The [Nordic Legal Form code](https://koodistot.suomi.fi/codescheme;registryCode=verotus;schemeCode=LegalForm2) for the company.",
             "examples": ["FI_OY"]
           },
           "legalStatus": {
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LegalStatus"
-              }
-            ],
+            "$ref": "#/components/schemas/LegalStatus",
             "title": "Legal status",
             "description": "Status of the legal entity",
             "examples": ["NORMAL"]
