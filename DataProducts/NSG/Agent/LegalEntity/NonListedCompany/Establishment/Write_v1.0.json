@@ -649,6 +649,7 @@
         "properties": {
           "registrant": {
             "$ref": "#/components/schemas/Registrant",
+            "title": "Registrant",
             "description": "The personal details of the person registering the company"
           },
           "companyDetails": {
