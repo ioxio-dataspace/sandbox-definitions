@@ -306,7 +306,7 @@
             "description": "Street address of the producing farm.",
             "examples": ["Example road 1"]
           },
-          "postcode": {
+          "zipcode": {
             "anyOf": [
               {
                 "type": "string",
@@ -316,8 +316,8 @@
                 "type": "null"
               }
             ],
-            "title": "Postcode",
-            "description": "Postcode of the producing farm.",
+            "title": "ZIP Code",
+            "description": "ZIP Code of the producing farm.",
             "examples": ["11111"]
           },
           "city": {
@@ -453,7 +453,7 @@
               }
             ],
             "title": "Growth regulator date",
-            "description": "When has growth regulator been applied?",
+            "description": "Date of growth regulator application.",
             "examples": ["2024-04-15"]
           },
           "growthRegulatorType": {
@@ -467,7 +467,7 @@
               }
             ],
             "title": "Growth regulator type",
-            "description": "What growth regulator has been applied?",
+            "description": "Type of growth regulator applied.",
             "examples": ["Moddus Evo"]
           }
         },
@@ -566,7 +566,7 @@
             "description": "Street address of the company receiving the delivery.",
             "examples": ["Example street 12"]
           },
-          "postcode": {
+          "zipcode": {
             "anyOf": [
               {
                 "type": "string",
@@ -576,8 +576,8 @@
                 "type": "null"
               }
             ],
-            "title": "Postcode",
-            "description": "Postcode of the company receiving the delivery.",
+            "title": "ZIP Code",
+            "description": "ZIP Code of the company receiving the delivery.",
             "examples": ["00100"]
           },
           "city": {

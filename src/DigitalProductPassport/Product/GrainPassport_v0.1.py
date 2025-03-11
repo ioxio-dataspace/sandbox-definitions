@@ -37,10 +37,10 @@ class RecipientInformation(CamelCaseModel):
         max_length=150,
         examples=["Example street 12"],
     )
-    postcode: Optional[str] = Field(
+    zipcode: Optional[str] = Field(
         None,
-        title="Postcode",
-        description="Postcode of the company receiving the delivery.",
+        title="ZIP Code",
+        description="ZIP Code of the company receiving the delivery.",
         max_length=40,
         examples=["00100"],
     )
@@ -86,13 +86,13 @@ class GrowthRegulatorInformation(CamelCaseModel):
     growth_regulator_date: Optional[date] = Field(
         None,
         title="Growth regulator date",
-        description="When has growth regulator been applied?",
+        description="Date of growth regulator application.",
         examples=[date.fromisoformat("2024-04-15")],
     )
     growth_regulator_type: Optional[str] = Field(
         None,
         title="Growth regulator type",
-        description="What growth regulator has been applied?",
+        description="Type of growth regulator applied.",
         max_length=150,
         examples=["Moddus Evo"],
     )
@@ -120,10 +120,10 @@ class FarmerInformation(CamelCaseModel):
         max_length=150,
         examples=["Example road 1"],
     )
-    postcode: Optional[str] = Field(
+    zipcode: Optional[str] = Field(
         None,
-        title="Postcode",
-        description="Postcode of the producing farm.",
+        title="ZIP Code",
+        description="ZIP Code of the producing farm.",
         max_length=40,
         examples=["11111"],
     )
