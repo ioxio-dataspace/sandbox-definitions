@@ -212,7 +212,7 @@ class TransportInformation(CamelCaseModel):
     unloading_time: Optional[datetime] = Field(
         None,
         title="Unloading time",
-        description="Date and time of unloading at the recipient, in RFC 3339 format.",
+        description="Date and time of the unloading at the recipient, in RFC 3339 format.",
         examples=[datetime.fromisoformat("2025-02-21T12:45:00Z")],
     )
     previous_content_date: Optional[date] = Field(

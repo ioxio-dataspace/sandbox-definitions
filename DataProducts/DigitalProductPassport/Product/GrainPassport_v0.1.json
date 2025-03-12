@@ -849,7 +849,7 @@
               }
             ],
             "title": "Unloading time",
-            "description": "Date and time of unloading at the recipient, in RFC 3339 format.",
+            "description": "Date and time of the unloading at the recipient, in RFC 3339 format.",
             "examples": ["2025-02-21T12:45:00Z"]
           },
           "previousContentDate": {
