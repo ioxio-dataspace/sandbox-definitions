@@ -22,7 +22,7 @@ class ManufacturingInformation(CamelCaseModel):
     manufacturer: Optional[str] = Field(
         None,
         title="Manufacturer",
-        description="Manufacturing company",
+        description="Manufacturing company.",
         max_length=150,
         examples=["Manufacturer Ltd"],
     )
