@@ -82,7 +82,7 @@ class RecipientInformation(CamelCaseModel):
     )
 
 
-class GrowthRegulatorInformation(CamelCaseModel):
+class GrowthRegulatorDetails(CamelCaseModel):
     growth_regulator_date: Optional[date] = Field(
         None,
         title="Growth regulator date",
@@ -161,7 +161,7 @@ class FarmerInformation(CamelCaseModel):
         description="Has the produce been treated with growth regulator?",
         examples=[True],
     )
-    growth_regulator_details: list[GrowthRegulatorInformation] = Field(
+    growth_regulator_details: list[GrowthRegulatorDetails] = Field(
         ...,
         title="Growth regulator details",
         description="Details about growth regulators applied to the grains.",

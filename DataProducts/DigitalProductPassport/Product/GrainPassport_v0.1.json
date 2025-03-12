@@ -387,7 +387,7 @@
           },
           "growthRegulatorDetails": {
             "items": {
-              "$ref": "#/components/schemas/GrowthRegulatorInformation"
+              "$ref": "#/components/schemas/GrowthRegulatorDetails"
             },
             "type": "array",
             "title": "Growth regulator details",
@@ -440,7 +440,7 @@
         "title": "GatewayTimeout",
         "description": "This response is reserved by Product Gateway."
       },
-      "GrowthRegulatorInformation": {
+      "GrowthRegulatorDetails": {
         "properties": {
           "growthRegulatorDate": {
             "anyOf": [
@@ -472,7 +472,7 @@
           }
         },
         "type": "object",
-        "title": "GrowthRegulatorInformation"
+        "title": "GrowthRegulatorDetails"
       },
       "HTTPValidationError": {
         "properties": {
