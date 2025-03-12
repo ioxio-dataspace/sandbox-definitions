@@ -147,7 +147,7 @@ class FarmerInformation(CamelCaseModel):
         ...,
         title="Processing equipment",
         description="List of equipment used to process the grain, for example names of storage silos etc.",
-        examples=["Silo A3"],
+        examples=[["Silo A3"]],
     )
     treated_with_glyphosate: Optional[bool] = Field(
         None,
