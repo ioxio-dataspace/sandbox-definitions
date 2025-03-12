@@ -72,7 +72,7 @@ class ManufacturingInformation(CamelCaseModel):
         ...,
         title="Compliance certifications",
         description="List of relevant certifications that the manufacturing is compliant with.",
-        examples=["ISO 21898", "HACCP"],
+        examples=[["ISO 21898", "HACCP"]],
     )
 
 
