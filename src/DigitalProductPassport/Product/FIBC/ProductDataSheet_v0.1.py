@@ -374,7 +374,7 @@ class Response(CamelCaseModel):
         ...,
         title="Type markings",
         description="Type markings of the bag.",
-        examples=["UN"],
+        examples=[["UN"]],
     )
     food_safe: Optional[bool] = Field(
         None,

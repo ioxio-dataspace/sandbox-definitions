@@ -1013,7 +1013,7 @@
             "type": "array",
             "title": "Type markings",
             "description": "Type markings of the bag.",
-            "examples": ["UN"]
+            "examples": [["UN"]]
           },
           "foodSafe": {
             "anyOf": [
