@@ -646,7 +646,7 @@
               }
             ],
             "title": "Manufacturer",
-            "description": "Manufacturing company",
+            "description": "Manufacturing company.",
             "examples": ["Manufacturer Ltd"]
           },
           "batchNumber": {
@@ -732,7 +732,7 @@
               }
             ],
             "title": "Safety factor",
-            "description": "Safety Factor of Factor of Safety of the bag.",
+            "description": "Safety Factor or Factor of Safety of the bag.",
             "examples": ["SF5:1"]
           },
           "complianceCertifications": {
