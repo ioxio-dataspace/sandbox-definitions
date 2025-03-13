@@ -732,7 +732,7 @@
               }
             ],
             "title": "Safety factor",
-            "description": "Safety Factor or Factor of Safety of the bag.",
+            "description": "The safety factor indicating the load-bearing capacity in relation to its maximum rated load.",
             "examples": ["SF5:1"]
           },
           "complianceCertifications": {

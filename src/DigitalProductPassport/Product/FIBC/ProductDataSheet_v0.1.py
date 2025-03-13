@@ -64,7 +64,7 @@ class ManufacturingInformation(CamelCaseModel):
     safety_factor: Optional[str] = Field(
         None,
         title="Safety factor",
-        description="Safety Factor or Factor of Safety of the bag.",
+        description="The safety factor indicating the load-bearing capacity in relation to its maximum rated load.",
         max_length=150,
         examples=["SF5:1"],
     )
