@@ -1,0 +1,1156 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "FIBC Product data sheet",
+    "description": "Product data sheet for FIBC bulk bags.",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/DigitalProductPassport/Product/FIBC/ProductDataSheet_v0.1": {
+      "post": {
+        "tags": ["Digital Product Passport"],
+        "summary": "FIBC Product data sheet",
+        "description": "Product data sheet for FIBC bulk bags.",
+        "operationId": "request_DigitalProductPassport_Product_FIBC_ProductDataSheet_v0_1",
+        "parameters": [
+          {
+            "name": "x-consent-token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Optional consent token",
+              "default": "",
+              "title": "X-Consent-Token"
+            },
+            "description": "Optional consent token"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "The login token. Value should be \"Bearer [token]\"",
+              "default": "",
+              "title": "Authorization"
+            },
+            "description": "The login token. Value should be \"Bearer [token]\""
+          },
+          {
+            "name": "x-authorization-provider",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The bare domain of the system that provided the token.",
+              "title": "X-Authorization-Provider"
+            },
+            "description": "The bare domain of the system that provided the token."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-API-Key",
+              "description": "API key or token"
+            },
+            "description": "API key or token"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFound"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RateLimitExceeded"
+                }
+              }
+            },
+            "description": "Too Many Requests"
+          },
+          "444": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceNotFound"
+                }
+              }
+            },
+            "description": "Additional Response"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceError"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "502": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadGateway"
+                }
+              }
+            },
+            "description": "Bad Gateway"
+          },
+          "503": {
+            "content": {
+              "text/plain": {},
+              "text/html": {},
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceUnavailable"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          },
+          "504": {
+            "content": {
+              "text/plain": {},
+              "text/html": {},
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayTimeout"
+                }
+              }
+            },
+            "description": "Gateway Timeout"
+          },
+          "550": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoesNotConformToDefinition"
+                }
+              }
+            },
+            "description": "Additional Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BadGateway": {
+        "properties": {},
+        "type": "object",
+        "title": "BadGateway",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Body": {
+        "properties": {
+          "stitching": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stitching",
+            "description": "Type of sticthing of the body.",
+            "examples": ["Double chain"]
+          },
+          "stitchingColor": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 40
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stitching color",
+            "description": "Color of the stitching of the body.",
+            "examples": ["Blue"]
+          },
+          "coatingApplied": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Coating applied",
+            "description": "Whether a coating has been applied to the body.",
+            "examples": [false]
+          },
+          "color": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 40
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Color",
+            "description": "Color of the body.",
+            "examples": ["White"]
+          }
+        },
+        "type": "object",
+        "title": "Body"
+      },
+      "Bottom": {
+        "properties": {
+          "diameter": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Diameter (cm)",
+            "description": "Diameter of the bottom part, in centimeters.",
+            "examples": [60]
+          },
+          "length": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Length (cm)",
+            "description": "Length of the bottom part, in centimeters.",
+            "examples": [60]
+          },
+          "coatingApplied": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Coating applied",
+            "description": "Whether a coating has been applied to the bottom part.",
+            "examples": [true]
+          },
+          "color": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 40
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Color",
+            "description": "Color of the bottom part.",
+            "examples": ["White"]
+          }
+        },
+        "type": "object",
+        "title": "Bottom"
+      },
+      "DataSourceError": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "DataSourceError"
+      },
+      "DataSourceNotFound": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": "Data source not found"
+          }
+        },
+        "type": "object",
+        "title": "DataSourceNotFound",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Dimensions": {
+        "properties": {
+          "externalWidth": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "External width (cm)",
+            "description": "External width of the bag, in centimeters.",
+            "examples": [90]
+          },
+          "externalLength": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "External length (cm)",
+            "description": "External length of the bag, in centimeters.",
+            "examples": [90]
+          },
+          "externalHeight": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "External height (cm)",
+            "description": "External height of the bag, in centimeters.",
+            "examples": [136]
+          },
+          "internalWidth": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Internal width (cm)",
+            "description": "Internal width of the bag, in centimeters.",
+            "examples": [87]
+          },
+          "internalLength": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Internal length (cm)",
+            "description": "Internal length of the bag, in centimeters.",
+            "examples": [87]
+          },
+          "internalHeight": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Internal height (cm)",
+            "description": "Internal height of the bag, in centimeters.",
+            "examples": [130]
+          },
+          "volume": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Volume (m^3)",
+            "description": "Volume of the bag, in cubic meters.",
+            "examples": [0.98397]
+          }
+        },
+        "type": "object",
+        "title": "Dimensions"
+      },
+      "DoesNotConformToDefinition": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "default": "Response from data source does not conform to definition"
+          },
+          "data_source_status_code": {
+            "type": "integer",
+            "title": "Data source status code",
+            "description": "HTTP status code returned from the data source"
+          }
+        },
+        "type": "object",
+        "required": ["data_source_status_code"],
+        "title": "DoesNotConformToDefinition",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "FIBCType": {
+        "type": "string",
+        "enum": ["A", "B", "C", "D"],
+        "title": "FIBCType"
+      },
+      "FillingMethod": {
+        "type": "string",
+        "enum": ["Top", "Bottom"],
+        "title": "FillingMethod"
+      },
+      "Forbidden": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "Forbidden"
+      },
+      "GatewayTimeout": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "GatewayTimeout",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "Liner": {
+        "properties": {
+          "type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Type",
+            "description": "Type of the liner.",
+            "examples": ["Shaped and wings"]
+          },
+          "thickness": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Thickness (µm)",
+            "description": "Thickness of the liner, microns.",
+            "examples": [100]
+          },
+          "color": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 40
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Color",
+            "description": "Color of the liner.",
+            "examples": ["Transparent"]
+          }
+        },
+        "type": "object",
+        "title": "Liner"
+      },
+      "Loops": {
+        "properties": {
+          "type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Type",
+            "description": "Design of the loops.",
+            "examples": ["Corner loop design"]
+          },
+          "height": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Height (cm)",
+            "description": "Height of the loops, in centimeters.",
+            "examples": [30]
+          },
+          "color": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 40
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Color",
+            "description": "Color of the loops.",
+            "examples": ["Red"]
+          }
+        },
+        "type": "object",
+        "title": "Loops"
+      },
+      "ManufacturingInformation": {
+        "properties": {
+          "manufacturer": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Manufacturer",
+            "description": "Manufacturing company.",
+            "examples": ["Manufacturer Ltd"]
+          },
+          "batchNumber": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Batch number",
+            "description": "The batch number that the product is a part of.",
+            "examples": ["123456"]
+          },
+          "manufacturingDate": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Manufacturing date",
+            "description": "Date of the production of the product.",
+            "examples": ["2025-01-02"]
+          },
+          "expirationDate": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expiration date",
+            "description": "Date when the product will be expired according to manufacturer.",
+            "examples": ["2035-01-02"]
+          },
+          "productionCity": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Production city",
+            "description": "City where the product was produced.",
+            "examples": ["Ahmedabad"]
+          },
+          "productionCountry": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 3,
+                "minLength": 3,
+                "pattern": "^[A-Z]{3}$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Production country",
+            "description": "Country where the product was produced, in ISO 3166-1 alpha-3.",
+            "examples": ["IND"]
+          },
+          "safetyFactor": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Safety factor",
+            "description": "The safety factor indicating the load-bearing capacity in relation to its maximum rated load.",
+            "examples": ["SF5:1"]
+          },
+          "complianceCertifications": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Compliance certifications",
+            "description": "List of relevant certifications that the manufacturing is compliant with.",
+            "examples": [["ISO 21898", "HACCP"]]
+          }
+        },
+        "type": "object",
+        "required": ["complianceCertifications"],
+        "title": "ManufacturingInformation"
+      },
+      "NotFound": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "NotFound"
+      },
+      "RateLimitExceeded": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": "Rate limit exceeded"
+          }
+        },
+        "type": "object",
+        "title": "RateLimitExceeded",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Request": {
+        "properties": {
+          "product": {
+            "type": "string",
+            "maxLength": 150,
+            "title": "Product",
+            "description": "The product code used for identifying the product model.",
+            "examples": ["FIBC-123"]
+          },
+          "id": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "ID",
+            "description": "The unique bag identifier.",
+            "examples": ["123456789"]
+          }
+        },
+        "type": "object",
+        "required": ["product", "id"],
+        "title": "Request"
+      },
+      "Response": {
+        "properties": {
+          "model": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model",
+            "description": "Model of the FIBC bag.",
+            "examples": ["U-Panel"]
+          },
+          "type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FIBCType"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Type",
+            "description": "Type of the FIBC bag.",
+            "examples": ["B"]
+          },
+          "safeWorkingLoad": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Safe working load (kg)",
+            "description": "Safe working load (SWL), maximum capacity of the bag, in kilograms.",
+            "examples": [1000]
+          },
+          "fillingMethod": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FillingMethod"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filling method",
+            "description": "Instruction for filling and discharging the bag.",
+            "examples": ["Top"]
+          },
+          "uvProtected": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "UV protected",
+            "description": "Is the product UV resistant?",
+            "examples": [true]
+          },
+          "uvGuaranteeYears": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "UV guarantee years",
+            "description": "Guaranteed length in years for the UV protection to work.",
+            "examples": [3]
+          },
+          "materialComposition": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Material composition",
+            "description": "Main materials used in the product.",
+            "examples": ["Woven Polypropylene (PP)"]
+          },
+          "manufacturingInformation": {
+            "$ref": "#/components/schemas/ManufacturingInformation",
+            "title": "Manufacturing information",
+            "description": "The manufacturing details of the bag."
+          },
+          "dimensions": {
+            "$ref": "#/components/schemas/Dimensions",
+            "description": "The dimensions of the bag."
+          },
+          "loops": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Loops"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Loops",
+            "description": "Description of the loops of the bag."
+          },
+          "body": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Body"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Body",
+            "description": "Description of the body of the bag."
+          },
+          "topSpout": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TopSpout"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Top spout",
+            "description": "Description of the top spout of the bag."
+          },
+          "bottom": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Bottom"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bottom",
+            "description": "Description of the bottom of the bag."
+          },
+          "liner": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Liner"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Liner",
+            "description": "Description of the liner of the bag."
+          },
+          "documentPocket": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 255
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Document pocket",
+            "description": "Description of the document pocket, its size, location and orientation.",
+            "examples": ["A4, top seam, landscape"]
+          },
+          "handlingInstructions": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 255
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Handling instructions",
+            "description": "Instructions how to handle and store the bag.",
+            "examples": ["Store in a dry, ventilated area, avoid sharp objects"]
+          },
+          "inspectionDate": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Inspection date",
+            "description": "Date of previous inspection.",
+            "examples": ["2025-01-02"]
+          },
+          "typeMarkings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Type markings",
+            "description": "Type markings of the bag.",
+            "examples": [["UN"]]
+          },
+          "foodSafe": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Food safe",
+            "description": "Is the bag food safe?",
+            "examples": [true]
+          }
+        },
+        "type": "object",
+        "required": ["manufacturingInformation", "dimensions", "typeMarkings"],
+        "title": "Response"
+      },
+      "ServiceUnavailable": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "ServiceUnavailable",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "TopSpout": {
+        "properties": {
+          "diameter": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Diameter (cm)",
+            "description": "Diameter of the top spout, in centimeters.",
+            "examples": [40]
+          },
+          "length": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Length (cm)",
+            "description": "Length of the top spout, in centimeters.",
+            "examples": [50]
+          },
+          "coatingApplied": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Coating applied",
+            "description": "Whether a coating has been applied to the top spout.",
+            "examples": [false]
+          },
+          "color": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 40
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Color",
+            "description": "Color of the top spout.",
+            "examples": ["White"]
+          }
+        },
+        "type": "object",
+        "title": "TopSpout"
+      },
+      "Unauthorized": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "Unauthorized"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": ["loc", "msg", "type"],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
