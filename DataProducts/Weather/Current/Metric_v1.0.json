@@ -8,6 +8,7 @@
   "paths": {
     "/Weather/Current/Metric_v1.0": {
       "post": {
+        "tags": ["Environment"],
         "summary": "Current weather in a given location",
         "description": "Common data points about the current weather with metric units in a given location. Simplified for example use, and not following industry standards.",
         "operationId": "request_Weather_Current_Metric_v1_0",
