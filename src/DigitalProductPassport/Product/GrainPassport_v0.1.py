@@ -69,7 +69,7 @@ class RecipientInformation(CamelCaseModel):
     )
     reception_date: Optional[date] = Field(
         None,
-        title="Reception date",
+        title="Date received",
         description="Date when the delivery has been made.",
         examples=[date.fromisoformat("2025-02-21")],
     )
@@ -314,7 +314,7 @@ class Response(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.0",
+    version="0.1.1",
     title="Grain Passport",
     description="Digital Product Passport for one shipment of grains.",
     tags=["Digital Product Passport"],
