@@ -3,7 +3,7 @@
   "info": {
     "title": "Grain Passport",
     "description": "Digital Product Passport for one shipment of grains.",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/Product/GrainPassport_v0.1": {
@@ -634,7 +634,7 @@
                 "type": "null"
               }
             ],
-            "title": "Reception date",
+            "title": "Date received",
             "description": "Date when the delivery has been made.",
             "examples": ["2025-02-21"]
           },
