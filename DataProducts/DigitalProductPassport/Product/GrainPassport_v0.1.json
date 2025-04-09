@@ -1,0 +1,950 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Grain Passport",
+    "description": "Digital Product Passport for one shipment of grains.",
+    "version": "0.1.1"
+  },
+  "paths": {
+    "/DigitalProductPassport/Product/GrainPassport_v0.1": {
+      "post": {
+        "tags": ["Digital Product Passport"],
+        "summary": "Grain Passport",
+        "description": "Digital Product Passport for one shipment of grains.",
+        "operationId": "request_DigitalProductPassport_Product_GrainPassport_v0_1",
+        "parameters": [
+          {
+            "name": "x-consent-token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Optional consent token",
+              "default": "",
+              "title": "X-Consent-Token"
+            },
+            "description": "Optional consent token"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "The login token. Value should be \"Bearer [token]\"",
+              "default": "",
+              "title": "Authorization"
+            },
+            "description": "The login token. Value should be \"Bearer [token]\""
+          },
+          {
+            "name": "x-authorization-provider",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The bare domain of the system that provided the token.",
+              "title": "X-Authorization-Provider"
+            },
+            "description": "The bare domain of the system that provided the token."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-API-Key",
+              "description": "API key or token"
+            },
+            "description": "API key or token"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFound"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RateLimitExceeded"
+                }
+              }
+            },
+            "description": "Too Many Requests"
+          },
+          "444": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceNotFound"
+                }
+              }
+            },
+            "description": "Additional Response"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceError"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "502": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadGateway"
+                }
+              }
+            },
+            "description": "Bad Gateway"
+          },
+          "503": {
+            "content": {
+              "text/plain": {},
+              "text/html": {},
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceUnavailable"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          },
+          "504": {
+            "content": {
+              "text/plain": {},
+              "text/html": {},
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayTimeout"
+                }
+              }
+            },
+            "description": "Gateway Timeout"
+          },
+          "550": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoesNotConformToDefinition"
+                }
+              }
+            },
+            "description": "Additional Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BadGateway": {
+        "properties": {},
+        "type": "object",
+        "title": "BadGateway",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "DataSourceError": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "DataSourceError"
+      },
+      "DataSourceNotFound": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": "Data source not found"
+          }
+        },
+        "type": "object",
+        "title": "DataSourceNotFound",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "DoesNotConformToDefinition": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "default": "Response from data source does not conform to definition"
+          },
+          "data_source_status_code": {
+            "type": "integer",
+            "title": "Data source status code",
+            "description": "HTTP status code returned from the data source"
+          }
+        },
+        "type": "object",
+        "required": ["data_source_status_code"],
+        "title": "DoesNotConformToDefinition",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "FarmerInformation": {
+        "properties": {
+          "farm": {
+            "type": "string",
+            "maxLength": 150,
+            "title": "Farm",
+            "description": "Name of the producing farm.",
+            "examples": ["John Doe's Farm"]
+          },
+          "businessId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Business ID",
+            "description": "Business ID of the producing farm.",
+            "examples": ["Y-987654321"]
+          },
+          "address": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Address",
+            "description": "Street address of the producing farm.",
+            "examples": ["Example road 1"]
+          },
+          "zipcode": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 40
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "ZIP Code",
+            "description": "ZIP Code of the producing farm.",
+            "examples": ["11111"]
+          },
+          "city": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "City",
+            "description": "City of the producing farm.",
+            "examples": ["Helsinki"]
+          },
+          "country": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 3,
+                "minLength": 3,
+                "pattern": "^[A-Z]{3}$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Country",
+            "description": "Country of the producing farm in ISO 3166-1 alpha-3.",
+            "examples": ["FIN"]
+          },
+          "processingEquipment": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Processing equipment",
+            "description": "List of equipment used to process the grain, for example names of storage silos etc.",
+            "examples": [["Silo A3"]]
+          },
+          "treatedWithGlyphosate": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Treated with glyphosate",
+            "description": "Has the produce been treated with glyphosate?",
+            "examples": [false]
+          },
+          "treatedWithGrowthRegulator": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Treated with growth regulator",
+            "description": "Has the produce been treated with growth regulator?",
+            "examples": [true]
+          },
+          "growthRegulatorDetails": {
+            "items": {
+              "$ref": "#/components/schemas/GrowthRegulatorDetails"
+            },
+            "type": "array",
+            "title": "Growth regulator details",
+            "description": "Details about growth regulators applied to the grains."
+          },
+          "signature": {
+            "type": "string",
+            "maxLength": 150,
+            "title": "Signature",
+            "description": "Name of the party signing the handover of the shipment.",
+            "examples": ["John Doe"]
+          }
+        },
+        "type": "object",
+        "required": [
+          "farm",
+          "processingEquipment",
+          "growthRegulatorDetails",
+          "signature"
+        ],
+        "title": "FarmerInformation"
+      },
+      "Forbidden": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "Forbidden"
+      },
+      "GatewayTimeout": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "GatewayTimeout",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "GrowthRegulatorDetails": {
+        "properties": {
+          "growthRegulatorDate": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Growth regulator date",
+            "description": "Date of growth regulator application.",
+            "examples": ["2024-04-15"]
+          },
+          "growthRegulatorType": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Growth regulator type",
+            "description": "Type of growth regulator applied.",
+            "examples": ["Moddus Evo"]
+          }
+        },
+        "type": "object",
+        "title": "GrowthRegulatorDetails"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "NotFound": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "NotFound"
+      },
+      "ProductionMethod": {
+        "type": "string",
+        "enum": [
+          "Conventional",
+          "Organic",
+          "Non-GMO",
+          "Regenerative",
+          "Identity-Preserved Grain",
+          "Other"
+        ],
+        "title": "ProductionMethod"
+      },
+      "RateLimitExceeded": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": "Rate limit exceeded"
+          }
+        },
+        "type": "object",
+        "title": "RateLimitExceeded",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "RecipientInformation": {
+        "properties": {
+          "company": {
+            "type": "string",
+            "maxLength": 150,
+            "title": "Company",
+            "description": "Name of the company receiving the delivery.",
+            "examples": ["Brewing Company Oy"]
+          },
+          "businessId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Business ID",
+            "description": "Business ID of the company receiving the delivery.",
+            "examples": ["Y-123456789"]
+          },
+          "address": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Address",
+            "description": "Street address of the company receiving the delivery.",
+            "examples": ["Example street 12"]
+          },
+          "zipcode": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 40
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "ZIP Code",
+            "description": "ZIP Code of the company receiving the delivery.",
+            "examples": ["00100"]
+          },
+          "city": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "City",
+            "description": "City of the company receiving the delivery.",
+            "examples": ["Helsinki"]
+          },
+          "country": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 3,
+                "minLength": 3,
+                "pattern": "^[A-Z]{3}$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Country",
+            "description": "Recipient country in ISO 3166-1 alpha-3.",
+            "examples": ["FIN"]
+          },
+          "contractNumber": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Contract number",
+            "description": "Contract number given by the sending party to the company receiving the delivery.",
+            "examples": ["VM12345"]
+          },
+          "receptionDate": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Date received",
+            "description": "Date when the delivery has been made.",
+            "examples": ["2025-02-21"]
+          },
+          "signature": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Signature",
+            "description": "Name of the party signing the goods as received.",
+            "examples": ["Brewing Company Oy"]
+          }
+        },
+        "type": "object",
+        "required": ["company"],
+        "title": "RecipientInformation"
+      },
+      "Request": {
+        "properties": {
+          "product": {
+            "type": "string",
+            "maxLength": 150,
+            "title": "Product",
+            "description": "The product code used for identifying the product model.",
+            "examples": ["FIBC-123"]
+          },
+          "id": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "ID",
+            "description": "The unique bag identifier.",
+            "examples": ["123456789"]
+          }
+        },
+        "type": "object",
+        "required": ["product", "id"],
+        "title": "Request"
+      },
+      "Response": {
+        "properties": {
+          "grainPassportNumber": {
+            "type": "string",
+            "maxLength": 150,
+            "title": "Grain passport number",
+            "description": "Grain passport number.",
+            "examples": ["VM-2025-001"]
+          },
+          "creationDate": {
+            "type": "string",
+            "format": "date",
+            "title": "Creation date",
+            "description": "Grain passport creation date.",
+            "examples": ["2025-02-20"]
+          },
+          "grainType": {
+            "type": "string",
+            "maxLength": 150,
+            "title": "Grain type",
+            "description": "The general classification of the grain in the bag.",
+            "examples": ["Malting Barley"]
+          },
+          "grainVariety": {
+            "type": "string",
+            "maxLength": 150,
+            "title": "Grain variety",
+            "description": "The specific cultivated strain or breed within a grain type.",
+            "examples": ["Planet"]
+          },
+          "harvestYear": {
+            "type": "integer",
+            "title": "Harvest year",
+            "description": "Year of harvesting.",
+            "examples": [2024],
+            "gte": 1900,
+            "lte": 2500
+          },
+          "productionMethod": {
+            "$ref": "#/components/schemas/ProductionMethod",
+            "title": "Production method",
+            "description": "The used farming / production method.",
+            "examples": ["Conventional"]
+          },
+          "recipientInformation": {
+            "items": {
+              "$ref": "#/components/schemas/RecipientInformation"
+            },
+            "type": "array",
+            "title": "Recipient information",
+            "description": "Information about all the recipients of the bag."
+          },
+          "farmerInformation": {
+            "items": {
+              "$ref": "#/components/schemas/FarmerInformation"
+            },
+            "type": "array",
+            "title": "Farmer information",
+            "description": "Information about the farmers."
+          },
+          "transportInformation": {
+            "items": {
+              "$ref": "#/components/schemas/TransportInformation"
+            },
+            "type": "array",
+            "title": "Transport information",
+            "description": "Information about the transporting parties."
+          }
+        },
+        "type": "object",
+        "required": [
+          "grainPassportNumber",
+          "creationDate",
+          "grainType",
+          "grainVariety",
+          "harvestYear",
+          "productionMethod",
+          "recipientInformation",
+          "farmerInformation",
+          "transportInformation"
+        ],
+        "title": "Response"
+      },
+      "ServiceUnavailable": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "ServiceUnavailable",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "TransportInformation": {
+        "properties": {
+          "company": {
+            "type": "string",
+            "maxLength": 150,
+            "title": "Company",
+            "description": "Name of the transporting company.",
+            "examples": ["Kuljetus Oy"]
+          },
+          "truckRegistrationNumber": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Truck registration number",
+            "description": "Registration number of the truck used for transportation.",
+            "examples": ["ABC-123"]
+          },
+          "driver": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Driver",
+            "description": "Name of the driver delivering the shipment.",
+            "examples": ["Maija Mehiläinen"]
+          },
+          "shipmentWeight": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Shipment weight (kg)",
+            "description": "Weight of the shipment in kg.",
+            "examples": [28500]
+          },
+          "loadingTime": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Loading time",
+            "description": "Date and time of the loading at the farm, in RFC 3339 format.",
+            "examples": ["2025-02-21T10:15:00Z"]
+          },
+          "unloadingTime": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Unloading time",
+            "description": "Date and time of the unloading at the recipient, in RFC 3339 format.",
+            "examples": ["2025-02-21T12:45:00Z"]
+          },
+          "previousContentDate": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Previous content date",
+            "description": "Date of the previous transportation with the truck in question, in RFC 3339 format.",
+            "examples": ["2025-02-20"]
+          },
+          "previousContent": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Previous content",
+            "description": "The last content that has been transported with the truck in question.",
+            "examples": ["Oats"]
+          },
+          "previousSanitation": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Previous sanitation",
+            "description": "Details of how the truck has been cleaned after the previous delivery.",
+            "examples": ["Water and detergent"]
+          }
+        },
+        "type": "object",
+        "required": ["company"],
+        "title": "TransportInformation"
+      },
+      "Unauthorized": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "Unauthorized"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": ["loc", "msg", "type"],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
