@@ -6,7 +6,7 @@ class BasicCompanyInfoRequest(CamelCaseModel):
     company_id: str = Field(
         ...,
         title="Company ID",
-        description="The ID of the company",
+        description="The ID of the company.",
         examples=["2464491-9"],
     )
 
@@ -27,7 +27,8 @@ class BasicCompanyInfoResponse(CamelCaseModel):
 DEFINITION = DataProductDefinition(
     version="1.0.0",
     title="Basic information about a company",
-    description="Legal information about a company such as company registration date",
+    description="Legal information about a company such as company registration date.",
+    tags=["Company"],
     request=BasicCompanyInfoRequest,
     response=BasicCompanyInfoResponse,
 )

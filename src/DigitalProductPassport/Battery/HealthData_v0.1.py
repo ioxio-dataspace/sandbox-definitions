@@ -185,6 +185,7 @@ DEFINITION = DataProductDefinition(
     title="Battery Health Data",
     description="The health and status data of a battery as required by Battery "
     "Passport specification of the European Commission's Battery Act (2023/1542)",
+    tags=["Digital Product Passport", "Battery"],
     request=HealthDataRequest,
     response=HealthDataResponse,
 )

@@ -267,47 +267,47 @@ class SignatoryRights(CamelCaseModel):
         ...,
         title="Role",
         examples=[Role.CHAIRPERSON],
-        description="The role of the person that has a signing right in the company",
+        description="The role of the person that has a signing right in the company.",
     )
     personal_id: Optional[str] = Field(
         None,
         title="Personal ID",
         description="The ID of a person if exists, e.g. social security number or "
-        "similar",
+        "similar.",
         examples=["1129955131"],
         max_length=40,
     )
     given_name: str = Field(
         ...,
         title="Given name",
-        description="The first name that the person is being called by",
+        description="The first name that the person is being called by.",
         examples=["Mary"],
         max_length=250,
     )
     middle_names: str = Field(
         ...,
         title="Middle names",
-        description="All the middle names of the person",
+        description="All the middle names of the person.",
         examples=["Juliet Olive"],
         max_length=250,
     )
     last_name: str = Field(
         ...,
         title="Last name",
-        description="The person's current family name",
+        description="The person's current family name.",
         examples=["Deo"],
         max_length=250,
     )
     date_of_birth: date = Field(
         ...,
         title="Date of birth",
-        description="The birth day of a person",
+        description="The birth day of a person.",
         examples=[date(1976, 4, 16)],
     )
     nationality: ISO_3166_1_Alpha_3 = Field(
         ...,
         title="Nationality",
-        description="The nationality of a person",
+        description="The nationality of a person.",
         examples=[ISO_3166_1_Alpha_3.USA],
     )
 
@@ -409,7 +409,7 @@ class SignatoryRightsRequest(CamelCaseModel):
         ...,
         title="National identifier",
         description="The national identifier of the non-listed company issued by the "
-        "trade register",
+        "trade register.",
         examples=["FIN: 2464491-9 / SWE: 5560125791 / NOR: 923609016"],
         max_length=40,
     )
@@ -420,16 +420,17 @@ class SignatoryRightsResponse(CamelCaseModel):
         ...,
         title="Signatory rights",
         description="The list of representatives that have signing rights for the "
-        "company",
+        "company.",
     )
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.0",
+    version="1.0.1",
     title="Signatory rights of a non-listed company",
-    description="The list of representation rights of a legal entity",
+    description="The list of representation rights of a legal entity.",
     request=SignatoryRightsRequest,
     response=SignatoryRightsResponse,
+    tags=["Company"],
     requires_authorization=True,
     requires_consent=True,
 )

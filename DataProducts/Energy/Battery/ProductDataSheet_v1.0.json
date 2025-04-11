@@ -2,14 +2,15 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Battery product data sheet",
-    "description": "Technical details of a battery such as capacity and voltage",
-    "version": "1.0.0"
+    "description": "Technical details of a battery such as capacity and voltage.",
+    "version": "1.0.1"
   },
   "paths": {
     "/Energy/Battery/ProductDataSheet_v1.0": {
       "post": {
+        "tags": ["Battery", "Manufacturing"],
         "summary": "Battery product data sheet",
-        "description": "Technical details of a battery such as capacity and voltage",
+        "description": "Technical details of a battery such as capacity and voltage.",
         "operationId": "request_Energy_Battery_ProductDataSheet_v1_0",
         "parameters": [
           {
@@ -225,7 +226,7 @@
           "productCode": {
             "type": "string",
             "title": "Product Code",
-            "description": "The product code used by the manufacturer",
+            "description": "The product code used by the manufacturer.",
             "examples": ["MPP48V"]
           }
         },
@@ -238,13 +239,13 @@
           "manufacturer": {
             "type": "string",
             "title": "Manufacturer",
-            "description": "The manufacturer of the battery",
+            "description": "The manufacturer of the battery.",
             "examples": ["Valmet Automotive"]
           },
           "productCode": {
             "type": "string",
             "title": "Product Code",
-            "description": "The product code used by the manufacturer",
+            "description": "The product code used by the manufacturer.",
             "examples": ["MPP48V"]
           },
           "name": {
@@ -260,18 +261,18 @@
           "capacity": {
             "type": "number",
             "title": "Capacity",
-            "description": "Battery capacity in kWh",
+            "description": "Battery capacity in kWh.",
             "examples": [2.2]
           },
           "energy": {
             "type": "number",
             "title": "Energy (Ah)",
-            "description": "Energy, Ah [1C @ 25°C]",
+            "description": "Energy, Ah [1C @ 25°C].",
             "examples": [46.0]
           },
           "voltage": {
             "$ref": "#/components/schemas/Voltage",
-            "description": "Information about the voltage of the battery"
+            "description": "Information about the voltage of the battery."
           },
           "peakDischargingPower": {
             "type": "number",
@@ -296,17 +297,17 @@
           "cycleLife": {
             "type": "integer",
             "title": "Cycle Life",
-            "description": "Minimum number of cycles the battery can be recharged to at least 80% of initial capacity",
+            "description": "Minimum number of cycles the battery can be recharged to at least 80% of initial capacity.",
             "examples": [20000]
           },
           "dimensions": {
             "$ref": "#/components/schemas/Dimensions",
-            "description": "Physical dimensions of the battery"
+            "description": "Physical dimensions of the battery."
           },
           "weight": {
             "type": "number",
             "title": "Weight [kg]",
-            "description": "Total dry weight [kg]",
+            "description": "Total dry weight [kg].",
             "examples": [41.0]
           },
           "operatingTemperature": {
@@ -332,10 +333,10 @@
             "title": "Standards Compliance",
             "examples": [
               [
-                "ISO 13849 PL C",
-                "UN 38.3",
                 "IEC 62061 SIL 2",
+                "ISO 13849 PL C",
                 "IEC 61508 SIL 2",
+                "UN 38.3",
                 "ECE R100",
                 "ECE R10",
                 "ISO 16750"

@@ -8,6 +8,7 @@
   "paths": {
     "/Company/Shareholders_v1.0": {
       "post": {
+        "tags": ["Company"],
         "summary": "List of the shareholders of a company",
         "description": "Information about the shareholders of a company such as owners and shares quantity.",
         "operationId": "request_Company_Shareholders_v1_0",
@@ -333,7 +334,7 @@
           "name": {
             "type": "string",
             "title": "Name of the Shareholder",
-            "description": "Name of the shareholder",
+            "description": "Name of the shareholder.",
             "examples": ["Matti Meikäläinen | Oy Company Ltd"]
           },
           "ownerships": {
@@ -342,7 +343,7 @@
             },
             "type": "array",
             "title": "Ownerships",
-            "description": "List of Ownerships"
+            "description": "List of Ownerships."
           }
         },
         "type": "object",
@@ -354,13 +355,13 @@
           "seriesName": {
             "type": "string",
             "title": "Series Name",
-            "description": "Name of the share series",
+            "description": "Name of the share series.",
             "examples": ["A"]
           },
           "quantity": {
             "type": "integer",
             "title": "Number of Shares",
-            "description": "Number of shares held by the owner",
+            "description": "Number of shares held by the owner.",
             "examples": [100]
           }
         },
@@ -399,19 +400,19 @@
           "seriesName": {
             "type": "string",
             "title": "Series Name",
-            "description": "Classification of the share",
+            "description": "Classification of the share.",
             "examples": ["A"]
           },
           "votesPerShare": {
             "type": "integer",
             "title": "Votes per share",
-            "description": "Number of votes per share in the share series",
+            "description": "Number of votes per share in the share series.",
             "examples": [1]
           },
           "totalShares": {
             "type": "integer",
             "title": "Total Shares",
-            "description": "Total number of shares in the share series",
+            "description": "Total number of shares in the share series.",
             "examples": [1000]
           }
         },
@@ -424,7 +425,7 @@
           "companyId": {
             "type": "string",
             "title": "Company ID",
-            "description": "The ID of the company, only supports Finnish business ID's",
+            "description": "The ID of the company, only supports Finnish business ID's.",
             "examples": ["2464491-9"]
           }
         },
@@ -440,7 +441,7 @@
             },
             "type": "array",
             "title": "Share series",
-            "description": "List of share series"
+            "description": "List of share series."
           },
           "owners": {
             "items": {

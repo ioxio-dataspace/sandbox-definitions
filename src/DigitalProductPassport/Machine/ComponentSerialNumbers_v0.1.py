@@ -47,10 +47,10 @@ class MachineSerialNumberRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.0",
+    version="0.1.1",
     title="Machine component serial numbers",
     description="List serial numbers of components in a machine.",
+    tags=["Digital Product Passport"],
     request=MachineSerialNumberRequest,
     response=MachineSerialNumberResponse,
-    tags=[],
 )

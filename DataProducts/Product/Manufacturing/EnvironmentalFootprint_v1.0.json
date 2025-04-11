@@ -2,14 +2,15 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Environmental footprint information for a product",
-    "description": "Information about environmental footprint of a product in the manufacturing phase",
-    "version": "1.0.0"
+    "description": "Information about environmental footprint of a product in the manufacturing phase.",
+    "version": "1.0.1"
   },
   "paths": {
     "/Product/Manufacturing/EnvironmentalFootprint_v1.0": {
       "post": {
+        "tags": ["Manufacturing", "Product environmental category rules"],
         "summary": "Environmental footprint information for a product",
-        "description": "Information about environmental footprint of a product in the manufacturing phase",
+        "description": "Information about environmental footprint of a product in the manufacturing phase.",
         "operationId": "request_Product_Manufacturing_EnvironmentalFootprint_v1_0",
         "parameters": [
           {
@@ -273,7 +274,7 @@
           "serialNumber": {
             "type": "string",
             "title": "Serial Number",
-            "description": "The serial number given by the manufacturer",
+            "description": "The serial number given by the manufacturer.",
             "examples": ["MPP48V-296cde7f"]
           }
         },
@@ -286,13 +287,13 @@
           "carbonEquivalent": {
             "type": "number",
             "title": "Carbon Equivalent (CO2e) [kg]",
-            "description": "The amount of emissions from all greenhouse gases converted to CO2 emission equivalents in the product manufacturing phase",
+            "description": "The amount of emissions from all greenhouse gases converted to CO2 emission equivalents in the product manufacturing phase.",
             "examples": [200.0]
           },
           "materialWaste": {
             "type": "number",
             "title": "Material Waste [kg]",
-            "description": "The amount of material waste produced in the product manufacturing phase",
+            "description": "The amount of material waste produced in the product manufacturing phase.",
             "examples": [8.0]
           }
         },

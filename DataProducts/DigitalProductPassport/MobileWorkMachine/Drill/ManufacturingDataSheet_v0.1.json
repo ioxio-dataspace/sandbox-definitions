@@ -2,14 +2,15 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Drill Manufacturing Data Sheet",
-    "description": "Manufacturing data sheet of a Mobile Drill Machine",
-    "version": "0.1.0"
+    "description": "Manufacturing data sheet of a Mobile Drill Machine.",
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/MobileWorkMachine/Drill/ManufacturingDataSheet_v0.1": {
       "post": {
+        "tags": ["Digital Product Passport"],
         "summary": "Drill Manufacturing Data Sheet",
-        "description": "Manufacturing data sheet of a Mobile Drill Machine",
+        "description": "Manufacturing data sheet of a Mobile Drill Machine.",
         "operationId": "request_DigitalProductPassport_MobileWorkMachine_Drill_ManufacturingDataSheet_v0_1",
         "deprecated": true,
         "parameters": [
@@ -325,7 +326,7 @@
               }
             ],
             "title": "Name",
-            "description": "The registered trade name of the manufacturer company",
+            "description": "The registered trade name of the manufacturer company.",
             "examples": ["Drilling Company A"]
           },
           "streetName": {
@@ -339,7 +340,7 @@
               }
             ],
             "title": "Street Name",
-            "description": "The street address of the manufacturer's headquarters",
+            "description": "The street address of the manufacturer's headquarters.",
             "examples": ["Example Street 100"]
           },
           "postalCode": {
@@ -353,7 +354,7 @@
               }
             ],
             "title": "Postal Code",
-            "description": "The postal code of the manufacturer's headquarters",
+            "description": "The postal code of the manufacturer's headquarters.",
             "examples": ["112233"]
           },
           "city": {
@@ -367,7 +368,7 @@
               }
             ],
             "title": "City",
-            "description": "The city of the manufacturer's headquarters",
+            "description": "The city of the manufacturer's headquarters.",
             "examples": ["Stockholm"]
           },
           "country": {
@@ -381,7 +382,7 @@
               }
             ],
             "title": "Country",
-            "description": "The country code of the manufacturer's headquarters location in Alpha-3 format",
+            "description": "The country code of the manufacturer's headquarters location in Alpha-3 format.",
             "examples": ["SWE"]
           },
           "website": {
@@ -396,7 +397,7 @@
               }
             ],
             "title": "Website",
-            "description": "The website of the battery manufacturer",
+            "description": "The website of the battery manufacturer.",
             "examples": ["https://example.com/"]
           },
           "email": {
@@ -410,7 +411,7 @@
               }
             ],
             "title": "Email",
-            "description": "The email address of the battery manufacturer",
+            "description": "The email address of the battery manufacturer.",
             "examples": ["info@example.com"]
           }
         },
@@ -423,14 +424,14 @@
             "type": "string",
             "maxLength": 150,
             "title": "Product",
-            "description": "The product code used for identifying the product type",
+            "description": "The product code used for identifying the product type.",
             "examples": ["bev-drill-1234a"]
           },
           "id": {
             "type": "string",
             "maxLength": 40,
             "title": "Id",
-            "description": "The unique identifier of the product",
+            "description": "The unique identifier of the product.",
             "examples": ["71b51878-8a00-11ee-b9d1-0242ac120002"]
           }
         },
@@ -451,7 +452,7 @@
               }
             ],
             "title": "Product Name",
-            "description": "The official sales name of the product",
+            "description": "The official sales name of the product.",
             "examples": ["Undergound drill A"]
           },
           "manufacturerInformation": {
@@ -464,7 +465,7 @@
               }
             ],
             "title": "Manufacturer Information",
-            "description": "The details of the drill manufacturer"
+            "description": "The details of the drill manufacturer."
           },
           "boomCoverage": {
             "anyOf": [
@@ -476,7 +477,7 @@
               }
             ],
             "title": "Boom Coverage",
-            "description": "The largest distance to which the drill boom can reach from the machine in meters (m)",
+            "description": "The largest distance to which the drill boom can reach from the machine in meters (m).",
             "examples": [3.0]
           },
           "trammingDistance": {
@@ -489,7 +490,7 @@
               }
             ],
             "title": "Tramming Distance",
-            "description": "The maximum tramming distance of the drill movement in kilometers (km)",
+            "description": "The maximum tramming distance of the drill movement in kilometers (km).",
             "examples": [3.0]
           },
           "maximumHoleLength": {
@@ -502,7 +503,7 @@
               }
             ],
             "title": "Maximum Hole Length",
-            "description": "The maximum length of the drilled hole in meters (m)",
+            "description": "The maximum length of the drilled hole in meters (m).",
             "examples": [54.0]
           },
           "minimumHoleDiameter": {
@@ -515,7 +516,7 @@
               }
             ],
             "title": "Minimum Hole Diameter",
-            "description": "The minimum diameter measure of the drilling hole in millimeters (mm)",
+            "description": "The minimum diameter measure of the drilling hole in millimeters (mm).",
             "examples": [76.0]
           },
           "maximumHoleDiameter": {
@@ -528,7 +529,7 @@
               }
             ],
             "title": "Maximum Hole Diameter",
-            "description": "The maximum diameter measure of the drilling hole in millimeters (mm)",
+            "description": "The maximum diameter measure of the drilling hole in millimeters (mm).",
             "examples": [127.0]
           },
           "drillingPower": {
@@ -541,7 +542,7 @@
               }
             ],
             "title": "Drilling Power",
-            "description": "The maximum drilling power of the machine in kilowatts (kW)",
+            "description": "The maximum drilling power of the machine in kilowatts (kW).",
             "examples": [160.0]
           },
           "referenceDataSheet": {
@@ -556,7 +557,7 @@
               }
             ],
             "title": "Reference Data Sheet",
-            "description": "The link to the detailed product specifications",
+            "description": "The link to the detailed product specifications.",
             "examples": ["https://example.com/productDocument"]
           },
           "safetyDataSheet": {
@@ -571,7 +572,7 @@
               }
             ],
             "title": "Safety Data Sheet",
-            "description": "The link to the safety control measures of the product",
+            "description": "The link to the safety control measures of the product.",
             "examples": ["https://example.com/safetyDocument"]
           }
         },

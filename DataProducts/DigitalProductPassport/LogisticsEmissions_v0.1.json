@@ -2,14 +2,15 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Logistics Emissions",
-    "description": "Returns the total emission per leg for an end-to-end shipment compliant with the European Union's count emissions reporting regulation",
-    "version": "0.1.0"
+    "description": "Returns the total emission per leg for an end-to-end shipment compliant with the European Union's count emissions reporting regulation.",
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/LogisticsEmissions_v0.1": {
       "post": {
+        "tags": ["Digital Product Passport", "Environment", "logistics"],
         "summary": "Logistics Emissions",
-        "description": "Returns the total emission per leg for an end-to-end shipment compliant with the European Union's count emissions reporting regulation",
+        "description": "Returns the total emission per leg for an end-to-end shipment compliant with the European Union's count emissions reporting regulation.",
         "operationId": "request_DigitalProductPassport_LogisticsEmissions_v0_1",
         "parameters": [
           {
@@ -286,7 +287,7 @@
               }
             ],
             "title": "Description",
-            "description": "The description of the transport chain element (TCE) related to the leg",
+            "description": "The description of the transport chain element (TCE) related to the leg.",
             "examples": ["Loading"]
           },
           "emissions": {
@@ -299,7 +300,7 @@
               }
             ],
             "title": "Emissions",
-            "description": "The green house gas (GHG) emissions of the transport chain element related to the transport leg in CO2e tonnes",
+            "description": "The green house gas (GHG) emissions of the transport chain element related to the transport leg in CO2e tonnes.",
             "examples": [1.2]
           },
           "source": {
@@ -313,7 +314,7 @@
               }
             ],
             "title": "Source For The Emission",
-            "description": "The source that generated the emission in the TCE",
+            "description": "The source that generated the emission in the TCE.",
             "examples": ["Diesel"]
           }
         },
@@ -386,13 +387,13 @@
           "product": {
             "type": "string",
             "title": "Product code",
-            "description": "The product code used for identifying the product type",
+            "description": "The product code used for identifying the product type.",
             "examples": ["french-fries-500g"]
           },
           "id": {
             "type": "string",
             "title": "Identifier",
-            "description": "Unique identifier of the product",
+            "description": "Unique identifier of the product.",
             "examples": ["550e8400-e29b-41d4-a716-446655440000"]
           }
         },
@@ -420,7 +421,7 @@
             "type": "string",
             "maxLength": 20,
             "title": "Waybill Number",
-            "description": "The unique identifier which is used to track a shipment through the entire delivery chain",
+            "description": "The unique identifier which is used to track a shipment through the entire delivery chain.",
             "examples": ["5308956234"]
           }
         },
@@ -471,7 +472,7 @@
               }
             ],
             "title": "Leg Identifier",
-            "description": "The leg identifier",
+            "description": "The leg identifier.",
             "examples": ["7623456365"]
           },
           "origin": {
@@ -485,7 +486,7 @@
               }
             ],
             "title": "Origin",
-            "description": "The location of the transport origin",
+            "description": "The location of the transport origin.",
             "examples": ["Tampere"]
           },
           "destination": {
@@ -499,7 +500,7 @@
               }
             ],
             "title": "Destination",
-            "description": "The location of the transport destination",
+            "description": "The location of the transport destination.",
             "examples": ["Turku"]
           },
           "freightType": {
@@ -512,7 +513,7 @@
               }
             ],
             "title": "Freight Type",
-            "description": "The type of the freight used for the road transport",
+            "description": "The type of the freight used for the road transport.",
             "examples": ["Palletized"]
           },
           "condition": {
@@ -525,7 +526,7 @@
               }
             ],
             "title": "Condition",
-            "description": "The conditions that the cargo is being transported with",
+            "description": "The conditions that the cargo is being transported with.",
             "examples": ["Ambient"]
           },
           "journeyType": {
@@ -538,7 +539,7 @@
               }
             ],
             "title": "Journey Type",
-            "description": "The type of the road transport",
+            "description": "The type of the road transport.",
             "examples": ["Long-haul"]
           },
           "contractType": {
@@ -551,7 +552,7 @@
               }
             ],
             "title": "Contract Type",
-            "description": "The type of the transport contract",
+            "description": "The type of the transport contract.",
             "examples": ["Dedicated contract"]
           },
           "totalEmissions": {
@@ -564,7 +565,7 @@
               }
             ],
             "title": "Total Emissions",
-            "description": "The total green house gas (GHG) emissions of the road transport and other related logistics hub operations measured in CO2e tonnes",
+            "description": "The total green house gas (GHG) emissions of the road transport and other related logistics hub operations measured in CO2e tonnes.",
             "examples": [5.8]
           },
           "emissionIntensity": {
@@ -577,7 +578,7 @@
               }
             ],
             "title": "Emission Intensity",
-            "description": "The GHG emission intensity of the road transport per transported tonne and kilometer in CO2e grams / tonne / km",
+            "description": "The GHG emission intensity of the road transport per transported tonne and kilometer in CO2e grams / tonne / km.",
             "examples": [200]
           },
           "emissionsPerTce": {
@@ -586,7 +587,7 @@
             },
             "type": "array",
             "title": "Emissions per TCE",
-            "description": "The GHG emissions of the transport chain element related to the road transport leg"
+            "description": "The GHG emissions of the transport chain element related to the road transport leg."
           }
         },
         "type": "object",
@@ -611,7 +612,7 @@
               }
             ],
             "title": "Leg Identifier",
-            "description": "The leg identifier",
+            "description": "The leg identifier.",
             "examples": ["7623456365"]
           },
           "origin": {
@@ -625,7 +626,7 @@
               }
             ],
             "title": "Origin",
-            "description": "The location of the transport origin",
+            "description": "The location of the transport origin.",
             "examples": ["Turku"]
           },
           "destination": {
@@ -639,7 +640,7 @@
               }
             ],
             "title": "Destination",
-            "description": "The location of the transport destination",
+            "description": "The location of the transport destination.",
             "examples": ["Stockholm"]
           },
           "vesselType": {
@@ -652,7 +653,7 @@
               }
             ],
             "title": "Vessel Type",
-            "description": "The type of the vessel used for the sea transport",
+            "description": "The type of the vessel used for the sea transport.",
             "examples": ["Ro-Ro"]
           },
           "freightCondition": {
@@ -665,7 +666,7 @@
               }
             ],
             "title": "Freight Condition",
-            "description": "The conditions that the cargo is being transported with",
+            "description": "The conditions that the cargo is being transported with.",
             "examples": ["Temperature-controlled"]
           },
           "serviceType": {
@@ -678,7 +679,7 @@
               }
             ],
             "title": "Service Type",
-            "description": "The type of the sea transport service",
+            "description": "The type of the sea transport service.",
             "examples": ["Scheduled"]
           },
           "totalEmissions": {
@@ -691,7 +692,7 @@
               }
             ],
             "title": "Total Emissions",
-            "description": "The total green house gas (GHG) emissions of the road transport and other related logistics hub operations measured in CO2e tonnes",
+            "description": "The total green house gas (GHG) emissions of the road transport and other related logistics hub operations measured in CO2e tonnes.",
             "examples": [7.4]
           },
           "emissionIntensity": {
@@ -704,7 +705,7 @@
               }
             ],
             "title": "Emission Intensity",
-            "description": "The GHG emission intensity of the sea transport per transported tonne and kilometer in CO2e grams / tonne / km",
+            "description": "The GHG emission intensity of the sea transport per transported tonne and kilometer in CO2e grams / tonne / km.",
             "examples": [500]
           },
           "emissionsPerTce": {
@@ -713,7 +714,7 @@
             },
             "type": "array",
             "title": "Emissions per TCE",
-            "description": "The GHG emissions of the transport chain element related to the sea transport leg"
+            "description": "The GHG emissions of the transport chain element related to the sea transport leg."
           }
         },
         "type": "object",

@@ -2,14 +2,15 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Check if lock assignment exists",
-    "description": "Check if a key has access to a specific lock",
-    "version": "1.0.0"
+    "description": "Check if a key has access to a specific lock.",
+    "version": "1.0.1"
   },
   "paths": {
     "/Key/LockAssignmentExists_v1.0": {
       "post": {
+        "tags": ["Housing"],
         "summary": "Check if lock assignment exists",
-        "description": "Check if a key has access to a specific lock",
+        "description": "Check if a key has access to a specific lock.",
         "operationId": "request_Key_LockAssignmentExists_v1_0",
         "parameters": [
           {
@@ -318,20 +319,20 @@
             "minLength": 1,
             "pattern": "^[0-9a-f]+$",
             "title": "Key ID",
-            "description": "UID of a key as a hex encoded string without delimiters",
+            "description": "UID of a key as a hex encoded string without delimiters.",
             "examples": ["a1b2c3d4e5f6890"]
           },
           "lockId": {
             "type": "string",
             "minLength": 1,
             "title": "Lock ID",
-            "description": "Vendor specific ID for a lock",
+            "description": "Vendor specific ID for a lock.",
             "examples": ["12345678"]
           },
           "sharedSecret": {
             "type": "string",
             "title": "Shared Secret",
-            "description": "Shared secret between the productizer and the system using it"
+            "description": "Shared secret between the productizer and the system using it."
           }
         },
         "type": "object",
@@ -343,7 +344,7 @@
           "exists": {
             "type": "boolean",
             "title": "Exists",
-            "description": "Whether a matching assignment exists or not",
+            "description": "Whether a matching assignment exists or not.",
             "examples": [true]
           }
         },

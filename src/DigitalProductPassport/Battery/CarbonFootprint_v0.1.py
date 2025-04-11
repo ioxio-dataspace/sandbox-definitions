@@ -159,6 +159,7 @@ DEFINITION = DataProductDefinition(
     title="Battery carbon footprint",
     description="Carbon footprint of a battery as required by the European "
     "Commission's Battery Act (2023/1542).",
+    tags=["Digital Product Passport", "Battery"],
     request=CarbonFootprintRequest,
     response=CarbonFootprintResponse,
 )

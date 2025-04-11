@@ -3,11 +3,12 @@
   "info": {
     "title": "Measured quality metrics of a machine",
     "description": "Quality monitoring data for machines, including product serial number and quality performance measures.",
-    "version": "0.2.0"
+    "version": "0.2.1"
   },
   "paths": {
     "/DigitalProductPassport/Machine/QualityMetrics_v0.2": {
       "post": {
+        "tags": ["Digital Product Passport"],
         "summary": "Measured quality metrics of a machine",
         "description": "Quality monitoring data for machines, including product serial number and quality performance measures.",
         "operationId": "request_DigitalProductPassport_Machine_QualityMetrics_v0_2",

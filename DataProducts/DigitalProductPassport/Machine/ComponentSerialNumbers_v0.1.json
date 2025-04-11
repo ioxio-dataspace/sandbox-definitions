@@ -3,11 +3,12 @@
   "info": {
     "title": "Machine component serial numbers",
     "description": "List serial numbers of components in a machine.",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/Machine/ComponentSerialNumbers_v0.1": {
       "post": {
+        "tags": ["Digital Product Passport"],
         "summary": "Machine component serial numbers",
         "description": "List serial numbers of components in a machine.",
         "operationId": "request_DigitalProductPassport_Machine_ComponentSerialNumbers_v0_1",

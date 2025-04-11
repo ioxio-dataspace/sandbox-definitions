@@ -2,14 +2,15 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Person details",
-    "description": "Details about a person such as home address",
-    "version": "1.0.0"
+    "description": "Details about a person such as home address.",
+    "version": "1.0.1"
   },
   "paths": {
     "/Person/Details_v1.0": {
       "post": {
+        "tags": ["Person"],
         "summary": "Person details",
-        "description": "Details about a person such as home address",
+        "description": "Details about a person such as home address.",
         "operationId": "request_Person_Details_v1_0",
         "parameters": [
           {
@@ -337,13 +338,13 @@
           "name": {
             "type": "string",
             "title": "Full name",
-            "description": "Person's name and surname",
+            "description": "Person's name and surname.",
             "examples": ["Joshua Gray"]
           },
           "address": {
             "type": "string",
             "title": "Address",
-            "description": "Person's home address",
+            "description": "Person's home address.",
             "examples": ["6 Raymond river\nRileybury\nCR3 6XA"]
           }
         },

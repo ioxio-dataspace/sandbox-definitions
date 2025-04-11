@@ -2,14 +2,15 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Charging history of a battery",
-    "description": "Charging history of a battery",
-    "version": "1.0.0"
+    "description": "Charging history of a battery.",
+    "version": "1.0.1"
   },
   "paths": {
     "/Energy/Battery/ChargingHistory_v1.0": {
       "post": {
+        "tags": ["Battery", "Operational"],
         "summary": "Charging history of a battery",
-        "description": "Charging history of a battery",
+        "description": "Charging history of a battery.",
         "operationId": "request_Energy_Battery_ChargingHistory_v1_0",
         "parameters": [
           {
@@ -226,25 +227,25 @@
             "type": "string",
             "format": "date-time",
             "title": "Time",
-            "description": "Time of the charging history event",
+            "description": "Time of the charging history event.",
             "examples": ["2022-09-10T00:00:00"]
           },
           "operatingHours": {
             "type": "number",
             "title": "Operating Hours [h]",
-            "description": "The cumulative operating hours of the battery",
+            "description": "The cumulative operating hours of the battery.",
             "examples": [428.7]
           },
           "cycleCount": {
             "type": "integer",
             "title": "Cycle Count",
-            "description": "The cycle count of the battery",
+            "description": "The cycle count of the battery.",
             "examples": [15]
           },
           "maxCapacity": {
             "type": "number",
             "title": "Maximum Capacity [Ah]",
-            "description": "The maximum capacity of the battery",
+            "description": "The maximum capacity of the battery.",
             "examples": [46.0]
           }
         },
@@ -257,7 +258,7 @@
           "serialNumber": {
             "type": "string",
             "title": "Serial Number",
-            "description": "The serial number of the battery",
+            "description": "The serial number of the battery.",
             "examples": ["MPP48V-296cde7f"]
           },
           "start": {
@@ -271,7 +272,7 @@
               }
             ],
             "title": "Start Time",
-            "description": "Include history entries starting from this time (inclusive)",
+            "description": "Include history entries starting from this time (inclusive).",
             "examples": ["2022-09-09T00:00:00"]
           },
           "end": {
@@ -285,7 +286,7 @@
               }
             ],
             "title": "End Time",
-            "description": "Include history entries until this time (exclusive)",
+            "description": "Include history entries until this time (exclusive).",
             "examples": ["2022-09-10T00:00:00"]
           },
           "limit": {
@@ -293,14 +294,14 @@
             "maximum": 100.0,
             "minimum": 1.0,
             "title": "Limit",
-            "description": "Limit number of history entries to return",
+            "description": "Limit number of history entries to return.",
             "default": 100
           },
           "offset": {
             "type": "integer",
             "minimum": 0.0,
             "title": "Offset",
-            "description": "Offset of history records to return",
+            "description": "Offset of history records to return.",
             "default": 0
           }
         },
@@ -320,7 +321,7 @@
           "totalCount": {
             "type": "integer",
             "title": "Total Count",
-            "description": "Total count of history entries",
+            "description": "Total count of history entries.",
             "examples": [1]
           }
         },

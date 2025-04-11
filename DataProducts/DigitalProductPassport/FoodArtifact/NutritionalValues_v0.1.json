@@ -2,14 +2,15 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Food Artifact Nutritional Values",
-    "description": "Returns the nutritional values of a food product",
-    "version": "0.1.0"
+    "description": "Returns the nutritional values of a food product.",
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/FoodArtifact/NutritionalValues_v0.1": {
       "post": {
+        "tags": ["Digital Product Passport"],
         "summary": "Food Artifact Nutritional Values",
-        "description": "Returns the nutritional values of a food product",
+        "description": "Returns the nutritional values of a food product.",
         "operationId": "request_DigitalProductPassport_FoodArtifact_NutritionalValues_v0_1",
         "parameters": [
           {
@@ -273,13 +274,13 @@
           "energy": {
             "type": "integer",
             "title": "Energy",
-            "description": "The amount of energy per 100g measured in kilojoules",
+            "description": "The amount of energy per 100g measured in kilojoules.",
             "examples": [750]
           },
           "calories": {
             "type": "integer",
             "title": "Calories",
-            "description": "The number of calories per 100g measured in kilocalories",
+            "description": "The number of calories per 100g measured in kilocalories.",
             "examples": [180]
           }
         },
@@ -292,13 +293,13 @@
           "fats": {
             "type": "number",
             "title": "Fats",
-            "description": "The amount of fat per 100g measured in grams",
+            "description": "The amount of fat per 100g measured in grams.",
             "examples": [6]
           },
           "saturatedFats": {
             "type": "number",
             "title": "Saturated Fats",
-            "description": "The amount of saturated fat per 100g measured in grams",
+            "description": "The amount of saturated fat per 100g measured in grams.",
             "examples": [0.4]
           }
         },
@@ -371,13 +372,13 @@
           "product": {
             "type": "string",
             "title": "Product code",
-            "description": "The product code used for identifying the product type",
+            "description": "The product code used for identifying the product type.",
             "examples": ["french-fries-500g"]
           },
           "id": {
             "type": "string",
             "title": "Identifier",
-            "description": "Unique identifier of the product",
+            "description": "Unique identifier of the product.",
             "examples": ["550e8400-e29b-41d4-a716-446655440000"]
           }
         },
@@ -390,35 +391,35 @@
           "energyContent": {
             "$ref": "#/components/schemas/EnergyContent",
             "title": "Energy Content",
-            "description": "The details of the energy content of the food artifact"
+            "description": "The details of the energy content of the food artifact."
           },
           "fatContent": {
             "$ref": "#/components/schemas/FatContent",
             "title": "Fat Content",
-            "description": "The details of the fat content of the food artifact"
+            "description": "The details of the fat content of the food artifact."
           },
           "carbonHydrates": {
             "type": "number",
             "title": "Carbon Hydrates",
-            "description": "The amount of carbon hydrates per 100g measured in grams",
+            "description": "The amount of carbon hydrates per 100g measured in grams.",
             "examples": [28]
           },
           "sugar": {
             "type": "number",
             "title": "Sugar",
-            "description": "The amount of sugar per 100g measured in grams",
+            "description": "The amount of sugar per 100g measured in grams.",
             "examples": [0.5]
           },
           "protein": {
             "type": "number",
             "title": "Protein",
-            "description": "The amount of protein per 100g measured in grams",
+            "description": "The amount of protein per 100g measured in grams.",
             "examples": [3]
           },
           "salt": {
             "type": "number",
             "title": "Salt",
-            "description": "The amount of salt per 100g measured in grams",
+            "description": "The amount of salt per 100g measured in grams.",
             "examples": [0.01]
           }
         },

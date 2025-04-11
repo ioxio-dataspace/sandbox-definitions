@@ -98,10 +98,7 @@ DEFINITION = DataProductDefinition(
     response=ProductEnvironmentalFootprintResponse,
     tags=[
         "Carbon footprint",
-        "Material waste",
-        "Product environmental footprint",
-        "PEF",
         "Product environmental category rules",
-        "PEFCR",
+        "Environment",
     ],
 )
