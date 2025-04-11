@@ -3,7 +3,7 @@
   "info": {
     "title": "Company recommendations based on keywords",
     "description": "Recommendation of companies based on provided keywords. Each result has a score.",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "paths": {
     "/Company/Recommendation_v1.0": {

@@ -35,7 +35,7 @@ class RecommendationResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.0",
+    version="1.0.1",
     title="Company recommendations based on keywords",
     description="Recommendation of companies based on provided keywords. Each result has a score.",
     tags=["Company"],

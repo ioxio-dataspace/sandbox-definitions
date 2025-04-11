@@ -81,7 +81,7 @@ class DataSheetRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.0",
+    version="0.1.1",
     title="Mobile Work Machine Environmental Footprint",
     description="Carbon Footprint of a Mobile Work Machine.",
     request=DataSheetRequest,
