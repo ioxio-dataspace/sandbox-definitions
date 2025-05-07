@@ -316,7 +316,8 @@
               "$ref": "#/components/schemas/ChargingHistoryEntry"
             },
             "type": "array",
-            "title": "Battery Charging History"
+            "title": "Battery Charging History",
+            "description": "Charging history of a battery."
           },
           "totalCount": {
             "type": "integer",

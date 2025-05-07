@@ -70,6 +70,7 @@ class ChargingHistoryResponse(CamelCaseModel):
     battery_charging_history: List[ChargingHistoryEntry] = Field(
         ...,
         title="Battery Charging History",
+        description="Charging history of a battery.",
     )
     total_count: int = Field(
         ...,

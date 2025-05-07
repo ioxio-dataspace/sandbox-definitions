@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Battery Health Data",
-    "description": "The health and status data of a battery as required by Battery Passport specification of the European Commission's Battery Act (2023/1542)",
+    "description": "The health and status data of a battery as required by Battery Passport specification of the European Commission's Battery Act (2023/1542).",
     "version": "0.1.4"
   },
   "paths": {
@@ -10,7 +10,7 @@
       "post": {
         "tags": ["Battery", "Digital Product Passport"],
         "summary": "Battery Health Data",
-        "description": "The health and status data of a battery as required by Battery Passport specification of the European Commission's Battery Act (2023/1542)",
+        "description": "The health and status data of a battery as required by Battery Passport specification of the European Commission's Battery Act (2023/1542).",
         "operationId": "request_DigitalProductPassport_Battery_HealthData_v0_1",
         "deprecated": true,
         "parameters": [
@@ -326,7 +326,7 @@
               }
             ],
             "title": "Event Date",
-            "description": "The date when the incident or accident happened",
+            "description": "The date when the incident or accident happened.",
             "examples": ["2024-02-10"]
           },
           "eventDescription": {
@@ -340,7 +340,7 @@
               }
             ],
             "title": "Event Description",
-            "description": "The description of the harmful incident that has happened to the battery",
+            "description": "The description of the harmful incident that has happened to the battery.",
             "examples": ["30 minutes spent in extreme temperature -50 Celsius"]
           }
         },
@@ -354,14 +354,14 @@
             "type": "string",
             "maxLength": 150,
             "title": "Product",
-            "description": "The product code used for identifying the product type",
+            "description": "The product code used for identifying the product type.",
             "examples": ["sodium-ion-75kWh"]
           },
           "id": {
             "type": "string",
             "maxLength": 40,
             "title": "Id",
-            "description": "The unique identifier of the product",
+            "description": "The unique identifier of the product.",
             "examples": ["660e8400-e29b-41d4-a716-446655440000"]
           }
         },
@@ -381,7 +381,7 @@
               }
             ],
             "title": "Status",
-            "description": "The status of the battery based on its history of use",
+            "description": "The status of the battery based on its history of use.",
             "examples": ["original"]
           },
           "manufacturingDate": {
@@ -395,7 +395,7 @@
               }
             ],
             "title": "Manufacturing Date",
-            "description": "The date of manufacture using month and year",
+            "description": "The date of manufacture using month and year.",
             "examples": ["2023-07"]
           },
           "serviceInitiationDate": {
@@ -409,7 +409,7 @@
               }
             ],
             "title": "Service Initiation Date",
-            "description": "The date on which the battery was first commissioned",
+            "description": "The date on which the battery was first commissioned.",
             "examples": ["2023-12"]
           },
           "originalPerformance": {
@@ -422,7 +422,7 @@
               }
             ],
             "title": "Original Performance",
-            "description": "The details of the original performance of the battery"
+            "description": "The details of the original performance of the battery."
           },
           "healthState": {
             "anyOf": [
@@ -434,7 +434,7 @@
               }
             ],
             "title": "Health State",
-            "description": "The state of the health of the battery"
+            "description": "The state of the health of the battery."
           },
           "harmfulEvents": {
             "items": {
@@ -442,7 +442,7 @@
             },
             "type": "array",
             "title": "Harmful Events",
-            "description": "The harmful events or incidents that have occurred for the battery"
+            "description": "The harmful events or incidents that have occurred for the battery."
           }
         },
         "type": "object",
@@ -461,7 +461,7 @@
               }
             ],
             "title": "Cumulative Cycle Count",
-            "description": "The number of charging and discharging cycles of the battery",
+            "description": "The number of charging and discharging cycles of the battery.",
             "examples": [3500]
           },
           "capacityFade": {
@@ -473,8 +473,8 @@
                 "type": "null"
               }
             ],
-            "title": "Capacity Fade",
-            "description": "The capacity fade of the battery compared to the original capacity in percentage (%)",
+            "title": "Capacity Fade (%)",
+            "description": "The capacity fade of the battery compared to the original capacity in percentage.",
             "examples": [20.0]
           },
           "powerFade": {
@@ -486,8 +486,8 @@
                 "type": "null"
               }
             ],
-            "title": "Power Fade",
-            "description": "The power fade of the battery compared to the original power in percentage (%)",
+            "title": "Power Fade (%)",
+            "description": "The power fade of the battery compared to the original power in percentage.",
             "examples": [15.0]
           },
           "resistanceIncrease": {
@@ -499,8 +499,8 @@
                 "type": "null"
               }
             ],
-            "title": "Resistance Increase",
-            "description": "The value of resistance increase since the battery was first commissioned in percentage (%)",
+            "title": "Resistance Increase (%)",
+            "description": "The value of resistance increase since the battery was first commissioned in percentage.",
             "examples": [10.0]
           },
           "operationDetails": {
@@ -509,7 +509,7 @@
             },
             "type": "array",
             "title": "Operation Details",
-            "description": "The periodic information of the battery operation"
+            "description": "The periodic information of the battery operation."
           }
         },
         "type": "object",
@@ -546,7 +546,7 @@
               }
             ],
             "title": "Measurement Date",
-            "description": "The date of the data point measurement",
+            "description": "The date of the data point measurement.",
             "examples": ["2024-05-24"]
           },
           "stateOfCharge": {
@@ -558,8 +558,8 @@
                 "type": "null"
               }
             ],
-            "title": "State Of Charge",
-            "description": "The state of charge measured in ampere-hours (Ah)",
+            "title": "State Of Charge (Ah)",
+            "description": "The state of charge measured in ampere-hours.",
             "examples": [99.8]
           },
           "temperature": {
@@ -571,8 +571,8 @@
                 "type": "null"
               }
             ],
-            "title": "Temperature",
-            "description": "The temperature of the battery measured in Celsius degrees",
+            "title": "Temperature (°C)",
+            "description": "The temperature of the battery measured in Celsius degrees.",
             "examples": [8.0]
           }
         },
@@ -590,8 +590,8 @@
                 "type": "null"
               }
             ],
-            "title": "Capacity",
-            "description": "The remaining capacity of the battery in ampere-hours (Ah)",
+            "title": "Capacity (Ah)",
+            "description": "The remaining capacity of the battery in ampere-hours.",
             "examples": [80.0]
           },
           "power": {
@@ -603,8 +603,8 @@
                 "type": "null"
               }
             ],
-            "title": "Power",
-            "description": "The original power capability of the battery in watts (W)",
+            "title": "Power (W)",
+            "description": "The original power capability of the battery in watts.",
             "examples": [20000.0]
           },
           "resistance": {
@@ -616,8 +616,8 @@
                 "type": "null"
               }
             ],
-            "title": "Internal Resistance",
-            "description": "The internal resistance of the battery pack in ohms (Ω)",
+            "title": "Internal Resistance (Ω)",
+            "description": "The internal resistance of the battery pack in ohms.",
             "examples": [0.005]
           },
           "cycleLife": {
@@ -631,7 +631,7 @@
               }
             ],
             "title": "Cycle Life",
-            "description": "The expected cycle life of the battery that exceed 80% of the capacity under the reference conditions for which it has been designed",
+            "description": "The expected cycle life of the battery that exceed 80% of the capacity under the reference conditions for which it has been designed.",
             "examples": [5000]
           },
           "years": {
@@ -644,7 +644,7 @@
               }
             ],
             "title": "Years",
-            "description": "The expected lifetime of the battery in years under the reference conditions for which it has been designed",
+            "description": "The expected lifetime of the battery in years under the reference conditions for which it has been designed.",
             "examples": [10]
           }
         },

@@ -353,7 +353,7 @@
           "companyId": {
             "type": "string",
             "title": "Company ID",
-            "description": "Company ID",
+            "description": "ID of the company.",
             "examples": ["2464491-9"]
           },
           "companyName": {

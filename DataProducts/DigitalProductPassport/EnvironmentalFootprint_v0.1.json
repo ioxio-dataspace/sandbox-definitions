@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Product environmental footprint",
-    "description": "The environmental impact of the product manufacturing",
+    "description": "The environmental impact of the product manufacturing.",
     "version": "0.1.2"
   },
   "paths": {
@@ -14,7 +14,7 @@
           "Product environmental category rules"
         ],
         "summary": "Product environmental footprint",
-        "description": "The environmental impact of the product manufacturing",
+        "description": "The environmental impact of the product manufacturing.",
         "operationId": "request_DigitalProductPassport_EnvironmentalFootprint_v0_1",
         "parameters": [
           {

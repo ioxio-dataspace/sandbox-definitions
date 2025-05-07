@@ -84,7 +84,7 @@ class MaterialCertificateRequest(CamelCaseModel):
 DEFINITION = DataProductDefinition(
     version="0.2.1",
     title="Piston material certificate",
-    description="Material certificate on the elements and tests",
+    description="Material certificate on the elements and tests.",
     request=MaterialCertificateRequest,
     response=MaterialCertificateResponse,
     tags=["Mining", "Rock drill", "Digital Product Passport"],

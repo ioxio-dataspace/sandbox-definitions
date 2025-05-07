@@ -18,7 +18,10 @@ class Recommendation(CamelCaseModel):
         ..., description="Recommendation score of the company.", examples=[231]
     )
     company_id: str = Field(
-        ..., title="Company ID", description="Company ID", examples=["2464491-9"]
+        ...,
+        title="Company ID",
+        description="ID of the company.",
+        examples=["2464491-9"],
     )
     company_name: str = Field(
         ...,
