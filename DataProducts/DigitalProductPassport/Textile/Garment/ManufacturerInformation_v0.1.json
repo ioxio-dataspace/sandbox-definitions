@@ -6,12 +6,12 @@
     "version": "0.1.0"
   },
   "paths": {
-    "/DigitalProductPassport/DigitalProductPassport/Textile/Garment/ManufacturerInformation_v0.1": {
+    "/DigitalProductPassport/Textile/Garment/ManufacturerInformation_v0.1": {
       "post": {
         "tags": ["Manufacturing"],
         "summary": "Garment manufacturer information",
         "description": "Details of the garment manufacturers and facilities.",
-        "operationId": "request_DigitalProductPassport_DigitalProductPassport_Textile_Garment_ManufacturerInformation_v0_1",
+        "operationId": "request_DigitalProductPassport_Textile_Garment_ManufacturerInformation_v0_1",
         "parameters": [
           {
             "name": "x-consent-token",
