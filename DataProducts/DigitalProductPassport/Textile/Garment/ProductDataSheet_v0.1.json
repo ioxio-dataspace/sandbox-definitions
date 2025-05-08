@@ -6,12 +6,12 @@
     "version": "0.1.0"
   },
   "paths": {
-    "/DigitalProductPassport/DigitalProductPassport/Textile/Garment/ProductDataSheet_v0.1": {
+    "/DigitalProductPassport/Textile/Garment/ProductDataSheet_v0.1": {
       "post": {
         "tags": ["ESPR", "Manufacturing"],
         "summary": "Garment product data sheet",
         "description": "General specifications of a garment.",
-        "operationId": "request_DigitalProductPassport_DigitalProductPassport_Textile_Garment_ProductDataSheet_v0_1",
+        "operationId": "request_DigitalProductPassport_Textile_Garment_ProductDataSheet_v0_1",
         "parameters": [
           {
             "name": "x-consent-token",
