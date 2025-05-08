@@ -1,6 +1,5 @@
-from datetime import date, datetime
-from enum import Enum
-from typing import Optional, Set
+from datetime import date
+from typing import Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
 from pydantic import Field
