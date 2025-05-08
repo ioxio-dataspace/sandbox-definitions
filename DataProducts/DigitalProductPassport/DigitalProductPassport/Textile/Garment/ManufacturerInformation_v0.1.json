@@ -1,0 +1,523 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Garment manufacturer information",
+    "description": "Details of the garment manufacturers and facilities.",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/DigitalProductPassport/DigitalProductPassport/Textile/Garment/ManufacturerInformation_v0.1": {
+      "post": {
+        "tags": ["Manufacturing"],
+        "summary": "Garment manufacturer information",
+        "description": "Details of the garment manufacturers and facilities.",
+        "operationId": "request_DigitalProductPassport_DigitalProductPassport_Textile_Garment_ManufacturerInformation_v0_1",
+        "parameters": [
+          {
+            "name": "x-consent-token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Optional consent token",
+              "default": "",
+              "title": "X-Consent-Token"
+            },
+            "description": "Optional consent token"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "The login token. Value should be \"Bearer [token]\"",
+              "default": "",
+              "title": "Authorization"
+            },
+            "description": "The login token. Value should be \"Bearer [token]\""
+          },
+          {
+            "name": "x-authorization-provider",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The bare domain of the system that provided the token.",
+              "title": "X-Authorization-Provider"
+            },
+            "description": "The bare domain of the system that provided the token."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-API-Key",
+              "description": "API key or token"
+            },
+            "description": "API key or token"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFound"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RateLimitExceeded"
+                }
+              }
+            },
+            "description": "Too Many Requests"
+          },
+          "444": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceNotFound"
+                }
+              }
+            },
+            "description": "Additional Response"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceError"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "502": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadGateway"
+                }
+              }
+            },
+            "description": "Bad Gateway"
+          },
+          "503": {
+            "content": {
+              "text/plain": {},
+              "text/html": {},
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceUnavailable"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          },
+          "504": {
+            "content": {
+              "text/plain": {},
+              "text/html": {},
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayTimeout"
+                }
+              }
+            },
+            "description": "Gateway Timeout"
+          },
+          "550": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoesNotConformToDefinition"
+                }
+              }
+            },
+            "description": "Additional Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BadGateway": {
+        "properties": {},
+        "type": "object",
+        "title": "BadGateway",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "DataSourceError": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "DataSourceError"
+      },
+      "DataSourceNotFound": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": "Data source not found"
+          }
+        },
+        "type": "object",
+        "title": "DataSourceNotFound",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "DoesNotConformToDefinition": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "default": "Response from data source does not conform to definition"
+          },
+          "data_source_status_code": {
+            "type": "integer",
+            "title": "Data source status code",
+            "description": "HTTP status code returned from the data source"
+          }
+        },
+        "type": "object",
+        "required": ["data_source_status_code"],
+        "title": "DoesNotConformToDefinition",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Forbidden": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "Forbidden"
+      },
+      "GatewayTimeout": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "GatewayTimeout",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "Manufacturer": {
+        "properties": {
+          "manufacturingPhase": {
+            "type": "string",
+            "maxLength": 40,
+            "minLength": 0,
+            "title": "Manufacturing phase",
+            "description": "The description of the production phase.",
+            "examples": ["main production"]
+          },
+          "manufacturerName": {
+            "type": "string",
+            "maxLength": 40,
+            "minLength": 0,
+            "title": "Manufacturer name",
+            "description": "The name of the manufacturer of the corresponding phase.",
+            "examples": ["company x"]
+          },
+          "manufacturingLocation": {
+            "$ref": "#/components/schemas/ManufacturingLocation",
+            "title": "Manufacturing location",
+            "description": "The details of the manufacturing location."
+          },
+          "facilityId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 40,
+                "minLength": 0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Facility ID",
+            "description": "The facility id of the manufacturing site in the GLN format.",
+            "examples": ["1234567000004"]
+          }
+        },
+        "type": "object",
+        "required": ["manufacturingPhase", "manufacturerName", "manufacturingLocation"],
+        "title": "Manufacturer"
+      },
+      "ManufacturingLocation": {
+        "properties": {
+          "country": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}$",
+            "title": "Country",
+            "description": "The country code of the manufacturing location in Alpha-3 format.",
+            "examples": ["POL"]
+          },
+          "city": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 40,
+                "minLength": 0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "City",
+            "description": "The city of the manufacturing location.",
+            "examples": ["Warsaw"]
+          }
+        },
+        "type": "object",
+        "required": ["country"],
+        "title": "ManufacturingLocation"
+      },
+      "NotFound": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "NotFound"
+      },
+      "RateLimitExceeded": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": "Rate limit exceeded"
+          }
+        },
+        "type": "object",
+        "title": "RateLimitExceeded",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Request": {
+        "properties": {
+          "product": {
+            "type": "string",
+            "maxLength": 150,
+            "minLength": 0,
+            "title": "Product",
+            "description": "The product code used for identifying the product model.",
+            "examples": ["model-x-1234"]
+          },
+          "id": {
+            "type": "string",
+            "maxLength": 40,
+            "minLength": 0,
+            "title": "ID",
+            "description": "The unique identifier of the product model, batch or item level.",
+            "examples": ["71b51878-8a00-11ee-b9d1-0242ac120002"]
+          }
+        },
+        "type": "object",
+        "required": ["product", "id"],
+        "title": "Request"
+      },
+      "Response": {
+        "properties": {
+          "manufacturingDate": {
+            "type": "string",
+            "format": "date",
+            "title": "Manufacturing date",
+            "description": "The date of the garment was manufactured.",
+            "examples": ["2023-01-01"]
+          },
+          "manufacturers": {
+            "items": {
+              "$ref": "#/components/schemas/Manufacturer"
+            },
+            "type": "array",
+            "title": "Manufacturers",
+            "description": "The manufacturer details."
+          }
+        },
+        "type": "object",
+        "required": ["manufacturingDate", "manufacturers"],
+        "title": "Response"
+      },
+      "ServiceUnavailable": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "ServiceUnavailable",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Unauthorized": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "Unauthorized"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": ["loc", "msg", "type"],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
