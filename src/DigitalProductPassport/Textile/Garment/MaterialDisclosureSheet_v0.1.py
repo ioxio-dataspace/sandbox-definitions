@@ -1,0 +1,102 @@
+from typing import Optional
+
+from definition_tooling.converter import CamelCaseModel, DataProductDefinition
+from pydantic import Field
+
+
+class Material(CamelCaseModel):
+    material_name: str = Field(
+        ...,
+        title="Material name",
+        description="The generic name of the material that equal or exceed 5 % of the garment weight.",
+        min_length=0,
+        max_length=40,
+        examples=["cotton"],
+    )
+    material_share: float = Field(
+        ...,
+        title="Material share (%)",
+        description="The percentage of material present in the garment, expressed as a percentage by weight.",
+        gte=0,
+        lte=100,
+        examples=[50.0],
+    )
+    recycling_rate: Optional[float] = Field(
+        None,
+        title="Recycling rate (%)",
+        description="The amount of recycled content in the material substance, expressed as a percentage by weight.",
+        gte=0,
+        lte=100,
+        examples=[50.0],
+    )
+
+
+class MaterialInformation(CamelCaseModel):
+    certifications: list[str] = Field(
+        ...,
+        title="Certifications",
+        description="List of all qualifications and certifications of the garment in the component category.",
+        examples=[["OEKO-TEX"]],
+    )
+    materials: list[Material] = Field(
+        ...,
+        title="Materials",
+        description="The list of materials.",
+    )
+    chemicals: Optional[str] = Field(
+        None,
+        title="Chemicals",
+        description="Description of the chemicals used in the garment.",
+        min_length=0,
+        max_length=250,
+        examples=[
+            "Tested for and free from known skin sensitizers under ISO 10993-10."
+        ],
+    )
+
+
+class Request(CamelCaseModel):
+    product: str = Field(
+        ...,
+        title="Product",
+        description="The product code used for identifying the product model.",
+        min_length=0,
+        max_length=150,
+        examples=["model-x-1234"],
+    )
+    id: str = Field(
+        ...,
+        title="ID",
+        description="The unique identifier of the product model, batch or item level.",
+        min_length=0,
+        max_length=40,
+        examples=["71b51878-8a00-11ee-b9d1-0242ac120002"],
+    )
+
+
+class Response(CamelCaseModel):
+    outer_material_information: MaterialInformation = Field(
+        ...,
+        title="Outer material information",
+        description="Information about the fabrics and other materials that create the outermost layer of a garment.",
+    )
+    lining_material_information: MaterialInformation = Field(
+        ...,
+        title="Lining material information",
+        description="Information about the fabrics and other materials that create the lining of the garment and materials placed between the outer fabrics and the innermost lining of a garment to provide structure, stability, warmth, or reinforcement, including padding and insulation.",
+    )
+    notions_and_trim_information: MaterialInformation = Field(
+        ...,
+        title="Notions and trim information",
+        description="Information about the notions the fabrics and other materials used for the functional and decorative elements of the garment, including safety elements, refinement features and sewing threads.",
+    )
+
+
+DEFINITION = DataProductDefinition(
+    version="0.1.0",
+    title="Garment material disclosure sheet",
+    description="Public summary of the garment's material composition, recycled content and material level certifications.",
+    tags=["Manufacturing"],
+    request=Request,
+    response=Response,
+)
