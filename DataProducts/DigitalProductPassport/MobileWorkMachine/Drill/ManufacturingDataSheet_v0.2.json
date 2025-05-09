@@ -2,14 +2,15 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Drill Manufacturing Data Sheet",
-    "description": "Manufacturing data sheet of a Mobile Drill Machine",
-    "version": "0.2.0"
+    "description": "Manufacturing data sheet of a Mobile Drill Machine.",
+    "version": "0.2.1"
   },
   "paths": {
     "/DigitalProductPassport/MobileWorkMachine/Drill/ManufacturingDataSheet_v0.2": {
       "post": {
+        "tags": ["Digital Product Passport"],
         "summary": "Drill Manufacturing Data Sheet",
-        "description": "Manufacturing data sheet of a Mobile Drill Machine",
+        "description": "Manufacturing data sheet of a Mobile Drill Machine.",
         "operationId": "request_DigitalProductPassport_MobileWorkMachine_Drill_ManufacturingDataSheet_v0_2",
         "parameters": [
           {
@@ -232,8 +233,8 @@
                 "type": "null"
               }
             ],
-            "title": "Power",
-            "description": "The power of the battery in use the machine in kilowatts (kW)",
+            "title": "Power (kW)",
+            "description": "The power of the battery in use the machine in kilowatts.",
             "examples": [75.0]
           },
           "cellType": {
@@ -247,7 +248,7 @@
               }
             ],
             "title": "Cell Type",
-            "description": "The type of cells used in the battery pack",
+            "description": "The type of cells used in the battery pack.",
             "examples": ["sodium-ion"]
           },
           "count": {
@@ -261,7 +262,7 @@
               }
             ],
             "title": "Count",
-            "description": "The number of corresponding batteries in use in the machine",
+            "description": "The number of corresponding batteries in use in the machine.",
             "examples": [2]
           }
         },
@@ -329,7 +330,7 @@
               }
             ],
             "title": "Motor Type",
-            "description": "The type of the electric motor in use in the machine",
+            "description": "The type of the electric motor in use in the machine.",
             "examples": ["induction motor"]
           },
           "count": {
@@ -343,7 +344,7 @@
               }
             ],
             "title": "Count",
-            "description": "The number of corresponding motors in use in the machine",
+            "description": "The number of corresponding motors in use in the machine.",
             "examples": [2]
           }
         },
@@ -406,7 +407,7 @@
               }
             ],
             "title": "Name",
-            "description": "The registered trade name of the manufacturer company",
+            "description": "The registered trade name of the manufacturer company.",
             "examples": ["Drilling Company A"]
           },
           "streetName": {
@@ -420,7 +421,7 @@
               }
             ],
             "title": "Street Name",
-            "description": "The street address of the manufacturer's headquarters",
+            "description": "The street address of the manufacturer's headquarters.",
             "examples": ["Example Street 100"]
           },
           "postalCode": {
@@ -434,7 +435,7 @@
               }
             ],
             "title": "Postal Code",
-            "description": "The postal code of the manufacturer's headquarters",
+            "description": "The postal code of the manufacturer's headquarters.",
             "examples": ["112233"]
           },
           "city": {
@@ -448,7 +449,7 @@
               }
             ],
             "title": "City",
-            "description": "The city of the manufacturer's headquarters",
+            "description": "The city of the manufacturer's headquarters.",
             "examples": ["Stockholm"]
           },
           "country": {
@@ -462,7 +463,7 @@
               }
             ],
             "title": "Country",
-            "description": "The country code of the manufacturer's headquarters location in Alpha-3 format",
+            "description": "The country code of the manufacturer's headquarters location in Alpha-3 format.",
             "examples": ["SWE"]
           },
           "website": {
@@ -477,7 +478,7 @@
               }
             ],
             "title": "Website",
-            "description": "The website of the battery manufacturer",
+            "description": "The website of the battery manufacturer.",
             "examples": ["https://example.com/"]
           },
           "email": {
@@ -491,7 +492,7 @@
               }
             ],
             "title": "Email",
-            "description": "The email address of the battery manufacturer",
+            "description": "The email address of the battery manufacturer.",
             "examples": ["info@example.com"]
           }
         },
@@ -504,14 +505,14 @@
             "type": "string",
             "maxLength": 150,
             "title": "Product",
-            "description": "The product code used for identifying the product type",
+            "description": "The product code used for identifying the product type.",
             "examples": ["bev-drill-1234a"]
           },
           "id": {
             "type": "string",
             "maxLength": 40,
             "title": "Id",
-            "description": "The unique identifier of the product",
+            "description": "The unique identifier of the product.",
             "examples": ["71b51878-8a00-11ee-b9d1-0242ac120002"]
           }
         },
@@ -532,7 +533,7 @@
               }
             ],
             "title": "Product Name",
-            "description": "The official sales name of the product",
+            "description": "The official sales name of the product.",
             "examples": ["Undergound drill A"]
           },
           "manufacturerInformation": {
@@ -545,7 +546,7 @@
               }
             ],
             "title": "Manufacturer Information",
-            "description": "The details of the drill manufacturer"
+            "description": "The details of the drill manufacturer."
           },
           "powerSystem": {
             "anyOf": [
@@ -557,7 +558,7 @@
               }
             ],
             "title": "Power System",
-            "description": "The details of the drill power system"
+            "description": "The details of the drill power system."
           },
           "boomCoverage": {
             "anyOf": [
@@ -568,8 +569,8 @@
                 "type": "null"
               }
             ],
-            "title": "Boom Coverage",
-            "description": "The largest distance to which the drill boom can reach from the machine in meters (m)",
+            "title": "Boom Coverage (m)",
+            "description": "The largest distance to which the drill boom can reach from the machine in meters.",
             "examples": [3.0]
           },
           "trammingDistance": {
@@ -581,8 +582,8 @@
                 "type": "null"
               }
             ],
-            "title": "Tramming Distance",
-            "description": "The maximum tramming distance of the drill movement in kilometers (km)",
+            "title": "Tramming Distance (km)",
+            "description": "The maximum tramming distance of the drill movement in kilometers.",
             "examples": [3.0]
           },
           "maximumHoleLength": {
@@ -594,8 +595,8 @@
                 "type": "null"
               }
             ],
-            "title": "Maximum Hole Length",
-            "description": "The maximum length of the drilled hole in meters (m)",
+            "title": "Maximum Hole Length (m)",
+            "description": "The maximum length of the drilled hole in meters.",
             "examples": [54.0]
           },
           "minimumHoleDiameter": {
@@ -607,8 +608,8 @@
                 "type": "null"
               }
             ],
-            "title": "Minimum Hole Diameter",
-            "description": "The minimum diameter measure of the drilling hole in millimeters (mm)",
+            "title": "Minimum Hole Diameter (mm)",
+            "description": "The minimum diameter measure of the drilling hole in millimeters.",
             "examples": [76.0]
           },
           "maximumHoleDiameter": {
@@ -620,8 +621,8 @@
                 "type": "null"
               }
             ],
-            "title": "Maximum Hole Diameter",
-            "description": "The maximum diameter measure of the drilling hole in millimeters (mm)",
+            "title": "Maximum Hole Diameter (mm)",
+            "description": "The maximum diameter measure of the drilling hole in millimeters.",
             "examples": [127.0]
           },
           "drillingPower": {
@@ -633,8 +634,8 @@
                 "type": "null"
               }
             ],
-            "title": "Drilling Power",
-            "description": "The maximum drilling power of the machine in kilowatts (kW)",
+            "title": "Drilling Power (kW)",
+            "description": "The maximum drilling power of the machine in kilowatts.",
             "examples": [160.0]
           },
           "referenceDataSheet": {
@@ -649,7 +650,7 @@
               }
             ],
             "title": "Reference Data Sheet",
-            "description": "The link to the detailed product specifications",
+            "description": "The link to the detailed product specifications.",
             "examples": ["https://example.com/productDocument"]
           },
           "safetyDataSheet": {
@@ -664,7 +665,7 @@
               }
             ],
             "title": "Safety Data Sheet",
-            "description": "The link to the safety control measures of the product",
+            "description": "The link to the safety control measures of the product.",
             "examples": ["https://example.com/safetyDocument"]
           }
         },
@@ -700,7 +701,7 @@
               }
             ],
             "title": "Type",
-            "description": "The type of the machine power system",
+            "description": "The type of the machine power system.",
             "examples": ["hybrid"]
           },
           "electricMotors": {
@@ -709,7 +710,7 @@
             },
             "type": "array",
             "title": "Electric Motors",
-            "description": "The list of the electric motors in the machine"
+            "description": "The list of the electric motors in the machine."
           },
           "batteries": {
             "items": {
@@ -717,7 +718,7 @@
             },
             "type": "array",
             "title": "Batteries",
-            "description": "The list of batteries in the machine"
+            "description": "The list of batteries in the machine."
           }
         },
         "type": "object",

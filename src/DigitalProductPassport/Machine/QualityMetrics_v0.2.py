@@ -106,11 +106,11 @@ class QualityMetricsRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.2.0",
+    version="0.2.1",
     title="Measured quality metrics of a machine",
     description="Quality monitoring data for machines, including product serial number "
     "and quality performance measures.",
     request=QualityMetricsRequest,
     response=QualityMetricsResponse,
-    tags=[],
+    tags=["Digital Product Passport"],
 )

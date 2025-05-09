@@ -91,17 +91,14 @@ class ProductEnvironmentalFootprintRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.1",
+    version="0.1.2",
     title="Product environmental footprint",
-    description="The environmental impact of the product manufacturing",
+    description="The environmental impact of the product manufacturing.",
     request=ProductEnvironmentalFootprintRequest,
     response=ProductEnvironmentalFootprintResponse,
     tags=[
         "Carbon footprint",
-        "Material waste",
-        "Product environmental footprint",
-        "PEF",
         "Product environmental category rules",
-        "PEFCR",
+        "Environment",
     ],
 )

@@ -59,21 +59,21 @@ class EmissionsPerTCE(CamelCaseModel):
         max_length=250,
         title="Description",
         description="The description of the transport chain element (TCE) related to "
-        "the leg",
+        "the leg.",
         examples=["Loading"],
     )
     emissions: Optional[float] = Field(
         None,
         title="Emissions",
         description="The green house gas (GHG) emissions of the transport "
-        "chain element related to the transport leg in CO2e tonnes",
+        "chain element related to the transport leg in CO2e tonnes.",
         examples=[1.2],
     )
     source: Optional[str] = Field(
         None,
         max_length=250,
         title="Source For The Emission",
-        description="The source that generated the emission in the TCE",
+        description="The source that generated the emission in the TCE.",
         examples=["Diesel"],
     )
 
@@ -83,66 +83,66 @@ class RoadLeg(CamelCaseModel):
         None,
         max_length=20,
         title="Leg Identifier",
-        description="The leg identifier",
+        description="The leg identifier.",
         examples=["7623456365"],
     )
     origin: Optional[str] = Field(
         None,
         max_length=250,
         title="Origin",
-        description="The location of the transport origin",
+        description="The location of the transport origin.",
         examples=["Tampere"],
     )
     destination: Optional[str] = Field(
         None,
         max_length=250,
         title="Destination",
-        description="The location of the transport destination",
+        description="The location of the transport destination.",
         examples=["Turku"],
     )
     freight_type: Optional[FreightType] = Field(
         None,
         title="Freight Type",
-        description="The type of the freight used for the road transport",
+        description="The type of the freight used for the road transport.",
         examples=[FreightType.PALLETIZED],
     )
     condition: Optional[RoadLegFreightCondition] = Field(
         None,
         title="Condition",
-        description="The conditions that the cargo is being transported with",
+        description="The conditions that the cargo is being transported with.",
         examples=[RoadLegFreightCondition.AMBIENT],
     )
     journey_type: Optional[JourneyType] = Field(
         None,
         title="Journey Type",
-        description="The type of the road transport",
+        description="The type of the road transport.",
         examples=[JourneyType.LONG_HAUL],
     )
     contract_type: Optional[ContractType] = Field(
         None,
         title="Contract Type",
-        description="The type of the transport contract",
+        description="The type of the transport contract.",
         examples=[ContractType.DEDICATED_CONTRACT],
     )
     total_emissions: Optional[float] = Field(
         None,
         title="Total Emissions",
         description="The total green house gas (GHG) emissions of the road transport "
-        "and other related logistics hub operations measured in CO2e tonnes",
+        "and other related logistics hub operations measured in CO2e tonnes.",
         examples=[5.8],
     )
     emission_intensity: Optional[float] = Field(
         None,
         title="Emission Intensity",
         description="The GHG emission intensity of the road transport "
-        "per transported tonne and kilometer in CO2e grams / tonne / km",
+        "per transported tonne and kilometer in CO2e grams / tonne / km.",
         examples=[200],
     )
     emissions_per_tce: List[EmissionsPerTCE] = Field(
         ...,
         title="Emissions per TCE",
         description="The GHG emissions of the transport chain element related to the "
-        "road transport leg",
+        "road transport leg.",
     )
 
 
@@ -151,60 +151,60 @@ class SeaLeg(CamelCaseModel):
         None,
         title="Leg Identifier",
         max_length=20,
-        description="The leg identifier",
+        description="The leg identifier.",
         examples=["7623456365"],
     )
     origin: Optional[str] = Field(
         None,
         max_length=250,
         title="Origin",
-        description="The location of the transport origin",
+        description="The location of the transport origin.",
         examples=["Turku"],
     )
     destination: Optional[str] = Field(
         None,
         max_length=250,
         title="Destination",
-        description="The location of the transport destination",
+        description="The location of the transport destination.",
         examples=["Stockholm"],
     )
     vessel_type: Optional[VesselType] = Field(
         None,
         title="Vessel Type",
-        description="The type of the vessel used for the sea transport",
+        description="The type of the vessel used for the sea transport.",
         examples=[VesselType.RO_RO],
     )
     freight_condition: Optional[SeaLegFreightCondition] = Field(
         None,
         title="Freight Condition",
-        description="The conditions that the cargo is being transported with",
+        description="The conditions that the cargo is being transported with.",
         examples=[SeaLegFreightCondition.TEMPERATURE_CONTROLLED],
     )
     service_type: Optional[ServiceType] = Field(
         None,
         title="Service Type",
-        description="The type of the sea transport service",
+        description="The type of the sea transport service.",
         examples=[ServiceType.SCHEDULED],
     )
     total_emissions: Optional[float] = Field(
         None,
         title="Total Emissions",
         description="The total green house gas (GHG) emissions of the road "
-        "transport and other related logistics hub operations measured in CO2e tonnes",
+        "transport and other related logistics hub operations measured in CO2e tonnes.",
         examples=[7.4],
     )
     emission_intensity: Optional[float] = Field(
         None,
         title="Emission Intensity",
         description="The GHG emission intensity of the sea transport per "
-        "transported tonne and kilometer in CO2e grams / tonne / km",
+        "transported tonne and kilometer in CO2e grams / tonne / km.",
         examples=[500],
     )
     emissions_per_tce: List[EmissionsPerTCE] = Field(
         ...,
         title="Emissions per TCE",
         description="The GHG emissions of the transport chain element related to the "
-        "sea transport leg",
+        "sea transport leg.",
     )
 
 
@@ -212,13 +212,13 @@ class LogisticsEmissionsRequest(CamelCaseModel):
     product: str = Field(
         ...,
         title="Product code",
-        description="The product code used for identifying the product type",
+        description="The product code used for identifying the product type.",
         examples=["french-fries-500g"],
     )
     id: str = Field(
         ...,
         title="Identifier",
-        description="Unique identifier of the product",
+        description="Unique identifier of the product.",
         examples=["550e8400-e29b-41d4-a716-446655440000"],
     )
 
@@ -236,20 +236,21 @@ class LogisticsEmissionsResponse(CamelCaseModel):
         ...,
         title="Waybill Number",
         description="The unique identifier which is used to "
-        "track a shipment through the entire delivery chain",
+        "track a shipment through the entire delivery chain.",
         examples=["5308956234"],
         max_length=20,
     )
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.0",
+    version="0.1.1",
     title="Logistics Emissions",
     description="Returns the total emission per leg for "
     "an end-to-end shipment compliant with the European "
-    "Union's count emissions reporting regulation",
+    "Union's count emissions reporting regulation.",
     request=LogisticsEmissionsRequest,
     response=LogisticsEmissionsResponse,
+    tags=["Environment", "logistics", "Digital Product Passport"],
     requires_authorization=False,
     requires_consent=False,
 )

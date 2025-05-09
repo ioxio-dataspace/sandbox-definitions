@@ -3,11 +3,12 @@
   "info": {
     "title": "Current weather in a given location",
     "description": "Common data points about the current weather with metric units in a given location. Simplified for example use, and not following industry standards.",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "paths": {
     "/Weather/Current/Metric_v1.0": {
       "post": {
+        "tags": ["Environment"],
         "summary": "Current weather in a given location",
         "description": "Common data points about the current weather with metric units in a given location. Simplified for example use, and not following industry standards.",
         "operationId": "request_Weather_Current_Metric_v1_0",
@@ -227,7 +228,7 @@
             "maximum": 90.0,
             "minimum": -90.0,
             "title": "Latitude",
-            "description": "The latitude coordinate of the desired location",
+            "description": "The latitude coordinate of the desired location.",
             "examples": [60.192059]
           },
           "lon": {
@@ -235,7 +236,7 @@
             "maximum": 180.0,
             "minimum": -180.0,
             "title": "Longitude",
-            "description": "The longitude coordinate of the desired location",
+            "description": "The longitude coordinate of the desired location.",
             "examples": [24.945831]
           }
         },
@@ -247,7 +248,8 @@
         "properties": {
           "humidity": {
             "type": "number",
-            "title": "Current relative air humidity in %",
+            "title": "Current relative air humidity (%)",
+            "description": "Current relative air humidity in percentages.",
             "examples": [72]
           },
           "pressure": {
@@ -263,20 +265,23 @@
           "temp": {
             "type": "number",
             "minimum": -273.15,
-            "title": "Current temperature in Celsius",
+            "title": "Current temperature (°C)",
+            "description": "Current temperature in Celsius.",
             "examples": [17.3]
           },
           "windSpeed": {
             "type": "number",
             "minimum": 0.0,
-            "title": "Current wind speed in m/s",
+            "title": "Current wind speed (m/s)",
+            "description": "Current wind speed in meter per second.",
             "examples": [2.1]
           },
           "windDirection": {
             "type": "number",
             "maximum": 360.0,
             "minimum": 0.0,
-            "title": "Current wind direction in meteorological wind direction degrees",
+            "title": "Current wind direction",
+            "description": "Current wind direction in meteorological wind direction degrees.",
             "examples": [220.0]
           }
         },

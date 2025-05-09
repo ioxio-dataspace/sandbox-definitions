@@ -2,14 +2,15 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Current air quality in a given location",
-    "description": "Current Air Quality Index (AQI) in a given location with attribution of the sources",
-    "version": "1.0.0"
+    "description": "Current Air Quality Index (AQI) in a given location with attribution of the sources.",
+    "version": "1.0.1"
   },
   "paths": {
     "/AirQuality/Current_v1.0": {
       "post": {
+        "tags": ["Environment"],
         "summary": "Current air quality in a given location",
-        "description": "Current Air Quality Index (AQI) in a given location with attribution of the sources",
+        "description": "Current Air Quality Index (AQI) in a given location with attribution of the sources.",
         "operationId": "request_AirQuality_Current_v1_0",
         "parameters": [
           {
@@ -227,7 +228,7 @@
             "maximum": 90.0,
             "minimum": -90.0,
             "title": "Latitude",
-            "description": "The latitude coordinate of the desired location",
+            "description": "The latitude coordinate of the desired location.",
             "examples": [60.192059]
           },
           "lon": {
@@ -235,7 +236,7 @@
             "maximum": 180.0,
             "minimum": -180.0,
             "title": "Longitude",
-            "description": "The longitude coordinate of the desired location",
+            "description": "The longitude coordinate of the desired location.",
             "examples": [24.945831]
           }
         },
@@ -255,7 +256,7 @@
           "timestamp": {
             "type": "string",
             "title": "Timestamp",
-            "description": "Current timestamp in RFC 3339 format",
+            "description": "Current timestamp in RFC 3339 format.",
             "examples": ["2020-04-03T13:00:00Z"]
           },
           "attribution": {
@@ -264,7 +265,7 @@
             },
             "type": "array",
             "title": "Source Attribution",
-            "description": "List of text to show required credits to data sources",
+            "description": "List of text to show required credits to data sources.",
             "examples": [
               [
                 "Eesti välisõhu kvaliteet - Estonian ambient air quality",

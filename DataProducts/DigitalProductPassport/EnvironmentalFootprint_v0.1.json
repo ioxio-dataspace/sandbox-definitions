@@ -2,22 +2,19 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Product environmental footprint",
-    "description": "The environmental impact of the product manufacturing",
-    "version": "0.1.1"
+    "description": "The environmental impact of the product manufacturing.",
+    "version": "0.1.2"
   },
   "paths": {
     "/DigitalProductPassport/EnvironmentalFootprint_v0.1": {
       "post": {
         "tags": [
           "Carbon footprint",
-          "Material waste",
-          "PEF",
-          "PEFCR",
-          "Product environmental category rules",
-          "Product environmental footprint"
+          "Environment",
+          "Product environmental category rules"
         ],
         "summary": "Product environmental footprint",
-        "description": "The environmental impact of the product manufacturing",
+        "description": "The environmental impact of the product manufacturing.",
         "operationId": "request_DigitalProductPassport_EnvironmentalFootprint_v0_1",
         "parameters": [
           {

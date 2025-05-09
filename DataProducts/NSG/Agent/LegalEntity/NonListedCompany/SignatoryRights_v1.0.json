@@ -2,14 +2,15 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Signatory rights of a non-listed company",
-    "description": "The list of representation rights of a legal entity",
-    "version": "1.0.0"
+    "description": "The list of representation rights of a legal entity.",
+    "version": "1.0.1"
   },
   "paths": {
     "/NSG/Agent/LegalEntity/NonListedCompany/SignatoryRights_v1.0": {
       "post": {
+        "tags": ["Company"],
         "summary": "Signatory rights of a non-listed company",
-        "description": "The list of representation rights of a legal entity",
+        "description": "The list of representation rights of a legal entity.",
         "operationId": "request_NSG_Agent_LegalEntity_NonListedCompany_SignatoryRights_v1_0",
         "parameters": [
           {
@@ -618,7 +619,7 @@
         "properties": {
           "role": {
             "$ref": "#/components/schemas/Role",
-            "description": "The role of the person that has a signing right in the company",
+            "description": "The role of the person that has a signing right in the company.",
             "examples": ["chairperson"]
           },
           "personalId": {
@@ -632,41 +633,41 @@
               }
             ],
             "title": "Personal ID",
-            "description": "The ID of a person if exists, e.g. social security number or similar",
+            "description": "The ID of a person if exists, e.g. social security number or similar.",
             "examples": ["1129955131"]
           },
           "givenName": {
             "type": "string",
             "maxLength": 250,
             "title": "Given name",
-            "description": "The first name that the person is being called by",
+            "description": "The first name that the person is being called by.",
             "examples": ["Mary"]
           },
           "middleNames": {
             "type": "string",
             "maxLength": 250,
             "title": "Middle names",
-            "description": "All the middle names of the person",
+            "description": "All the middle names of the person.",
             "examples": ["Juliet Olive"]
           },
           "lastName": {
             "type": "string",
             "maxLength": 250,
             "title": "Last name",
-            "description": "The person's current family name",
+            "description": "The person's current family name.",
             "examples": ["Deo"]
           },
           "dateOfBirth": {
             "type": "string",
             "format": "date",
             "title": "Date of birth",
-            "description": "The birth day of a person",
+            "description": "The birth day of a person.",
             "examples": ["1976-04-16"]
           },
           "nationality": {
             "$ref": "#/components/schemas/ISO_3166_1_Alpha_3",
             "title": "Nationality",
-            "description": "The nationality of a person",
+            "description": "The nationality of a person.",
             "examples": ["USA"]
           },
           "fullAddress": {
@@ -826,7 +827,7 @@
             "type": "string",
             "maxLength": 40,
             "title": "National identifier",
-            "description": "The national identifier of the non-listed company issued by the trade register",
+            "description": "The national identifier of the non-listed company issued by the trade register.",
             "examples": ["FIN: 2464491-9 / SWE: 5560125791 / NOR: 923609016"]
           }
         },
@@ -842,7 +843,7 @@
             },
             "type": "array",
             "title": "Signatory rights",
-            "description": "The list of representatives that have signing rights for the company"
+            "description": "The list of representatives that have signing rights for the company."
           }
         },
         "type": "object",

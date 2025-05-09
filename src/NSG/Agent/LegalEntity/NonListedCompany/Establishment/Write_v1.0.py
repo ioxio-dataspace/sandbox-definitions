@@ -1254,27 +1254,27 @@ class Registrant(CamelCaseModel):
     given_name: str = Field(
         ...,
         title="Given name",
-        description="The first name that the person is being called by",
+        description="The first name that the person is being called by.",
         max_length=250,
         examples=["John"],
     )
     last_name: str = Field(
         ...,
         title="Last name",
-        description="The person's current family name",
+        description="The person's current family name.",
         max_length=250,
         examples=["Doe"],
     )
     email: EmailStr = Field(
         ...,
         title="Email",
-        description="The person's contact email address",
+        description="The person's contact email address.",
         examples=["john.doe@test.fi"],
     )
     phone_number: str = Field(
         ...,
         title="Phone number",
-        description="The person's phone number in the international format",
+        description="The person's phone number in the international format.",
         examples=["+358501234567"],
         max_length=250,
     )
@@ -1284,7 +1284,7 @@ class CompanyDetails(CamelCaseModel):
     name: str = Field(
         ...,
         title="Name",
-        description="The desired name to be registered for the company",
+        description="The desired name to be registered for the company.",
         max_length=250,
         examples=["Digital company X"],
     )
@@ -1292,14 +1292,14 @@ class CompanyDetails(CamelCaseModel):
         None,
         title="Alternative name",
         description="The second alternative for the desired name to be registered for "
-        "the company if the primary name is not available",
+        "the company if the primary name is not available.",
         max_length=250,
         examples=["Digital company Y"],
     )
     founding_date: date = Field(
         ...,
         title="Founding date",
-        description="The date of memorandum of association",
+        description="The date of memorandum of association.",
         examples=[date(2022, 1, 1)],
     )
     industry_sector: IndustrySector = Field(
@@ -1313,41 +1313,41 @@ class CompanyDetails(CamelCaseModel):
     share_capital: float = Field(
         ...,
         title="Share capital",
-        description="The total value of the issued shares of the company",
+        description="The total value of the issued shares of the company.",
         examples=[1000.0],
     )
     capital_currency: ISO_4217_CurrencyCode = Field(
         ...,
         title="Capital currency",
-        description="The currency used for the share capital in ISO 4217 format",
+        description="The currency used for the share capital in ISO 4217 format.",
         examples=[ISO_4217_CurrencyCode.EUR],
     )
     settlement_deposit: Optional[float] = Field(
         None,
         title="Settlement deposit",
         description="The amount of the deposit paid during the establishment of a "
-        "company",
+        "company.",
         examples=[1000.0],
     )
     deposit_currency: Optional[ISO_4217_CurrencyCode] = Field(
         None,
         title="Deposit currency",
         description="The currency used for the paying the settlement deposit in ISO "
-        "4217 format",
+        "4217 format.",
         examples=[ISO_4217_CurrencyCode.EUR],
     )
     settlement_date: Optional[date] = Field(
         None,
         title="Settlement date",
         description="The date on which the share deposit has been settled and "
-        "available as full",
+        "available as full.",
         examples=[date(2022, 2, 1)],
     )
     country_of_residence: Optional[ISO_3166_1_Alpha_3] = Field(
         None,
         title="Country of residence",
         description="The company's current country of the residence in the three "
-        "character (Alpha-3) format if it already exists abroad",
+        "character (Alpha-3) format if it already exists abroad.",
         examples=[ISO_3166_1_Alpha_3.USA],
     )
 
@@ -1356,26 +1356,26 @@ class ShareSeries(CamelCaseModel):
     share_series_class: str = Field(
         ...,
         title="Share series class",
-        description="The type of the share series of a company",
+        description="The type of the share series of a company.",
         examples=["A"],
         max_length=5,
     )
     number_of_shares: int = Field(
         ...,
         title="Number of shares",
-        description="The total number of the shares in the share series class",
+        description="The total number of the shares in the share series class.",
         examples=[100],
     )
     share_value: float = Field(
         ...,
         title="Share value",
-        description="The nominal value of a share of this class",
+        description="The nominal value of a share of this class.",
         examples=[10],
     )
     share_value_currency: ISO_4217_CurrencyCode = Field(
         None,
         title="Share value currency",
-        description="The currency used for the share value in ISO 4217 format",
+        description="The currency used for the share value in ISO 4217 format.",
         examples=[ISO_4217_CurrencyCode.EUR],
     )
 
@@ -1478,40 +1478,40 @@ class ManagingDirector(CamelCaseModel):
     role: ManagingDirectorRole = Field(
         ...,
         title="Role",
-        description="The role of the director",
+        description="The role of the director.",
         examples=[ManagingDirectorRole.DIRECTOR],
     )
     given_name: str = Field(
         ...,
         title="Given name",
-        description="The first name that the person is being called by",
+        description="The first name that the person is being called by.",
         examples=["Mary"],
         max_length=250,
     )
     middle_names: str = Field(
         ...,
         title="Middle name",
-        description="All the middle names of the person",
+        description="All the middle names of the person.",
         examples=["Juliet Olive"],
         max_length=250,
     )
     last_name: str = Field(
         ...,
         title="Last name",
-        description="The person's current family name",
+        description="The person's current family name.",
         examples=["Deo"],
         max_length=250,
     )
     date_of_birth: date = Field(
         ...,
         title="Date of birth",
-        description="The birth day of the person",
+        description="The birth day of the person.",
         examples=[date(1976, 4, 16)],
     )
     nationality: ISO_3166_1_Alpha_3 = Field(
         ...,
         title="Nationality",
-        description="The nationality of the person",
+        description="The nationality of the person.",
         examples=[ISO_3166_1_Alpha_3.USA],
     )
 
@@ -1520,40 +1520,40 @@ class BoardMember(CamelCaseModel):
     role: BoardMemberRole = Field(
         ...,
         title="Role",
-        description="The role of the person in the board",
+        description="The role of the person in the board.",
         examples=[BoardMemberRole.MEMBER],
     )
     given_name: str = Field(
         ...,
         title="Given name",
-        description="The first name that the person is being called by",
+        description="The first name that the person is being called by.",
         examples=["Mary"],
         max_length=250,
     )
     middle_names: str = Field(
         ...,
         title="Middle names",
-        description="All the middle names of the person",
+        description="All the middle names of the person.",
         examples=["Juliet Olive"],
         max_length=250,
     )
     last_name: str = Field(
         ...,
         title="Last name",
-        description="The person's current family name",
+        description="The person's current family name.",
         examples=["Deo"],
         max_length=250,
     )
     date_of_birth: date = Field(
         ...,
         title="Date of birth",
-        description="The birth day of the person",
+        description="The birth day of the person.",
         examples=[date(1976, 4, 16)],
     )
     nationality: ISO_3166_1_Alpha_3 = Field(
         ...,
         title="Nationality",
-        description="The nationality of the person",
+        description="The nationality of the person.",
         examples=[ISO_3166_1_Alpha_3.USA],
     )
 
@@ -1562,7 +1562,7 @@ class AuditorDetails(CamelCaseModel):
     company_name: Optional[str] = Field(
         None,
         title="Company name",
-        description="The name of the auditor company if it exists",
+        description="The name of the auditor company if it exists.",
         examples=["Auditor company X"],
         max_length=250,
     )
@@ -1570,21 +1570,21 @@ class AuditorDetails(CamelCaseModel):
         None,
         title="National identifier",
         description="The national identifier of the auditor company issued by the "
-        "trade register",
+        "trade register.",
         examples=["2464491-9"],
         max_length=40,
     )
     given_name: Optional[str] = Field(
         None,
         title="Given name",
-        description="The first name that the person is being called by",
+        description="The first name that the person is being called by.",
         examples=["Jane"],
         max_length=250,
     )
     last_name: Optional[str] = Field(
         None,
         title="Last name",
-        description="The person's current family name",
+        description="The person's current family name.",
         examples=["Doe"],
         max_length=250,
     )
@@ -1594,22 +1594,22 @@ class EstablishmentRequest(CamelCaseModel):
     registrant: Registrant = Field(
         ...,
         title="Registrant",
-        description="The personal details of the person registering the company",
+        description="The personal details of the person registering the company.",
     )
     company_details: CompanyDetails = Field(
         ...,
         title="Company details",
-        description="The details of the company being established",
+        description="The details of the company being established.",
     )
     share_series: List[ShareSeries] = Field(
         ...,
         title="Share series",
-        description="The details of the share series of the company",
+        description="The details of the share series of the company.",
     )
     company_address: CompanyAddress = Field(
         ...,
         title="Company address",
-        description="The official address of the company",
+        description="The official address of the company.",
     )
     managing_directors: List[ManagingDirector] = Field(
         ...,
@@ -1622,7 +1622,7 @@ class EstablishmentRequest(CamelCaseModel):
     auditor_details: AuditorDetails = Field(
         ...,
         title="Auditor details",
-        description="The details of the company and person auditing the company",
+        description="The details of the company and person auditing the company.",
     )
 
 
@@ -1631,9 +1631,10 @@ class EstablishmentResponse(EstablishmentRequest):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.0",
+    version="1.0.1",
     title="Establish a non-listed company",
-    description="Create the initial set of data to establish a non-listed company",
+    description="Create the initial set of data to establish a non-listed company.",
+    tags=["Company"],
     request=EstablishmentRequest,
     response=EstablishmentResponse,
     requires_authorization=True,

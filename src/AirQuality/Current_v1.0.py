@@ -8,7 +8,7 @@ class CurrentAirQualityRequest(CamelCaseModel):
     lat: float = Field(
         ...,
         title="Latitude",
-        description="The latitude coordinate of the desired location",
+        description="The latitude coordinate of the desired location.",
         examples=[60.192059],
         ge=-90,
         le=90,
@@ -16,7 +16,7 @@ class CurrentAirQualityRequest(CamelCaseModel):
     lon: float = Field(
         ...,
         title="Longitude",
-        description="The longitude coordinate of the desired location",
+        description="The longitude coordinate of the desired location.",
         examples=[24.945831],
         ge=-180,
         le=180,
@@ -38,13 +38,13 @@ class CurrentAirQualityResponse(CamelCaseModel):
     timestamp: str = Field(
         ...,
         title="Timestamp",
-        description="Current timestamp in RFC 3339 format",
+        description="Current timestamp in RFC 3339 format.",
         examples=["2020-04-03T13:00:00Z"],
     )
     attribution: List[str] = Field(
         ...,
         title="Source Attribution",
-        description="List of text to show required credits to data sources",
+        description="List of text to show required credits to data sources.",
         examples=[
             [
                 "Eesti välisõhu kvaliteet - Estonian ambient air quality",
@@ -55,9 +55,10 @@ class CurrentAirQualityResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.0",
+    version="1.0.1",
     title="Current air quality in a given location",
-    description="Current Air Quality Index (AQI) in a given location with attribution of the sources",
+    description="Current Air Quality Index (AQI) in a given location with attribution of the sources.",
+    tags=["Environment"],
     request=CurrentAirQualityRequest,
     response=CurrentAirQualityResponse,
     route_description="Current air quality",

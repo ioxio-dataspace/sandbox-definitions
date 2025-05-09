@@ -2,14 +2,15 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Mobile Work Machine Environmental Footprint",
-    "description": "Carbon Footprint of a Mobile Work Machine",
-    "version": "0.1.0"
+    "description": "Carbon Footprint of a Mobile Work Machine.",
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/MobileWorkMachine/EnvironmentalFootprint_v0.1": {
       "post": {
+        "tags": ["Digital Product Passport"],
         "summary": "Mobile Work Machine Environmental Footprint",
-        "description": "Carbon Footprint of a Mobile Work Machine",
+        "description": "Carbon Footprint of a Mobile Work Machine.",
         "operationId": "request_DigitalProductPassport_MobileWorkMachine_EnvironmentalFootprint_v0_1",
         "parameters": [
           {
@@ -232,7 +233,7 @@
               }
             ],
             "title": "Pre Production Footprint",
-            "description": "The carbon footprint of the pre-manufacture phase of the machine calculated as kg of CO2e per one kWh using preferably PEF and PEFCR methods",
+            "description": "The carbon footprint of the pre-manufacture phase of the machine calculated as kg of CO2e per one kWh using preferably PEF and PEFCR methods.",
             "examples": [2345.7]
           },
           "mainProductionFootprint": {
@@ -245,7 +246,7 @@
               }
             ],
             "title": "Main Production Footprint",
-            "description": "The carbon footprint of the machine main production phase calculated as kg of CO2e per one kWh using preferably PEF and PEFCR methods",
+            "description": "The carbon footprint of the machine main production phase calculated as kg of CO2e per one kWh using preferably PEF and PEFCR methods.",
             "examples": [3504.4]
           },
           "referenceMaterial": {
@@ -260,7 +261,7 @@
               }
             ],
             "title": "Reference Material",
-            "description": "The link giving access to a public version of the study supporting the carbon footprint values",
+            "description": "The link giving access to a public version of the study supporting the carbon footprint values.",
             "examples": ["https://example.com/CarbonFootprint"]
           }
         },
@@ -273,14 +274,14 @@
             "type": "string",
             "maxLength": 150,
             "title": "Product",
-            "description": "The product code used for identifying the product type",
+            "description": "The product code used for identifying the product type.",
             "examples": ["bev-drill-1234a"]
           },
           "id": {
             "type": "string",
             "maxLength": 40,
             "title": "Id",
-            "description": "The unique identifier of the product",
+            "description": "The unique identifier of the product.",
             "examples": ["71b51878-8a00-11ee-b9d1-0242ac120002"]
           }
         },
@@ -293,7 +294,7 @@
           "carbonFootprint": {
             "$ref": "#/components/schemas/CarbonFootprint",
             "title": "Carbon Footprint",
-            "description": "The details of the carbon footprint for the machine production phases"
+            "description": "The details of the carbon footprint for the machine production phases."
           },
           "materialWaste": {
             "anyOf": [
@@ -305,7 +306,7 @@
               }
             ],
             "title": "Material Waste",
-            "description": "The details of the material waste generated during the production"
+            "description": "The details of the material waste generated during the production."
           }
         },
         "type": "object",
@@ -415,7 +416,7 @@
               }
             ],
             "title": "Amount",
-            "description": "The amount of material waste in kilograms (kg) generated during the machine production",
+            "description": "The amount of material waste in kilograms (kg) generated during the machine production.",
             "examples": [500.0]
           },
           "referenceMaterial": {
@@ -430,7 +431,7 @@
               }
             ],
             "title": "Reference Material",
-            "description": "The link giving access to a public version of the study supporting the material waste values",
+            "description": "The link giving access to a public version of the study supporting the material waste values.",
             "examples": ["https://example.com/CarbonFootprint"]
           }
         },

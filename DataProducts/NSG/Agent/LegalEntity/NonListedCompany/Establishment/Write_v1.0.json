@@ -2,14 +2,15 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Establish a non-listed company",
-    "description": "Create the initial set of data to establish a non-listed company",
-    "version": "1.0.0"
+    "description": "Create the initial set of data to establish a non-listed company.",
+    "version": "1.0.1"
   },
   "paths": {
     "/NSG/Agent/LegalEntity/NonListedCompany/Establishment/Write_v1.0": {
       "post": {
+        "tags": ["Company"],
         "summary": "Establish a non-listed company",
-        "description": "Create the initial set of data to establish a non-listed company",
+        "description": "Create the initial set of data to establish a non-listed company.",
         "operationId": "request_NSG_Agent_LegalEntity_NonListedCompany_Establishment_Write_v1_0",
         "parameters": [
           {
@@ -226,7 +227,7 @@
               }
             ],
             "title": "Company name",
-            "description": "The name of the auditor company if it exists",
+            "description": "The name of the auditor company if it exists.",
             "examples": ["Auditor company X"]
           },
           "nationalIdentifier": {
@@ -240,7 +241,7 @@
               }
             ],
             "title": "National identifier",
-            "description": "The national identifier of the auditor company issued by the trade register",
+            "description": "The national identifier of the auditor company issued by the trade register.",
             "examples": ["2464491-9"]
           },
           "givenName": {
@@ -254,7 +255,7 @@
               }
             ],
             "title": "Given name",
-            "description": "The first name that the person is being called by",
+            "description": "The first name that the person is being called by.",
             "examples": ["Jane"]
           },
           "lastName": {
@@ -268,7 +269,7 @@
               }
             ],
             "title": "Last name",
-            "description": "The person's current family name",
+            "description": "The person's current family name.",
             "examples": ["Doe"]
           }
         },
@@ -286,41 +287,41 @@
           "role": {
             "$ref": "#/components/schemas/BoardMemberRole",
             "title": "Role",
-            "description": "The role of the person in the board",
+            "description": "The role of the person in the board.",
             "examples": ["member"]
           },
           "givenName": {
             "type": "string",
             "maxLength": 250,
             "title": "Given name",
-            "description": "The first name that the person is being called by",
+            "description": "The first name that the person is being called by.",
             "examples": ["Mary"]
           },
           "middleNames": {
             "type": "string",
             "maxLength": 250,
             "title": "Middle names",
-            "description": "All the middle names of the person",
+            "description": "All the middle names of the person.",
             "examples": ["Juliet Olive"]
           },
           "lastName": {
             "type": "string",
             "maxLength": 250,
             "title": "Last name",
-            "description": "The person's current family name",
+            "description": "The person's current family name.",
             "examples": ["Deo"]
           },
           "dateOfBirth": {
             "type": "string",
             "format": "date",
             "title": "Date of birth",
-            "description": "The birth day of the person",
+            "description": "The birth day of the person.",
             "examples": ["1976-04-16"]
           },
           "nationality": {
             "$ref": "#/components/schemas/ISO_3166_1_Alpha_3",
             "title": "Nationality",
-            "description": "The nationality of the person",
+            "description": "The nationality of the person.",
             "examples": ["USA"]
           }
         },
@@ -491,7 +492,7 @@
             "type": "string",
             "maxLength": 250,
             "title": "Name",
-            "description": "The desired name to be registered for the company",
+            "description": "The desired name to be registered for the company.",
             "examples": ["Digital company X"]
           },
           "alternativeName": {
@@ -505,14 +506,14 @@
               }
             ],
             "title": "Alternative name",
-            "description": "The second alternative for the desired name to be registered for the company if the primary name is not available",
+            "description": "The second alternative for the desired name to be registered for the company if the primary name is not available.",
             "examples": ["Digital company Y"]
           },
           "foundingDate": {
             "type": "string",
             "format": "date",
             "title": "Founding date",
-            "description": "The date of memorandum of association",
+            "description": "The date of memorandum of association.",
             "examples": ["2022-01-01"]
           },
           "industrySector": {
@@ -524,13 +525,13 @@
           "shareCapital": {
             "type": "number",
             "title": "Share capital",
-            "description": "The total value of the issued shares of the company",
+            "description": "The total value of the issued shares of the company.",
             "examples": [1000.0]
           },
           "capitalCurrency": {
             "$ref": "#/components/schemas/ISO_4217_CurrencyCode",
             "title": "Capital currency",
-            "description": "The currency used for the share capital in ISO 4217 format",
+            "description": "The currency used for the share capital in ISO 4217 format.",
             "examples": ["EUR"]
           },
           "settlementDeposit": {
@@ -543,7 +544,7 @@
               }
             ],
             "title": "Settlement deposit",
-            "description": "The amount of the deposit paid during the establishment of a company",
+            "description": "The amount of the deposit paid during the establishment of a company.",
             "examples": [1000.0]
           },
           "depositCurrency": {
@@ -556,7 +557,7 @@
               }
             ],
             "title": "Deposit currency",
-            "description": "The currency used for the paying the settlement deposit in ISO 4217 format",
+            "description": "The currency used for the paying the settlement deposit in ISO 4217 format.",
             "examples": ["EUR"]
           },
           "settlementDate": {
@@ -570,7 +571,7 @@
               }
             ],
             "title": "Settlement date",
-            "description": "The date on which the share deposit has been settled and available as full",
+            "description": "The date on which the share deposit has been settled and available as full.",
             "examples": ["2022-02-01"]
           },
           "countryOfResidence": {
@@ -583,7 +584,7 @@
               }
             ],
             "title": "Country of residence",
-            "description": "The company's current country of the residence in the three character (Alpha-3) format if it already exists abroad",
+            "description": "The company's current country of the residence in the three character (Alpha-3) format if it already exists abroad.",
             "examples": ["USA"]
           }
         },
@@ -649,12 +650,12 @@
         "properties": {
           "registrant": {
             "$ref": "#/components/schemas/Registrant",
-            "description": "The personal details of the person registering the company"
+            "description": "The personal details of the person registering the company."
           },
           "companyDetails": {
             "$ref": "#/components/schemas/CompanyDetails",
             "title": "Company details",
-            "description": "The details of the company being established"
+            "description": "The details of the company being established."
           },
           "shareSeries": {
             "items": {
@@ -662,12 +663,12 @@
             },
             "type": "array",
             "title": "Share series",
-            "description": "The details of the share series of the company"
+            "description": "The details of the share series of the company."
           },
           "companyAddress": {
             "$ref": "#/components/schemas/CompanyAddress",
             "title": "Company address",
-            "description": "The official address of the company"
+            "description": "The official address of the company."
           },
           "managingDirectors": {
             "items": {
@@ -686,7 +687,7 @@
           "auditorDetails": {
             "$ref": "#/components/schemas/AuditorDetails",
             "title": "Auditor details",
-            "description": "The details of the company and person auditing the company"
+            "description": "The details of the company and person auditing the company."
           }
         },
         "type": "object",
@@ -705,12 +706,12 @@
         "properties": {
           "registrant": {
             "$ref": "#/components/schemas/Registrant",
-            "description": "The personal details of the person registering the company"
+            "description": "The personal details of the person registering the company."
           },
           "companyDetails": {
             "$ref": "#/components/schemas/CompanyDetails",
             "title": "Company details",
-            "description": "The details of the company being established"
+            "description": "The details of the company being established."
           },
           "shareSeries": {
             "items": {
@@ -718,12 +719,12 @@
             },
             "type": "array",
             "title": "Share series",
-            "description": "The details of the share series of the company"
+            "description": "The details of the share series of the company."
           },
           "companyAddress": {
             "$ref": "#/components/schemas/CompanyAddress",
             "title": "Company address",
-            "description": "The official address of the company"
+            "description": "The official address of the company."
           },
           "managingDirectors": {
             "items": {
@@ -742,7 +743,7 @@
           "auditorDetails": {
             "$ref": "#/components/schemas/AuditorDetails",
             "title": "Auditor details",
-            "description": "The details of the company and person auditing the company"
+            "description": "The details of the company and person auditing the company."
           }
         },
         "type": "object",
@@ -2041,41 +2042,41 @@
           "role": {
             "$ref": "#/components/schemas/ManagingDirectorRole",
             "title": "Role",
-            "description": "The role of the director",
+            "description": "The role of the director.",
             "examples": ["director"]
           },
           "givenName": {
             "type": "string",
             "maxLength": 250,
             "title": "Given name",
-            "description": "The first name that the person is being called by",
+            "description": "The first name that the person is being called by.",
             "examples": ["Mary"]
           },
           "middleNames": {
             "type": "string",
             "maxLength": 250,
             "title": "Middle name",
-            "description": "All the middle names of the person",
+            "description": "All the middle names of the person.",
             "examples": ["Juliet Olive"]
           },
           "lastName": {
             "type": "string",
             "maxLength": 250,
             "title": "Last name",
-            "description": "The person's current family name",
+            "description": "The person's current family name.",
             "examples": ["Deo"]
           },
           "dateOfBirth": {
             "type": "string",
             "format": "date",
             "title": "Date of birth",
-            "description": "The birth day of the person",
+            "description": "The birth day of the person.",
             "examples": ["1976-04-16"]
           },
           "nationality": {
             "$ref": "#/components/schemas/ISO_3166_1_Alpha_3",
             "title": "Nationality",
-            "description": "The nationality of the person",
+            "description": "The nationality of the person.",
             "examples": ["USA"]
           }
         },
@@ -2131,28 +2132,28 @@
             "type": "string",
             "maxLength": 250,
             "title": "Given name",
-            "description": "The first name that the person is being called by",
+            "description": "The first name that the person is being called by.",
             "examples": ["John"]
           },
           "lastName": {
             "type": "string",
             "maxLength": 250,
             "title": "Last name",
-            "description": "The person's current family name",
+            "description": "The person's current family name.",
             "examples": ["Doe"]
           },
           "email": {
             "type": "string",
             "format": "email",
             "title": "Email",
-            "description": "The person's contact email address",
+            "description": "The person's contact email address.",
             "examples": ["john.doe@test.fi"]
           },
           "phoneNumber": {
             "type": "string",
             "maxLength": 250,
             "title": "Phone number",
-            "description": "The person's phone number in the international format",
+            "description": "The person's phone number in the international format.",
             "examples": ["+358501234567"]
           }
         },
@@ -2179,25 +2180,25 @@
             "type": "string",
             "maxLength": 5,
             "title": "Share series class",
-            "description": "The type of the share series of a company",
+            "description": "The type of the share series of a company.",
             "examples": ["A"]
           },
           "numberOfShares": {
             "type": "integer",
             "title": "Number of shares",
-            "description": "The total number of the shares in the share series class",
+            "description": "The total number of the shares in the share series class.",
             "examples": [100]
           },
           "shareValue": {
             "type": "number",
             "title": "Share value",
-            "description": "The nominal value of a share of this class",
+            "description": "The nominal value of a share of this class.",
             "examples": [10]
           },
           "shareValueCurrency": {
             "$ref": "#/components/schemas/ISO_4217_CurrencyCode",
             "title": "Share value currency",
-            "description": "The currency used for the share value in ISO 4217 format",
+            "description": "The currency used for the share value in ISO 4217 format.",
             "examples": ["EUR"]
           }
         },

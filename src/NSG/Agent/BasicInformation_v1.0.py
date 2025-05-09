@@ -10,7 +10,7 @@ class BasicInformationRequest(CamelCaseModel):
     national_identifier: str = Field(
         ...,
         title="National Identifier",
-        description="National identifier for a legal entity",
+        description="National identifier for a legal entity.",
         examples=["2464491-9"],
     )
 
@@ -525,7 +525,7 @@ class BasicInformationResponse(CamelCaseModel):
     name: str = Field(
         ...,
         title="Name",
-        description="The name of the legal entity",
+        description="The name of the legal entity.",
         examples=["Oy Example Ab"],
     )
     legal_form: NordicLegalForm = Field(
@@ -538,26 +538,27 @@ class BasicInformationResponse(CamelCaseModel):
     legal_status: LegalStatus = Field(
         ...,
         title="Legal status",
-        description="Status of the legal entity",
+        description="Status of the legal entity.",
         examples=[LegalStatus.NORMAL],
     )
     registration_date: date = Field(
         ...,
         title="Registration date",
         description="Official registration date of the legal entity in the national "
-        "trade registry",
+        "trade registry.",
     )
     registered_address: RegisteredAddress
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.0",
+    version="1.0.1",
     title="NSG Agent information",
     description="In the Nordic Smart Government information exchange context the agent "
     'represents both registered organizations ("companies") and persons who are doing '
     "business without being registered organizations, usually as sole traders (sole "
     "proprietors). This data product definition returns basic information content for "
     "any agent.",
+    tags=["Company"],
     request=BasicInformationRequest,
     response=BasicInformationResponse,
 )

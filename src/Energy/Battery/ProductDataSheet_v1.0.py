@@ -138,7 +138,7 @@ class BatteryDataRequest(CamelCaseModel):
     product_code: str = Field(
         ...,
         title="Product Code",
-        description="The product code used by the manufacturer",
+        description="The product code used by the manufacturer.",
         examples=["MPP48V"],
     )
 
@@ -147,13 +147,13 @@ class BatteryDataResponse(CamelCaseModel):
     manufacturer: str = Field(
         ...,
         title="Manufacturer",
-        description="The manufacturer of the battery",
+        description="The manufacturer of the battery.",
         examples=["Valmet Automotive"],
     )
     product_code: str = Field(
         ...,
         title="Product Code",
-        description="The product code used by the manufacturer",
+        description="The product code used by the manufacturer.",
         examples=["MPP48V"],
     )
     name: str = Field(
@@ -169,19 +169,19 @@ class BatteryDataResponse(CamelCaseModel):
     capacity: float = Field(
         ...,
         title="Capacity",
-        description="Battery capacity in kWh",
+        description="Battery capacity in kWh.",
         examples=[2.2],
     )
     energy: float = Field(
         ...,
         title="Energy (Ah)",
-        description="Energy, Ah [1C @ 25°C]",
+        description="Energy, Ah [1C @ 25°C].",
         examples=[46.0],
     )
     voltage: Voltage = Field(
         ...,
         title="Voltage",
-        description="Information about the voltage of the battery",
+        description="Information about the voltage of the battery.",
     )
     peak_discharging_power: float = Field(
         ...,
@@ -206,18 +206,18 @@ class BatteryDataResponse(CamelCaseModel):
     cycle_life: int = Field(
         ...,
         title="Cycle Life",
-        description="Minimum number of cycles the battery can be recharged to at least 80% of initial capacity",
+        description="Minimum number of cycles the battery can be recharged to at least 80% of initial capacity.",
         examples=[20000],
     )
     dimensions: Dimensions = Field(
         ...,
         title="Dimensions",
-        description="Physical dimensions of the battery",
+        description="Physical dimensions of the battery.",
     )
     weight: float = Field(
         ...,
         title="Weight [kg]",
-        description="Total dry weight [kg]",
+        description="Total dry weight [kg].",
         examples=[41.0],
     )
     operating_temperature: OperatingTemperature = Field(
@@ -251,9 +251,10 @@ class BatteryDataResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.0",
+    version="1.0.1",
     title="Battery product data sheet",
-    description="Technical details of a battery such as capacity and voltage",
+    description="Technical details of a battery such as capacity and voltage.",
+    tags=["Battery", "Manufacturing"],
     request=BatteryDataRequest,
     response=BatteryDataResponse,
 )

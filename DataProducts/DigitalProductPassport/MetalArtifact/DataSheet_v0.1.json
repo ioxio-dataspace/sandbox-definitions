@@ -2,14 +2,15 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Data Sheet For Metal Artifacts",
-    "description": "Returns the basic product information of a metal product",
-    "version": "0.1.0"
+    "description": "Returns the basic product information of a metal product.",
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/MetalArtifact/DataSheet_v0.1": {
       "post": {
+        "tags": ["Digital Product Passport"],
         "summary": "Data Sheet For Metal Artifacts",
-        "description": "Returns the basic product information of a metal product",
+        "description": "Returns the basic product information of a metal product.",
         "operationId": "request_DigitalProductPassport_MetalArtifact_DataSheet_v0_1",
         "parameters": [
           {
@@ -281,7 +282,7 @@
               }
             ],
             "title": "EN Standard Code",
-            "description": "The identification code of the EN standard that the product is compliant with",
+            "description": "The identification code of the EN standard that the product is compliant with.",
             "examples": ["EN 10002-1"]
           }
         },
@@ -343,7 +344,7 @@
               }
             ],
             "title": "Width",
-            "description": "The width of the product measured in centimeters",
+            "description": "The width of the product measured in centimeters.",
             "examples": [1500]
           },
           "length": {
@@ -356,7 +357,7 @@
               }
             ],
             "title": "Length",
-            "description": "The length of the product measured in centimeters",
+            "description": "The length of the product measured in centimeters.",
             "examples": [4000]
           },
           "height": {
@@ -369,7 +370,7 @@
               }
             ],
             "title": "Height",
-            "description": "The height of the product measured in centimeters",
+            "description": "The height of the product measured in centimeters.",
             "examples": [0]
           }
         },
@@ -381,13 +382,13 @@
           "product": {
             "type": "string",
             "title": "Product code",
-            "description": "The product code used for identifying the product type",
+            "description": "The product code used for identifying the product type.",
             "examples": ["steel-roll-1234x"]
           },
           "id": {
             "type": "string",
             "title": "Identifier",
-            "description": "Unique identifier of the product",
+            "description": "Unique identifier of the product.",
             "examples": ["550e8400-e29b-41d4-a716-446655440000"]
           }
         },
@@ -401,7 +402,7 @@
             "type": "string",
             "maxLength": 250,
             "title": "Product Name",
-            "description": "The commercial name of the metal product",
+            "description": "The commercial name of the metal product.",
             "examples": [
               "HOT-DIP ZINC-COATED STEEL STRIP, HIGH STRENGTH STEEL FOR COLD FORMING"
             ]
@@ -410,7 +411,7 @@
             "type": "string",
             "maxLength": 250,
             "title": "Product Type",
-            "description": "The type of the metal product",
+            "description": "The type of the metal product.",
             "examples": ["Steel roll"]
           },
           "measures": {
@@ -423,12 +424,12 @@
               }
             ],
             "title": "Measures",
-            "description": "The dimensional measures of the metal product"
+            "description": "The dimensional measures of the metal product."
           },
           "netWeight": {
             "type": "number",
             "title": "Net Weight",
-            "description": "Net weight of the metal artifact in kilograms",
+            "description": "Net weight of the metal artifact in kilograms.",
             "examples": [11720.0]
           },
           "enStandardCertifications": {
@@ -437,7 +438,7 @@
             },
             "type": "array",
             "title": "EN Standard Certifications",
-            "description": "The list of EN standards"
+            "description": "The list of EN standards."
           }
         },
         "type": "object",
