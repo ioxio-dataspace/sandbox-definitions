@@ -92,7 +92,7 @@ class Component(CamelCaseModel):
         ...,
         title="Type",
         description="The type of the component divided into textile and non-textile components based on their structure.",
-        examples=["textile"],
+        examples=[ComponentType.TEXTILE],
     )
     colour_information: Optional[ColourInformation] = Field(
         None,
