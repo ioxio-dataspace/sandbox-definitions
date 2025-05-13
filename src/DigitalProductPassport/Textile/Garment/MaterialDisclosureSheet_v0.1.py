@@ -5,15 +5,15 @@ from pydantic import Field
 
 
 class Material(CamelCaseModel):
-    material_name: str = Field(
+    name: str = Field(
         ...,
         title="Material name",
-        description="The generic name of the material that equal or exceed 5 % of the garment weight.",
+        description="The generic name of the material.",
         min_length=0,
         max_length=40,
         examples=["cotton"],
     )
-    material_share: float = Field(
+    share: float = Field(
         ...,
         title="Material share (%)",
         description="The percentage of material present in the garment, expressed as a percentage by weight.",
@@ -46,7 +46,7 @@ class MaterialInformation(CamelCaseModel):
     chemicals: Optional[str] = Field(
         None,
         title="Chemicals",
-        description="Description of the chemicals used in the garment.",
+        description="Statement about chemicals used in the garment including safety or compliance.",
         min_length=0,
         max_length=250,
         examples=[
@@ -78,17 +78,17 @@ class Response(CamelCaseModel):
     outer_material_information: MaterialInformation = Field(
         ...,
         title="Outer material information",
-        description="Information about the fabrics and other materials that create the outermost layer of a garment.",
+        description="Information about the fabrics and other materials that make up 5% or more of the garment's total weight, as well as the chemicals used in those materials. Outer materials refer to those forming the garment’s outermost layer.",
     )
     lining_material_information: MaterialInformation = Field(
         ...,
         title="Lining material information",
-        description="Information about the fabrics and other materials that create the lining of the garment and materials placed between the outer fabrics and the innermost lining of a garment to provide structure, stability, warmth, or reinforcement, including padding and insulation.",
+        description="Information about the fabrics and other materials that make up 5% or more of the garment's total weight, as well as the chemicals used in those materials. Lining materials include those placed between the outer fabric and the innermost layer of the garment to provide structure, stability, warmth, or reinforcement, including padding and insulation.",
     )
     notions_and_trim_information: MaterialInformation = Field(
         ...,
         title="Notions and trim information",
-        description="Information about the notions the fabrics and other materials used for the functional and decorative elements of the garment, including safety elements, refinement features and sewing threads.",
+        description="Information about the notions and trim materials that make up 5% or more of the garment's total weight. Notions and trim materials are used for functional and decorative elements of the garment, including safety components, refinement features, and sewing threads.",
     )
 
 

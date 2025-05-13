@@ -314,15 +314,15 @@
       },
       "Material": {
         "properties": {
-          "materialName": {
+          "name": {
             "type": "string",
             "maxLength": 40,
             "minLength": 0,
             "title": "Material name",
-            "description": "The generic name of the material that equal or exceed 5 % of the garment weight.",
+            "description": "The generic name of the material.",
             "examples": ["cotton"]
           },
-          "materialShare": {
+          "share": {
             "type": "number",
             "title": "Material share (%)",
             "description": "The percentage of material present in the garment, expressed as a percentage by weight.",
@@ -347,7 +347,7 @@
           }
         },
         "type": "object",
-        "required": ["materialName", "materialShare"],
+        "required": ["name", "share"],
         "title": "Material"
       },
       "MaterialInformation": {
@@ -381,7 +381,7 @@
               }
             ],
             "title": "Chemicals",
-            "description": "Description of the chemicals used in the garment.",
+            "description": "Statement about chemicals used in the garment including safety or compliance.",
             "examples": [
               "Tested for and free from known skin sensitizers under ISO 10993-10."
             ]
@@ -449,17 +449,17 @@
           "outerMaterialInformation": {
             "$ref": "#/components/schemas/MaterialInformation",
             "title": "Outer material information",
-            "description": "Information about the fabrics and other materials that create the outermost layer of a garment."
+            "description": "Information about the fabrics and other materials that make up 5% or more of the garment's total weight, as well as the chemicals used in those materials. Outer materials refer to those forming the garment’s outermost layer."
           },
           "liningMaterialInformation": {
             "$ref": "#/components/schemas/MaterialInformation",
             "title": "Lining material information",
-            "description": "Information about the fabrics and other materials that create the lining of the garment and materials placed between the outer fabrics and the innermost lining of a garment to provide structure, stability, warmth, or reinforcement, including padding and insulation."
+            "description": "Information about the fabrics and other materials that make up 5% or more of the garment's total weight, as well as the chemicals used in those materials. Lining materials include those placed between the outer fabric and the innermost layer of the garment to provide structure, stability, warmth, or reinforcement, including padding and insulation."
           },
           "notionsAndTrimInformation": {
             "$ref": "#/components/schemas/MaterialInformation",
             "title": "Notions and trim information",
-            "description": "Information about the notions the fabrics and other materials used for the functional and decorative elements of the garment, including safety elements, refinement features and sewing threads."
+            "description": "Information about the notions and trim materials that make up 5% or more of the garment's total weight. Notions and trim materials are used for functional and decorative elements of the garment, including safety components, refinement features, and sewing threads."
           }
         },
         "type": "object",
