@@ -229,7 +229,7 @@
             "minLength": 0,
             "title": "Name",
             "description": "The brand name of the garment.",
-            "examples": ["company x"]
+            "examples": ["Acme workwear Oy"]
           },
           "website": {
             "anyOf": [
@@ -249,7 +249,7 @@
           "companyIdentification": {
             "$ref": "#/components/schemas/CompanyIdentification",
             "title": "Company identification",
-            "description": "The identification of the company issuing the DPP."
+            "description": "The identification of the company being responsible of the DPP."
           }
         },
         "type": "object",
@@ -258,12 +258,17 @@
       },
       "ColorInformation": {
         "properties": {
+          "colorName": {
+            "type": "string",
+            "maxLength": 20,
+            "title": "Color name",
+            "description": "The name of the color",
+            "examples": ["Classic Blue"]
+          },
           "colorScheme": {
             "anyOf": [
               {
-                "type": "string",
-                "maxLength": 10,
-                "minLength": 0
+                "$ref": "#/components/schemas/ColorScheme"
               },
               {
                 "type": "null"
@@ -271,14 +276,13 @@
             ],
             "title": "Color scheme",
             "description": "The coloring scheme indicating the garment size.",
-            "examples": ["ral"]
+            "examples": ["Pantone"]
           },
           "color": {
             "anyOf": [
               {
                 "type": "string",
-                "maxLength": 10,
-                "minLength": 0
+                "maxLength": 10
               },
               {
                 "type": "null"
@@ -286,11 +290,17 @@
             ],
             "title": "Color",
             "description": "The color of the garment according to the selected color scheme.",
-            "examples": ["19-4052"]
+            "examples": ["19-4052 TCX"]
           }
         },
         "type": "object",
+        "required": ["colorName"],
         "title": "ColorInformation"
+      },
+      "ColorScheme": {
+        "type": "string",
+        "enum": ["Pantone", "RAL", "vendor specific"],
+        "title": "ColorScheme"
       },
       "CompanyIdentification": {
         "properties": {
@@ -298,7 +308,7 @@
             "$ref": "#/components/schemas/IdentifierScheme",
             "title": "Identifier scheme",
             "description": "The identification scheme in use for the company.",
-            "examples": ["gln"]
+            "examples": ["GLN"]
           },
           "identifier": {
             "type": "string",
@@ -411,7 +421,7 @@
       },
       "IdentifierScheme": {
         "type": "string",
-        "enum": ["gln", "national business id", "duns"],
+        "enum": ["GLN", "national business id", "DUNS"],
         "title": "IdentifierScheme"
       },
       "NotFound": {
@@ -534,7 +544,7 @@
           "colorInformation": {
             "$ref": "#/components/schemas/ColorInformation",
             "title": "Color information",
-            "description": "The color information of the garment."
+            "description": "The color information of the garment main color."
           },
           "weight": {
             "anyOf": [
@@ -577,9 +587,16 @@
             "examples": [["REACH", "ESPR"]]
           },
           "conformityDeclaration": {
-            "type": "string",
-            "maxLength": 2083,
-            "pattern": "^https://",
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 2083,
+                "pattern": "^https://"
+              },
+              {
+                "type": "null"
+              }
+            ],
             "title": "Conformity declaration",
             "description": "The link to the EU declaration of conformity documentation.",
             "examples": ["https://example.com/"]
@@ -595,8 +612,7 @@
           "colorInformation",
           "certifications",
           "standardsConformity",
-          "regulatoryCompliance",
-          "conformityDeclaration"
+          "regulatoryCompliance"
         ],
         "title": "Response"
       },

@@ -23,9 +23,15 @@ class SizingSystem(str, Enum):
 
 
 class IdentifierScheme(str, Enum):
-    GLN = "gln"
+    GLN = "GLN"
     NATIONAL_BUSINESS_ID = "national business id"
-    DUNS = "duns"
+    DUNS = "DUNS"
+
+
+class ColorScheme(str, Enum):
+    PANTONE = "Pantone"
+    RAL = "RAL"
+    VENDOR_SPECIFIC = "vendor specific"
 
 
 class CompanyIdentification(CamelCaseModel):
@@ -52,7 +58,7 @@ class BrandInformation(CamelCaseModel):
         description="The brand name of the garment.",
         min_length=0,
         max_length=250,
-        examples=["company x"],
+        examples=["Acme workwear Oy"],
     )
     website: Optional[str] = Field(
         None,
@@ -65,7 +71,7 @@ class BrandInformation(CamelCaseModel):
     company_identification: CompanyIdentification = Field(
         ...,
         title="Company identification",
-        description="The identification of the company issuing the DPP.",
+        description="The identification of the company being responsible of the DPP.",
     )
 
 
@@ -87,21 +93,25 @@ class SizeInformation(CamelCaseModel):
 
 
 class ColorInformation(CamelCaseModel):
-    color_scheme: Optional[str] = Field(
+    color_name: str = Field(
+        ...,
+        title="Color name",
+        description="The name of the color",
+        max_length=20,
+        examples=["Classic Blue"],
+    )
+    color_scheme: Optional[ColorScheme] = Field(
         None,
         title="Color scheme",
         description="The coloring scheme indicating the garment size.",
-        min_length=0,
-        max_length=10,
-        examples=["ral"],
+        examples=[ColorScheme.PANTONE],
     )
     color: Optional[str] = Field(
         None,
         title="Color",
         description="The color of the garment according to the selected color scheme.",
-        min_length=0,
         max_length=10,
-        examples=["19-4052"],
+        examples=["19-4052 TCX"],
     )
 
 
@@ -176,7 +186,7 @@ class Response(CamelCaseModel):
     color_information: ColorInformation = Field(
         ...,
         title="Color information",
-        description="The color information of the garment.",
+        description="The color information of the garment main color.",
     )
     weight: Optional[float] = Field(
         None,
@@ -202,8 +212,8 @@ class Response(CamelCaseModel):
         description="List of all regulations that the garment complies with.",
         examples=[["REACH", "ESPR"]],
     )
-    conformity_declaration: str = Field(
-        ...,
+    conformity_declaration: Optional[str] = Field(
+        None,
         title="Conformity declaration",
         description="The link to the EU declaration of conformity documentation.",
         pattern=r"^https://",
