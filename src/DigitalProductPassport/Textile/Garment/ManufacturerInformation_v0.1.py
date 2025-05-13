@@ -1,8 +1,17 @@
 from datetime import date
+from enum import Enum
 from typing import Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
 from pydantic import Field
+
+
+class ManufacturingPhase(str, Enum):
+    MAIN_PRODUCTION = "main production"
+    SEWING = "sewing"
+    FINISHING = "finishing"
+    ASSEMBLY = "assembly"
+    COMPONENT_SUPPLIER = "component supplier"
 
 
 class ManufacturingLocation(CamelCaseModel):
@@ -24,13 +33,11 @@ class ManufacturingLocation(CamelCaseModel):
 
 
 class Manufacturer(CamelCaseModel):
-    manufacturing_phase: str = Field(
+    manufacturing_phase: ManufacturingPhase = Field(
         ...,
         title="Manufacturing phase",
         description="The description of the production phase.",
-        min_length=0,
-        max_length=40,
-        examples=["main production"],
+        examples=[ManufacturingPhase.MAIN_PRODUCTION],
     )
     manufacturing_date: date = Field(
         ...,

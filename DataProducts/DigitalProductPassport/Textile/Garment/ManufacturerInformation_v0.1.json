@@ -315,9 +315,7 @@
       "Manufacturer": {
         "properties": {
           "manufacturingPhase": {
-            "type": "string",
-            "maxLength": 40,
-            "minLength": 0,
+            "$ref": "#/components/schemas/ManufacturingPhase",
             "title": "Manufacturing phase",
             "description": "The description of the production phase.",
             "examples": ["main production"]
@@ -395,6 +393,17 @@
         "type": "object",
         "required": ["country"],
         "title": "ManufacturingLocation"
+      },
+      "ManufacturingPhase": {
+        "type": "string",
+        "enum": [
+          "main production",
+          "sewing",
+          "finishing",
+          "assembly",
+          "component supplier"
+        ],
+        "title": "ManufacturingPhase"
       },
       "NotFound": {
         "properties": {
