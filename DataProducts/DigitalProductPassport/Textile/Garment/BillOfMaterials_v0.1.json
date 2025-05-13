@@ -6,12 +6,12 @@
     "version": "0.1.0"
   },
   "paths": {
-    "/DigitalProductPassport/Textile/Garment/BillofMaterials_v0.1": {
+    "/DigitalProductPassport/Textile/Garment/BillOfMaterials_v0.1": {
       "post": {
         "tags": ["Manufacturing"],
         "summary": "Garment Bill of Materials",
         "description": "Details of the garment's bill of materials.",
-        "operationId": "request_DigitalProductPassport_Textile_Garment_BillofMaterials_v0_1",
+        "operationId": "request_DigitalProductPassport_Textile_Garment_BillOfMaterials_v0_1",
         "parameters": [
           {
             "name": "x-consent-token",
@@ -227,7 +227,7 @@
             "$ref": "#/components/schemas/ClassificationSystem",
             "title": "Classification system",
             "description": "The classification system used for classifying the chemical substance.",
-            "examples": ["echa"]
+            "examples": ["ECHA"]
           },
           "chemicalIdentifier": {
             "type": "string",
@@ -244,15 +244,15 @@
       },
       "ClassificationSystem": {
         "type": "string",
-        "enum": ["cas", "echa"],
+        "enum": ["CAS", "ECHA"],
         "title": "ClassificationSystem"
       },
-      "ColourInformation": {
+      "ColorInformation": {
         "properties": {
-          "colourScheme": {
+          "colorScheme": {
             "anyOf": [
               {
-                "type": "string",
+                "$ref": "#/components/schemas/ColorScheme",
                 "maxLength": 10,
                 "minLength": 0
               },
@@ -260,11 +260,11 @@
                 "type": "null"
               }
             ],
-            "title": "Colour scheme",
-            "description": "The colouring scheme indicating the garment size.",
-            "examples": ["ral"]
+            "title": "Color scheme",
+            "description": "The scheme indicating the garment color.",
+            "examples": ["Pantone"]
           },
-          "colour": {
+          "color": {
             "anyOf": [
               {
                 "type": "string",
@@ -275,13 +275,18 @@
                 "type": "null"
               }
             ],
-            "title": "Colour",
-            "description": "The colour of the garment according to the selected colour scheme.",
-            "examples": ["19-4052"]
+            "title": "Color",
+            "description": "The main color of the garment according to the followed coloring scheme.",
+            "examples": ["19-4052 TCX"]
           }
         },
         "type": "object",
-        "title": "ColourInformation"
+        "title": "ColorInformation"
+      },
+      "ColorScheme": {
+        "type": "string",
+        "enum": ["Pantone", "RAL", "vendor specific"],
+        "title": "ColorScheme"
       },
       "Component": {
         "properties": {
@@ -290,7 +295,7 @@
             "maxLength": 40,
             "minLength": 0,
             "title": "Name",
-            "description": "The name of the material in the garment.",
+            "description": "The name of the component in the garment.",
             "examples": ["zipper xyz / fabric silk xyz"]
           },
           "type": {
@@ -299,17 +304,17 @@
             "description": "The type of the component divided into textile and non-textile components based on their structure.",
             "examples": ["textile"]
           },
-          "colourInformation": {
+          "colorInformation": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/ColourInformation"
+                "$ref": "#/components/schemas/ColorInformation"
               },
               {
                 "type": "null"
               }
             ],
-            "title": "Colour information",
-            "description": "The colour information of the garment."
+            "title": "Color information",
+            "description": "The color information of the component."
           },
           "materials": {
             "items": {
@@ -317,7 +322,7 @@
             },
             "type": "array",
             "title": "Materials",
-            "description": "The list of materials in the component."
+            "description": "List of materials used in the component."
           },
           "chemicals": {
             "items": {
@@ -325,7 +330,7 @@
             },
             "type": "array",
             "title": "Chemicals",
-            "description": "The list of chemicals in the component."
+            "description": "List of materials used in the component."
           }
         },
         "type": "object",
@@ -527,7 +532,7 @@
             },
             "type": "array",
             "title": "Outer components",
-            "description": "List of all outer components. The outer components include fabrics and other structures that create the outermost layer of a garment."
+            "description": "List of all outer components. The outer components include fabrics and other structures that create the outermost layer of the garment."
           },
           "liningComponents": {
             "items": {
@@ -535,7 +540,7 @@
             },
             "type": "array",
             "title": "Lining components",
-            "description": "List of all lining components. The lining components include fabrics and other structures that create the innermost lining of the garment and materials placed between the outer fabric and the lining of a garment to provide structure, stability, warmth, or reinforcement, including padding and insulation."
+            "description": "List of all lining components. The lining components include fabrics and other structures that create the innermost lining of the garment and materials placed between the outer fabric and the lining of the garment to provide structure, stability, warmth, or reinforcement, including padding and insulation."
           },
           "notionsAndTrimComponents": {
             "items": {

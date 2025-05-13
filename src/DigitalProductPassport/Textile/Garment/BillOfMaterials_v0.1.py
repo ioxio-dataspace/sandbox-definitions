@@ -12,26 +12,32 @@ class ComponentType(str, Enum):
 
 
 class ClassificationSystem(str, Enum):
-    CAS = "cas"
-    ECHA = "echa"
+    CAS = "CAS"
+    ECHA = "ECHA"
 
 
-class ColourInformation(CamelCaseModel):
-    colour_scheme: Optional[str] = Field(
+class ColorScheme(str, Enum):
+    PANTONE = "Pantone"
+    RAL = "RAL"
+    VENDOR_SPECIFIC = "vendor specific"
+
+
+class ColorInformation(CamelCaseModel):
+    color_scheme: Optional[ColorScheme] = Field(
         None,
-        title="Colour scheme",
-        description="The colouring scheme indicating the garment size.",
+        title="Color scheme",
+        description="The scheme indicating the garment color.",
         min_length=0,
         max_length=10,
-        examples=["ral"],
+        examples=[ColorScheme.PANTONE],
     )
-    colour: Optional[str] = Field(
+    color: Optional[str] = Field(
         None,
-        title="Colour",
-        description="The colour of the garment according to the selected colour scheme.",
+        title="Color",
+        description="The main color of the garment according to the followed coloring scheme.",
         min_length=0,
         max_length=10,
-        examples=["19-4052"],
+        examples=["19-4052 TCX"],
     )
 
 
@@ -67,7 +73,7 @@ class Chemical(CamelCaseModel):
         ...,
         title="Classification system",
         description="The classification system used for classifying the chemical substance.",
-        examples=["echa"],
+        examples=[ClassificationSystem.ECHA],
     )
     chemical_identifier: str = Field(
         ...,
@@ -83,7 +89,7 @@ class Component(CamelCaseModel):
     name: str = Field(
         ...,
         title="Name",
-        description="The name of the material in the garment.",
+        description="The name of the component in the garment.",
         min_length=0,
         max_length=40,
         examples=["zipper xyz / fabric silk xyz"],
@@ -94,20 +100,20 @@ class Component(CamelCaseModel):
         description="The type of the component divided into textile and non-textile components based on their structure.",
         examples=[ComponentType.TEXTILE],
     )
-    colour_information: Optional[ColourInformation] = Field(
+    color_information: Optional[ColorInformation] = Field(
         None,
-        title="Colour information",
-        description="The colour information of the garment.",
+        title="Color information",
+        description="The color information of the component.",
     )
     materials: list[Material] = Field(
         ...,
         title="Materials",
-        description="The list of materials in the component.",
+        description="List of materials used in the component.",
     )
     chemicals: list[Chemical] = Field(
         ...,
         title="Chemicals",
-        description="The list of chemicals in the component.",
+        description="List of materials used in the component.",
     )
 
 
@@ -134,12 +140,12 @@ class Response(CamelCaseModel):
     outer_components: list[Component] = Field(
         ...,
         title="Outer components",
-        description="List of all outer components. The outer components include fabrics and other structures that create the outermost layer of a garment.",
+        description="List of all outer components. The outer components include fabrics and other structures that create the outermost layer of the garment.",
     )
     lining_components: list[Component] = Field(
         ...,
         title="Lining components",
-        description="List of all lining components. The lining components include fabrics and other structures that create the innermost lining of the garment and materials placed between the outer fabric and the lining of a garment to provide structure, stability, warmth, or reinforcement, including padding and insulation.",
+        description="List of all lining components. The lining components include fabrics and other structures that create the innermost lining of the garment and materials placed between the outer fabric and the lining of the garment to provide structure, stability, warmth, or reinforcement, including padding and insulation.",
     )
     notions_and_trim_components: list[Component] = Field(
         ...,
