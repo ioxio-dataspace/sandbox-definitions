@@ -110,7 +110,7 @@ class ColorInformation(CamelCaseModel):
         None,
         title="Color",
         description="The color of the garment according to the selected color scheme.",
-        max_length=10,
+        max_length=20,
         examples=["19-4052 TCX"],
     )
 
