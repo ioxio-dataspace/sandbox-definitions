@@ -113,7 +113,7 @@ class Component(CamelCaseModel):
     chemicals: list[Chemical] = Field(
         ...,
         title="Chemicals",
-        description="List of materials used in the component.",
+        description="List of chemicals used in the component.",
     )
 
 
