@@ -43,9 +43,9 @@ class MaterialInformation(CamelCaseModel):
         title="Materials",
         description="The list of materials.",
     )
-    chemicals: Optional[str] = Field(
+    chemical_disclosure: Optional[str] = Field(
         None,
-        title="Chemicals",
+        title="Chemical disclosure",
         description="Statement about chemicals used in the garment including safety or compliance.",
         min_length=0,
         max_length=250,

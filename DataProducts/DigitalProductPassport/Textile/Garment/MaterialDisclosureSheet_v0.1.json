@@ -369,7 +369,7 @@
             "title": "Materials",
             "description": "The list of materials."
           },
-          "chemicals": {
+          "chemicalDisclosure": {
             "anyOf": [
               {
                 "type": "string",
@@ -380,7 +380,7 @@
                 "type": "null"
               }
             ],
-            "title": "Chemicals",
+            "title": "Chemical disclosure",
             "description": "Statement about chemicals used in the garment including safety or compliance.",
             "examples": [
               "Tested for and free from known skin sensitizers under ISO 10993-10."
