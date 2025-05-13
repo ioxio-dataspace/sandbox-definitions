@@ -96,8 +96,8 @@ class ColorInformation(CamelCaseModel):
     color_name: str = Field(
         ...,
         title="Color name",
-        description="The name of the color",
-        max_length=20,
+        description="The name of the color.",
+        max_length=40,
         examples=["Classic Blue"],
     )
     color_scheme: Optional[ColorScheme] = Field(
