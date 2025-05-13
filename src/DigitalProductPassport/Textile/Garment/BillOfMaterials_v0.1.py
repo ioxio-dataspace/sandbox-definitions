@@ -36,7 +36,7 @@ class ColorInformation(CamelCaseModel):
         title="Color",
         description="The main color of the garment according to the followed coloring scheme.",
         min_length=0,
-        max_length=10,
+        max_length=20,
         examples=["19-4052 TCX"],
     )
 
