@@ -32,6 +32,13 @@ class Material(CamelCaseModel):
 
 
 class MaterialInformation(CamelCaseModel):
+    name: Optional[str] = Field(
+        None,
+        title="Name",
+        description="Optional name of the material.",
+        max_length=150,
+        examples=["Cotton blend fabric"],
+    )
     certifications: list[str] = Field(
         ...,
         title="Certifications",

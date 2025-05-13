@@ -352,6 +352,20 @@
       },
       "MaterialInformation": {
         "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 150
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name",
+            "description": "Optional name of the material.",
+            "examples": ["Cotton blend fabric"]
+          },
           "certifications": {
             "items": {
               "type": "string"
