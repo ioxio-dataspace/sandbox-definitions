@@ -68,7 +68,7 @@ class Response(CamelCaseModel):
 
 DEFINITION = DataProductDefinition(
     version="0.1.0",
-    title="Garment Maintenance log",
+    title="Garment maintenance log",
     description="Details of the garment's care, repair and incidents.",
     tags=["Manufacturing"],
     request=Request,

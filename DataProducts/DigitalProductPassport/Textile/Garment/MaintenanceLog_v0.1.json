@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Garment Maintenance log",
+    "title": "Garment maintenance log",
     "description": "Details of the garment's care, repair and incidents.",
     "version": "0.1.0"
   },
@@ -9,7 +9,7 @@
     "/DigitalProductPassport/Textile/Garment/MaintenanceLog_v0.1": {
       "post": {
         "tags": ["Manufacturing"],
-        "summary": "Garment Maintenance log",
+        "summary": "Garment maintenance log",
         "description": "Details of the garment's care, repair and incidents.",
         "operationId": "request_DigitalProductPassport_Textile_Garment_MaintenanceLog_v0_1",
         "parameters": [
