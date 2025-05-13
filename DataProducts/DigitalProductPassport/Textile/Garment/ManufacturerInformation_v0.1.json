@@ -322,13 +322,20 @@
             "description": "The description of the production phase.",
             "examples": ["main production"]
           },
+          "manufacturingDate": {
+            "type": "string",
+            "format": "date",
+            "title": "Manufacturing date",
+            "description": "The date of the garment was manufactured.",
+            "examples": ["2023-01-01"]
+          },
           "manufacturerName": {
             "type": "string",
             "maxLength": 40,
             "minLength": 0,
             "title": "Manufacturer name",
             "description": "The name of the manufacturer of the corresponding phase.",
-            "examples": ["company x"]
+            "examples": ["Acme manufacturing Oy"]
           },
           "manufacturingLocation": {
             "$ref": "#/components/schemas/ManufacturingLocation",
@@ -352,7 +359,12 @@
           }
         },
         "type": "object",
-        "required": ["manufacturingPhase", "manufacturerName", "manufacturingLocation"],
+        "required": [
+          "manufacturingPhase",
+          "manufacturingDate",
+          "manufacturerName",
+          "manufacturingLocation"
+        ],
         "title": "Manufacturer"
       },
       "ManufacturingLocation": {
@@ -439,13 +451,6 @@
       },
       "Response": {
         "properties": {
-          "manufacturingDate": {
-            "type": "string",
-            "format": "date",
-            "title": "Manufacturing date",
-            "description": "The date of the garment was manufactured.",
-            "examples": ["2023-01-01"]
-          },
           "manufacturers": {
             "items": {
               "$ref": "#/components/schemas/Manufacturer"
@@ -456,7 +461,7 @@
           }
         },
         "type": "object",
-        "required": ["manufacturingDate", "manufacturers"],
+        "required": ["manufacturers"],
         "title": "Response"
       },
       "ServiceUnavailable": {

@@ -32,13 +32,19 @@ class Manufacturer(CamelCaseModel):
         max_length=40,
         examples=["main production"],
     )
+    manufacturing_date: date = Field(
+        ...,
+        title="Manufacturing date",
+        description="The date of the garment was manufactured.",
+        examples=[date.fromisoformat("2023-01-01")],
+    )
     manufacturer_name: str = Field(
         ...,
         title="Manufacturer name",
         description="The name of the manufacturer of the corresponding phase.",
         min_length=0,
         max_length=40,
-        examples=["company x"],
+        examples=["Acme manufacturing Oy"],
     )
     manufacturing_location: ManufacturingLocation = Field(
         ...,
@@ -75,12 +81,6 @@ class Request(CamelCaseModel):
 
 
 class Response(CamelCaseModel):
-    manufacturing_date: date = Field(
-        ...,
-        title="Manufacturing date",
-        description="The date of the garment was manufactured.",
-        examples=[date.fromisoformat("2023-01-01")],
-    )
     manufacturers: list[Manufacturer] = Field(
         ...,
         title="Manufacturers",
