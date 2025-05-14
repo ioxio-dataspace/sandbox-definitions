@@ -3,7 +3,7 @@
   "info": {
     "title": "Garment Bill of Materials",
     "description": "Details of the garment's bill of materials.",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/Textile/Garment/BillOfMaterials_v0.1": {
@@ -252,9 +252,7 @@
           "colorScheme": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/ColorScheme",
-                "maxLength": 10,
-                "minLength": 0
+                "$ref": "#/components/schemas/ColorScheme"
               },
               {
                 "type": "null"
