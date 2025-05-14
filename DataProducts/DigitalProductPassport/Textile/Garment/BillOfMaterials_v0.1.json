@@ -1,0 +1,619 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Garment Bill of Materials",
+    "description": "Details of the garment's bill of materials.",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/DigitalProductPassport/Textile/Garment/BillOfMaterials_v0.1": {
+      "post": {
+        "tags": ["Manufacturing"],
+        "summary": "Garment Bill of Materials",
+        "description": "Details of the garment's bill of materials.",
+        "operationId": "request_DigitalProductPassport_Textile_Garment_BillOfMaterials_v0_1",
+        "parameters": [
+          {
+            "name": "x-consent-token",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Optional consent token",
+              "default": "",
+              "title": "X-Consent-Token"
+            },
+            "description": "Optional consent token"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "The login token. Value should be \"Bearer [token]\"",
+              "default": "",
+              "title": "Authorization"
+            },
+            "description": "The login token. Value should be \"Bearer [token]\""
+          },
+          {
+            "name": "x-authorization-provider",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "The bare domain of the system that provided the token.",
+              "title": "X-Authorization-Provider"
+            },
+            "description": "The bare domain of the system that provided the token."
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-API-Key",
+              "description": "API key or token"
+            },
+            "description": "API key or token"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unauthorized"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Forbidden"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotFound"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RateLimitExceeded"
+                }
+              }
+            },
+            "description": "Too Many Requests"
+          },
+          "444": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceNotFound"
+                }
+              }
+            },
+            "description": "Additional Response"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataSourceError"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "502": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadGateway"
+                }
+              }
+            },
+            "description": "Bad Gateway"
+          },
+          "503": {
+            "content": {
+              "text/plain": {},
+              "text/html": {},
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServiceUnavailable"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          },
+          "504": {
+            "content": {
+              "text/plain": {},
+              "text/html": {},
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GatewayTimeout"
+                }
+              }
+            },
+            "description": "Gateway Timeout"
+          },
+          "550": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DoesNotConformToDefinition"
+                }
+              }
+            },
+            "description": "Additional Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BadGateway": {
+        "properties": {},
+        "type": "object",
+        "title": "BadGateway",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Chemical": {
+        "properties": {
+          "classificationSystem": {
+            "$ref": "#/components/schemas/ClassificationSystem",
+            "title": "Classification system",
+            "description": "The classification system used for classifying the chemical substance.",
+            "examples": ["ECHA"]
+          },
+          "chemicalIdentifier": {
+            "type": "string",
+            "maxLength": 20,
+            "minLength": 0,
+            "title": "Chemical identifier",
+            "description": "The identifier of the chemical.",
+            "examples": ["200-001-8"]
+          }
+        },
+        "type": "object",
+        "required": ["classificationSystem", "chemicalIdentifier"],
+        "title": "Chemical"
+      },
+      "ClassificationSystem": {
+        "type": "string",
+        "enum": ["CAS", "ECHA"],
+        "title": "ClassificationSystem"
+      },
+      "ColorInformation": {
+        "properties": {
+          "colorScheme": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ColorScheme",
+                "maxLength": 10,
+                "minLength": 0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Color scheme",
+            "description": "The scheme indicating the garment color.",
+            "examples": ["Pantone"]
+          },
+          "color": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 20,
+                "minLength": 0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Color",
+            "description": "The main color of the garment according to the followed coloring scheme.",
+            "examples": ["19-4052 TCX"]
+          }
+        },
+        "type": "object",
+        "title": "ColorInformation"
+      },
+      "ColorScheme": {
+        "type": "string",
+        "enum": ["Pantone", "RAL", "vendor specific"],
+        "title": "ColorScheme"
+      },
+      "Component": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 40,
+            "minLength": 0,
+            "title": "Name",
+            "description": "The name of the component in the garment.",
+            "examples": ["zipper xyz / fabric silk xyz"]
+          },
+          "type": {
+            "$ref": "#/components/schemas/ComponentType",
+            "title": "Type",
+            "description": "The type of the component divided into textile and non-textile components based on their structure.",
+            "examples": ["textile"]
+          },
+          "colorInformation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ColorInformation"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Color information",
+            "description": "The color information of the component."
+          },
+          "materials": {
+            "items": {
+              "$ref": "#/components/schemas/Material"
+            },
+            "type": "array",
+            "title": "Materials",
+            "description": "List of materials used in the component."
+          },
+          "chemicals": {
+            "items": {
+              "$ref": "#/components/schemas/Chemical"
+            },
+            "type": "array",
+            "title": "Chemicals",
+            "description": "List of chemicals used in the component."
+          }
+        },
+        "type": "object",
+        "required": ["name", "type", "materials", "chemicals"],
+        "title": "Component"
+      },
+      "ComponentType": {
+        "type": "string",
+        "enum": ["textile", "soft non-textile", "hard non-textile"],
+        "title": "ComponentType"
+      },
+      "DataSourceError": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "DataSourceError"
+      },
+      "DataSourceNotFound": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": "Data source not found"
+          }
+        },
+        "type": "object",
+        "title": "DataSourceNotFound",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "DoesNotConformToDefinition": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "default": "Response from data source does not conform to definition"
+          },
+          "data_source_status_code": {
+            "type": "integer",
+            "title": "Data source status code",
+            "description": "HTTP status code returned from the data source"
+          }
+        },
+        "type": "object",
+        "required": ["data_source_status_code"],
+        "title": "DoesNotConformToDefinition",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Forbidden": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "Forbidden"
+      },
+      "GatewayTimeout": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "GatewayTimeout",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "Material": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 40,
+            "minLength": 0,
+            "title": "Name",
+            "description": "The generic name of the material.",
+            "examples": ["cotton"]
+          },
+          "share": {
+            "type": "number",
+            "title": "Share (%)",
+            "description": "The percentage of material content in the component, expressed as a percentage by weight.",
+            "examples": [50],
+            "gte": 0,
+            "lte": 100
+          },
+          "recyclingRate": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Recycling rate (%)",
+            "description": "The amount of recycled content in the material substance, expressed as a percentage by weight.",
+            "examples": [50],
+            "gte": 0,
+            "lte": 100
+          }
+        },
+        "type": "object",
+        "required": ["name", "share"],
+        "title": "Material"
+      },
+      "NotFound": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "NotFound"
+      },
+      "RateLimitExceeded": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": "Rate limit exceeded"
+          }
+        },
+        "type": "object",
+        "title": "RateLimitExceeded",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Request": {
+        "properties": {
+          "product": {
+            "type": "string",
+            "maxLength": 150,
+            "minLength": 0,
+            "title": "Product",
+            "description": "The product code used for identifying the product model.",
+            "examples": ["model-x-1234"]
+          },
+          "id": {
+            "type": "string",
+            "maxLength": 40,
+            "minLength": 0,
+            "title": "ID",
+            "description": "The unique identifier of the product, batch or item level.",
+            "examples": ["71b51878-8a00-11ee-b9d1-0242ac120002"]
+          }
+        },
+        "type": "object",
+        "required": ["product", "id"],
+        "title": "Request"
+      },
+      "Response": {
+        "properties": {
+          "outerComponents": {
+            "items": {
+              "$ref": "#/components/schemas/Component"
+            },
+            "type": "array",
+            "title": "Outer components",
+            "description": "List of all outer components. The outer components include fabrics and other structures that create the outermost layer of the garment."
+          },
+          "liningComponents": {
+            "items": {
+              "$ref": "#/components/schemas/Component"
+            },
+            "type": "array",
+            "title": "Lining components",
+            "description": "List of all lining components. The lining components include fabrics and other structures that create the innermost lining of the garment and materials placed between the outer fabric and the lining of the garment to provide structure, stability, warmth, or reinforcement, including padding and insulation."
+          },
+          "notionsAndTrimComponents": {
+            "items": {
+              "$ref": "#/components/schemas/Component"
+            },
+            "type": "array",
+            "title": "Notions and trim components",
+            "description": "List of all notions and trim components. The notions and trim components include fabrics and other structures used for the functional and decorative elements of the garment, including safety elements, refinement features and sewing threads."
+          }
+        },
+        "type": "object",
+        "required": ["outerComponents", "liningComponents", "notionsAndTrimComponents"],
+        "title": "Response"
+      },
+      "ServiceUnavailable": {
+        "properties": {
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "title": "ServiceUnavailable",
+        "description": "This response is reserved by Product Gateway."
+      },
+      "Unauthorized": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Error type",
+            "description": "Error identifier"
+          },
+          "message": {
+            "type": "string",
+            "title": "Error message",
+            "description": "Error description"
+          }
+        },
+        "type": "object",
+        "required": ["type", "message"],
+        "title": "Unauthorized"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": ["loc", "msg", "type"],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
