@@ -27,8 +27,6 @@ class ColorInformation(CamelCaseModel):
         None,
         title="Color scheme",
         description="The scheme indicating the garment color.",
-        min_length=0,
-        max_length=10,
         examples=[ColorScheme.PANTONE],
     )
     color: Optional[str] = Field(
@@ -155,7 +153,7 @@ class Response(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.0",
+    version="0.1.1",
     title="Garment Bill of Materials",
     description="Details of the garment's bill of materials.",
     tags=["Manufacturing"],
