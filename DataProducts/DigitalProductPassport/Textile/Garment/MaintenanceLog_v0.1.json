@@ -3,7 +3,7 @@
   "info": {
     "title": "Garment maintenance log",
     "description": "Details of the garment's care, repair and incidents.",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/Textile/Garment/MaintenanceLog_v0.1": {
@@ -501,5 +501,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

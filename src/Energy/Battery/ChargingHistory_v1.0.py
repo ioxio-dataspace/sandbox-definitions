@@ -81,7 +81,8 @@ class ChargingHistoryResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.1",
+    version="1.0.2",
+    strict_validation=False,
     title="Charging history of a battery",
     description="Charging history of a battery.",
     tags=["Operational", "Battery"],

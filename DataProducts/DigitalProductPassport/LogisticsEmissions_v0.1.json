@@ -3,7 +3,7 @@
   "info": {
     "title": "Logistics Emissions",
     "description": "Returns the total emission per leg for an end-to-end shipment compliant with the European Union's count emissions reporting regulation.",
-    "version": "0.1.1"
+    "version": "0.1.2"
   },
   "paths": {
     "/DigitalProductPassport/LogisticsEmissions_v0.1": {
@@ -810,5 +810,6 @@
         "title": "VesselType"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

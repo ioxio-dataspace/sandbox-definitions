@@ -3,7 +3,7 @@
   "info": {
     "title": "Export Instructions",
     "description": "Get instructions necessary in the export context, based on a Letter of Credit number.",
-    "version": "0.0.1"
+    "version": "0.0.2"
   },
   "paths": {
     "/test/LetterOfCredit/ExportInstructions": {
@@ -524,5 +524,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

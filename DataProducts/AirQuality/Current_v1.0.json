@@ -3,7 +3,7 @@
   "info": {
     "title": "Current air quality in a given location",
     "description": "Current Air Quality Index (AQI) in a given location with attribution of the sources.",
-    "version": "1.0.1"
+    "version": "1.0.2"
   },
   "paths": {
     "/AirQuality/Current_v1.0": {
@@ -459,5 +459,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

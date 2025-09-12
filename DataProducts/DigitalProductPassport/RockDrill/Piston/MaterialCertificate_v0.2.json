@@ -3,7 +3,7 @@
   "info": {
     "title": "Piston material certificate",
     "description": "Material certificate on the elements and tests.",
-    "version": "0.2.1"
+    "version": "0.2.2"
   },
   "paths": {
     "/DigitalProductPassport/RockDrill/Piston/MaterialCertificate_v0.2": {
@@ -513,5 +513,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

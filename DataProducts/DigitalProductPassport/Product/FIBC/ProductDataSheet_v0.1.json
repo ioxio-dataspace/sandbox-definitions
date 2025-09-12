@@ -3,7 +3,7 @@
   "info": {
     "title": "FIBC Product data sheet",
     "description": "Product data sheet for FIBC bulk bags.",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/Product/FIBC/ProductDataSheet_v0.1": {
@@ -1152,5 +1152,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

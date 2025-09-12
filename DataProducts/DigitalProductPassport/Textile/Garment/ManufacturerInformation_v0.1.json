@@ -3,7 +3,7 @@
   "info": {
     "title": "Garment manufacturer information",
     "description": "Details of the garment manufacturers and facilities.",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/Textile/Garment/ManufacturerInformation_v0.1": {
@@ -533,5 +533,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

@@ -22,7 +22,8 @@ class PersonDetailsResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.1",
+    version="1.0.2",
+    strict_validation=False,
     title="Person details",
     description="Details about a person such as home address.",
     request=PersonDetailsRequest,

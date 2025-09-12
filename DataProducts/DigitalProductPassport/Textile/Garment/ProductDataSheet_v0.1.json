@@ -3,7 +3,7 @@
   "info": {
     "title": "Garment product data sheet",
     "description": "General specifications of a garment.",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/Textile/Garment/ProductDataSheet_v0.1": {
@@ -715,5 +715,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

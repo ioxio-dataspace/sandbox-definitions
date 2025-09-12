@@ -3,7 +3,7 @@
   "info": {
     "title": "Product carbon footprint",
     "description": "The carbon footprint of manufacturing a product.",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/Product/CarbonFootprint_v0.1": {
@@ -470,5 +470,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

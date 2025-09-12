@@ -3,7 +3,7 @@
   "info": {
     "title": "List of the shareholders of a company",
     "description": "Information about the shareholders of a company such as owners and shares quantity.",
-    "version": "1.0.1"
+    "version": "1.0.2"
   },
   "paths": {
     "/Company/Shareholders_v1.0": {
@@ -503,5 +503,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

@@ -3,7 +3,7 @@
   "info": {
     "title": "Battery product data sheet",
     "description": "Technical details of a battery such as capacity and voltage.",
-    "version": "1.0.1"
+    "version": "1.0.2"
   },
   "paths": {
     "/Energy/Battery/ProductDataSheet_v1.0": {
@@ -682,5 +682,6 @@
         "title": "Voltage"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

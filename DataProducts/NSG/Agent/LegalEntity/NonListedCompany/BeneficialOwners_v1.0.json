@@ -3,7 +3,7 @@
   "info": {
     "title": "Beneficial owners of a non-listed company",
     "description": "The list of beneficial owners of a non-listed company. The shareholders exceeding 25 % ownership.",
-    "version": "1.0.1"
+    "version": "1.0.2"
   },
   "paths": {
     "/NSG/Agent/LegalEntity/NonListedCompany/BeneficialOwners_v1.0": {
@@ -505,5 +505,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

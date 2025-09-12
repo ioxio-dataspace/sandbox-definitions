@@ -3,7 +3,7 @@
   "info": {
     "title": "Garment Bill of Materials",
     "description": "Details of the garment's bill of materials.",
-    "version": "0.1.1"
+    "version": "0.1.2"
   },
   "paths": {
     "/DigitalProductPassport/Textile/Garment/BillOfMaterials_v0.1": {
@@ -613,5 +613,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

@@ -268,7 +268,8 @@ class CurrentTimeResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.1",
+    version="1.0.2",
+    strict_validation=False,
     title="Current time in a given country",
     description="Get the current time in a given country based on the ISO 3166-1 alpha-2 country code, formatted in RFC 3339 format.",
     tags=["Market"],

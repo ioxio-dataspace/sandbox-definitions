@@ -3,7 +3,7 @@
   "info": {
     "title": "Battery health data",
     "description": "The health and status data of a battery as required by Battery Passport specification of the European Commission's Battery Act (2023/1542).",
-    "version": "0.2.1"
+    "version": "0.2.2"
   },
   "paths": {
     "/DigitalProductPassport/Battery/HealthData_v0.2": {
@@ -783,5 +783,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

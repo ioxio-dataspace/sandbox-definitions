@@ -3,7 +3,7 @@
   "info": {
     "title": "Drill Manufacturing Data Sheet",
     "description": "Manufacturing data sheet of a Mobile Drill Machine.",
-    "version": "0.1.1"
+    "version": "0.1.2"
   },
   "paths": {
     "/DigitalProductPassport/MobileWorkMachine/Drill/ManufacturingDataSheet_v0.1": {
@@ -669,5 +669,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

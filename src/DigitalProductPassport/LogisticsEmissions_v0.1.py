@@ -243,7 +243,8 @@ class LogisticsEmissionsResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.1",
+    version="0.1.2",
+    strict_validation=False,
     title="Logistics Emissions",
     description="Returns the total emission per leg for "
     "an end-to-end shipment compliant with the European "

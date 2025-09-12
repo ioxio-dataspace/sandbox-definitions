@@ -3,7 +3,7 @@
   "info": {
     "title": "FIBC sustainability data sheet",
     "description": "Basic sustainability data sheet for FIBC bulk bags.",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "paths": {
     "/DigitalProductPassport/Product/FIBC/SustainabilityDataSheet_v0.1": {
@@ -606,5 +606,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

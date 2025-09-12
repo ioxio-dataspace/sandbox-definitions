@@ -87,7 +87,8 @@ class MetalArtifactDataSheetResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.1",
+    version="0.1.2",
+    strict_validation=False,
     title="Data Sheet For Metal Artifacts",
     description="Returns the basic product information of a metal product.",
     request=MetalArtifactDataSheetRequest,

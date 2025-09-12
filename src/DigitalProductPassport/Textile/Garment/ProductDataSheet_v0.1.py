@@ -223,7 +223,8 @@ class Response(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.0",
+    version="0.1.1",
+    strict_validation=False,
     title="Garment product data sheet",
     description="General specifications of a garment.",
     tags=["Manufacturing", "ESPR"],

@@ -3,7 +3,7 @@
   "info": {
     "title": "Charging history of a battery",
     "description": "Charging history of a battery.",
-    "version": "1.0.1"
+    "version": "1.0.2"
   },
   "paths": {
     "/Energy/Battery/ChargingHistory_v1.0": {
@@ -511,5 +511,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

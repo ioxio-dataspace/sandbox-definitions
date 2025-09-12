@@ -3,7 +3,7 @@
   "info": {
     "title": "Machine component serial numbers",
     "description": "List serial numbers of components in a machine.",
-    "version": "0.1.1"
+    "version": "0.1.2"
   },
   "paths": {
     "/DigitalProductPassport/Machine/ComponentSerialNumbers_v0.1": {
@@ -459,5 +459,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

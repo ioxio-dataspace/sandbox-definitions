@@ -3,7 +3,7 @@
   "info": {
     "title": "Product environmental footprint",
     "description": "The environmental impact of the product manufacturing.",
-    "version": "0.1.2"
+    "version": "0.1.3"
   },
   "paths": {
     "/DigitalProductPassport/EnvironmentalFootprint_v0.1": {
@@ -558,5 +558,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

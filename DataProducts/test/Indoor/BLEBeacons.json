@@ -3,7 +3,7 @@
   "info": {
     "title": "Indoor location based on BLE beacons",
     "description": "Determine the indoor location based on BLE beacons a device can hear and the signal strength in dBm.",
-    "version": "0.0.1"
+    "version": "0.0.2"
   },
   "paths": {
     "/test/Indoor/BLEBeacons": {
@@ -453,5 +453,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

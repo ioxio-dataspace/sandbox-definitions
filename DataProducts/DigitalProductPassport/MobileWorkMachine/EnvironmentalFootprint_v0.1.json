@@ -3,7 +3,7 @@
   "info": {
     "title": "Mobile Work Machine Environmental Footprint",
     "description": "Carbon Footprint of a Mobile Work Machine.",
-    "version": "0.1.1"
+    "version": "0.1.2"
   },
   "paths": {
     "/DigitalProductPassport/MobileWorkMachine/EnvironmentalFootprint_v0.1": {
@@ -528,5 +528,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

@@ -3,7 +3,7 @@
   "info": {
     "title": "Rock drill data sheet",
     "description": "General as-built data of a rock drill.",
-    "version": "0.1.3"
+    "version": "0.1.4"
   },
   "paths": {
     "/DigitalProductPassport/RockDrill/DataSheet_v0.1": {
@@ -716,5 +716,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

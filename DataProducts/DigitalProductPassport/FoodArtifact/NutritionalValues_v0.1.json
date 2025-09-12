@@ -3,7 +3,7 @@
   "info": {
     "title": "Food Artifact Nutritional Values",
     "description": "Returns the nutritional values of a food product.",
-    "version": "0.1.1"
+    "version": "0.1.2"
   },
   "paths": {
     "/DigitalProductPassport/FoodArtifact/NutritionalValues_v0.1": {
@@ -507,5 +507,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

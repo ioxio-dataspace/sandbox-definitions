@@ -3,7 +3,7 @@
   "info": {
     "title": "Measured quality metrics of a machine",
     "description": "Quality monitoring data for machines, including product serial number and quality performance measures.",
-    "version": "0.2.1"
+    "version": "0.2.2"
   },
   "paths": {
     "/DigitalProductPassport/Machine/QualityMetrics_v0.2": {
@@ -525,5 +525,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }

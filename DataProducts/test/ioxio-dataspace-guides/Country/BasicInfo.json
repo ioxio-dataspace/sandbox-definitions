@@ -3,7 +3,7 @@
   "info": {
     "title": "Information about a country",
     "description": "Information about a country",
-    "version": "0.0.1"
+    "version": "0.0.2"
   },
   "paths": {
     "/test/ioxio-dataspace-guides/Country/BasicInfo": {
@@ -495,5 +495,6 @@
         "title": "ValidationError"
       }
     }
-  }
+  },
+  "x-strict-validation": false
 }
