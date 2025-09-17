@@ -551,7 +551,8 @@ class BasicInformationResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.1",
+    version="1.0.2",
+    strict_validation=False,
     title="NSG Agent information",
     description="In the Nordic Smart Government information exchange context the agent "
     'represents both registered organizations ("companies") and persons who are doing '

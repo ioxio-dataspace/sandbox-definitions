@@ -82,7 +82,8 @@ class MaterialCertificateRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.2.1",
+    version="0.2.2",
+    strict_validation=False,
     title="Piston material certificate",
     description="Material certificate on the elements and tests.",
     request=MaterialCertificateRequest,

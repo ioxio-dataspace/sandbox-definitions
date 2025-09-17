@@ -166,7 +166,8 @@ class DataSheetRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.3",
+    version="0.1.4",
+    strict_validation=False,
     title="Rock drill data sheet",
     description="General as-built data of a rock drill.",
     request=DataSheetRequest,

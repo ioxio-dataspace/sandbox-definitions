@@ -29,7 +29,8 @@ class DeleteAssignmentRequest(DeleteAssignmentResponse):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.1",
+    version="1.0.2",
+    strict_validation=False,
     title="Delete key assignment",
     description="Remove a key from having access to a specific lock.",
     tags=["Housing"],

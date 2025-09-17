@@ -215,7 +215,8 @@ class ManufacturingDataSheetRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.2.1",
+    version="0.2.2",
+    strict_validation=False,
     title="Drill Manufacturing Data Sheet",
     description="Manufacturing data sheet of a Mobile Drill Machine.",
     tags=["Digital Product Passport"],

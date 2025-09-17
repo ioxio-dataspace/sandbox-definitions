@@ -55,7 +55,8 @@ class CurrentAirQualityResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.1",
+    version="1.0.2",
+    strict_validation=False,
     title="Current air quality in a given location",
     description="Current Air Quality Index (AQI) in a given location with attribution of the sources.",
     tags=["Environment"],

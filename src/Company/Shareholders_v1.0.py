@@ -69,7 +69,8 @@ class ShareholdersInfoResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.1",
+    version="1.0.2",
+    strict_validation=False,
     title="List of the shareholders of a company",
     description="Information about the shareholders of a company such as owners and shares quantity.",
     tags=["Company"],

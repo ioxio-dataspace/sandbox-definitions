@@ -27,7 +27,8 @@ class EnvironmentalFootprintResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.1",
+    version="1.0.2",
+    strict_validation=False,
     title="Environmental footprint information for a product",
     description="Information about environmental footprint of a product in the manufacturing phase.",
     tags=["Product environmental category rules", "Manufacturing"],
