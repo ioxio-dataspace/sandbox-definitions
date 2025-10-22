@@ -3,7 +3,7 @@
   "info": {
     "title": "Cargo receipt for a forwarder",
     "description": "Information necessary for the receipt of cargo for a forwarder",
-    "version": "0.0.2"
+    "version": "0.0.3"
   },
   "paths": {
     "/test/Shipment/ForwardersCargoReceipt": {
@@ -12,48 +12,6 @@
         "description": "Information necessary for the receipt of cargo for a forwarder",
         "operationId": "request_test_Shipment_ForwardersCargoReceipt",
         "parameters": [
-          {
-            "name": "x-consent-token",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "Optional consent token",
-              "default": "",
-              "title": "X-Consent-Token"
-            },
-            "description": "Optional consent token"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "The login token. Value should be \"Bearer [token]\"",
-              "default": "",
-              "title": "Authorization"
-            },
-            "description": "The login token. Value should be \"Bearer [token]\""
-          },
-          {
-            "name": "x-authorization-provider",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "The bare domain of the system that provided the token.",
-              "title": "X-Authorization-Provider"
-            },
-            "description": "The bare domain of the system that provided the token."
-          },
           {
             "name": "x-api-key",
             "in": "header",

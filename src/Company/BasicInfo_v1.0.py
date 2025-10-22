@@ -25,7 +25,7 @@ class BasicCompanyInfoResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.2",
+    version="1.0.3",
     strict_validation=False,
     title="Basic information about a company",
     description="Legal information about a company such as company registration date.",

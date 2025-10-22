@@ -243,7 +243,7 @@ class LogisticsEmissionsResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.2",
+    version="0.1.3",
     strict_validation=False,
     title="Logistics Emissions",
     description="Returns the total emission per leg for "
@@ -252,6 +252,4 @@ DEFINITION = DataProductDefinition(
     request=LogisticsEmissionsRequest,
     response=LogisticsEmissionsResponse,
     tags=["Environment", "logistics", "Digital Product Passport"],
-    requires_authorization=False,
-    requires_consent=False,
 )

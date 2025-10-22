@@ -3,7 +3,7 @@
   "info": {
     "title": "Beneficial owners of a non-listed company",
     "description": "The list of beneficial owners of a non-listed company. The shareholders exceeding 25 % ownership.",
-    "version": "1.0.2"
+    "version": "1.0.3"
   },
   "paths": {
     "/NSG/Agent/LegalEntity/NonListedCompany/BeneficialOwners_v1.0": {
@@ -13,46 +13,6 @@
         "description": "The list of beneficial owners of a non-listed company. The shareholders exceeding 25 % ownership.",
         "operationId": "request_NSG_Agent_LegalEntity_NonListedCompany_BeneficialOwners_v1_0",
         "parameters": [
-          {
-            "name": "x-consent-token",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "Consent token",
-              "title": "X-Consent-Token"
-            },
-            "description": "Consent token"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "description": "The login token. Value should be \"Bearer [token]\"",
-              "title": "Authorization"
-            },
-            "description": "The login token. Value should be \"Bearer [token]\""
-          },
-          {
-            "name": "x-authorization-provider",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "The bare domain of the system that provided the token.",
-              "title": "X-Authorization-Provider"
-            },
-            "description": "The bare domain of the system that provided the token."
-          },
           {
             "name": "x-api-key",
             "in": "header",

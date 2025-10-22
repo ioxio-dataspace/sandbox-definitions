@@ -385,7 +385,7 @@ class Response(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.1",
+    version="0.1.2",
     strict_validation=False,
     title="FIBC Product data sheet",
     description="Product data sheet for FIBC bulk bags.",

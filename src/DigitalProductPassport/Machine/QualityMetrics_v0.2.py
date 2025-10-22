@@ -106,7 +106,7 @@ class QualityMetricsRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.2.2",
+    version="0.2.3",
     strict_validation=False,
     title="Measured quality metrics of a machine",
     description="Quality monitoring data for machines, including product serial number "

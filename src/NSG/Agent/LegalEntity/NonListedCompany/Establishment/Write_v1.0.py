@@ -1631,13 +1631,11 @@ class EstablishmentResponse(EstablishmentRequest):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.2",
+    version="1.0.3",
     strict_validation=False,
     title="Establish a non-listed company",
     description="Create the initial set of data to establish a non-listed company.",
     tags=["Company"],
     request=EstablishmentRequest,
     response=EstablishmentResponse,
-    requires_authorization=True,
-    requires_consent=False,
 )

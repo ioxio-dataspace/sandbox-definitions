@@ -3,7 +3,7 @@
   "info": {
     "title": "Current weather in a given location",
     "description": "Common data points about the current weather with metric units in a given location. Simplified for example use, and not following industry standards.",
-    "version": "1.0.2"
+    "version": "1.0.3"
   },
   "paths": {
     "/Weather/Current/Metric_v1.0": {
@@ -13,48 +13,6 @@
         "description": "Common data points about the current weather with metric units in a given location. Simplified for example use, and not following industry standards.",
         "operationId": "request_Weather_Current_Metric_v1_0",
         "parameters": [
-          {
-            "name": "x-consent-token",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "Optional consent token",
-              "default": "",
-              "title": "X-Consent-Token"
-            },
-            "description": "Optional consent token"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "The login token. Value should be \"Bearer [token]\"",
-              "default": "",
-              "title": "Authorization"
-            },
-            "description": "The login token. Value should be \"Bearer [token]\""
-          },
-          {
-            "name": "x-authorization-provider",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "The bare domain of the system that provided the token.",
-              "title": "X-Authorization-Provider"
-            },
-            "description": "The bare domain of the system that provided the token."
-          },
           {
             "name": "x-api-key",
             "in": "header",

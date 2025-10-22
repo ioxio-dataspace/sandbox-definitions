@@ -146,7 +146,7 @@ class ManufacturingDataSheetRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.2",
+    version="0.1.3",
     strict_validation=False,
     deprecated=True,
     title="Drill Manufacturing Data Sheet",

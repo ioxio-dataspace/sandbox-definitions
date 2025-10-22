@@ -251,7 +251,7 @@ class BatteryDataResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.2",
+    version="1.0.3",
     strict_validation=False,
     title="Battery product data sheet",
     description="Technical details of a battery such as capacity and voltage.",
