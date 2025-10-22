@@ -12,6 +12,7 @@
         "summary": "Signatory rights of a non-listed company",
         "description": "The list of representation rights of a legal entity.",
         "operationId": "request_NSG_Agent_LegalEntity_NonListedCompany_SignatoryRights_v1_0",
+        "deprecated": true,
         "parameters": [
           {
             "name": "x-api-key",

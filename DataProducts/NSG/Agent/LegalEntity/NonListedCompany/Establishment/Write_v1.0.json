@@ -12,6 +12,7 @@
         "summary": "Establish a non-listed company",
         "description": "Create the initial set of data to establish a non-listed company.",
         "operationId": "request_NSG_Agent_LegalEntity_NonListedCompany_Establishment_Write_v1_0",
+        "deprecated": true,
         "parameters": [
           {
             "name": "x-api-key",

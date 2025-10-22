@@ -12,6 +12,7 @@
         "summary": "Beneficial owners of a non-listed company",
         "description": "The list of beneficial owners of a non-listed company. The shareholders exceeding 25 % ownership.",
         "operationId": "request_NSG_Agent_LegalEntity_NonListedCompany_BeneficialOwners_v1_0",
+        "deprecated": true,
         "parameters": [
           {
             "name": "x-api-key",
