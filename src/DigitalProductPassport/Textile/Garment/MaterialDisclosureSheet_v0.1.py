@@ -100,7 +100,7 @@ class Response(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.1",
+    version="0.1.2",
     strict_validation=False,
     title="Garment material disclosure sheet",
     description="Public summary of the garment's material composition, recycled content and material level certifications.",

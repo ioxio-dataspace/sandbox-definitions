@@ -3,7 +3,7 @@
   "info": {
     "title": "Measured quality metrics of a machine",
     "description": "Quality monitoring data for machines, including product serial number and quality performance measures.",
-    "version": "0.2.2"
+    "version": "0.2.3"
   },
   "paths": {
     "/DigitalProductPassport/Machine/QualityMetrics_v0.2": {
@@ -13,48 +13,6 @@
         "description": "Quality monitoring data for machines, including product serial number and quality performance measures.",
         "operationId": "request_DigitalProductPassport_Machine_QualityMetrics_v0_2",
         "parameters": [
-          {
-            "name": "x-consent-token",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "Optional consent token",
-              "default": "",
-              "title": "X-Consent-Token"
-            },
-            "description": "Optional consent token"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "The login token. Value should be \"Bearer [token]\"",
-              "default": "",
-              "title": "Authorization"
-            },
-            "description": "The login token. Value should be \"Bearer [token]\""
-          },
-          {
-            "name": "x-authorization-provider",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "The bare domain of the system that provided the token.",
-              "title": "X-Authorization-Provider"
-            },
-            "description": "The bare domain of the system that provided the token."
-          },
           {
             "name": "x-api-key",
             "in": "header",

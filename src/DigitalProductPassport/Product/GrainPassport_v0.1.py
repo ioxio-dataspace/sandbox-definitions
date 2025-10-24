@@ -314,7 +314,7 @@ class Response(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.2",
+    version="0.1.3",
     strict_validation=False,
     title="Grain Passport",
     description="Digital Product Passport for one shipment of grains.",

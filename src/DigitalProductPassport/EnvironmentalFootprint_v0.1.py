@@ -91,7 +91,7 @@ class ProductEnvironmentalFootprintRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.3",
+    version="0.1.4",
     strict_validation=False,
     title="Product environmental footprint",
     description="The environmental impact of the product manufacturing.",

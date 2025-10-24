@@ -3,7 +3,7 @@
   "info": {
     "title": "List of the shareholders of a company",
     "description": "Information about the shareholders of a company such as owners and shares quantity.",
-    "version": "1.0.2"
+    "version": "1.0.3"
   },
   "paths": {
     "/Company/Shareholders_v1.0": {
@@ -13,48 +13,6 @@
         "description": "Information about the shareholders of a company such as owners and shares quantity.",
         "operationId": "request_Company_Shareholders_v1_0",
         "parameters": [
-          {
-            "name": "x-consent-token",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "Optional consent token",
-              "default": "",
-              "title": "X-Consent-Token"
-            },
-            "description": "Optional consent token"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "The login token. Value should be \"Bearer [token]\"",
-              "default": "",
-              "title": "Authorization"
-            },
-            "description": "The login token. Value should be \"Bearer [token]\""
-          },
-          {
-            "name": "x-authorization-provider",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "The bare domain of the system that provided the token.",
-              "title": "X-Authorization-Provider"
-            },
-            "description": "The bare domain of the system that provided the token."
-          },
           {
             "name": "x-api-key",
             "in": "header",

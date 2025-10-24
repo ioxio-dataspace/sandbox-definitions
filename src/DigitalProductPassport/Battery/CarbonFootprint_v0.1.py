@@ -155,7 +155,7 @@ class CarbonFootprintRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.4",
+    version="0.1.5",
     strict_validation=False,
     title="Battery carbon footprint",
     description="Carbon footprint of a battery as required by the European "

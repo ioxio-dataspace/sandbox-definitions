@@ -207,7 +207,7 @@ class HealthDataRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.2.2",
+    version="0.2.3",
     strict_validation=False,
     title="Battery health data",
     description="The health and status data of a battery as required by Battery "

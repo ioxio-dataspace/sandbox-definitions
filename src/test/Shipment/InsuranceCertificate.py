@@ -22,7 +22,7 @@ class InsuranceCertificateRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.0.2",
+    version="0.0.3",
     strict_validation=False,
     title="Insurance certificate for a shipment",
     description="Get all the details necessary about the insurance certificate for a specific shipment based on the shipment ID.",

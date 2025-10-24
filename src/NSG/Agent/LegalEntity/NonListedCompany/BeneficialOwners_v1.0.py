@@ -82,14 +82,13 @@ class BeneficialOwnersResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.2",
+    version="1.0.3",
     strict_validation=False,
+    deprecated=True,
     title="Beneficial owners of a non-listed company",
     description="The list of beneficial owners of a non-listed company. The "
     "shareholders exceeding 25 % ownership.",
     request=BeneficialOwnersRequest,
     response=BeneficialOwnersResponse,
     tags=["Company"],
-    requires_authorization=True,
-    requires_consent=True,
 )

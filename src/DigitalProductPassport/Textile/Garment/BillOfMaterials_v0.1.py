@@ -153,7 +153,7 @@ class Response(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.2",
+    version="0.1.3",
     strict_validation=False,
     title="Garment Bill of Materials",
     description="Details of the garment's bill of materials.",

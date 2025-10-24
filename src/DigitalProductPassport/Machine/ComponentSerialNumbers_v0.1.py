@@ -47,7 +47,7 @@ class MachineSerialNumberRequest(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.2",
+    version="0.1.3",
     strict_validation=False,
     title="Machine component serial numbers",
     description="List serial numbers of components in a machine.",

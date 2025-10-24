@@ -85,7 +85,7 @@ class NutritionalValuesResponse(CamelCaseModel):
 
 
 DEFINITION = DataProductDefinition(
-    version="0.1.2",
+    version="0.1.3",
     strict_validation=False,
     title="Food Artifact Nutritional Values",
     description="Returns the nutritional values of a food product.",

@@ -3,7 +3,7 @@
   "info": {
     "title": "NSG Agent information",
     "description": "In the Nordic Smart Government information exchange context the agent represents both registered organizations (\"companies\") and persons who are doing business without being registered organizations, usually as sole traders (sole proprietors). This data product definition returns basic information content for any agent.",
-    "version": "1.0.2"
+    "version": "1.0.3"
   },
   "paths": {
     "/NSG/Agent/BasicInformation_v1.0": {
@@ -13,48 +13,6 @@
         "description": "In the Nordic Smart Government information exchange context the agent represents both registered organizations (\"companies\") and persons who are doing business without being registered organizations, usually as sole traders (sole proprietors). This data product definition returns basic information content for any agent.",
         "operationId": "request_NSG_Agent_BasicInformation_v1_0",
         "parameters": [
-          {
-            "name": "x-consent-token",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "Optional consent token",
-              "default": "",
-              "title": "X-Consent-Token"
-            },
-            "description": "Optional consent token"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "description": "The login token. Value should be \"Bearer [token]\"",
-              "default": "",
-              "title": "Authorization"
-            },
-            "description": "The login token. Value should be \"Bearer [token]\""
-          },
-          {
-            "name": "x-authorization-provider",
-            "in": "header",
-            "required": false,
-            "schema": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ],
-              "description": "The bare domain of the system that provided the token.",
-              "title": "X-Authorization-Provider"
-            },
-            "description": "The bare domain of the system that provided the token."
-          },
           {
             "name": "x-api-key",
             "in": "header",
