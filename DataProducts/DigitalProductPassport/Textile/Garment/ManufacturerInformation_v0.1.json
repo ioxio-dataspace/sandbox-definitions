@@ -3,7 +3,7 @@
   "info": {
     "title": "Garment manufacturer information",
     "description": "Details of the garment manufacturers and facilities.",
-    "version": "0.1.2"
+    "version": "0.1.3"
   },
   "paths": {
     "/DigitalProductPassport/Textile/Garment/ManufacturerInformation_v0.1": {
@@ -363,7 +363,7 @@
             "type": "string",
             "format": "date",
             "title": "Manufacturing date",
-            "description": "The date of the garment was manufactured.",
+            "description": "The date of the garment was manufactured in ISO 8601 format.",
             "examples": ["2023-01-01"]
           },
           "manufacturerName": {
@@ -376,7 +376,6 @@
           },
           "manufacturingLocation": {
             "$ref": "#/components/schemas/ManufacturingLocation",
-            "title": "Manufacturing location",
             "description": "The details of the manufacturing location."
           },
           "facilityId": {
@@ -391,7 +390,7 @@
               }
             ],
             "title": "Facility ID",
-            "description": "The facility id of the manufacturing site in the GLN format.",
+            "description": "The facility ID of the manufacturing site in the GLN format.",
             "examples": ["1234567000004"]
           }
         },
@@ -410,7 +409,7 @@
             "type": "string",
             "pattern": "^[A-Z]{3}$",
             "title": "Country",
-            "description": "The country code of the manufacturing location in Alpha-3 format.",
+            "description": "The country code of the manufacturing location in ISO 3166-1 alpha-3 format.",
             "examples": ["POL"]
           },
           "city": {
@@ -431,7 +430,7 @@
         },
         "type": "object",
         "required": ["country"],
-        "title": "ManufacturingLocation"
+        "title": "Manufacturing location"
       },
       "ManufacturingPhase": {
         "type": "string",

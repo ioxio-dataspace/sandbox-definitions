@@ -3,7 +3,7 @@
   "info": {
     "title": "Signatory rights of a non-listed company",
     "description": "The list of representation rights of a legal entity.",
-    "version": "1.0.3"
+    "version": "1.0.4"
   },
   "paths": {
     "/NSG/Agent/LegalEntity/NonListedCompany/SignatoryRights_v1.0": {
@@ -882,7 +882,7 @@
           "dateOfBirth",
           "nationality"
         ],
-        "title": "SignatoryRights"
+        "title": "Signatory rights"
       },
       "SignatoryRightsRequest": {
         "properties": {
@@ -891,12 +891,12 @@
             "maxLength": 40,
             "title": "National identifier",
             "description": "The national identifier of the non-listed company issued by the trade register.",
-            "examples": ["FIN: 2464491-9 / SWE: 5560125791 / NOR: 923609016"]
+            "examples": ["2464491-9", "5560125791", "923609016"]
           }
         },
         "type": "object",
         "required": ["nationalIdentifier"],
-        "title": "SignatoryRightsRequest"
+        "title": "Signatory rights request"
       },
       "SignatoryRightsResponse": {
         "properties": {
@@ -911,7 +911,7 @@
         },
         "type": "object",
         "required": ["signatoryRights"],
-        "title": "SignatoryRightsResponse"
+        "title": "Signatory rights response"
       },
       "Unauthorized": {
         "properties": {

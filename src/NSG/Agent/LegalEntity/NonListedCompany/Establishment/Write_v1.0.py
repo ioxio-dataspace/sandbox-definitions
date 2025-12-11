@@ -3,7 +3,7 @@ from enum import Enum
 from typing import List, Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import EmailStr, Field
+from pydantic import ConfigDict, EmailStr, Field
 
 
 class IndustrySector(str, Enum):
@@ -1269,7 +1269,7 @@ class Registrant(CamelCaseModel):
         ...,
         title="Email",
         description="The person's contact email address.",
-        examples=["john.doe@test.fi"],
+        examples=["john.doe@example.com"],
     )
     phone_number: str = Field(
         ...,
@@ -1278,6 +1278,8 @@ class Registrant(CamelCaseModel):
         examples=["+358501234567"],
         max_length=250,
     )
+
+    model_config: ConfigDict = ConfigDict(title="Registrant")
 
 
 class CompanyDetails(CamelCaseModel):
@@ -1346,10 +1348,11 @@ class CompanyDetails(CamelCaseModel):
     country_of_residence: Optional[ISO_3166_1_Alpha_3] = Field(
         None,
         title="Country of residence",
-        description="The company's current country of the residence in the three "
-        "character (Alpha-3) format if it already exists abroad.",
+        description="The company's current country of the residence in the ISO 3166-1 alpha-3 format if it already exists abroad.",
         examples=[ISO_3166_1_Alpha_3.USA],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Company details")
 
 
 class ShareSeries(CamelCaseModel):
@@ -1378,6 +1381,8 @@ class ShareSeries(CamelCaseModel):
         description="The currency used for the share value in ISO 4217 format.",
         examples=[ISO_4217_CurrencyCode.EUR],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Share series")
 
 
 class CompanyAddress(CamelCaseModel):
@@ -1473,6 +1478,8 @@ class CompanyAddress(CamelCaseModel):
         max_length=40,
     )
 
+    model_config: ConfigDict = ConfigDict(title="Company address")
+
 
 class ManagingDirector(CamelCaseModel):
     role: ManagingDirectorRole = Field(
@@ -1514,6 +1521,8 @@ class ManagingDirector(CamelCaseModel):
         description="The nationality of the person.",
         examples=[ISO_3166_1_Alpha_3.USA],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Managing director")
 
 
 class BoardMember(CamelCaseModel):
@@ -1557,6 +1566,8 @@ class BoardMember(CamelCaseModel):
         examples=[ISO_3166_1_Alpha_3.USA],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Board member")
+
 
 class AuditorDetails(CamelCaseModel):
     company_name: Optional[str] = Field(
@@ -1588,6 +1599,8 @@ class AuditorDetails(CamelCaseModel):
         examples=["Doe"],
         max_length=250,
     )
+
+    model_config: ConfigDict = ConfigDict(title="Auditor details")
 
 
 class EstablishmentRequest(CamelCaseModel):
@@ -1625,13 +1638,15 @@ class EstablishmentRequest(CamelCaseModel):
         description="The details of the company and person auditing the company.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Establishment request")
+
 
 class EstablishmentResponse(EstablishmentRequest):
     pass
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.3",
+    version="1.0.4",
     strict_validation=False,
     deprecated=True,
     title="Establish a non-listed company",

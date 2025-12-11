@@ -2,7 +2,7 @@ from enum import Enum
 from typing import Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class ComponentType(str, Enum):
@@ -38,6 +38,8 @@ class ColorInformation(CamelCaseModel):
         examples=["19-4052 TCX"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Color information")
+
 
 class Material(CamelCaseModel):
     name: str = Field(
@@ -54,7 +56,7 @@ class Material(CamelCaseModel):
         description="The percentage of material content in the component, expressed as a percentage by weight.",
         gte=0,
         lte=100,
-        examples=[50],
+        examples=[50.0],
     )
     recycling_rate: Optional[float] = Field(
         None,
@@ -62,8 +64,10 @@ class Material(CamelCaseModel):
         description="The amount of recycled content in the material substance, expressed as a percentage by weight.",
         gte=0,
         lte=100,
-        examples=[50],
+        examples=[50.0],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Material")
 
 
 class Chemical(CamelCaseModel):
@@ -82,6 +86,8 @@ class Chemical(CamelCaseModel):
         examples=["200-001-8"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Chemical")
+
 
 class Component(CamelCaseModel):
     name: str = Field(
@@ -90,7 +96,7 @@ class Component(CamelCaseModel):
         description="The name of the component in the garment.",
         min_length=0,
         max_length=40,
-        examples=["zipper xyz / fabric silk xyz"],
+        examples=["zipper", "fabric silk"],
     )
     type: ComponentType = Field(
         ...,
@@ -114,6 +120,8 @@ class Component(CamelCaseModel):
         description="List of chemicals used in the component.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Component")
+
 
 class Request(CamelCaseModel):
     product: str = Field(
@@ -133,6 +141,8 @@ class Request(CamelCaseModel):
         examples=["71b51878-8a00-11ee-b9d1-0242ac120002"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Request")
+
 
 class Response(CamelCaseModel):
     outer_components: list[Component] = Field(
@@ -151,9 +161,11 @@ class Response(CamelCaseModel):
         description="List of all notions and trim components. The notions and trim components include fabrics and other structures used for the functional and decorative elements of the garment, including safety elements, refinement features and sewing threads.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Response")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.3",
+    version="0.1.4",
     strict_validation=False,
     title="Garment Bill of Materials",
     description="Details of the garment's bill of materials.",

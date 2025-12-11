@@ -3,7 +3,7 @@
   "info": {
     "title": "Environmental footprint information for a product",
     "description": "Information about environmental footprint of a product in the manufacturing phase.",
-    "version": "1.0.3"
+    "version": "1.0.4"
   },
   "paths": {
     "/Product/Manufacturing/EnvironmentalFootprint_v1.0": {
@@ -307,7 +307,7 @@
         },
         "type": "object",
         "required": ["serialNumber"],
-        "title": "EnvironmentalFootprintRequest"
+        "title": "Environmental footprint request"
       },
       "EnvironmentalFootprintResponse": {
         "properties": {
@@ -326,7 +326,7 @@
         },
         "type": "object",
         "required": ["carbonEquivalent", "materialWaste"],
-        "title": "EnvironmentalFootprintResponse"
+        "title": "Environmental footprint response"
       },
       "Forbidden": {
         "properties": {

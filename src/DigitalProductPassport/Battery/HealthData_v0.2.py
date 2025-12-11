@@ -3,7 +3,7 @@ from enum import Enum
 from typing import List, Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class Status(str, Enum):
@@ -49,6 +49,8 @@ class OriginalPerformance(CamelCaseModel):
         examples=[10],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Original performance")
+
 
 class OperationDetail(CamelCaseModel):
     measurement_date: Optional[datetime.date] = Field(
@@ -78,6 +80,8 @@ class OperationDetail(CamelCaseModel):
         description="The temperature of the battery measured in Celsius degrees.",
         examples=[40.0],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Operation detail")
 
 
 class HealthState(CamelCaseModel):
@@ -132,6 +136,8 @@ class HealthState(CamelCaseModel):
         description="The periodic information of the battery operation.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Health state")
+
 
 class HarmfulEvent(CamelCaseModel):
     event_date: Optional[datetime.date] = Field(
@@ -149,6 +155,8 @@ class HarmfulEvent(CamelCaseModel):
         examples=["30 minutes spent in extreme temperature -50 Celsius"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Harmful event")
+
 
 class HealthDataResponse(CamelCaseModel):
     status: Optional[Status] = Field(
@@ -160,14 +168,14 @@ class HealthDataResponse(CamelCaseModel):
     manufacturing_date: Optional[str] = Field(
         None,
         title="Manufacturing date",
-        description="The date of manufacture using month and year.",
+        description="The date of manufacture in ISO 8601 month format.",
         pattern=r"^\d{4}-(0[1-9]|1[0-2])$",
         examples=["2023-07"],
     )
     service_initiation_date: Optional[str] = Field(
         None,
         title="Service initiation date",
-        description="The date on which the battery was first commissioned.",
+        description="The date on which the battery was first commissioned in ISO 8601 month format.",
         pattern=r"^\d{4}-(0[1-9]|1[0-2])$",
         examples=["2023-12"],
     )
@@ -188,6 +196,8 @@ class HealthDataResponse(CamelCaseModel):
         "battery.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Health data response")
+
 
 class HealthDataRequest(CamelCaseModel):
     product: str = Field(
@@ -200,14 +210,16 @@ class HealthDataRequest(CamelCaseModel):
     id: str = Field(
         ...,
         max_length=40,
-        title="Id",
+        title="ID",
         description="The unique identifier of the product.",
         examples=["660e8400-e29b-41d4-a716-446655440000"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Health data request")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.2.3",
+    version="0.2.4",
     strict_validation=False,
     title="Battery health data",
     description="The health and status data of a battery as required by Battery "

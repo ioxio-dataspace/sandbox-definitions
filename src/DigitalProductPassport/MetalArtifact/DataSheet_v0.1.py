@@ -1,7 +1,7 @@
 from typing import List, Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class EnStandardCertification(CamelCaseModel):
@@ -13,6 +13,8 @@ class EnStandardCertification(CamelCaseModel):
         "compliant with.",
         examples=["EN 10002-1"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="EN Standard certification")
 
 
 class Measures(CamelCaseModel):
@@ -35,6 +37,8 @@ class Measures(CamelCaseModel):
         examples=[0],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Measures")
+
 
 class MetalArtifactDataSheetRequest(CamelCaseModel):
     product: str = Field(
@@ -49,6 +53,8 @@ class MetalArtifactDataSheetRequest(CamelCaseModel):
         description="Unique identifier of the product.",
         examples=["550e8400-e29b-41d4-a716-446655440000"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Metal artifact data sheet request")
 
 
 class MetalArtifactDataSheetResponse(CamelCaseModel):
@@ -85,9 +91,11 @@ class MetalArtifactDataSheetResponse(CamelCaseModel):
         description="The list of EN standards.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Metal artifact data sheet response")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.3",
+    version="0.1.4",
     strict_validation=False,
     title="Data Sheet For Metal Artifacts",
     description="Returns the basic product information of a metal product.",

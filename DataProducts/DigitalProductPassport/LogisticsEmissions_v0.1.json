@@ -3,7 +3,7 @@
   "info": {
     "title": "Logistics Emissions",
     "description": "Returns the total emission per leg for an end-to-end shipment compliant with the European Union's count emissions reporting regulation.",
-    "version": "0.1.3"
+    "version": "0.1.4"
   },
   "paths": {
     "/DigitalProductPassport/LogisticsEmissions_v0.1": {
@@ -346,7 +346,7 @@
           }
         },
         "type": "object",
-        "title": "EmissionsPerTCE"
+        "title": "Emissions per TCE"
       },
       "Forbidden": {
         "properties": {
@@ -438,7 +438,7 @@
         },
         "type": "object",
         "required": ["product", "id"],
-        "title": "LogisticsEmissionsRequest"
+        "title": "Logistics emissions request"
       },
       "LogisticsEmissionsResponse": {
         "properties": {
@@ -466,7 +466,7 @@
         },
         "type": "object",
         "required": ["roadFreightEmissions", "seaFreightEmissions", "waybillNumber"],
-        "title": "LogisticsEmissionsResponse"
+        "title": "Logistics emissions response"
       },
       "NotFound": {
         "properties": {
@@ -631,7 +631,7 @@
             ],
             "title": "Emission Intensity",
             "description": "The GHG emission intensity of the road transport per transported tonne and kilometer in CO2e grams / tonne / km.",
-            "examples": [200]
+            "examples": [200.0]
           },
           "emissionsPerTce": {
             "items": {
@@ -644,7 +644,7 @@
         },
         "type": "object",
         "required": ["emissionsPerTce"],
-        "title": "RoadLeg"
+        "title": "Road leg"
       },
       "RoadLegFreightCondition": {
         "type": "string",
@@ -758,7 +758,7 @@
             ],
             "title": "Emission Intensity",
             "description": "The GHG emission intensity of the sea transport per transported tonne and kilometer in CO2e grams / tonne / km.",
-            "examples": [500]
+            "examples": [500.0]
           },
           "emissionsPerTce": {
             "items": {
@@ -771,7 +771,7 @@
         },
         "type": "object",
         "required": ["emissionsPerTce"],
-        "title": "SeaLeg"
+        "title": "Sea leg"
       },
       "SeaLegFreightCondition": {
         "type": "string",

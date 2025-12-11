@@ -1,7 +1,7 @@
 from typing import List
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class SerialNumber(CamelCaseModel):
@@ -20,6 +20,8 @@ class SerialNumber(CamelCaseModel):
         examples=["S05001"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Serial number")
+
 
 class MachineSerialNumberResponse(CamelCaseModel):
     serial_numbers: list[SerialNumber] = Field(
@@ -27,6 +29,8 @@ class MachineSerialNumberResponse(CamelCaseModel):
         title="Component serial numbers",
         description="Serial numbers of components of the machine.",
     )
+
+    model_config: ConfigDict = ConfigDict(title="Machine serial number response")
 
 
 class MachineSerialNumberRequest(CamelCaseModel):
@@ -45,9 +49,11 @@ class MachineSerialNumberRequest(CamelCaseModel):
         examples=["71b51878-8a00-11ee-b9d1-0242ac120002"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Machine serial number request")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.3",
+    version="0.1.4",
     strict_validation=False,
     title="Machine component serial numbers",
     description="List serial numbers of components in a machine.",

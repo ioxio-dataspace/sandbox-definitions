@@ -3,7 +3,7 @@
   "info": {
     "title": "Beneficial owners of a non-listed company",
     "description": "The list of beneficial owners of a non-listed company. The shareholders exceeding 25 % ownership.",
-    "version": "1.0.3"
+    "version": "1.0.4"
   },
   "paths": {
     "/NSG/Agent/LegalEntity/NonListedCompany/BeneficialOwners_v1.0": {
@@ -233,12 +233,12 @@
             "maxLength": 40,
             "title": "National identifier",
             "description": "The national identifier of the non-listed company issued by the trade register in any Nordic country.",
-            "examples": ["FIN: 2464491-9 / SWE: 5560125791 / NOR:  923609016"]
+            "examples": ["2464491-9", "5560125791", "923609016"]
           }
         },
         "type": "object",
         "required": ["nationalIdentifier"],
-        "title": "BeneficialOwnersRequest"
+        "title": "Beneficial owners request"
       },
       "BeneficialOwnersResponse": {
         "properties": {
@@ -261,7 +261,7 @@
         },
         "type": "object",
         "required": ["shareSeries", "shareholders"],
-        "title": "BeneficialOwnersResponse"
+        "title": "Beneficial owners response"
       },
       "DataSourceError": {
         "properties": {
@@ -471,7 +471,7 @@
         },
         "type": "object",
         "required": ["shareSeriesClass", "quantity"],
-        "title": "ShareOwnership"
+        "title": "Share ownership"
       },
       "ShareSeries": {
         "properties": {
@@ -497,7 +497,7 @@
         },
         "type": "object",
         "required": ["shareSeriesClass", "numberOfShares", "votesPerShare"],
-        "title": "ShareSeries"
+        "title": "Share series"
       },
       "Shareholder": {
         "properties": {
@@ -506,7 +506,7 @@
             "maxLength": 250,
             "title": "Name",
             "description": "The name of a shareholder of the company.",
-            "examples": ["Lars Lindberg | Company Ltd"]
+            "examples": ["Lars Lindberg", "Company Ltd"]
           },
           "shareOwnership": {
             "items": {

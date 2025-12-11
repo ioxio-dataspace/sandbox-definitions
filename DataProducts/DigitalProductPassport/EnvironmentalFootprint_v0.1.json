@@ -3,7 +3,7 @@
   "info": {
     "title": "Product environmental footprint",
     "description": "The environmental impact of the product manufacturing.",
-    "version": "0.1.4"
+    "version": "0.1.5"
   },
   "paths": {
     "/DigitalProductPassport/EnvironmentalFootprint_v0.1": {
@@ -300,7 +300,7 @@
           }
         },
         "type": "object",
-        "title": "CarbonFootprint"
+        "title": "Carbon footprint"
       },
       "DataSourceError": {
         "properties": {
@@ -460,7 +460,7 @@
           }
         },
         "type": "object",
-        "title": "MaterialWaste"
+        "title": "Material waste"
       },
       "NotFound": {
         "properties": {
@@ -502,13 +502,12 @@
         },
         "type": "object",
         "required": ["product", "id"],
-        "title": "ProductEnvironmentalFootprintRequest"
+        "title": "Product environmental footprint request"
       },
       "ProductEnvironmentalFootprintResponse": {
         "properties": {
           "carbonFootprint": {
             "$ref": "#/components/schemas/CarbonFootprint",
-            "title": "Carbon footprint",
             "description": "The details of the carbon footprint during production."
           },
           "materialWaste": {
@@ -526,7 +525,7 @@
         },
         "type": "object",
         "required": ["carbonFootprint"],
-        "title": "ProductEnvironmentalFootprintResponse"
+        "title": "Product environmental footprint response"
       },
       "RateLimitExceeded": {
         "properties": {

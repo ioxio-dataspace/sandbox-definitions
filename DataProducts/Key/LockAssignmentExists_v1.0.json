@@ -3,7 +3,7 @@
   "info": {
     "title": "Check if lock assignment exists",
     "description": "Check if a key has access to a specific lock.",
-    "version": "1.0.3"
+    "version": "1.0.4"
   },
   "paths": {
     "/Key/LockAssignmentExists_v1.0": {
@@ -371,12 +371,12 @@
           "sharedSecret": {
             "type": "string",
             "title": "Shared Secret",
-            "description": "Shared secret between the productizer and the system using it."
+            "description": "Shared secret between the data source and the system using it."
           }
         },
         "type": "object",
         "required": ["keyId", "lockId", "sharedSecret"],
-        "title": "LockAssignmentExistsRequest"
+        "title": "Lock assignment exists request"
       },
       "LockAssignmentExistsResponse": {
         "properties": {
@@ -389,7 +389,7 @@
         },
         "type": "object",
         "required": ["exists"],
-        "title": "LockAssignmentExistsResponse"
+        "title": "Lock assignment exists response"
       },
       "NotFound": {
         "properties": {

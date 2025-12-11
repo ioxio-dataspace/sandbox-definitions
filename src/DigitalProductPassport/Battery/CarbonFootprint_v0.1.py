@@ -1,7 +1,7 @@
 from typing import Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import EmailStr, Field
+from pydantic import ConfigDict, EmailStr, Field
 
 
 class ManufacturingLocation(CamelCaseModel):
@@ -9,7 +9,7 @@ class ManufacturingLocation(CamelCaseModel):
         None,
         title="Country",
         pattern=r"^[A-Z]{3}$",
-        description="The country code of the battery manufacturing location in Alpha-3 "
+        description="The country code of the battery manufacturing location in ISO 3166-1 alpha-3 "
         "format.",
         examples=["DEU"],
     )
@@ -20,6 +20,8 @@ class ManufacturingLocation(CamelCaseModel):
         description="The city of the battery manufacturing location.",
         examples=["Hamburg"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Manufacturing location")
 
 
 class ManufacturerInformation(CamelCaseModel):
@@ -74,6 +76,8 @@ class ManufacturerInformation(CamelCaseModel):
         examples=["info@example.com"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Manufacturer information")
+
 
 class CarbonFootprint(CamelCaseModel):
     pre_production_footprint: Optional[float] = Field(
@@ -101,6 +105,8 @@ class CarbonFootprint(CamelCaseModel):
         "supporting the carbon footprint values.",
         examples=["https://example.com/CarbonFootprint"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Carbon footprint")
 
 
 class CarbonFootprintResponse(CamelCaseModel):
@@ -136,6 +142,8 @@ class CarbonFootprintResponse(CamelCaseModel):
         "phases.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Carbon footprint response")
+
 
 class CarbonFootprintRequest(CamelCaseModel):
     product: str = Field(
@@ -148,14 +156,16 @@ class CarbonFootprintRequest(CamelCaseModel):
     id: str = Field(
         ...,
         max_length=40,
-        title="Id",
+        title="ID",
         description="The unique identifier of the product.",
         examples=["660e8400-e29b-41d4-a716-446655440000"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Carbon footprint request")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.5",
+    version="0.1.6",
     strict_validation=False,
     title="Battery carbon footprint",
     description="Carbon footprint of a battery as required by the European "

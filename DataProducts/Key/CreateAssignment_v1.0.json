@@ -3,7 +3,7 @@
   "info": {
     "title": "Create key assignment",
     "description": "Assign a key to have access to a specific lock.",
-    "version": "1.0.3"
+    "version": "1.0.4"
   },
   "paths": {
     "/Key/CreateAssignment_v1.0": {
@@ -245,12 +245,12 @@
           "sharedSecret": {
             "type": "string",
             "title": "Shared Secret",
-            "description": "Shared secret between the productizer and the system using it."
+            "description": "Shared secret between the data source and the system using it."
           }
         },
         "type": "object",
         "required": ["keyId", "lockId", "sharedSecret"],
-        "title": "CreateAssignmentRequest"
+        "title": "Create assignment request"
       },
       "CreateAssignmentResponse": {
         "properties": {
@@ -272,7 +272,7 @@
         },
         "type": "object",
         "required": ["keyId", "lockId"],
-        "title": "CreateAssignmentResponse"
+        "title": "Create assignment response"
       },
       "DataSourceError": {
         "properties": {

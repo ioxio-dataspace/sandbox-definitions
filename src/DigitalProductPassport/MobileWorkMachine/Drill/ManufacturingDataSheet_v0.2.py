@@ -2,7 +2,7 @@ from enum import Enum
 from typing import List, Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import EmailStr, Field
+from pydantic import ConfigDict, EmailStr, Field
 
 
 class PowerSystemType(str, Enum):
@@ -45,7 +45,7 @@ class ManufacturerInformation(CamelCaseModel):
         title="Country",
         pattern=r"^[A-Z]{3}$",
         description="The country code of the manufacturer's headquarters location in "
-        "Alpha-3 format.",
+        "ISO 3166-1 alpha-3 format.",
         examples=["SWE"],
     )
     website: Optional[str] = Field(
@@ -63,6 +63,8 @@ class ManufacturerInformation(CamelCaseModel):
         examples=["info@example.com"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Manufacturer information")
+
 
 class ElectricMotors(CamelCaseModel):
     motor_type: Optional[str] = Field(
@@ -79,6 +81,8 @@ class ElectricMotors(CamelCaseModel):
         ge=0,
         examples=[2],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Electric motors")
 
 
 class Batteries(CamelCaseModel):
@@ -104,6 +108,8 @@ class Batteries(CamelCaseModel):
         examples=[2],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Batteries")
+
 
 class PowerSystem(CamelCaseModel):
     type: Optional[PowerSystemType] = Field(
@@ -122,6 +128,8 @@ class PowerSystem(CamelCaseModel):
         title="Batteries",
         description="The list of batteries in the machine.",
     )
+
+    model_config: ConfigDict = ConfigDict(title="Power system")
 
 
 class ManufacturingDataSheetResponse(CamelCaseModel):
@@ -196,6 +204,8 @@ class ManufacturingDataSheetResponse(CamelCaseModel):
         examples=["https://example.com/safetyDocument"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Manufacturing data sheet response")
+
 
 class ManufacturingDataSheetRequest(CamelCaseModel):
     product: str = Field(
@@ -208,14 +218,16 @@ class ManufacturingDataSheetRequest(CamelCaseModel):
     id: str = Field(
         ...,
         max_length=40,
-        title="Id",
+        title="ID",
         description="The unique identifier of the product.",
         examples=["71b51878-8a00-11ee-b9d1-0242ac120002"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Manufacturing data sheet request")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.2.3",
+    version="0.2.4",
     strict_validation=False,
     title="Drill Manufacturing Data Sheet",
     description="Manufacturing data sheet of a Mobile Drill Machine.",

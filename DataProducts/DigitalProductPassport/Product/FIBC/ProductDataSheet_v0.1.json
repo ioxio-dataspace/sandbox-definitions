@@ -3,7 +3,7 @@
   "info": {
     "title": "FIBC Product data sheet",
     "description": "Product data sheet for FIBC bulk bags.",
-    "version": "0.1.2"
+    "version": "0.1.3"
   },
   "paths": {
     "/DigitalProductPassport/Product/FIBC/ProductDataSheet_v0.1": {
@@ -299,7 +299,7 @@
             ],
             "title": "Diameter (cm)",
             "description": "Diameter of the bottom part, in centimeters.",
-            "examples": [60]
+            "examples": [60.0]
           },
           "length": {
             "anyOf": [
@@ -312,7 +312,7 @@
             ],
             "title": "Length (cm)",
             "description": "Length of the bottom part, in centimeters.",
-            "examples": [60]
+            "examples": [60.0]
           },
           "coatingApplied": {
             "anyOf": [
@@ -605,7 +605,7 @@
             ],
             "title": "Thickness (µm)",
             "description": "Thickness of the liner, microns.",
-            "examples": [100]
+            "examples": [100.0]
           },
           "color": {
             "anyOf": [
@@ -652,7 +652,7 @@
             ],
             "title": "Height (cm)",
             "description": "Height of the loops, in centimeters.",
-            "examples": [30]
+            "examples": [30.0]
           },
           "color": {
             "anyOf": [
@@ -757,7 +757,7 @@
               }
             ],
             "title": "Production country",
-            "description": "Country where the product was produced, in ISO 3166-1 alpha-3.",
+            "description": "Country where the product was produced, in ISO 3166-1 alpha-3 format.",
             "examples": ["IND"]
           },
           "safetyFactor": {
@@ -786,7 +786,7 @@
         },
         "type": "object",
         "required": ["complianceCertifications"],
-        "title": "ManufacturingInformation"
+        "title": "Manufacturing information"
       },
       "NotFound": {
         "properties": {
@@ -949,7 +949,6 @@
           },
           "manufacturingInformation": {
             "$ref": "#/components/schemas/ManufacturingInformation",
-            "title": "Manufacturing information",
             "description": "The manufacturing details of the bag."
           },
           "dimensions": {
@@ -1119,7 +1118,7 @@
             ],
             "title": "Diameter (cm)",
             "description": "Diameter of the top spout, in centimeters.",
-            "examples": [40]
+            "examples": [40.0]
           },
           "length": {
             "anyOf": [
@@ -1132,7 +1131,7 @@
             ],
             "title": "Length (cm)",
             "description": "Length of the top spout, in centimeters.",
-            "examples": [50]
+            "examples": [50.0]
           },
           "coatingApplied": {
             "anyOf": [
@@ -1163,7 +1162,7 @@
           }
         },
         "type": "object",
-        "title": "TopSpout"
+        "title": "Top spout"
       },
       "Unauthorized": {
         "properties": {

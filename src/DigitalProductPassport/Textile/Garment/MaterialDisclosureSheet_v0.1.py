@@ -1,7 +1,7 @@
 from typing import Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class Material(CamelCaseModel):
@@ -29,6 +29,8 @@ class Material(CamelCaseModel):
         lte=100,
         examples=[50.0],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Material")
 
 
 class MaterialInformation(CamelCaseModel):
@@ -61,6 +63,8 @@ class MaterialInformation(CamelCaseModel):
         ],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Material information")
+
 
 class Request(CamelCaseModel):
     product: str = Field(
@@ -80,6 +84,8 @@ class Request(CamelCaseModel):
         examples=["71b51878-8a00-11ee-b9d1-0242ac120002"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Request")
+
 
 class Response(CamelCaseModel):
     outer_material_information: MaterialInformation = Field(
@@ -98,9 +104,11 @@ class Response(CamelCaseModel):
         description="Information about the notions and trim materials that make up 5% or more of the garment's total weight. Notions and trim materials are used for functional and decorative elements of the garment, including safety components, refinement features, and sewing threads.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Response")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.2",
+    version="0.1.3",
     strict_validation=False,
     title="Garment material disclosure sheet",
     description="Public summary of the garment's material composition, recycled content and material level certifications.",

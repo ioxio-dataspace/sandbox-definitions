@@ -15,7 +15,7 @@ class Beacon(CamelCaseModel):
         ...,
         title="RSSI",
         description="Received Signal Strength Indication, in dBm",
-        examples=[-55],
+        examples=[-55.0],
     )
 
 

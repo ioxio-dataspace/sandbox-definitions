@@ -3,7 +3,7 @@
   "info": {
     "title": "Battery carbon footprint",
     "description": "Carbon footprint of a battery as required by the European Commission's Battery Act (2023/1542).",
-    "version": "0.1.5"
+    "version": "0.1.6"
   },
   "paths": {
     "/DigitalProductPassport/Battery/CarbonFootprint_v0.1": {
@@ -270,7 +270,7 @@
           }
         },
         "type": "object",
-        "title": "CarbonFootprint"
+        "title": "Carbon footprint"
       },
       "CarbonFootprintRequest": {
         "properties": {
@@ -284,14 +284,14 @@
           "id": {
             "type": "string",
             "maxLength": 40,
-            "title": "Id",
+            "title": "ID",
             "description": "The unique identifier of the product.",
             "examples": ["660e8400-e29b-41d4-a716-446655440000"]
           }
         },
         "type": "object",
         "required": ["product", "id"],
-        "title": "CarbonFootprintRequest"
+        "title": "Carbon footprint request"
       },
       "CarbonFootprintResponse": {
         "properties": {
@@ -362,7 +362,7 @@
           }
         },
         "type": "object",
-        "title": "CarbonFootprintResponse"
+        "title": "Carbon footprint response"
       },
       "DataSourceError": {
         "properties": {
@@ -593,7 +593,7 @@
           }
         },
         "type": "object",
-        "title": "ManufacturerInformation"
+        "title": "Manufacturer information"
       },
       "ManufacturingLocation": {
         "properties": {
@@ -608,7 +608,7 @@
               }
             ],
             "title": "Country",
-            "description": "The country code of the battery manufacturing location in Alpha-3 format.",
+            "description": "The country code of the battery manufacturing location in ISO 3166-1 alpha-3 format.",
             "examples": ["DEU"]
           },
           "city": {
@@ -627,7 +627,7 @@
           }
         },
         "type": "object",
-        "title": "ManufacturingLocation"
+        "title": "Manufacturing location"
       },
       "NotFound": {
         "properties": {

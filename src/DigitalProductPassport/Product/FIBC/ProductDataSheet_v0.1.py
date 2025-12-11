@@ -3,7 +3,7 @@ from enum import Enum
 from typing import Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class FIBCType(str, Enum):
@@ -55,7 +55,7 @@ class ManufacturingInformation(CamelCaseModel):
     production_country: Optional[str] = Field(
         None,
         title="Production country",
-        description="Country where the product was produced, in ISO 3166-1 alpha-3.",
+        description="Country where the product was produced, in ISO 3166-1 alpha-3 format.",
         pattern=r"^[A-Z]{3}$",
         min_length=3,
         max_length=3,
@@ -75,8 +75,11 @@ class ManufacturingInformation(CamelCaseModel):
         examples=[["ISO 21898", "HACCP"]],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Manufacturing information")
+
 
 class Dimensions(CamelCaseModel):
+    # TODO: These should likely be floats
     external_width: Optional[int] = Field(
         None,
         title="External width (cm)",
@@ -120,6 +123,8 @@ class Dimensions(CamelCaseModel):
         examples=[0.98397],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Dimensions")
+
 
 class Loops(CamelCaseModel):
     type: Optional[str] = Field(
@@ -133,7 +138,7 @@ class Loops(CamelCaseModel):
         None,
         title="Height (cm)",
         description="Height of the loops, in centimeters.",
-        examples=[30],
+        examples=[30.0],
     )
     color: Optional[str] = Field(
         None,
@@ -142,6 +147,8 @@ class Loops(CamelCaseModel):
         max_length=40,
         examples=["Red"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Loops")
 
 
 class Body(CamelCaseModel):
@@ -173,19 +180,21 @@ class Body(CamelCaseModel):
         examples=["White"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Body")
+
 
 class TopSpout(CamelCaseModel):
     diameter: Optional[float] = Field(
         None,
         title="Diameter (cm)",
         description="Diameter of the top spout, in centimeters.",
-        examples=[40],
+        examples=[40.0],
     )
     length: Optional[float] = Field(
         None,
         title="Length (cm)",
         description="Length of the top spout, in centimeters.",
-        examples=[50],
+        examples=[50.0],
     )
     coating_applied: Optional[bool] = Field(
         None,
@@ -201,19 +210,21 @@ class TopSpout(CamelCaseModel):
         examples=["White"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Top spout")
+
 
 class Bottom(CamelCaseModel):
     diameter: Optional[float] = Field(
         None,
         title="Diameter (cm)",
         description="Diameter of the bottom part, in centimeters.",
-        examples=[60],
+        examples=[60.0],
     )
     length: Optional[float] = Field(
         None,
         title="Length (cm)",
         description="Length of the bottom part, in centimeters.",
-        examples=[60],
+        examples=[60.0],
     )
     coating_applied: Optional[bool] = Field(
         None,
@@ -229,6 +240,8 @@ class Bottom(CamelCaseModel):
         examples=["White"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Bottom")
+
 
 class Liner(CamelCaseModel):
     type: Optional[str] = Field(
@@ -242,7 +255,7 @@ class Liner(CamelCaseModel):
         None,
         title="Thickness (µm)",
         description="Thickness of the liner, microns.",
-        examples=[100],
+        examples=[100.0],
     )
     color: Optional[str] = Field(
         None,
@@ -251,6 +264,8 @@ class Liner(CamelCaseModel):
         max_length=40,
         examples=["Transparent"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Liner")
 
 
 class Request(CamelCaseModel):
@@ -269,6 +284,8 @@ class Request(CamelCaseModel):
         examples=["123456789"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Request")
+
 
 class Response(CamelCaseModel):
     model: Optional[str] = Field(
@@ -284,6 +301,7 @@ class Response(CamelCaseModel):
         description="Type of the FIBC bag.",
         examples=[FIBCType.B],
     )
+    # TODO: Should be float
     safe_working_load: Optional[int] = Field(
         None,
         title="Safe working load (kg)",
@@ -302,6 +320,7 @@ class Response(CamelCaseModel):
         description="Is the product UV resistant?",
         examples=[True],
     )
+    # TODO: Should be float
     uv_guarantee_years: Optional[int] = Field(
         None,
         title="UV guarantee years",
@@ -383,9 +402,11 @@ class Response(CamelCaseModel):
         examples=[True],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Response")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.2",
+    version="0.1.3",
     strict_validation=False,
     title="FIBC Product data sheet",
     description="Product data sheet for FIBC bulk bags.",

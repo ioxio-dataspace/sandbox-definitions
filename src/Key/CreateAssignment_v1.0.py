@@ -1,5 +1,5 @@
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class CreateAssignmentResponse(CamelCaseModel):
@@ -19,17 +19,21 @@ class CreateAssignmentResponse(CamelCaseModel):
         min_length=1,
     )
 
+    model_config: ConfigDict = ConfigDict(title="Create assignment response")
+
 
 class CreateAssignmentRequest(CreateAssignmentResponse):
     shared_secret: str = Field(
         ...,
         title="Shared Secret",
-        description="Shared secret between the productizer and the system using it.",
+        description="Shared secret between the data source and the system using it.",
     )
+
+    model_config: ConfigDict = ConfigDict(title="Create assignment request")
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.3",
+    version="1.0.4",
     strict_validation=False,
     title="Create key assignment",
     description="Assign a key to have access to a specific lock.",

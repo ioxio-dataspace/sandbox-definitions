@@ -2,7 +2,7 @@ from datetime import datetime
 from typing import Dict, List, Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class ChargingHistoryRequest(CamelCaseModel):
@@ -38,6 +38,8 @@ class ChargingHistoryRequest(CamelCaseModel):
         description="Offset of history records to return.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Charging history request")
+
 
 class ChargingHistoryEntry(CamelCaseModel):
     time: datetime = Field(
@@ -65,6 +67,8 @@ class ChargingHistoryEntry(CamelCaseModel):
         examples=[46.0],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Charging history entry")
+
 
 class ChargingHistoryResponse(CamelCaseModel):
     battery_charging_history: List[ChargingHistoryEntry] = Field(
@@ -79,9 +83,11 @@ class ChargingHistoryResponse(CamelCaseModel):
         examples=[1],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Charging history response")
+
 
 DEFINITION = DataProductDefinition(
-    version="1.0.3",
+    version="1.0.4",
     strict_validation=False,
     title="Charging history of a battery",
     description="Charging history of a battery.",

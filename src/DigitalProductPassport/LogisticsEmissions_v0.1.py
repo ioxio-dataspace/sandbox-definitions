@@ -2,7 +2,7 @@ from enum import Enum
 from typing import List, Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class FreightType(str, Enum):
@@ -77,6 +77,8 @@ class EmissionsPerTCE(CamelCaseModel):
         examples=["Diesel"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Emissions per TCE")
+
 
 class RoadLeg(CamelCaseModel):
     leg_identifier: Optional[str] = Field(
@@ -136,7 +138,7 @@ class RoadLeg(CamelCaseModel):
         title="Emission Intensity",
         description="The GHG emission intensity of the road transport "
         "per transported tonne and kilometer in CO2e grams / tonne / km.",
-        examples=[200],
+        examples=[200.0],
     )
     emissions_per_tce: List[EmissionsPerTCE] = Field(
         ...,
@@ -144,6 +146,8 @@ class RoadLeg(CamelCaseModel):
         description="The GHG emissions of the transport chain element related to the "
         "road transport leg.",
     )
+
+    model_config: ConfigDict = ConfigDict(title="Road leg")
 
 
 class SeaLeg(CamelCaseModel):
@@ -198,7 +202,7 @@ class SeaLeg(CamelCaseModel):
         title="Emission Intensity",
         description="The GHG emission intensity of the sea transport per "
         "transported tonne and kilometer in CO2e grams / tonne / km.",
-        examples=[500],
+        examples=[500.0],
     )
     emissions_per_tce: List[EmissionsPerTCE] = Field(
         ...,
@@ -206,6 +210,8 @@ class SeaLeg(CamelCaseModel):
         description="The GHG emissions of the transport chain element related to the "
         "sea transport leg.",
     )
+
+    model_config: ConfigDict = ConfigDict(title="Sea leg")
 
 
 class LogisticsEmissionsRequest(CamelCaseModel):
@@ -221,6 +227,8 @@ class LogisticsEmissionsRequest(CamelCaseModel):
         description="Unique identifier of the product.",
         examples=["550e8400-e29b-41d4-a716-446655440000"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Logistics emissions request")
 
 
 class LogisticsEmissionsResponse(CamelCaseModel):
@@ -241,9 +249,11 @@ class LogisticsEmissionsResponse(CamelCaseModel):
         max_length=20,
     )
 
+    model_config: ConfigDict = ConfigDict(title="Logistics emissions response")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.3",
+    version="0.1.4",
     strict_validation=False,
     title="Logistics Emissions",
     description="Returns the total emission per leg for "

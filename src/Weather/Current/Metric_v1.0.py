@@ -1,5 +1,5 @@
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class CurrentWeatherMetricRequest(CamelCaseModel):
@@ -9,7 +9,7 @@ class CurrentWeatherMetricRequest(CamelCaseModel):
         description="The latitude coordinate of the desired location.",
         ge=-90.0,
         le=90.0,
-        examples=[60.192059],
+        examples=[60.192],
     )
     lon: float = Field(
         ...,
@@ -17,8 +17,10 @@ class CurrentWeatherMetricRequest(CamelCaseModel):
         description="The longitude coordinate of the desired location.",
         ge=-180.0,
         le=180.0,
-        examples=[24.945831],
+        examples=[24.945],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Current weather metric request")
 
 
 class CurrentWeatherMetricResponse(CamelCaseModel):
@@ -26,9 +28,9 @@ class CurrentWeatherMetricResponse(CamelCaseModel):
         ...,
         title="Current relative air humidity (%)",
         description="Current relative air humidity in percentages.",
-        examples=[72],
+        examples=[72.0],
     )
-    pressure: float = Field(..., title="Current air pressure in hPa", examples=[1007])
+    pressure: float = Field(..., title="Current air pressure in hPa", examples=[1007.0])
     rain: bool = Field(
         ..., title="Rain status", description="If it's currently raining or not."
     )
@@ -55,9 +57,11 @@ class CurrentWeatherMetricResponse(CamelCaseModel):
         examples=[220.0],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Current weather metric response")
+
 
 DEFINITION = DataProductDefinition(
-    version="1.0.3",
+    version="1.0.4",
     strict_validation=False,
     title="Current weather in a given location",
     description="Common data points about the current weather with metric units in a given location. Simplified for example use, and not following industry standards.",

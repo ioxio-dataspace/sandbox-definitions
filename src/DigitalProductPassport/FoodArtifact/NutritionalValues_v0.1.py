@@ -1,5 +1,5 @@
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class FatContent(CamelCaseModel):
@@ -18,6 +18,7 @@ class FatContent(CamelCaseModel):
 
 
 class EnergyContent(CamelCaseModel):
+    # TODO: These should probably be floats
     energy: int = Field(
         ...,
         title="Energy",
@@ -30,6 +31,8 @@ class EnergyContent(CamelCaseModel):
         description="The number of calories per 100g measured in kilocalories.",
         examples=[180],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Energy content")
 
 
 class NutritionalValuesRequest(CamelCaseModel):
@@ -45,6 +48,8 @@ class NutritionalValuesRequest(CamelCaseModel):
         description="Unique identifier of the product.",
         examples=["550e8400-e29b-41d4-a716-446655440000"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Nutritional values request")
 
 
 class NutritionalValuesResponse(CamelCaseModel):
@@ -83,9 +88,11 @@ class NutritionalValuesResponse(CamelCaseModel):
         examples=[0.01],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Nutritional values response")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.3",
+    version="0.1.4",
     strict_validation=False,
     title="Food Artifact Nutritional Values",
     description="Returns the nutritional values of a food product.",

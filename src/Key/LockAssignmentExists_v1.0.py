@@ -1,5 +1,5 @@
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class LockAssignmentExistsRequest(CamelCaseModel):
@@ -21,8 +21,10 @@ class LockAssignmentExistsRequest(CamelCaseModel):
     shared_secret: str = Field(
         ...,
         title="Shared Secret",
-        description="Shared secret between the productizer and the system using it.",
+        description="Shared secret between the data source and the system using it.",
     )
+
+    model_config: ConfigDict = ConfigDict(title="Lock assignment exists request")
 
 
 class LockAssignmentExistsResponse(CamelCaseModel):
@@ -33,9 +35,11 @@ class LockAssignmentExistsResponse(CamelCaseModel):
         examples=[True],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Lock assignment exists response")
+
 
 DEFINITION = DataProductDefinition(
-    version="1.0.3",
+    version="1.0.4",
     strict_validation=False,
     title="Check if lock assignment exists",
     description="Check if a key has access to a specific lock.",

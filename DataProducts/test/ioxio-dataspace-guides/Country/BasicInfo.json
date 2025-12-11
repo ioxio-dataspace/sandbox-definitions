@@ -259,7 +259,7 @@
             "type": "number",
             "title": "Area",
             "description": "The area of the country in km^2",
-            "examples": [338455]
+            "examples": [338455.0]
           },
           "languages": {
             "items": {
@@ -294,7 +294,7 @@
           "name": {
             "type": "string",
             "title": "Name",
-            "description": "The name of the capital of the Country",
+            "description": "The name of the capital of the country",
             "examples": ["Helsinki"]
           },
           "lat": {
@@ -302,16 +302,16 @@
             "maximum": 90.0,
             "minimum": -90.0,
             "title": "Latitude",
-            "description": "The latitude coordinate of the Capital",
-            "examples": [60.170833]
+            "description": "The latitude coordinate of the capital",
+            "examples": [60.17]
           },
           "lon": {
             "type": "number",
             "maximum": 180.0,
             "minimum": -180.0,
             "title": "Longitude",
-            "description": "The longitude coordinate of the Capital",
-            "examples": [24.9375]
+            "description": "The longitude coordinate of the capital",
+            "examples": [24.937]
           }
         },
         "type": "object",

@@ -3,7 +3,7 @@
   "info": {
     "title": "Person details",
     "description": "Details about a person such as home address.",
-    "version": "1.0.3"
+    "version": "1.0.4"
   },
   "paths": {
     "/Person/Details_v1.0": {
@@ -376,7 +376,7 @@
       "PersonDetailsRequest": {
         "properties": {},
         "type": "object",
-        "title": "PersonDetailsRequest"
+        "title": "Person details request"
       },
       "PersonDetailsResponse": {
         "properties": {
@@ -395,7 +395,7 @@
         },
         "type": "object",
         "required": ["name", "address"],
-        "title": "PersonDetailsResponse"
+        "title": "Person details response"
       },
       "RateLimitExceeded": {
         "properties": {

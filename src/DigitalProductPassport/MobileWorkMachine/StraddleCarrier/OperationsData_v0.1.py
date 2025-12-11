@@ -1,5 +1,5 @@
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class OperationsDataResponse(CamelCaseModel):
@@ -22,6 +22,8 @@ class OperationsDataResponse(CamelCaseModel):
         examples=[350.0],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Operations data response")
+
 
 class OperationsDataRequest(CamelCaseModel):
     product: str = Field(
@@ -34,14 +36,16 @@ class OperationsDataRequest(CamelCaseModel):
     id: str = Field(
         ...,
         max_length=40,
-        title="Id",
+        title="ID",
         description="The unique identifier of the product",
         examples=["faf1e386-6a07-4f89-bdbe-b0a6a6241c69"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Operations data request")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.2",
+    version="0.1.3",
     strict_validation=False,
     title="Straddle carrier operations data",
     description="Operations data of a straddle carrier to retrieve fuel use, "

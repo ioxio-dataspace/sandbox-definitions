@@ -3,7 +3,7 @@ from enum import Enum
 from typing import Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class ProductionMethod(str, Enum):
@@ -54,7 +54,7 @@ class RecipientInformation(CamelCaseModel):
     country: Optional[str] = Field(
         None,
         title="Country",
-        description="Recipient country in ISO 3166-1 alpha-3.",
+        description="Recipient country in ISO 3166-1 alpha-3 format.",
         pattern=r"^[A-Z]{3}$",
         min_length=3,
         max_length=3,
@@ -81,12 +81,14 @@ class RecipientInformation(CamelCaseModel):
         examples=["Brewing Company Oy"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Recipient information")
+
 
 class GrowthRegulatorDetails(CamelCaseModel):
     growth_regulator_date: Optional[date] = Field(
         None,
         title="Growth regulator date",
-        description="Date of growth regulator application.",
+        description="Date of growth regulator application in ISO 8601 format.",
         examples=[date.fromisoformat("2024-04-15")],
     )
     growth_regulator_type: Optional[str] = Field(
@@ -96,6 +98,8 @@ class GrowthRegulatorDetails(CamelCaseModel):
         max_length=150,
         examples=["Moddus Evo"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Growth regulator details")
 
 
 class FarmerInformation(CamelCaseModel):
@@ -120,6 +124,7 @@ class FarmerInformation(CamelCaseModel):
         max_length=150,
         examples=["Example road 1"],
     )
+    # TODO: Should be called postal code
     zipcode: Optional[str] = Field(
         None,
         title="ZIP Code",
@@ -137,7 +142,7 @@ class FarmerInformation(CamelCaseModel):
     country: Optional[str] = Field(
         None,
         title="Country",
-        description="Country of the producing farm in ISO 3166-1 alpha-3.",
+        description="Country of the producing farm in ISO 3166-1 alpha-3 format.",
         pattern=r"^[A-Z]{3}$",
         min_length=3,
         max_length=3,
@@ -174,6 +179,8 @@ class FarmerInformation(CamelCaseModel):
         examples=["John Doe"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Farmer information")
+
 
 class TransportInformation(CamelCaseModel):
     company: str = Field(
@@ -201,7 +208,7 @@ class TransportInformation(CamelCaseModel):
         None,
         title="Shipment weight (kg)",
         description="Weight of the shipment in kg.",
-        examples=[28500],
+        examples=[28500.0],
     )
     loading_time: Optional[datetime] = Field(
         None,
@@ -218,7 +225,7 @@ class TransportInformation(CamelCaseModel):
     previous_content_date: Optional[date] = Field(
         None,
         title="Previous content date",
-        description="Date of the previous transportation with the truck in question, in RFC 3339 format.",
+        description="Date of the previous transportation with the truck in question, in ISO 8601 format.",
         examples=[date.fromisoformat("2025-02-20")],
     )
     previous_content: Optional[str] = Field(
@@ -235,6 +242,8 @@ class TransportInformation(CamelCaseModel):
         max_length=150,
         examples=["Water and detergent"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Transport information")
 
 
 class Request(CamelCaseModel):
@@ -253,6 +262,8 @@ class Request(CamelCaseModel):
         examples=["123456789"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Request")
+
 
 class Response(CamelCaseModel):
     grain_passport_number: str = Field(
@@ -265,7 +276,7 @@ class Response(CamelCaseModel):
     creation_date: date = Field(
         ...,
         title="Creation date",
-        description="Grain passport creation date.",
+        description="Grain passport creation date in ISO 8601 format.",
         examples=[date.fromisoformat("2025-02-20")],
     )
     grain_type: str = Field(
@@ -285,7 +296,7 @@ class Response(CamelCaseModel):
     harvest_year: int = Field(
         ...,
         title="Harvest year",
-        description="Year of harvesting.",
+        description="Year of harvesting in YYYY format.",
         gte=1900,
         lte=2500,
         examples=[2024],
@@ -312,9 +323,11 @@ class Response(CamelCaseModel):
         description="Information about the transporting parties.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Response")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.3",
+    version="0.1.4",
     strict_validation=False,
     title="Grain Passport",
     description="Digital Product Passport for one shipment of grains.",

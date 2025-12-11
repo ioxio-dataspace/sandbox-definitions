@@ -1,5 +1,5 @@
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class BasicCompanyInfoRequest(CamelCaseModel):
@@ -9,6 +9,8 @@ class BasicCompanyInfoRequest(CamelCaseModel):
         description="The ID of the company.",
         examples=["2464491-9"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Basic company info request")
 
 
 class BasicCompanyInfoResponse(CamelCaseModel):
@@ -23,9 +25,11 @@ class BasicCompanyInfoResponse(CamelCaseModel):
         ..., title="Date of registration for the company", examples=["2012-02-23"]
     )
 
+    model_config: ConfigDict = ConfigDict(title="Basic company info response")
+
 
 DEFINITION = DataProductDefinition(
-    version="1.0.3",
+    version="1.0.4",
     strict_validation=False,
     title="Basic information about a company",
     description="Legal information about a company such as company registration date.",

@@ -20,24 +20,24 @@ class Capital(CamelCaseModel):
     name: str = Field(
         ...,
         title="Name",
-        description="The name of the capital of the Country",
+        description="The name of the capital of the country",
         examples=["Helsinki"],
     )
     lat: float = Field(
         ...,
         title="Latitude",
-        description="The latitude coordinate of the Capital",
+        description="The latitude coordinate of the capital",
         ge=-90.0,
         le=90.0,
-        examples=[60.170833],
+        examples=[60.170],
     )
     lon: float = Field(
         ...,
         title="Longitude",
-        description="The longitude coordinate of the Capital",
+        description="The longitude coordinate of the capital",
         ge=-180.0,
         le=180.0,
-        examples=[24.9375],
+        examples=[24.937],
     )
 
 
@@ -60,7 +60,7 @@ class BasicCountryInfoResponse(CamelCaseModel):
         ...,
         title="Area",
         description="The area of the country in km^2",
-        examples=[338455],
+        examples=[338455.0],
     )
     languages: List[Annotated[str, StringConstraints(min_length=2, max_length=2)]] = (
         Field(

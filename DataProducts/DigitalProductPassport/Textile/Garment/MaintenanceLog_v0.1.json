@@ -3,7 +3,7 @@
   "info": {
     "title": "Garment maintenance log",
     "description": "Details of the garment's care, repair and incidents.",
-    "version": "0.1.2"
+    "version": "0.1.3"
   },
   "paths": {
     "/DigitalProductPassport/Textile/Garment/MaintenanceLog_v0.1": {
@@ -309,7 +309,7 @@
               }
             ],
             "title": "Event date",
-            "description": "The date of the event.",
+            "description": "The date of the event in ISO 8601 format.",
             "examples": ["2024-02-10"]
           },
           "eventDescription": {
@@ -458,7 +458,7 @@
             "type": "string",
             "format": "date",
             "title": "Commissioning date",
-            "description": "The date when the garment was delivered to the customer.",
+            "description": "The date when the garment was delivered to the customer in ISO 8601 format.",
             "examples": ["2023-06-01"]
           },
           "washingCycles": {

@@ -3,7 +3,7 @@ from enum import Enum
 from typing import Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class ManufacturingPhase(str, Enum):
@@ -18,7 +18,7 @@ class ManufacturingLocation(CamelCaseModel):
     country: str = Field(
         ...,
         title="Country",
-        description="The country code of the manufacturing location in Alpha-3 format.",
+        description="The country code of the manufacturing location in ISO 3166-1 alpha-3 format.",
         pattern=r"^[A-Z]{3}$",
         examples=["POL"],
     )
@@ -31,6 +31,8 @@ class ManufacturingLocation(CamelCaseModel):
         examples=["Warsaw"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Manufacturing location")
+
 
 class Manufacturer(CamelCaseModel):
     manufacturing_phase: ManufacturingPhase = Field(
@@ -42,7 +44,7 @@ class Manufacturer(CamelCaseModel):
     manufacturing_date: date = Field(
         ...,
         title="Manufacturing date",
-        description="The date of the garment was manufactured.",
+        description="The date of the garment was manufactured in ISO 8601 format.",
         examples=[date.fromisoformat("2023-01-01")],
     )
     manufacturer_name: str = Field(
@@ -61,11 +63,13 @@ class Manufacturer(CamelCaseModel):
     facility_id: Optional[str] = Field(
         None,
         title="Facility ID",
-        description="The facility id of the manufacturing site in the GLN format.",
+        description="The facility ID of the manufacturing site in the GLN format.",
         min_length=0,
         max_length=40,
         examples=["1234567000004"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Manufacturer")
 
 
 class Request(CamelCaseModel):
@@ -86,6 +90,8 @@ class Request(CamelCaseModel):
         examples=["71b51878-8a00-11ee-b9d1-0242ac120002"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Request")
+
 
 class Response(CamelCaseModel):
     manufacturers: list[Manufacturer] = Field(
@@ -94,9 +100,11 @@ class Response(CamelCaseModel):
         description="The manufacturer details.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Response")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.2",
+    version="0.1.3",
     strict_validation=False,
     title="Garment manufacturer information",
     description="Details of the garment manufacturers and facilities.",

@@ -3,7 +3,7 @@
   "info": {
     "title": "Battery health data",
     "description": "The health and status data of a battery as required by Battery Passport specification of the European Commission's Battery Act (2023/1542).",
-    "version": "0.2.3"
+    "version": "0.2.4"
   },
   "paths": {
     "/DigitalProductPassport/Battery/HealthData_v0.2": {
@@ -384,7 +384,7 @@
         },
         "type": "object",
         "required": ["eventDate"],
-        "title": "HarmfulEvent"
+        "title": "Harmful event"
       },
       "HealthDataRequest": {
         "properties": {
@@ -398,14 +398,14 @@
           "id": {
             "type": "string",
             "maxLength": 40,
-            "title": "Id",
+            "title": "ID",
             "description": "The unique identifier of the product.",
             "examples": ["660e8400-e29b-41d4-a716-446655440000"]
           }
         },
         "type": "object",
         "required": ["product", "id"],
-        "title": "HealthDataRequest"
+        "title": "Health data request"
       },
       "HealthDataResponse": {
         "properties": {
@@ -433,7 +433,7 @@
               }
             ],
             "title": "Manufacturing date",
-            "description": "The date of manufacture using month and year.",
+            "description": "The date of manufacture in ISO 8601 month format.",
             "examples": ["2023-07"]
           },
           "serviceInitiationDate": {
@@ -447,7 +447,7 @@
               }
             ],
             "title": "Service initiation date",
-            "description": "The date on which the battery was first commissioned.",
+            "description": "The date on which the battery was first commissioned in ISO 8601 month format.",
             "examples": ["2023-12"]
           },
           "originalPerformance": {
@@ -485,7 +485,7 @@
         },
         "type": "object",
         "required": ["harmfulEvents"],
-        "title": "HealthDataResponse"
+        "title": "Health data response"
       },
       "HealthState": {
         "properties": {
@@ -591,7 +591,7 @@
         },
         "type": "object",
         "required": ["operationDetails"],
-        "title": "HealthState"
+        "title": "Health state"
       },
       "NotFound": {
         "properties": {
@@ -674,7 +674,7 @@
           }
         },
         "type": "object",
-        "title": "OperationDetail"
+        "title": "Operation detail"
       },
       "OriginalPerformance": {
         "properties": {
@@ -746,7 +746,7 @@
           }
         },
         "type": "object",
-        "title": "OriginalPerformance"
+        "title": "Original performance"
       },
       "RateLimitExceeded": {
         "properties": {

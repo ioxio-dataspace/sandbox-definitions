@@ -1,7 +1,7 @@
 from typing import List
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class CurrentAirQualityRequest(CamelCaseModel):
@@ -9,7 +9,7 @@ class CurrentAirQualityRequest(CamelCaseModel):
         ...,
         title="Latitude",
         description="The latitude coordinate of the desired location.",
-        examples=[60.192059],
+        examples=[60.192],
         ge=-90,
         le=90,
     )
@@ -17,10 +17,12 @@ class CurrentAirQualityRequest(CamelCaseModel):
         ...,
         title="Longitude",
         description="The longitude coordinate of the desired location.",
-        examples=[24.945831],
+        examples=[24.945],
         ge=-180,
         le=180,
     )
+
+    model_config: ConfigDict = ConfigDict(title="Current air quality request")
 
 
 class CurrentAirQualityResponse(CamelCaseModel):
@@ -52,6 +54,8 @@ class CurrentAirQualityResponse(CamelCaseModel):
             ]
         ],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Current air quality response")
 
 
 DEFINITION = DataProductDefinition(

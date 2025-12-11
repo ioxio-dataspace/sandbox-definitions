@@ -3,7 +3,7 @@
   "info": {
     "title": "Drill Manufacturing Data Sheet",
     "description": "Manufacturing data sheet of a Mobile Drill Machine.",
-    "version": "0.2.3"
+    "version": "0.2.4"
   },
   "paths": {
     "/DigitalProductPassport/MobileWorkMachine/Drill/ManufacturingDataSheet_v0.2": {
@@ -376,7 +376,7 @@
           }
         },
         "type": "object",
-        "title": "ElectricMotors"
+        "title": "Electric motors"
       },
       "Forbidden": {
         "properties": {
@@ -502,7 +502,7 @@
               }
             ],
             "title": "Country",
-            "description": "The country code of the manufacturer's headquarters location in Alpha-3 format.",
+            "description": "The country code of the manufacturer's headquarters location in ISO 3166-1 alpha-3 format.",
             "examples": ["SWE"]
           },
           "website": {
@@ -536,7 +536,7 @@
           }
         },
         "type": "object",
-        "title": "ManufacturerInformation"
+        "title": "Manufacturer information"
       },
       "ManufacturingDataSheetRequest": {
         "properties": {
@@ -550,14 +550,14 @@
           "id": {
             "type": "string",
             "maxLength": 40,
-            "title": "Id",
+            "title": "ID",
             "description": "The unique identifier of the product.",
             "examples": ["71b51878-8a00-11ee-b9d1-0242ac120002"]
           }
         },
         "type": "object",
         "required": ["product", "id"],
-        "title": "ManufacturingDataSheetRequest"
+        "title": "Manufacturing data sheet request"
       },
       "ManufacturingDataSheetResponse": {
         "properties": {
@@ -709,7 +709,7 @@
           }
         },
         "type": "object",
-        "title": "ManufacturingDataSheetResponse"
+        "title": "Manufacturing data sheet response"
       },
       "NotFound": {
         "properties": {
@@ -766,7 +766,7 @@
         },
         "type": "object",
         "required": ["electricMotors"],
-        "title": "PowerSystem"
+        "title": "Power system"
       },
       "PowerSystemType": {
         "type": "string",

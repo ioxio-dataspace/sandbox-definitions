@@ -3,7 +3,7 @@ from enum import Enum
 from typing import Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class BasicInformationRequest(CamelCaseModel):
@@ -13,6 +13,8 @@ class BasicInformationRequest(CamelCaseModel):
         description="National identifier for a legal entity.",
         examples=["2464491-9"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Basic information request")
 
 
 class NordicLegalForm(str, Enum):
@@ -509,7 +511,7 @@ class RegisteredAddress(CamelCaseModel):
     )
     address_id: Optional[str] = Field(
         None,
-        title="Address id",
+        title="Address ID",
         description="A globally unique identifier for each instance of an Address. The "
         "concept of adding a globally unique identifier for each instance of an "
         "address is a crucial part of the INSPIRE data spec. A number of EU countries "
@@ -519,6 +521,8 @@ class RegisteredAddress(CamelCaseModel):
         min_length=1,
         max_length=40,
     )
+
+    model_config: ConfigDict = ConfigDict(title="Registered address")
 
 
 class BasicInformationResponse(CamelCaseModel):
@@ -549,9 +553,11 @@ class BasicInformationResponse(CamelCaseModel):
     )
     registered_address: RegisteredAddress
 
+    model_config: ConfigDict = ConfigDict(title="Basic information response")
+
 
 DEFINITION = DataProductDefinition(
-    version="1.0.3",
+    version="1.0.4",
     strict_validation=False,
     title="NSG Agent information",
     description="In the Nordic Smart Government information exchange context the agent "

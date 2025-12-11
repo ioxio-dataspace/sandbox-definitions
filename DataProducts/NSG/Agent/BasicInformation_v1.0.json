@@ -3,7 +3,7 @@
   "info": {
     "title": "NSG Agent information",
     "description": "In the Nordic Smart Government information exchange context the agent represents both registered organizations (\"companies\") and persons who are doing business without being registered organizations, usually as sole traders (sole proprietors). This data product definition returns basic information content for any agent.",
-    "version": "1.0.3"
+    "version": "1.0.4"
   },
   "paths": {
     "/NSG/Agent/BasicInformation_v1.0": {
@@ -236,7 +236,7 @@
         },
         "type": "object",
         "required": ["nationalIdentifier"],
-        "title": "BasicInformationRequest"
+        "title": "Basic information request"
       },
       "BasicInformationResponse": {
         "properties": {
@@ -276,7 +276,7 @@
           "registrationDate",
           "registeredAddress"
         ],
-        "title": "BasicInformationResponse"
+        "title": "Basic information response"
       },
       "DataSourceError": {
         "properties": {
@@ -1005,13 +1005,13 @@
                 "type": "null"
               }
             ],
-            "title": "Address id",
+            "title": "Address ID",
             "description": "A globally unique identifier for each instance of an Address. The concept of adding a globally unique identifier for each instance of an address is a crucial part of the INSPIRE data spec. A number of EU countries have already implemented an ID (a UUID) in their Address Register, among them Denmark.",
             "examples": ["123e4567-e89b-12d3-a456-42661417400"]
           }
         },
         "type": "object",
-        "title": "RegisteredAddress"
+        "title": "Registered address"
       },
       "ServiceUnavailable": {
         "properties": {

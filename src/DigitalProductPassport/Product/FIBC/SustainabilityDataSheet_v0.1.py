@@ -1,7 +1,7 @@
 from typing import Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class RawMaterialEmissions(CamelCaseModel):
@@ -12,6 +12,8 @@ class RawMaterialEmissions(CamelCaseModel):
         examples=[4.8],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Raw material emissions")
+
 
 class ProcessingEmissions(CamelCaseModel):
     emissions: Optional[float] = Field(
@@ -21,13 +23,15 @@ class ProcessingEmissions(CamelCaseModel):
         examples=[3.9],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Processing emissions")
+
 
 class TransportEmissions(CamelCaseModel):
     transport_length: Optional[float] = Field(
         None,
         title="Transport length (km)",
         description="Length of the upstream transport, from manufacturer to customer in kilometers.",
-        examples=[350],
+        examples=[350.0],
     )
     fuel_type: Optional[str] = Field(
         None,
@@ -42,6 +46,8 @@ class TransportEmissions(CamelCaseModel):
         description="Transport emissions for the bag, kilograms of CO2e.",
         examples=[0.3],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Transport emissions")
 
 
 class Request(CamelCaseModel):
@@ -60,13 +66,15 @@ class Request(CamelCaseModel):
         examples=["123456789"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Request")
+
 
 class Response(CamelCaseModel):
     carbon_footprint: Optional[float] = Field(
         None,
         title="Carbon footprint (kg of CO2e)",
         description="Manufacturing carbon footprint of the bag, kilograms of CO2e.",
-        examples=[4],
+        examples=[4.0],
     )
     raw_material_emissions: RawMaterialEmissions = Field(
         ...,
@@ -89,7 +97,7 @@ class Response(CamelCaseModel):
         description="The percentage of the FIBC bag made from recycled materials.",
         gte=0,
         lte=100,
-        examples=[30],
+        examples=[30.0],
     )
     is_recyclable: Optional[bool] = Field(
         None,
@@ -114,9 +122,11 @@ class Response(CamelCaseModel):
         ],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Response")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.2",
+    version="0.1.3",
     strict_validation=False,
     title="FIBC sustainability data sheet",
     description="Basic sustainability data sheet for FIBC bulk bags.",
