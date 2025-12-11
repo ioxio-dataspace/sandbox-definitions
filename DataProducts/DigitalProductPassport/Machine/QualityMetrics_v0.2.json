@@ -3,7 +3,7 @@
   "info": {
     "title": "Measured quality metrics of a machine",
     "description": "Quality monitoring data for machines, including product serial number and quality performance measures.",
-    "version": "0.2.3"
+    "version": "0.2.4"
   },
   "paths": {
     "/DigitalProductPassport/Machine/QualityMetrics_v0.2": {
@@ -478,7 +478,7 @@
         },
         "type": "object",
         "required": ["product", "id"],
-        "title": "QualityMetricsRequest"
+        "title": "Quality metrics request"
       },
       "QualityMetricsResponse": {
         "properties": {
@@ -493,7 +493,7 @@
         },
         "type": "object",
         "required": ["metrics"],
-        "title": "QualityMetricsResponse"
+        "title": "Quality metrics response"
       },
       "RateLimitExceeded": {
         "properties": {

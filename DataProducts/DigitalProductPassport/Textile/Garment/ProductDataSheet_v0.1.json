@@ -3,7 +3,7 @@
   "info": {
     "title": "Garment product data sheet",
     "description": "General specifications of a garment.",
-    "version": "0.1.2"
+    "version": "0.1.3"
   },
   "paths": {
     "/DigitalProductPassport/Textile/Garment/ProductDataSheet_v0.1": {
@@ -252,13 +252,12 @@
           },
           "companyIdentification": {
             "$ref": "#/components/schemas/CompanyIdentification",
-            "title": "Company identification",
             "description": "The identification of the company being responsible of the DPP."
           }
         },
         "type": "object",
         "required": ["name", "companyIdentification"],
-        "title": "BrandInformation"
+        "title": "Brand information"
       },
       "ColorInformation": {
         "properties": {
@@ -299,7 +298,7 @@
         },
         "type": "object",
         "required": ["colorName"],
-        "title": "ColorInformation"
+        "title": "Color information"
       },
       "ColorScheme": {
         "type": "string",
@@ -325,7 +324,7 @@
         },
         "type": "object",
         "required": ["identifierScheme", "identifier"],
-        "title": "CompanyIdentification"
+        "title": "Company identification"
       },
       "DataSourceError": {
         "properties": {
@@ -572,12 +571,10 @@
           },
           "brandInformation": {
             "$ref": "#/components/schemas/BrandInformation",
-            "title": "Brand information",
             "description": "The details of the brand selling the garment."
           },
           "sizeInformation": {
             "$ref": "#/components/schemas/SizeInformation",
-            "title": "Size information",
             "description": "The size information of the garment."
           },
           "gender": {
@@ -595,7 +592,6 @@
           },
           "colorInformation": {
             "$ref": "#/components/schemas/ColorInformation",
-            "title": "Color information",
             "description": "The color information of the garment main color."
           },
           "weight": {
@@ -721,7 +717,7 @@
           }
         },
         "type": "object",
-        "title": "SizeInformation"
+        "title": "Size information"
       },
       "SizingSystem": {
         "type": "string",

@@ -1,9 +1,9 @@
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class PersonDetailsRequest(CamelCaseModel):
-    pass
+    model_config: ConfigDict = ConfigDict(title="Person details request")
 
 
 class PersonDetailsResponse(CamelCaseModel):
@@ -20,9 +20,11 @@ class PersonDetailsResponse(CamelCaseModel):
         examples=["6 Raymond river\nRileybury\nCR3 6XA"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Person details response")
+
 
 DEFINITION = DataProductDefinition(
-    version="1.0.3",
+    version="1.0.4",
     strict_validation=False,
     deprecated=True,
     title="Person details",

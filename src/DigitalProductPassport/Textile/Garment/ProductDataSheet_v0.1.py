@@ -2,7 +2,7 @@ from enum import Enum
 from typing import Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class Gender(str, Enum):
@@ -50,6 +50,8 @@ class CompanyIdentification(CamelCaseModel):
         examples=["1234567890123"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Company identification")
+
 
 class BrandInformation(CamelCaseModel):
     name: str = Field(
@@ -74,6 +76,8 @@ class BrandInformation(CamelCaseModel):
         description="The identification of the company being responsible of the DPP.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Brand information")
+
 
 class SizeInformation(CamelCaseModel):
     sizing_system: Optional[SizingSystem] = Field(
@@ -90,6 +94,8 @@ class SizeInformation(CamelCaseModel):
         max_length=10,
         examples=["40"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Size information")
 
 
 class ColorInformation(CamelCaseModel):
@@ -114,6 +120,8 @@ class ColorInformation(CamelCaseModel):
         examples=["19-4052 TCX"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Color information")
+
 
 class Request(CamelCaseModel):
     product: str = Field(
@@ -132,6 +140,8 @@ class Request(CamelCaseModel):
         max_length=40,
         examples=["71b51878-8a00-11ee-b9d1-0242ac120002"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Request")
 
 
 class Response(CamelCaseModel):
@@ -221,9 +231,11 @@ class Response(CamelCaseModel):
         examples=["https://example.com/"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Response")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.2",
+    version="0.1.3",
     strict_validation=False,
     title="Garment product data sheet",
     description="General specifications of a garment.",

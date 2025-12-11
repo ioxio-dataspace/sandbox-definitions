@@ -1,7 +1,7 @@
 from typing import List
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class ShareSeries(CamelCaseModel):
@@ -24,6 +24,8 @@ class ShareSeries(CamelCaseModel):
         examples=[1000],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Share series")
+
 
 class Ownerships(CamelCaseModel):
     series_name: str = Field(
@@ -39,6 +41,8 @@ class Ownerships(CamelCaseModel):
         examples=[100],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Ownerships")
+
 
 class Owners(CamelCaseModel):
     name: str = Field(
@@ -51,14 +55,18 @@ class Owners(CamelCaseModel):
         ..., title="Ownerships", description="List of Ownerships."
     )
 
+    model_config: ConfigDict = ConfigDict(title="Owners")
+
 
 class ShareholdersInfoRequest(CamelCaseModel):
     company_id: str = Field(
         ...,
         title="Company ID",
-        description="The ID of the company, only supports Finnish business ID's.",
+        description="The ID of the company.",
         examples=["2464491-9"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Shareholders info request")
 
 
 class ShareholdersInfoResponse(CamelCaseModel):
@@ -67,9 +75,11 @@ class ShareholdersInfoResponse(CamelCaseModel):
     )
     owners: List[Owners] = Field(..., title="Owners", description="List of owners")
 
+    model_config: ConfigDict = ConfigDict(title="Shareholders info response")
+
 
 DEFINITION = DataProductDefinition(
-    version="1.0.3",
+    version="1.0.4",
     strict_validation=False,
     title="List of the shareholders of a company",
     description="Information about the shareholders of a company such as owners and shares quantity.",

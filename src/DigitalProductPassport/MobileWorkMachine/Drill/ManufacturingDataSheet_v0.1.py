@@ -1,7 +1,7 @@
 from typing import Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import EmailStr, Field
+from pydantic import ConfigDict, EmailStr, Field
 
 
 class ManufacturerInformation(CamelCaseModel):
@@ -38,7 +38,7 @@ class ManufacturerInformation(CamelCaseModel):
         title="Country",
         pattern=r"^[A-Z]{3}$",
         description="The country code of the manufacturer's headquarters location in "
-        "Alpha-3 format.",
+        "ISO 3166-1 alpha-3 format.",
         examples=["SWE"],
     )
     website: Optional[str] = Field(
@@ -55,6 +55,8 @@ class ManufacturerInformation(CamelCaseModel):
         description="The email address of the battery manufacturer.",
         examples=["info@example.com"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Manufacturer information")
 
 
 class ManufacturingDataSheetResponse(CamelCaseModel):
@@ -127,6 +129,8 @@ class ManufacturingDataSheetResponse(CamelCaseModel):
         examples=["https://example.com/safetyDocument"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Manufacturing data sheet response")
+
 
 class ManufacturingDataSheetRequest(CamelCaseModel):
     product: str = Field(
@@ -139,14 +143,16 @@ class ManufacturingDataSheetRequest(CamelCaseModel):
     id: str = Field(
         ...,
         max_length=40,
-        title="Id",
+        title="ID",
         description="The unique identifier of the product.",
         examples=["71b51878-8a00-11ee-b9d1-0242ac120002"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Manufacturing data sheet request")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.3",
+    version="0.1.4",
     strict_validation=False,
     deprecated=True,
     title="Drill Manufacturing Data Sheet",

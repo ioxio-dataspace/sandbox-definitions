@@ -3,7 +3,7 @@
   "info": {
     "title": "Data Sheet For Metal Artifacts",
     "description": "Returns the basic product information of a metal product.",
-    "version": "0.1.3"
+    "version": "0.1.4"
   },
   "paths": {
     "/DigitalProductPassport/MetalArtifact/DataSheet_v0.1": {
@@ -314,7 +314,7 @@
           }
         },
         "type": "object",
-        "title": "EnStandardCertification"
+        "title": "EN Standard certification"
       },
       "Forbidden": {
         "properties": {
@@ -433,7 +433,7 @@
         },
         "type": "object",
         "required": ["product", "id"],
-        "title": "MetalArtifactDataSheetRequest"
+        "title": "Metal artifact data sheet request"
       },
       "MetalArtifactDataSheetResponse": {
         "properties": {
@@ -487,7 +487,7 @@
           "netWeight",
           "enStandardCertifications"
         ],
-        "title": "MetalArtifactDataSheetResponse"
+        "title": "Metal artifact data sheet response"
       },
       "NotFound": {
         "properties": {

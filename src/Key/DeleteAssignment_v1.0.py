@@ -1,5 +1,5 @@
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class DeleteAssignmentResponse(CamelCaseModel):
@@ -19,17 +19,21 @@ class DeleteAssignmentResponse(CamelCaseModel):
         min_length=1,
     )
 
+    model_config: ConfigDict = ConfigDict(title="Delete assignment response")
+
 
 class DeleteAssignmentRequest(DeleteAssignmentResponse):
     shared_secret: str = Field(
         ...,
         title="Shared Secret",
-        description="Shared secret between the productizer and the system using it.",
+        description="Shared secret between the data source and the system using it.",
     )
+
+    model_config: ConfigDict = ConfigDict(title="Delete assignment request")
 
 
 DEFINITION = DataProductDefinition(
-    version="1.0.3",
+    version="1.0.4",
     strict_validation=False,
     title="Delete key assignment",
     description="Remove a key from having access to a specific lock.",

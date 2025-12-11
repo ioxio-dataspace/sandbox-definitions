@@ -3,7 +3,7 @@
   "info": {
     "title": "Rock drill data sheet",
     "description": "General as-built data of a rock drill.",
-    "version": "0.1.5"
+    "version": "0.1.6"
   },
   "paths": {
     "/DigitalProductPassport/RockDrill/DataSheet_v0.1": {
@@ -244,7 +244,7 @@
         },
         "type": "object",
         "required": ["product", "id"],
-        "title": "DataSheetRequest"
+        "title": "Data sheet request"
       },
       "DataSheetResponse": {
         "properties": {
@@ -297,7 +297,7 @@
             ],
             "title": "Minimum hole diameter (mm)",
             "description": "The minimum diameter of the drilling hole in millimeters.",
-            "examples": [76]
+            "examples": [76.0]
           },
           "maximumHoleDiameter": {
             "anyOf": [
@@ -310,7 +310,7 @@
             ],
             "title": "Maximum hole diameter (mm)",
             "description": "The maximum diameter of the drilling hole in millimeters.",
-            "examples": [127]
+            "examples": [127.0]
           },
           "weight": {
             "anyOf": [
@@ -323,7 +323,7 @@
             ],
             "title": "Weight (kg)",
             "description": "The net weight of the product in kilograms.",
-            "examples": [200]
+            "examples": [200.0]
           },
           "percussionRate": {
             "anyOf": [
@@ -336,7 +336,7 @@
             ],
             "title": "Percussion rate (Hz)",
             "description": "The frequency at which drill percussive action occurs in hertz.",
-            "examples": [50]
+            "examples": [50.0]
           },
           "drillingPower": {
             "anyOf": [
@@ -349,7 +349,7 @@
             ],
             "title": "Drilling power (kW)",
             "description": "The maximum drilling power in kilowatts.",
-            "examples": [160]
+            "examples": [160.0]
           },
           "referenceDataSheet": {
             "anyOf": [
@@ -398,7 +398,7 @@
           }
         },
         "type": "object",
-        "title": "DataSheetResponse"
+        "title": "Data sheet response"
       },
       "DataSourceError": {
         "properties": {
@@ -595,7 +595,7 @@
               }
             ],
             "title": "Country",
-            "description": "The country code of the manufacturer's headquarters location in Alpha-3 format.",
+            "description": "The country code of the manufacturer's headquarters location in ISO 3166-1 alpha-3 format.",
             "examples": ["SWE"]
           },
           "website": {
@@ -629,7 +629,7 @@
           }
         },
         "type": "object",
-        "title": "ManufacturerInformation"
+        "title": "Manufacturer information"
       },
       "ManufacturingLocation": {
         "properties": {
@@ -644,7 +644,7 @@
               }
             ],
             "title": "Country",
-            "description": "The country code of the manufacturing location in Alpha-3 format.",
+            "description": "The country code of the manufacturing location in ISO 3166-1 alpha-3 format.",
             "examples": ["DEU"]
           },
           "city": {
@@ -663,7 +663,7 @@
           }
         },
         "type": "object",
-        "title": "ManufacturingLocation"
+        "title": "Manufacturing location"
       },
       "NotFound": {
         "properties": {

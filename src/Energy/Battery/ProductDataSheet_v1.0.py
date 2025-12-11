@@ -2,7 +2,7 @@ from enum import Enum
 from typing import Set
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class CellType(str, Enum):
@@ -92,8 +92,11 @@ class Voltage(CamelCaseModel):
         examples=[48.3],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Voltage")
+
 
 class Dimensions(CamelCaseModel):
+    # TODO: These should be floats
     length: int = Field(
         ...,
         title="Length [mm]",
@@ -109,6 +112,8 @@ class Dimensions(CamelCaseModel):
         title="Height [mm]",
         examples=[160],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Dimensions")
 
 
 class OperatingTemperature(CamelCaseModel):
@@ -130,8 +135,10 @@ class OperatingTemperature(CamelCaseModel):
     recommended_max: float = Field(
         ...,
         title="Maximum recommended operating temperature [°C]",
-        examples=[35],
+        examples=[35.0],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Operating temperature")
 
 
 class BatteryDataRequest(CamelCaseModel):
@@ -141,6 +148,8 @@ class BatteryDataRequest(CamelCaseModel):
         description="The product code used by the manufacturer.",
         examples=["MPP48V"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Battery data request")
 
 
 class BatteryDataResponse(CamelCaseModel):
@@ -249,9 +258,11 @@ class BatteryDataResponse(CamelCaseModel):
         ],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Battery data response")
+
 
 DEFINITION = DataProductDefinition(
-    version="1.0.3",
+    version="1.0.4",
     strict_validation=False,
     title="Battery product data sheet",
     description="Technical details of a battery such as capacity and voltage.",

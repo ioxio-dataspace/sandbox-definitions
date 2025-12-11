@@ -3,7 +3,7 @@
   "info": {
     "title": "Current weather in a given location",
     "description": "Common data points about the current weather with metric units in a given location. Simplified for example use, and not following industry standards.",
-    "version": "1.0.3"
+    "version": "1.0.4"
   },
   "paths": {
     "/Weather/Current/Metric_v1.0": {
@@ -233,7 +233,7 @@
             "minimum": -90.0,
             "title": "Latitude",
             "description": "The latitude coordinate of the desired location.",
-            "examples": [60.192059]
+            "examples": [60.192]
           },
           "lon": {
             "type": "number",
@@ -241,12 +241,12 @@
             "minimum": -180.0,
             "title": "Longitude",
             "description": "The longitude coordinate of the desired location.",
-            "examples": [24.945831]
+            "examples": [24.945]
           }
         },
         "type": "object",
         "required": ["lat", "lon"],
-        "title": "CurrentWeatherMetricRequest"
+        "title": "Current weather metric request"
       },
       "CurrentWeatherMetricResponse": {
         "properties": {
@@ -254,12 +254,12 @@
             "type": "number",
             "title": "Current relative air humidity (%)",
             "description": "Current relative air humidity in percentages.",
-            "examples": [72]
+            "examples": [72.0]
           },
           "pressure": {
             "type": "number",
             "title": "Current air pressure in hPa",
-            "examples": [1007]
+            "examples": [1007.0]
           },
           "rain": {
             "type": "boolean",
@@ -298,7 +298,7 @@
           "windSpeed",
           "windDirection"
         ],
-        "title": "CurrentWeatherMetricResponse"
+        "title": "Current weather metric response"
       },
       "DataSourceError": {
         "properties": {

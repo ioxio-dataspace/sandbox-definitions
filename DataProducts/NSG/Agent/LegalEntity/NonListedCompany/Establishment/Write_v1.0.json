@@ -3,7 +3,7 @@
   "info": {
     "title": "Establish a non-listed company",
     "description": "Create the initial set of data to establish a non-listed company.",
-    "version": "1.0.3"
+    "version": "1.0.4"
   },
   "paths": {
     "/NSG/Agent/LegalEntity/NonListedCompany/Establishment/Write_v1.0": {
@@ -244,7 +244,7 @@
           }
         },
         "type": "object",
-        "title": "AuditorDetails"
+        "title": "Auditor details"
       },
       "BadGateway": {
         "properties": {
@@ -340,7 +340,7 @@
           "dateOfBirth",
           "nationality"
         ],
-        "title": "BoardMember"
+        "title": "Board member"
       },
       "BoardMemberRole": {
         "type": "string",
@@ -490,7 +490,7 @@
           }
         },
         "type": "object",
-        "title": "CompanyAddress"
+        "title": "Company address"
       },
       "CompanyDetails": {
         "properties": {
@@ -590,7 +590,7 @@
               }
             ],
             "title": "Country of residence",
-            "description": "The company's current country of the residence in the three character (Alpha-3) format if it already exists abroad.",
+            "description": "The company's current country of the residence in the ISO 3166-1 alpha-3 format if it already exists abroad.",
             "examples": ["USA"]
           }
         },
@@ -602,7 +602,7 @@
           "shareCapital",
           "capitalCurrency"
         ],
-        "title": "CompanyDetails"
+        "title": "Company details"
       },
       "DataSourceError": {
         "properties": {
@@ -683,7 +683,6 @@
           },
           "companyDetails": {
             "$ref": "#/components/schemas/CompanyDetails",
-            "title": "Company details",
             "description": "The details of the company being established."
           },
           "shareSeries": {
@@ -696,7 +695,6 @@
           },
           "companyAddress": {
             "$ref": "#/components/schemas/CompanyAddress",
-            "title": "Company address",
             "description": "The official address of the company."
           },
           "managingDirectors": {
@@ -715,7 +713,6 @@
           },
           "auditorDetails": {
             "$ref": "#/components/schemas/AuditorDetails",
-            "title": "Auditor details",
             "description": "The details of the company and person auditing the company."
           }
         },
@@ -729,7 +726,7 @@
           "boardMembers",
           "auditorDetails"
         ],
-        "title": "EstablishmentRequest"
+        "title": "Establishment request"
       },
       "EstablishmentResponse": {
         "properties": {
@@ -739,7 +736,6 @@
           },
           "companyDetails": {
             "$ref": "#/components/schemas/CompanyDetails",
-            "title": "Company details",
             "description": "The details of the company being established."
           },
           "shareSeries": {
@@ -752,7 +748,6 @@
           },
           "companyAddress": {
             "$ref": "#/components/schemas/CompanyAddress",
-            "title": "Company address",
             "description": "The official address of the company."
           },
           "managingDirectors": {
@@ -771,7 +766,6 @@
           },
           "auditorDetails": {
             "$ref": "#/components/schemas/AuditorDetails",
-            "title": "Auditor details",
             "description": "The details of the company and person auditing the company."
           }
         },
@@ -785,7 +779,7 @@
           "boardMembers",
           "auditorDetails"
         ],
-        "title": "EstablishmentResponse"
+        "title": "Establishment request"
       },
       "Forbidden": {
         "properties": {
@@ -2130,7 +2124,7 @@
           "dateOfBirth",
           "nationality"
         ],
-        "title": "ManagingDirector"
+        "title": "Managing director"
       },
       "ManagingDirectorRole": {
         "type": "string",
@@ -2201,7 +2195,7 @@
             "format": "email",
             "title": "Email",
             "description": "The person's contact email address.",
-            "examples": ["john.doe@test.fi"]
+            "examples": ["john.doe@example.com"]
           },
           "phoneNumber": {
             "type": "string",
@@ -2266,7 +2260,7 @@
         },
         "type": "object",
         "required": ["shareSeriesClass", "numberOfShares", "shareValue"],
-        "title": "ShareSeries"
+        "title": "Share series"
       },
       "Unauthorized": {
         "properties": {

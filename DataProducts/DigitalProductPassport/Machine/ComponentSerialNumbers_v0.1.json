@@ -3,7 +3,7 @@
   "info": {
     "title": "Machine component serial numbers",
     "description": "List serial numbers of components in a machine.",
-    "version": "0.1.3"
+    "version": "0.1.4"
   },
   "paths": {
     "/DigitalProductPassport/Machine/ComponentSerialNumbers_v0.1": {
@@ -370,7 +370,7 @@
         },
         "type": "object",
         "required": ["product", "id"],
-        "title": "MachineSerialNumberRequest"
+        "title": "Machine serial number request"
       },
       "MachineSerialNumberResponse": {
         "properties": {
@@ -385,7 +385,7 @@
         },
         "type": "object",
         "required": ["serialNumbers"],
-        "title": "MachineSerialNumberResponse"
+        "title": "Machine serial number response"
       },
       "NotFound": {
         "properties": {
@@ -449,7 +449,7 @@
         },
         "type": "object",
         "required": ["name", "serial"],
-        "title": "SerialNumber"
+        "title": "Serial number"
       },
       "ServiceUnavailable": {
         "properties": {

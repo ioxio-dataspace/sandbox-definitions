@@ -3,7 +3,7 @@
   "info": {
     "title": "Garment material disclosure sheet",
     "description": "Public summary of the garment's material composition, recycled content and material level certifications.",
-    "version": "0.1.2"
+    "version": "0.1.3"
   },
   "paths": {
     "/DigitalProductPassport/Textile/Garment/MaterialDisclosureSheet_v0.1": {
@@ -442,7 +442,7 @@
         },
         "type": "object",
         "required": ["certifications", "materials"],
-        "title": "MaterialInformation"
+        "title": "Material information"
       },
       "NotFound": {
         "properties": {

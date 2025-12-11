@@ -1,7 +1,7 @@
 from typing import List, Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class InspectionConformity(CamelCaseModel):
@@ -25,6 +25,8 @@ class InspectionConformity(CamelCaseModel):
         description="The standard(s) defining the test requirements.",
         examples=[["EN 11223", "ISO 1234-5"]],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Inspection conformity")
 
 
 class MaterialCertificateResponse(CamelCaseModel):
@@ -63,6 +65,8 @@ class MaterialCertificateResponse(CamelCaseModel):
         description="The details of the conformity with the legal and standard requirements.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Material certificate response")
+
 
 class MaterialCertificateRequest(CamelCaseModel):
     product: str = Field(
@@ -79,6 +83,8 @@ class MaterialCertificateRequest(CamelCaseModel):
         description="The unique identifier of the product.",
         examples=["71b51878-8a00-11ee-b9d1-0242ac120002"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Material certificate request")
 
 
 DEFINITION = DataProductDefinition(

@@ -2,7 +2,7 @@ from datetime import datetime
 from enum import Enum
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class Country(str, Enum):
@@ -260,15 +260,19 @@ class Country(str, Enum):
 class CurrentTimeRequest(CamelCaseModel):
     country_code: Country = Field(title="ISO 3166-1 alpha-2 country code")
 
+    model_config: ConfigDict = ConfigDict(title="Current time request")
+
 
 class CurrentTimeResponse(CamelCaseModel):
     current_time: str = Field(
         title="Current time in the desired country in RFC 3339 format"
     )
 
+    model_config: ConfigDict = ConfigDict(title="Current time response")
+
 
 DEFINITION = DataProductDefinition(
-    version="1.0.3",
+    version="1.0.4",
     strict_validation=False,
     title="Current time in a given country",
     description="Get the current time in a given country based on the ISO 3166-1 alpha-2 country code, formatted in RFC 3339 format.",

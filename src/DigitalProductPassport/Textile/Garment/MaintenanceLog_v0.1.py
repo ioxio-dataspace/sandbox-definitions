@@ -2,14 +2,14 @@ from datetime import date
 from typing import Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class Event(CamelCaseModel):
     event_date: Optional[date] = Field(
         None,
         title="Event date",
-        description="The date of the event.",
+        description="The date of the event in ISO 8601 format.",
         examples=[date.fromisoformat("2024-02-10")],
     )
     event_description: Optional[str] = Field(
@@ -20,6 +20,8 @@ class Event(CamelCaseModel):
         max_length=250,
         examples=["Stitched a hole in the left arm"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Event")
 
 
 class Request(CamelCaseModel):
@@ -40,12 +42,14 @@ class Request(CamelCaseModel):
         examples=["71b51878-8a00-11ee-b9d1-0242ac120002"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Request")
+
 
 class Response(CamelCaseModel):
     commissioning_date: date = Field(
         ...,
         title="Commissioning date",
-        description="The date when the garment was delivered to the customer.",
+        description="The date when the garment was delivered to the customer in ISO 8601 format.",
         examples=[date.fromisoformat("2023-06-01")],
     )
     washing_cycles: int = Field(
@@ -65,9 +69,11 @@ class Response(CamelCaseModel):
         description="The list of harmful events the garment has been exposed to which have an effect on the repairability and recyclability.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Response")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.2",
+    version="0.1.3",
     strict_validation=False,
     title="Garment maintenance log",
     description="Details of the garment's care, repair and incidents.",

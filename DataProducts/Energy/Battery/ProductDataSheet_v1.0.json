@@ -3,7 +3,7 @@
   "info": {
     "title": "Battery product data sheet",
     "description": "Technical details of a battery such as capacity and voltage.",
-    "version": "1.0.3"
+    "version": "1.0.4"
   },
   "paths": {
     "/Energy/Battery/ProductDataSheet_v1.0": {
@@ -236,7 +236,7 @@
         },
         "type": "object",
         "required": ["productCode"],
-        "title": "BatteryDataRequest"
+        "title": "Battery data request"
       },
       "BatteryDataResponse": {
         "properties": {
@@ -337,13 +337,13 @@
             "title": "Standards Compliance",
             "examples": [
               [
-                "IEC 62061 SIL 2",
-                "ISO 13849 PL C",
-                "IEC 61508 SIL 2",
                 "UN 38.3",
-                "ECE R100",
                 "ECE R10",
-                "ISO 16750"
+                "ECE R100",
+                "ISO 13849 PL C",
+                "ISO 16750",
+                "IEC 61508 SIL 2",
+                "IEC 62061 SIL 2"
               ]
             ]
           }
@@ -369,7 +369,7 @@
           "maxCoolantPressure",
           "standardsCompliance"
         ],
-        "title": "BatteryDataResponse"
+        "title": "Battery data response"
       },
       "CellType": {
         "type": "string",
@@ -623,12 +623,12 @@
           "recommendedMax": {
             "type": "number",
             "title": "Maximum recommended operating temperature [°C]",
-            "examples": [35]
+            "examples": [35.0]
           }
         },
         "type": "object",
         "required": ["min", "max", "recommendedMin", "recommendedMax"],
-        "title": "OperatingTemperature"
+        "title": "Operating temperature"
       },
       "RateLimitExceeded": {
         "properties": {

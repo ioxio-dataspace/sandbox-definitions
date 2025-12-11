@@ -3,7 +3,7 @@ from enum import Enum
 from typing import List, Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class ISO_3166_1_Alpha_3(str, Enum):
@@ -310,7 +310,6 @@ class SignatoryRights(CamelCaseModel):
         description="The nationality of a person.",
         examples=[ISO_3166_1_Alpha_3.USA],
     )
-
     full_address: Optional[str] = Field(
         None,
         title="Full address",
@@ -320,7 +319,6 @@ class SignatoryRights(CamelCaseModel):
         examples=["Tietotie 4 A 7, 00100 Helsinki, Finland"],
         max_length=250,
     )
-
     thoroughfare: Optional[str] = Field(
         None,
         title="Thoroughfare",
@@ -403,6 +401,8 @@ class SignatoryRights(CamelCaseModel):
         max_length=40,
     )
 
+    model_config: ConfigDict = ConfigDict(title="Signatory rights")
+
 
 class SignatoryRightsRequest(CamelCaseModel):
     national_identifier: str = Field(
@@ -410,9 +410,11 @@ class SignatoryRightsRequest(CamelCaseModel):
         title="National identifier",
         description="The national identifier of the non-listed company issued by the "
         "trade register.",
-        examples=["FIN: 2464491-9 / SWE: 5560125791 / NOR: 923609016"],
+        examples=["2464491-9", "5560125791", "923609016"],
         max_length=40,
     )
+
+    model_config: ConfigDict = ConfigDict(title="Signatory rights request")
 
 
 class SignatoryRightsResponse(CamelCaseModel):
@@ -423,9 +425,11 @@ class SignatoryRightsResponse(CamelCaseModel):
         "company.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Signatory rights response")
+
 
 DEFINITION = DataProductDefinition(
-    version="1.0.3",
+    version="1.0.4",
     strict_validation=False,
     deprecated=True,
     title="Signatory rights of a non-listed company",

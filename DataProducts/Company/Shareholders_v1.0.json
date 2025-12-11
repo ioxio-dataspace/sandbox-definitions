@@ -3,7 +3,7 @@
   "info": {
     "title": "List of the shareholders of a company",
     "description": "Information about the shareholders of a company such as owners and shares quantity.",
-    "version": "1.0.3"
+    "version": "1.0.4"
   },
   "paths": {
     "/Company/Shareholders_v1.0": {
@@ -478,20 +478,20 @@
         },
         "type": "object",
         "required": ["seriesName", "votesPerShare", "totalShares"],
-        "title": "ShareSeries"
+        "title": "Share series"
       },
       "ShareholdersInfoRequest": {
         "properties": {
           "companyId": {
             "type": "string",
             "title": "Company ID",
-            "description": "The ID of the company, only supports Finnish business ID's.",
+            "description": "The ID of the company.",
             "examples": ["2464491-9"]
           }
         },
         "type": "object",
         "required": ["companyId"],
-        "title": "ShareholdersInfoRequest"
+        "title": "Shareholders info request"
       },
       "ShareholdersInfoResponse": {
         "properties": {
@@ -514,7 +514,7 @@
         },
         "type": "object",
         "required": ["shareSeries", "owners"],
-        "title": "ShareholdersInfoResponse"
+        "title": "Shareholders info response"
       },
       "Unauthorized": {
         "properties": {

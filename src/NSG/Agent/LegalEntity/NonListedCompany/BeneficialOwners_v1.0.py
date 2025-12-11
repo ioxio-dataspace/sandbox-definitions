@@ -1,7 +1,7 @@
 from typing import List
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class ShareOwnership(CamelCaseModel):
@@ -18,6 +18,8 @@ class ShareOwnership(CamelCaseModel):
         description="The number of shares that the shareholder owns a share series.",
         examples=[20],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Share ownership")
 
 
 class ShareSeries(CamelCaseModel):
@@ -41,13 +43,15 @@ class ShareSeries(CamelCaseModel):
         examples=[1],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Share series")
+
 
 class Shareholder(CamelCaseModel):
     name: str = Field(
         ...,
         title="Name",
         description="The name of a shareholder of the company.",
-        examples=["Lars Lindberg | Company Ltd"],
+        examples=["Lars Lindberg", "Company Ltd"],
         max_length=250,
     )
     share_ownership: List[ShareOwnership] = Field(
@@ -56,6 +60,8 @@ class Shareholder(CamelCaseModel):
         description="The list of ownerships that the shareholder has in the company.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Shareholder")
+
 
 class BeneficialOwnersRequest(CamelCaseModel):
     national_identifier: str = Field(
@@ -63,9 +69,11 @@ class BeneficialOwnersRequest(CamelCaseModel):
         title="National identifier",
         description="The national identifier of the non-listed company issued by the "
         "trade register in any Nordic country.",
-        examples=["FIN: 2464491-9 / SWE: 5560125791 / NOR:  923609016"],
+        examples=["2464491-9", "5560125791", "923609016"],
         max_length=40,
     )
+
+    model_config: ConfigDict = ConfigDict(title="Beneficial owners request")
 
 
 class BeneficialOwnersResponse(CamelCaseModel):
@@ -80,9 +88,11 @@ class BeneficialOwnersResponse(CamelCaseModel):
         description="The list of beneficial owners of the company.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Beneficial owners response")
+
 
 DEFINITION = DataProductDefinition(
-    version="1.0.3",
+    version="1.0.4",
     strict_validation=False,
     deprecated=True,
     title="Beneficial owners of a non-listed company",

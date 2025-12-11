@@ -1,5 +1,5 @@
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class EnvironmentalFootprintRequest(CamelCaseModel):
@@ -9,6 +9,8 @@ class EnvironmentalFootprintRequest(CamelCaseModel):
         description="The serial number given by the manufacturer.",
         examples=["MPP48V-296cde7f"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Environmental footprint request")
 
 
 class EnvironmentalFootprintResponse(CamelCaseModel):
@@ -25,9 +27,11 @@ class EnvironmentalFootprintResponse(CamelCaseModel):
         examples=[8.0],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Environmental footprint response")
+
 
 DEFINITION = DataProductDefinition(
-    version="1.0.3",
+    version="1.0.4",
     strict_validation=False,
     title="Environmental footprint information for a product",
     description="Information about environmental footprint of a product in the manufacturing phase.",

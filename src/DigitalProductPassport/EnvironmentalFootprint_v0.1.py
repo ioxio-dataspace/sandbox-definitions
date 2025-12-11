@@ -1,7 +1,7 @@
 from typing import Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class CarbonFootprint(CamelCaseModel):
@@ -42,6 +42,8 @@ class CarbonFootprint(CamelCaseModel):
         examples=["https://example.com/CarbonFootprint"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Carbon footprint")
+
 
 class MaterialWaste(CamelCaseModel):
     amount: Optional[float] = Field(
@@ -59,6 +61,8 @@ class MaterialWaste(CamelCaseModel):
         examples=["https://example.com/materialWaste"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Material waste")
+
 
 class ProductEnvironmentalFootprintResponse(CamelCaseModel):
     carbon_footprint: CarbonFootprint = Field(
@@ -70,6 +74,10 @@ class ProductEnvironmentalFootprintResponse(CamelCaseModel):
         None,
         title="Material waste",
         description="The details of the material waste generated during production.",
+    )
+
+    model_config: ConfigDict = ConfigDict(
+        title="Product environmental footprint response"
     )
 
 
@@ -89,9 +97,13 @@ class ProductEnvironmentalFootprintRequest(CamelCaseModel):
         examples=["71b51878-8a00-11ee-b9d1-0242ac120002"],
     )
 
+    model_config: ConfigDict = ConfigDict(
+        title="Product environmental footprint request"
+    )
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.4",
+    version="0.1.5",
     strict_validation=False,
     title="Product environmental footprint",
     description="The environmental impact of the product manufacturing.",

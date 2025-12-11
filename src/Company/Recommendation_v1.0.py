@@ -1,7 +1,7 @@
 from typing import List
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class RecommendationRequest(CamelCaseModel):
@@ -11,6 +11,8 @@ class RecommendationRequest(CamelCaseModel):
         description="Keyword data to base recommendations on.",
         examples=["Looking for data product companies to invest on"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Recommendation request")
 
 
 class Recommendation(CamelCaseModel):
@@ -27,8 +29,10 @@ class Recommendation(CamelCaseModel):
         ...,
         title="Company name",
         description="Name of the Company being recommended.",
-        examples=["Digital Living Oy"],
+        examples=["IOXIO Oy"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Recommendation")
 
 
 class RecommendationResponse(CamelCaseModel):
@@ -36,9 +40,11 @@ class RecommendationResponse(CamelCaseModel):
         ..., title="Recommendation results", description="List of recommendations."
     )
 
+    model_config: ConfigDict = ConfigDict(title="Recommendation response")
+
 
 DEFINITION = DataProductDefinition(
-    version="1.0.3",
+    version="1.0.4",
     strict_validation=False,
     title="Company recommendations based on keywords",
     description="Recommendation of companies based on provided keywords. Each result has a score.",

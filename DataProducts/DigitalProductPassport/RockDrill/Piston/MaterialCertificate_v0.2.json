@@ -381,7 +381,7 @@
         },
         "type": "object",
         "required": ["inspectionName", "inspectionDescription", "standardsCompliance"],
-        "title": "InspectionConformity"
+        "title": "Inspection conformity"
       },
       "MaterialCertificateRequest": {
         "properties": {
@@ -402,7 +402,7 @@
         },
         "type": "object",
         "required": ["product", "id"],
-        "title": "MaterialCertificateRequest"
+        "title": "Material certificate request"
       },
       "MaterialCertificateResponse": {
         "properties": {
@@ -460,7 +460,7 @@
         },
         "type": "object",
         "required": ["castNumber", "orderNumber", "inspectionConformity"],
-        "title": "MaterialCertificateResponse"
+        "title": "Material certificate response"
       },
       "NotFound": {
         "properties": {

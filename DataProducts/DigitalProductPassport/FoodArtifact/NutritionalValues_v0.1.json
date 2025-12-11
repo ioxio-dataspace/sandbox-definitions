@@ -3,7 +3,7 @@
   "info": {
     "title": "Food Artifact Nutritional Values",
     "description": "Returns the nutritional values of a food product.",
-    "version": "0.1.3"
+    "version": "0.1.4"
   },
   "paths": {
     "/DigitalProductPassport/FoodArtifact/NutritionalValues_v0.1": {
@@ -313,7 +313,7 @@
         },
         "type": "object",
         "required": ["energy", "calories"],
-        "title": "EnergyContent"
+        "title": "Energy content"
       },
       "FatContent": {
         "properties": {
@@ -427,7 +427,7 @@
         },
         "type": "object",
         "required": ["product", "id"],
-        "title": "NutritionalValuesRequest"
+        "title": "Nutritional values request"
       },
       "NutritionalValuesResponse": {
         "properties": {
@@ -475,7 +475,7 @@
           "protein",
           "salt"
         ],
-        "title": "NutritionalValuesResponse"
+        "title": "Nutritional values response"
       },
       "RateLimitExceeded": {
         "properties": {

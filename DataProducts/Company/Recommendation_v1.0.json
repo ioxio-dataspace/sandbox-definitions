@@ -3,7 +3,7 @@
   "info": {
     "title": "Company recommendations based on keywords",
     "description": "Recommendation of companies based on provided keywords. Each result has a score.",
-    "version": "1.0.3"
+    "version": "1.0.4"
   },
   "paths": {
     "/Company/Recommendation_v1.0": {
@@ -412,7 +412,7 @@
             "type": "string",
             "title": "Company name",
             "description": "Name of the Company being recommended.",
-            "examples": ["Digital Living Oy"]
+            "examples": ["IOXIO Oy"]
           }
         },
         "type": "object",
@@ -430,7 +430,7 @@
         },
         "type": "object",
         "required": ["keywords"],
-        "title": "RecommendationRequest"
+        "title": "Recommendation request"
       },
       "RecommendationResponse": {
         "properties": {
@@ -445,7 +445,7 @@
         },
         "type": "object",
         "required": ["results"],
-        "title": "RecommendationResponse"
+        "title": "Recommendation response"
       },
       "ServiceUnavailable": {
         "properties": {

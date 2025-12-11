@@ -1,7 +1,7 @@
 from typing import Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import EmailStr, Field
+from pydantic import ConfigDict, EmailStr, Field
 
 
 class ManufacturerInformation(CamelCaseModel):
@@ -38,7 +38,7 @@ class ManufacturerInformation(CamelCaseModel):
         pattern=r"^[A-Z]{3}$",
         title="Country",
         description="The country code of the manufacturer's headquarters location "
-        "in Alpha-3 format.",
+        "in ISO 3166-1 alpha-3 format.",
         examples=["SWE"],
     )
     website: Optional[str] = Field(
@@ -56,13 +56,15 @@ class ManufacturerInformation(CamelCaseModel):
         examples=["info@example.com"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Manufacturer information")
+
 
 class ManufacturingLocation(CamelCaseModel):
     country: Optional[str] = Field(
         None,
         pattern=r"^[A-Z]{3}$",
         title="Country",
-        description="The country code of the manufacturing location in Alpha-3 format.",
+        description="The country code of the manufacturing location in ISO 3166-1 alpha-3 format.",
         examples=["DEU"],
     )
     city: Optional[str] = Field(
@@ -72,6 +74,8 @@ class ManufacturingLocation(CamelCaseModel):
         description="The city of the manufacturing location.",
         examples=["Hamburg"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Manufacturing location")
 
 
 class DataSheetResponse(CamelCaseModel):
@@ -96,31 +100,31 @@ class DataSheetResponse(CamelCaseModel):
         None,
         title="Minimum hole diameter (mm)",
         description="The minimum diameter of the drilling hole in millimeters.",
-        examples=[76],
+        examples=[76.0],
     )
     maximum_hole_diameter: Optional[float] = Field(
         None,
         title="Maximum hole diameter (mm)",
         description="The maximum diameter of the drilling hole in millimeters.",
-        examples=[127],
+        examples=[127.0],
     )
     weight: Optional[float] = Field(
         None,
         title="Weight (kg)",
         description="The net weight of the product in kilograms.",
-        examples=[200],
+        examples=[200.0],
     )
     percussion_rate: Optional[float] = Field(
         None,
         title="Percussion rate (Hz)",
         description="The frequency at which drill percussive action occurs in hertz.",
-        examples=[50],
+        examples=[50.0],
     )
     drilling_power: Optional[float] = Field(
         None,
         title="Drilling power (kW)",
         description="The maximum drilling power in kilowatts.",
-        examples=[160],
+        examples=[160.0],
     )
     reference_data_sheet: Optional[str] = Field(
         None,
@@ -147,6 +151,8 @@ class DataSheetResponse(CamelCaseModel):
         examples=["https://example.com/safetyManual"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Data sheet response")
+
 
 class DataSheetRequest(CamelCaseModel):
     product: str = Field(
@@ -164,9 +170,11 @@ class DataSheetRequest(CamelCaseModel):
         examples=["71b51878-8a00-11ee-b9d1-0242ac120002"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Data sheet request")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.5",
+    version="0.1.6",
     strict_validation=False,
     title="Rock drill data sheet",
     description="General as-built data of a rock drill.",

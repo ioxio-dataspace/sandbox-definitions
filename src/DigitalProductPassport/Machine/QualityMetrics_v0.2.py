@@ -1,7 +1,7 @@
 from typing import List
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class Measurement(CamelCaseModel):
@@ -50,6 +50,8 @@ class Measurement(CamelCaseModel):
         examples=[1.45],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Measurement")
+
 
 class Metric(CamelCaseModel):
     identification: str = Field(
@@ -79,6 +81,8 @@ class Metric(CamelCaseModel):
         description="Quality metric measurements for the component.",
     )
 
+    model_config: ConfigDict = ConfigDict(title="Metric")
+
 
 class QualityMetricsResponse(CamelCaseModel):
     metrics: List[Metric] = Field(
@@ -86,6 +90,8 @@ class QualityMetricsResponse(CamelCaseModel):
         title="Metrics",
         description="List of metrics per component.",
     )
+
+    model_config: ConfigDict = ConfigDict(title="Quality metrics response")
 
 
 class QualityMetricsRequest(CamelCaseModel):
@@ -104,9 +110,11 @@ class QualityMetricsRequest(CamelCaseModel):
         examples=["71b51878-8a00-11ee-b9d1-0242ac120002"],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Quality metrics request")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.2.3",
+    version="0.2.4",
     strict_validation=False,
     title="Measured quality metrics of a machine",
     description="Quality monitoring data for machines, including product serial number "

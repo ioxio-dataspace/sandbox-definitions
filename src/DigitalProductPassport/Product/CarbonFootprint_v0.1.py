@@ -1,7 +1,7 @@
 from typing import Optional
 
 from definition_tooling.converter import CamelCaseModel, DataProductDefinition
-from pydantic import Field
+from pydantic import ConfigDict, Field
 
 
 class Request(CamelCaseModel):
@@ -21,6 +21,8 @@ class Request(CamelCaseModel):
         max_length=40,
         examples=["71b51878-8a00-11ee-b9d1-0242ac120002"],
     )
+
+    model_config: ConfigDict = ConfigDict(title="Request")
 
 
 class Response(CamelCaseModel):
@@ -43,9 +45,11 @@ class Response(CamelCaseModel):
         examples=[0.3],
     )
 
+    model_config: ConfigDict = ConfigDict(title="Response")
+
 
 DEFINITION = DataProductDefinition(
-    version="0.1.2",
+    version="0.1.3",
     strict_validation=False,
     title="Product carbon footprint",
     description="The carbon footprint of manufacturing a product.",
